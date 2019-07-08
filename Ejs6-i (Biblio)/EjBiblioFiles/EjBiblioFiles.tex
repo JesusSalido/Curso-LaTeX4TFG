@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%% 
+% Fichero: EjBiblioFiles
+% Autor: J. Salido (http://www.uclm.es/profesorado/jsalido)
+% Fecha: febrero, 2017
+% Descripción: Método 1. Bibliografía incluida en el fichero tex
+% empleando el entorno thebibliography (variante con bibliografía
+% en fichero separado)
+% Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
+% y otros documentos académicos” (Esc. Sup. Informática-UCLM)
+%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%
+% Preámbulo del documento
+%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article} 
+\usepackage[utf8]{inputenx} 
+\usepackage[spanish]{babel} 
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+
+% Tipografía
+\usepackage{marvosym}
+\usepackage{pifont} % Generación de símbolos especiales
+\usepackage{textcomp}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+\usepackage{url} % Para escritura de URL
+\urlstyle{sf}
+
+% Generación de hiperenlaces
+\usepackage[pdftex,breaklinks,colorlinks,
+citecolor=blue, % Color de la citas
+urlcolor=blue, % Color de las URL
+bookmarksnumbered=true, % Incluye números en bookmarks
+pdftitle={Fundamentos de LaTeX para principiantes},
+pdfauthor={Jesús Salido},
+pdfsubject={LaTeX}]{hyperref}
+
+
+
+\usepackage{paralist} % Mayor control de listas
+\usepackage{multicol} % Elementos en varias columnas
+
+
+
+% Con estas instrucciones se ajustan los valores del índice
+\setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
+\setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
+
+
+\author{Jesús Salido}
+\title{Bibliografía con el entorno \texttt{thebibliography}}
+\date{\today}
+
+%%%%%%%%%%%%%%
+% Comienzo del documento
+%%%%%%%%%%%%%%
+\begin{document}
+
+
+\maketitle
+
+
+\begin{abstract}
+	Explicación sobre la generación de bibliografía para los documentos escritos con \LaTeX{}. En este caso se muestra el método más sencillo consistente en que la bibliografía está incluida directamente en el fichero de texto. Para ello se emplea en entorno \texttt{thebibliography}.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introducción}
+Todos los documentos técnicos (un TFG, tesis, artículo científico, memoria, etc.) deben incluir una sección de bibliografía en el que se hace un listado de todas las fuentes consultadas para realizar el trabajo. Es preciso otorgar el crédito a los trabajos realizados por otros y que se utilizan de algún modo u otro en el trabajo propio. Por esta razón en el texto se debe citar\footnote{Similar a las referencias cruzadas pero en este caso la referencia es a una fuente bibliográfica que aparece listada en la sección de bibliografía.} las fuentes empleadas intentando evitar incurrir en plagio \cite{usbplagio2010} aun cuando esta no sea nuestra intención. Todas las fuentes utilizadas deberían aparecer citadas en nuestro trabajo. Las referencias bibliográficas pueden ser: un libro, un capítulo o sección de libro, un artículo de revista o congreso, un manual técnico, una tesis, un TFG, etc.
+
+Una de las dificultades que los autores encuentran al realizar la bibliografía y su citación es mantener la coherencia. Suele suceder que al hacer manualmente la bibliografía la inclusión de nuevas fuentes puede alterar el sistema de numeración (si es numérico) y convertir en un <<dolor de cabeza>> la tarea de mantener un sistema coherente. Expliquemos ésto en más detalle. Al elaborar este documento puedo darme cuenta de que olvidé incluir una fuente bibliográfica que deseo añadir (p.ej.\ un libro). En ese momento cómo deseo que el listado de fuentes en la bibliografía aparezca por orden alfabético de autores, esta nueva fuente puede alterar la numeración previa de las citas. Si todo el proceso lo estoy haciendo manualmente, la tarea de mantenimiento de las citas en el texto puede convertirse en un trabajo demasiado <<ingrato>>. Para solventar esta cuestión la gran mayoría de procesadores actuales incluyen algún sistema de citación a las fuentes de la bibliografía,\footnote{Mi experiencia personal es que en general los alumnos apenas citan las fuentes en los textos que escriben.} \LaTeX{} no es una excepción y para ello permite asignar una etiqueta (\emph{label}) a cada fuente que se utiliza al citarla. 
+
+
+
+\section{Métodos de creación de bibliografía}
+\LaTeX{} aporta varios métodos de elaboración de bibliografía. El primero de ellos utiliza un entorno dedicado\footnote{ \texttt{thebibliography}} con la bibliografía incluida explícitamente en el fichero del documento. Este es el método que se muestra como ejemplo en este documento. Este método es apropiado cuando el documento tiene un número reducido de fuentes bibliográficas y no se exige un estilo muy estricto para el formateado final de la bibliografía. Todas las fuentes aparecen en el orden que se incluyen en el entorno \texttt{thebibliography} y con el formateado que allí se indique. La citación a la bibliografía se realiza mediante un número entre corchetes que es generado de forma automática.
+	
+%	El segundo método tiene lugar mediante el empleo de una herramienta adicional denominada BibTeX (comando \texttt{bibtex} en las distribuciones de \LaTeX). Este programa se encarga de procesar ficheros (\texttt{.bib}) de texto que sólo contienen registros de fuentes bibliográficas en los que constan todos los datos relativos a la fuente. El fichero \texttt{.bib} puede ser contemplado como un archivo de una base de datos bibliográfica. En este caso BibTeX junto con \LaTeX{} gestionan el estilo en que se imprime la bibliografía e incluso el de las citas. Con este procedimiento la tarea de elaboración de una bibliografía se convierte en la elaboración de una base de datos que incluya los registros deseados. Por supuesto los registros tendrán que respetar una estructura definida que BibTeX pueda comprender.
+
+\noindent Este método tiene las ventajas siguientes:
+\begin{dinglist}{51}
+	\item Es sencillo de llevar a cabo.
+	
+	\item Se puede emplear el formato deseado a cada una de las fuentes de bibliografía, incluso mezclando idiomas.
+\end{dinglist}
+
+\noindent Como principales inconvenientes se puede señalar:
+\begin{dinglist}{55}
+	\item La ordenación de las fuentes debe hacerse manualmente.
+	
+	\item El formato de las fuentes no se maneja con estilos y por tanto es manual. La modificación del formato es tediosa.
+	
+	\item El mantenimiento de la bibliografía se complica bastante cuando aumenta el número de fuentes.
+	
+	\item La bibliografía es reutilizable pero con manipulación no automatizada.
+\end{dinglist}
+
+
+
+Para consultar más información sobre el modo de elaboración de bibliografías con \LaTeX{} puedes consultar los textos más populares de referencia en diferentes idiomas \cite[en inglés]{KopDal2003,Lam1994,MitGooBra2004} \cite[en español]{CasLucMir2000,CasLucMir2003}. Aunque el documento \cite{lshort2009} se ha recomendado para este curso, se trata sólo de una guía rápida que no entra en detalles sobre la elaboración de bibliografías. Para una referencia rápida y bastante completa sobre las bibliografías se recomienda especialmente las fuentes electrónicas \cite{Rob2010,wiki2010} disponibles en Internet.
+
+\LaTeX{}, por defecto, denomina como <<Referencias>> a la sección con el listado de fuentes bibliográficas. Por esta razón si se decide cambiar el nombre para que este sea <<Bibliografía>> hay que modificar el comportamiento de \LaTeX. Por defecto la sección de bibliografía no está numerada y no aparece en el índice de contenidos (TOC ---del inglés, \emph{Table of Contents}---).
+
+
+\renewcommand{\refname}{Bibliografía} % Cambio de título de la sección a Bibliografía <- Referencias
+
+\addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC
+% En esta variante se ha separado en fichero aparte la bibliografía.
+\input{bibrefs}
+
+
+\end{document}

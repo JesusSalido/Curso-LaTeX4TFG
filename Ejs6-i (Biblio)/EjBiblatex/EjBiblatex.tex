@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%% 
+% Fichero: EjBiblatex
+% Autor: J. Salido (http://www.uclm.es/profesorado/jsalido)
+% Fecha: febrero, 2017
+% Descripción: Método 3. Gestión de bibliografía con Bib(La)TeX.
+% En este ejemplo se añaden referencias correctamente en el idioma 
+% del documento.
+% Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
+% y otros documentos académicos” (Esc. Sup. Informática-UCLM)
+%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%
+% Preámbulo del documento
+%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article} 
+\usepackage[utf8]{inputenx} 
+\usepackage[spanish]{babel} 
+\usepackage[left=2cm,
+			right=2cm,
+			top=2cm,
+			bottom=2cm]{geometry} % Márgenes 
+
+% Tipografía
+\usepackage{marvosym}
+\usepackage{pifont} % Generación de símbolos especiales
+\usepackage{textcomp}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+\usepackage{url} % Para escritura de URL
+\urlstyle{sf}
+
+
+% Generación de hiperenlaces
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+	breaklinks,
+	colorlinks=true, % Pone color en los link o un borde
+	linkcolor=red,    % Color de los links
+	%	hidelinks,       % Oculta el color y borde de los links
+	citecolor=blue,  % Color de la citas
+	urlcolor=blue,   % Color de las URL
+	bookmarksnumbered=true, % Incluye números en bookmarks		
+	pdftitle={Fundamentos de LaTeX para principiantes}, % Título
+	pdfauthor={Jesús Salido}, % Autor
+	pdfsubject={LaTeX}, % Tema
+	pdftoolbar=true, % Muestra la toolbar de Acrobat
+	pdfmenubar=true % Muestra la menubar de Acrobat
+}
+
+
+
+\usepackage{paralist} % Mayor control de listas
+\usepackage{multicol} % Elementos en varias columnas
+
+
+% Con estas instrucciones se ajustan los valores del índice
+\setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
+\setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
+
+
+%\usepackage[backend=biber,
+%			sortcites,
+%			style=numeric-comp]{biblatex}
+%\usepackage[autostyle]{csquotes}
+
+\usepackage[backend=biber,
+	sortcites,
+	style=numeric-comp]{biblatex}
+\usepackage[autostyle]{csquotes}
+
+% OJO: Línea añadida para eliminar el idioma de las fuentes bibliográficas que no están en el idioma principal del documento.
+\AtEveryBibitem{\clearfield{note} \clearlist{language}}
+
+
+% OJO: Poner siempre fichero con extensión
+\addbibresource{../bibfiles/biblatex.bib}
+
+
+
+\author{Jesús Salido}
+\title{Bibliografía con Bib\LaTeX{}}
+\date{\today}
+
+%%%%%%%%%%%%%%
+% Comienzo del documento
+%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+
+\begin{abstract}l
+Explicación sobre la gestión de bibliografía con Bib\LaTeX{} para los documentos escritos con \LaTeX{} \cite{wikibookLaTex10}.
+\end{abstract}
+
+\tableofcontents
+
+\section{La creación de bibliografía}
+lEn la gran mayoría de documentos científicos~\cite[ver][5]{salido15} sus autores citan las fuentes consultadas durante la realización del trabajo presentado. \LaTeX{} proporciona herramientas muy flexibles para elaborar la \emph{lista de fuentes bibliográficas} e incluir las citas a ellas en el texto (ver~\cite{cascales00,cascales03,goos04,kopka04,lamport94}). La bibliografía aporta los detalles esenciales de los documentos externos citados y por lo general se imprime al final del documento principal como una sección separada del resto. El título de la sección varía según el tipo de documento principal y \LaTeX{} los denomina \emph{Referencias} o \emph{Bibliografía}, aunque dicho título se puede modificar fácilmente empleando el comando \texttt{renewcommand}.\footnote{Véase cómo se ha cambiado en este documento el título de dicha sección.}
+
+
+
+
+\section{Bibliografías flexibles con Bib\LaTeX}
+Bib\LaTeX{} es un paquete creado para superar las limitaciones de Bib\TeX. Los ficheros de fuentes bibliográficas siguen una estructura muy similar a los empleados con Bib\TeX{} que añade mayor flexibilidad a estos. Entre otros, es posible añadir los campos de \textsc{url} para las fuentes \emph{online}. Bib\LaTeX{} es compatible con \textsc{utf8} y proporciona una gran variedad de posibilidades de citación y configuración del estilo de la bibliografía. 
+
+
+
+\addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC 
+
+\nocite{*} % Se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto.(PROHIBIDO EN LA ESI)
+\printbibliography[title=Bibliografía]
+
+\end{document}
+

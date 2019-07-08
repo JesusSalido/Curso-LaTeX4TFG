@@ -1,0 +1,96 @@
+% La generación de caracteres especiales con LaTeX
+
+%%%%%%%%%%%%%%
+% Preámbulo del documento
+%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article} 
+\usepackage[utf8]{inputenx}	% Codificación de entrada
+\usepackage[spanish]{babel}	% Idioma del texto
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+
+% Tipografía
+\usepackage{marvosym}
+\usepackage{pifont} % Generación de símbolos especiales
+\usepackage{textcomp}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+\usepackage{url} % Para escritura de URL
+\urlstyle{sf}
+
+% Generación de hiperenlaces
+\usepackage[pdftex,breaklinks,colorlinks,
+citecolor=blue, % Color de la citas
+urlcolor=blue, % Color de las URL
+bookmarksnumbered=true, % Incluye números en bookmarks
+pdftitle={Fundamentos de LaTeX para principiantes},
+pdfauthor={Jesús Salido},
+pdfsubject={LaTeX}]{hyperref}
+
+\usepackage[usenames,dvipsnames,svgnames,x11names,table]{xcolor}
+
+%%%%%%%%%%%%%%
+% Comienzo del documento
+%%%%%%%%%%%%%%
+\begin{document}
+Este es un ejemplo de texto con propiedades de color. Veamos algunos ejemplos:
+
+% Ejemplo:
+% ============
+\textcolor{red}{Este texto está a \textbf{color}.}
+
+% Ejemplo:
+% ============
+También se puede hacer {\color{green} con una definición alternativa.}
+
+% Ejemplo:
+% ============
+\colorbox{blue}{Se pueden crear cajas de {\color{yellow}\textbf{color}}.}
+
+La especificación de color de \LaTeX{} con el paquete \texttt{xcolor} es muy potente y permite la definición de colores propios en varios esquemas de color (gray, rgb, RGB, HTML y cmyk). De todas ellas quizás la única que sirva a nuestros propósitos sea la especificación en niveles de gris pues el color es un recurso que sólo en contadas ocasiones será preciso.
+
+% Ejemplo:
+% ============
+\definecolor{sombra}{gray}{0.75}
+\colorbox{sombra}{Texto resaltado con una caja sombreada.}
+
+% Ejemplo:
+% ============
+\setlength{\fboxrule}{4pt}
+\fcolorbox{sombra}{white}{Otro texto resaltado.}
+
+% Ejemplo:
+% ============
+\setlength{\fboxrule}{0.5pt} % Ajustamos el ancho del filete de la caja.
+\begin{center}
+\fbox{\colorbox{yellow}{
+\parbox{0.5\linewidth}{Esto es
+	un ejemplo de lo que puede
+	hacerse de manera sencilla en
+	este estupendo
+	procesador de textos.}}}
+\end{center}
+
+
+
+Aquí se ven algunas otras posibilidades.
+
+%-------------------
+\newcount\WL \unitlength.75pt
+\begin{picture}(460,60)(355,-10)
+\sffamily \tiny \linethickness{1.25\unitlength} \WL=360
+\multiput(360,0)(1,0){456}%
+{{\color[wave]{\the\WL}\line(0,1){50}}\global\advance\WL1}
+\linethickness{0.25\unitlength}\WL=360
+\multiput(360,0)(20,0){23}%
+{\picture(0,0)
+\line(0,-1){5} \multiput(5,0)(5,0){3}{\line(0,-1){2.5}}
+\put(0,-10){\makebox(0,0){\the\WL}}\global\advance\WL20
+\endpicture}
+\end{picture}
+%--------------------------
+
+\end{document}

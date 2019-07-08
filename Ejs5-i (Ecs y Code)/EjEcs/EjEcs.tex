@@ -1,0 +1,377 @@
+%%%%%%%%%%%%%% 
+% Fichero: EjTablas
+% Autor: J. Salido (http://www.uclm.es/profesorado/jsalido)
+% Fecha: febrero, 2017
+% Descripción: Ejemplo básico de inclusión de tablas.
+% Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
+% y otros documentos académicos” (Esc. Sup. Informática-UCLM)
+%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%
+% Preámbulo del documento
+%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article}
+% Por defecto todas las ecuaciones quedan centradas en la página pero con la opción fleqn se consigue su alineación a la izda.
+% \documentclass[11pt,a4paper,fleqn]{article}
+\usepackage[utf8]{inputenx} 
+\usepackage[spanish,es-noindentfirst]{babel} 
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+
+%--- Tipografía
+\usepackage{textcomp}	% Símbolos
+\usepackage{marvosym}	% Símbolos
+\usepackage{pifont}		% Generación de símbolos especiales
+\usepackage{amsmath}	% Símbolos matemáticos
+\usepackage{amsthm}		% Fuentes en entorno matemático
+\usepackage{amssymb}	% Símbolos matemáticos (carga amsfonts)
+%--- Tipografía (Opción 1)
+\usepackage{newpxtext}	% La opción osf proporciona números en old style.
+\usepackage{newpxmath}
+%---
+%--- Tipografía (Opción 2)
+%\usepackage[tt=false]{libertine}
+%\usepackage[libertine]{newtxmath}
+%---
+
+\usepackage{paralist}
+\usepackage{siunitx} % Uso de unidades del SI según normas ISO
+\usepackage{cancel} % Calcelación de términos en una ecuación
+\usepackage[normalem]{ulem} % Enfatizado mediante subrayado
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+\usepackage{url} % Para escritura de URL
+\urlstyle{sf}
+
+% Generación de hiperenlaces
+\usepackage[pdftex,breaklinks,colorlinks,
+citecolor=blue, % Color de la citas
+urlcolor=blue, % Color de las URL
+bookmarksnumbered=true, % Incluye números en bookmarks
+pdftitle={Fundamentos de LaTeX para principiantes},
+pdfauthor={Jesús Salido},
+pdfsubject={LaTeX}]{hyperref}
+
+
+% Listas
+\usepackage{paralist} % Mayor control de listas
+\usepackage{multicol} % Elementos en varias columnas
+
+
+% Gráficos
+\usepackage{graphicx}  % Inclusión de figuras y escalado de cajas
+
+% Declaración del path donde están los archivos de figuras. 
+% También se puede incluir el path en el nombre del fichero.
+\graphicspath{{../figs/}}  
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+% Lista de extensiones de ficheros por orden de precedencia. De este modo no hace falta indicar la extensión del fichero y en caso de existir dos fichero con el mismos nombre y extensión diferente se emplea el que tiene una extensión con mayor prioridad.
+
+
+\usepackage{caption} % Configuración de caption en objetos float
+\captionsetup[table]{skip=4pt} 	% Separación del caption en las tablas aumentando el
+% valor por defecto 
+
+
+% Paquetes especiales para Química
+\usepackage[version=3]{mhchem}
+\usepackage{chemfig}
+
+
+% Con estas instrucciones se ajustan los valores del índice
+\setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
+\setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
+
+
+\author{Jesús Salido}
+\title{Composición básica de ecuaciones matemáticas con \LaTeX{}}
+\date{\today}
+
+%%%%%%%%%%%%%%
+% Comienzo del documento
+%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	Explicación breve sobre cómo se componen ecuaciones matemáticas sencillas con \LaTeX{}.
+\end{abstract}
+
+
+\tableofcontents
+
+
+\section{Fórmulas matemáticas}
+Para que \LaTeX{} pueda incluir muchos símbolos matemáticos es preciso incluir algunos paquetes que ayudan en dicha tarea: \texttt{amsmath}, \texttt{amsfonts}, \texttt{amssymb}. También hay que tener en cuenta que si el tipo principal empleado en el texto es Times y se desea utilizar un tipo coherente en las fórmulas es conveniente emplear el paquete \emph{mathptmx} en vez de \emph{Times}. Pero en este caso es recomendable incluir siempre paquetes adicionales para suministrar las otras dos familias de fuentes escalables (p.~ej.\ \texttt{helvet} para familia \textsf{palo seco} y \texttt{couriers} para \texttt{monoespaciada}). Si no se hace esta última inclusión pueden obtenerse errores de difícil diagnóstico.
+
+
+
+\subsection{Fórmulas creadas en línea y con entorno \texttt{equation}}
+Es muy sencillo incluir fórmulas matemáticas sencillas en el mismo texto en el que se escribe. Por ejemplo, $c^{2}=a^{2}+b^{2}$ que podría ser la ecuación representativa del teorema de Pitágoras.
+
+Las fórmulas también se pueden separar del texto para que aparezcan destacadas, así:
+
+% Ejemplo: Ecuación no numerada
+% ============
+\[
+c^2  = \int {\left( {a^2  + b^2} \right)}  \cdot dx
+\]
+
+
+Pero si se desea, las ecuaciones pueden ser numeradas de forma automática e incluso utilizar referencias cruzadas a ellas:
+
+% Ejemplo: Ec. numerada.
+% ============
+% MathType!MTEF!2!1!+-
+% feqaeaartrvr0aaatCvAUfeBSjuyZL2yd9gzLbvyNv2CaerbuLwBLn
+% hiov2DGi1BTfMBaeXatLxBI9gBaebbnrfifHhDYfgasaacH8srps0l
+% bbf9q8WrFfeuY-Hhbbf9v8qqaqFr0xc9pk0xbba9q8WqFfea0-yr0R
+% Yxir-Jbba9q8aq0-yq-He9q8qqQ8frFve9Fve9Ff0dmeaabaqaciGa
+% caGaaeqabaaaamaaaOqaaiaadogadaahaaWcbeqaaiaaikdaaaGccq
+% GH9aqpcaWGHbWaaWbaaSqabeaacaaIYaaaaOGaey4kaSIaamOyamaa
+% CaaaleqabaGaaGOmaaaaaaa!3910!
+\begin{equation} \label{eq:pitagoras}
+	a^{2}=b^{2} + \cancel{c^{2}}+ \xcancel{d^{2}}
+\end{equation}
+
+Como vemos en la ecuación~\ref{eq:pitagoras} algunos términos podemos señalarlos como cancelados gracias al paquete \texttt{cancel}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/cancel/cancel.pdf}} Otras formas de \sout{subrayar} el texto se consiguen con el paquete \uwave{\texttt{ulem}}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/ulem/ulem.pdf}}
+
+\bigskip
+Las macros que proporciona el paquete \texttt{ulem} son:
+\begin{compactitem}
+	\item \verb|\uline{importante}|: texto subrayado como \uline{importante}.
+	
+	\item \verb|\uuline{urgente}|: doble subrayado como \uuline{urgente}.
+	
+	\item \verb|\uwave{ondulado}|: subrayado \uwave{ondulado}.
+	 
+	\item \verb|\sout{tachado}|: texto \sout{tachado}.
+	
+	\item \verb|\xout{cruzado}|: texto \xout{cruzado}.
+	
+	\item \verb|\dashuline{discontinuo}|: subrayado \dashuline{discontinuo}.
+	 
+	\item \verb|\dotuline{punteado}|: subrayado \dotuline{punteado}.
+\end{compactitem}
+\bigskip
+
+No hay que preocuparse demasiado por la tipografía empleada en las fórmulas pues \LaTeX{} hace por nosotros <<casi>> todo el trabajo.\footnote{Los matemáticos son muy exquisitos y no se conforman con cualquier cosa, pero nosotros debemos ser mucho menos pretenciosos si queremos resultados rápidos.}
+
+Los ejemplos que aquí se muestran son muy sencillos pero \LaTeX{} proporciona entornos específicos más potentes. Para mostrar algo <<más sofisticado>> añado dos ejemplos más. La ec.~\ref{eq:integral} que es un poquito más compleja y la ec.~\ref{eq:cuadro} que está recuadrada.
+
+% Ejemplo:
+% ============
+\begin{equation}\label{eq:integral}
+	I = \! \int_{-\infty}^\infty f(x)\,dx
+\end{equation}
+
+Un ejemplo de alineación de ecuación mediante entorno \texttt{flalign}:\footnote{Otra forma de conseguir el alineamiento a la izquierda de las ecuaciones se consigue añadiendo \texttt{fleqn} como opción de la clase del documento.}
+\begin{flalign}
+    &f(x) = -1.25x^{2} + 1.5x&
+\end{flalign}
+
+En este caso la versión con estrella (\texttt{flalign*}) suprime la numeración de la ecuación.
+
+% Ejemplo: Ec. con recuadro (numeración exterior).
+% ============
+{\fboxsep 8pt \fboxrule 0.5pt 
+%\fboxsep ajusta la separación entre la caja y el elemento recuadrado
+%\fboxrule ajusta el espesor de la línea del recuadro
+\begin{equation}\label{eq:cuadro}
+\fbox{$\displaystyle 
+R = \frac{L}{2} \cdot \frac{{\left( {v_d  + v_i } \right)}}{{\left( {v_d  - v_i } \right)}}
+$}
+\end{equation}
+}
+
+
+Algunos otros cuadros en ecuaciones son p.~ej.\ $x + y = \fbox{$\Omega$}$ o incluso el que se muestra a continuación (ec.~\ref{eq:cuadrogrande}) y que abarca todo el ancho de la línea:\footnote{Adaptado del manual \emph{Documentation for fancybox.sty:
+Box tips and tricks for \LaTeX{}} de Timothy Van Zandt (2010).}
+
+% Ejemplo: Ec. con recuadro (numeración interior).
+% ============
+\newlength{\milong}
+\[
+	\setlength{\fboxsep}{15pt}
+	\setlength{\milong}{\linewidth}
+	\addtolength{\milong}{-2\fboxsep}
+	\addtolength{\milong}{-2\fboxrule}
+	\fbox{%
+		\parbox{\milong}{
+		\setlength{\abovedisplayskip}{0pt}
+		\setlength{\belowdisplayskip}{0pt}
+		\begin{equation}\label{eq:cuadrogrande}
+		\sqrt[n]{1+x+x^2+x^3+\ldots}
+		\end{equation}}}
+\]
+
+
+
+\subsection{Ecuaciones en varias líneas con entornos \texttt{eqnarray} y \texttt{align}}
+A continuación se muestra un ejemplo de ecuación muy larga dividida en varias líneas:
+
+% Ejemplo: Ec. en varias líneas con alineación y sin numeración.
+% ============
+\begin{eqnarray*}
+  \lefteqn{\left(1+x\right)^n = } \\
+  & & 1 + nx + \frac{n\left(n-1\right)}{2!}x^2 + \\
+  & & \frac{n\left(n-1\right)\left(n-2\right)}{3!}x^3 + \\
+  & & \frac{n\left(n-1\right)\left(n-2\right)\left(n-3\right)}{4!}x^4 + \\
+  & & \ldots
+\end{eqnarray*}
+% Apreciar el asterisco en la ecuación anterior para evitar que todas las líneas de la ecuación aparezcan numeradas.
+
+También se puede escribir varias ecuaciones en líneas sucesivas alineadas por algún elemento como se hace en el siguiente ejemplo de uso del entorno \texttt{align}:
+
+% Ejemplo: Ecs. en varias líneas con alineación y manejo de la numeración.
+% ============
+\begin{align}
+f(x) & = \cos x \\
+f'(x) & = -\sin x \\
+\int_{0}^{x} f(y)dy & = \sin x \nonumber
+\end{align}
+
+\noindent En este último ejemplo se observa también cómo es posible suprimir la numeración de una de las ecuaciones con el comando (\texttt{\textbackslash nonumber}).
+
+Para terminar, un ejemplo más del control del espaciado horizontal empleando el entorno \texttt{array}:
+
+% Ejemplo:
+% ============
+\[f(n) = \left\{ 
+\begin{array}{l l}
+  n/2 & \quad \mbox{si $n$ es par}\\
+  -(n+1)/2 & \quad \mbox{si $n$ es impar}\\ \end{array} \right. \]
+
+
+\section{Añadiendo unidades del SI}
+En la gran mayoría de las ramas científico-técnicas es preciso el empleo de unidades asociadas a las magnitudes físicas que se emplean. En estos casos se emplea habitualmente las unidades del Sistema Internacional (SI). El paquete \texttt{siunitx}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/siunitx/siunitx.pdf}} proporciona un modo sencillo de incluir las magnitudes físicas con sus unidades en los documentos preparados con \LaTeX{} de acuerdo a las normas ISO.
+A continuación se muestran algunos ejemplos de uso:\footnote{Este paquete presenta alguna incompatibilidad con el idioma español en dos de sus macros que requieren para su uso una reconfiguración, aunque en su lugar es preferible evitarlas.}
+
+\bigskip
+\begin{compactitem}
+	\item \verb|\num{12345}|: \num{12345}
+	\item \verb|\num{.12345}|: \num{.12345}
+	\item \verb|\num{3.45d-4}|: \num{3.45d-4}
+	\item \verb|\num{25e10}|: \num{25e10}
+	\item \verb|\ang{1;2;3}|: \ang{1;2;3}
+	\item \verb|\si{kg.m/s^2}|: \si{kg.m/s^2}
+	\item \verb|\si{\kilo\gram\metre\per\square\second}|: \si{\kilo\gram\metre\per\square\second}
+	\item \verb|\SI[mode=text]{1.23}{J.mol^{-1}.K^{-1}}|: \SI[mode=text]{1.23}{J.mol^{-1}.K^{-1}}
+	\item \verb|\SI[per-mode=symbol]{1.99}[\$]{\per\kilogram}|: \SI[per-mode=symbol]{1.99}[\$]{\per\kilogram}
+	\item \verb|\SI[per-mode=fraction]{1,345}{\coulomb\per\mole}|: \SI[per-mode=fraction]{1,345}{\coulomb\per\mole}
+	\item \verb|\SIlist{10;30;45}{\metre}|: \SIlist{10;30;45}{\metre}
+	\item \verb|\SIrange{10}{30}{\metre}|: \SIrange{10}{30}{\metre}
+	\item \verb|\si{\highlight{red}\kilogram\cancel\metre\per\second}|: \si{\highlight{red}\kilogram\cancel\metre\per\second}
+\end{compactitem}
+
+
+\section{Fórmulas químicas}
+\LaTeX{} también puede emplearse para la inclusión de fórmulas y estructuras químicas. Para ello se proporciona un sinfín de paquetes que pueden ayudar en la tarea.\footnote{\url{http://www.mychemistry.eu/known-packages/}} A continuación se muestran ejemplos creados con los paquetes \texttt{mhchem}, \texttt{xymtex}, y \texttt{chemfig}.
+
+
+
+\subsection{Fórmulas químicas con el paquete \texttt{mhchem}}
+Es un paquete bastante sencillo que permite escribir formulación química simple.
+
+% Ejemplo:
+% ============
+\begin{center}
+\ce{Zn^2+
+<=>[\ce{+ 2OH-}][\ce{+ 2H+}]
+$\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
+<=>C[+2OH-][{+ 2H+}]
+$\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
+}
+\end{center}
+
+
+A diferencia de las ecuaciones matemáticas no existe un entorno que genere la ecuación con un título y un tratamiento similar al de los objetos flotantes por lo que si se requiere este tratamiento hay que configurarlo.
+
+Al igual que se ha hecho más arriba en la ecs.~\ref{eq:cuadro} y \ref{eq:cuadrogrande} es posible recuadrar una fórmula química siguiendo el mismo esquema.
+
+\begin{center}
+{\fboxsep 8pt \fboxrule 0.5pt
+	\fbox{
+			\ce{Zn^2+
+			<=>[\ce{+ 2OH-}][\ce{+ 2H+}]
+			$\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
+			<=>C[+2OH-][{+ 2H+}]
+			$\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
+			}
+	}
+}
+\end{center}
+
+
+
+
+\subsection{Fórmulas químicas con el paquete \texttt{chemfig}}
+Es un paquete que aprovecha las capacidades gráficas del paquete \texttt{tikz} (Ti\textit{k}Z)\footnote{Si no se ha cargado previamente \texttt{chemfig} lo cargará.} y es muy flexible. Sin embargo, no hay que perder de vista que aprender a utilizarlo ya puede representar un esfuerzo importante. En este caso una solución alternativa es emplear programas dedicados de dibujo de fórmulas químicas importando éstos en el documento \LaTeX{} como un fichero PDF.
+
+A continuación se muestran algunos ejemplos de fórmulas químicas empleando el paquete \texttt{chemfig}. En la Fig.~\ref{fig:chemfig} se muestra como es posible tratar como una figura una fórmula generada con \texttt{chemfig}.
+
+
+% Ejemplo: Cafeina
+% ============
+\begin{center}
+	\chemfig{H_3C-[:30]N**6(-(=O)-(**5(-N(-CH_3)--N-))--N(-CH_3)-(=O)-)}\\[1cm]
+\end{center}
+
+
+
+
+% Ejemplo: Adrenalina
+% ============
+%\begin{center}
+%\definesubmol{&}{-[,,,,draw=none]}
+%\definesubmol{&&}{-[,,,2,draw=none]}
+%\chemfig{*6((-HO)-=*6(!&!{&&}HN(-CH_3)-[,,2]-(<OH)-)-=-(-HO)=)}
+%\end{center}
+
+
+% Ejemplo: 
+% ============
+\begin{center}
+\setcrambond{2pt}{}{}
+\chemfig{HO-[2,0.5,2]?<[7,0.7](-[2,0.5]OH)-[,,,,
+line width=2pt](-[6,0.5]OH)>[1,0.7](-[6,0.5]OH)-[3,0.7]
+O-[4]?(-[2,0.3]-[3,0.5]OH)}
+\end{center}
+
+% Ejemplo: 
+% ============
+% Este es un poco más complejo al que se ha añadido un escalado con 
+% \resizebox para ajustarlo al tamaño de la línea. Esta solución
+% escala también las fuentes.
+\begin{figure}
+\begin{center}
+\resizebox{\textwidth}{!}{
+\definesubmol\cycleoplus{-[,0.25,,,draw=none]\oplus}
+\definesubmol{so2oh}{S(=[::90]O)(=[::-90]O)-OH}
+\setatomsep{2.5em}
+\schemestart[,1.5]
+\chemname{\chemfig{*6(=-*6(-=-=-)=-=-)}}{Naphtalène}\+\chemfig{H_2SO_4}
+\arrow(nph.mid east--.south west){->[80$^\circ$ C]}[45]
+\chemname{\chemfig{*6(=-*6(-=-(!\cycleoplus)-(-SO_3H)-)=-=-)}}{Ion 1-arenium}
+\arrow(.mid east--.mid west)
+\chemname{\chemfig{*6(=-*6(-=-=(-!{so2oh})-)=-=-)}}{Acide 1-naphthalenesulfonique}
+\arrow(@nph.mid east--.north west){->[160$^\circ$ C]}[-45]
+\chemname{\chemfig{*6(=-*6(-=-(-SO_3H)-(!\cycleoplus)-)=-=-)}}{Ion 2-arenium}\kern-4em
+\arrow(.mid east--.mid west)
+\chemname{\chemfig{*6(=-*6(-=-(-!{so2oh})=-)=-=-)}}{Acide 2-naphthalenesulfonique}
+\schemestop
+}
+\end{center}
+\caption{Ejemplo de fórmula química hecha con \texttt{chemfig} e insertada como figura}
+\label{fig:chemfig}
+\end{figure}
+
+
+
+
+\end{document}
+

@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%% 
+% Fichero: EjTipos
+% Autor: J. Salido (http://www.uclm.es/profesorado/jsalido)
+% Fecha: febrero, 2017
+% Descripción: Generación de tipografías con LaTeX
+% Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
+% y otros documentos académicos” (Esc. Sup. Informática-UCLM)
+%%%%%%%%%%%%%% 
+
+
+
+%%%%%%%%%%%%%%
+% Preámbulo del documento
+%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article} 
+\usepackage[utf8]{inputenx}	% Codificación de entrada
+\usepackage[spanish]{babel}	% Idioma del texto
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+
+% Tipografías apropiadas para textos técnicos (con matemáticas)
+
+% ===========
+% Palatino + math (obsoleto)
+%\usepackage{mathpazo} % Palatino
+
+% Times + math (obsoleto)
+%\usepackage{mathptmx} % Times (Nimbus Roman)
+%\usepackage[scaled=0.88]{helvet} % Helvética (escalable)
+%\usepackage[scaled=0.95]{couriers} % Courier (escalable)
+% ===========
+
+
+% Latin Modern | LM Sans Serif | LM teletype (antigua)
+%\usepackage{lmodern}  
+
+
+% Libertine + math (Times)
+\usepackage[osf]{libertine}
+\usepackage[libertine]{newtxmath}
+
+
+% Times + math
+%\usepackage[osf]{newtxtext}
+%\usepackage{newtxmath}
+
+
+% Palatino + math
+%\usepackage[osf]{newpxtext}
+%\usepackage{newpxmath}
+
+
+% Garamond + math:
+%\usepackage{ebgaramond}
+%\usepackage{ebgaramond-maths}
+
+
+% Barskervile + math
+%\usepackage{baskervaldx}
+%\usepackage[baskervaldx]{newtxmath}
+
+
+% Charter + math
+%\usepackage[charter,expert]{mathdesign}
+%\usepackage[scaled=.96,osf]{XCharter}% matches the size used in math
+%\linespread{1.04}
+
+
+% Romanas + math (austera)
+%\usepackage{kpfonts}
+
+
+% Utopia:
+%\usepackage{fourier}
+
+
+% Caladea (sin fuentes para modo matemático)
+%\usepackage{caladea}
+
+
+% Raleway (fuente sin serifas)
+%\usepackage[default]{raleway}
+
+
+% Microsoft Comic Sans (versión rediseñada)
+% Sólo justificado en casos concretos (mejora la legibilidad en casos de dislexia)
+% Opciones del paquete:
+% -light: use the light weight by default.
+% -regular: use the regular weight by default.
+% -angular: Use the angular variant instead of the normal one.
+% -scale: Change the scaling with a factor. For example: scale=.5
+% -default: Sans-serif is set as default font family.
+% -sfdefault: Comic Neue is set as sans-serif family.
+% -nosfdefault: Comic Neue is not set as sans-serif family.
+% -type1, t1: Override automatic detection and use the Type 1 fonts.
+% -opentype, otf: Override automatic detection and use OpenType fonts.
+
+% The following options are enabled by default: sfdefault, regular.
+
+%Commands for all weights and styles are also provided:
+% -\comicneue – the regular and bold weights.
+% -\comicneuelight – the light and bold weights.
+% -\comicneueangular – the regular and bold weights in the angular style.
+% -\comicneuelight – the light and bold weights in the angular style.
+
+%\usepackage[default]{comicneue}
+
+
+
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+\title{Ejemplo de tipografías con \LaTeX}
+\author{Jesús Salido}
+\date{\today}
+
+%%%%%%%%%%%%%%
+% Comienzo del documento
+%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+
+\section{Tipografías}
+\LaTeX{} genera su salida con los tipos \emph{Computer Modern} (\textbf{CM}) creados por D.~Knuth con ayuda del programa \textsc{metafont}. Por suerte \LaTeX{} está configurado en la actualidad para incorporar estas <<fuentes>> en los ficheros PDF como una fuente \emph{Postscript} Tipo 1 (vectorial). Con las fuentes Tipo 1 se obtiene una calidad al obtenido con las fuentes Tipo 3 o de mapa de bits (\textbf{PK}) que sólo ofrecen máxima calidad a la escala para la que fueron creadas. Por suerte en la actualidad \LaTeX{} ofrece la posibilidad de incluir las fuentes estándar \emph{Postscript} de \textsf{Adobe} utilizando los paquetes apropiados. Así es muy sencillo alternar en un texto entre las tres familias disponibles: Roman (redonda), \textsf{Sans Serif (paloseco, sin serifa o sin adornos)} y \texttt{Teletype (teletipo o monoespaciada)}. Y por último unas MAYÚSCULAS MÁS \textsc{pequeñas llamadas versalitas}. Por favor, no utilizes el \underline{subrayado} para \emph{enfatizar}. Aunque en algún documento (p.ej.\ ejercicios) su uso tampoco es grave.
+
+Por supuesto \LaTeX{} tiene en cuenta las particularidades de la tipografía en modo matemático como en: $f(x)=y^2$ y números $1,2,3,4,5,6,7,8,9$, o en modo texto: 0123456789.
+
+
+\end{document}

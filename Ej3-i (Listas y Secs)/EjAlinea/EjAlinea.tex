@@ -1,0 +1,96 @@
+%%%%%%%%%%%%%% 
+% Fichero: EjAlinea
+% Autor: J. Salido (http://www.uclm.es/profesorado/jsalido)
+% Fecha: febrero, 2017
+% Descripción: Alineación de texto
+% Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
+% y otros documentos académicos” (Esc. Sup. Informática-UCLM)
+%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%
+% Preámbulo del documento
+%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article} 
+\usepackage[utf8]{inputenx} 
+\usepackage[spanish]{babel} 
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{marvosym}
+\usepackage{pifont} % Generación de símbolos especiales
+\usepackage{textcomp}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+\title{Ejemplos de alineamiento de texto con \LaTeX}
+\author{Jesús Salido}
+\date{\today}
+
+
+%%%%%%%%%%%%%%
+% Comienzo del documento
+%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	Con \LaTeX{} también puede configurarse la alineación por defecto de los párrafos con distintos propósitos. Aunque se trata de situaciones poco frecuentes, en este ejemplo se muestran algunos ejemplos de uso.
+\end{abstract}
+
+
+\LaTeX{} emplea justificación completa de los párrafos por defecto. Pero este comportamiento puede interesarnos modificarlo. A continuación se muestran algunos ejemplos relacionados con la justificación de párrafos:
+
+% Ejemplo:
+% ============
+\begin{flushleft}
+	Este texto está alineado a la izquierda. \\
+	\LaTeX{} no trata de justificar las líneas, \\
+	así que así quedan.
+\end{flushleft}
+
+\begin{flushright}
+	Texto alineado a la derecha. \\
+	\LaTeX{} no trata de justificar las líneas.
+\end{flushright}
+
+\begin{center}
+	En el centro\\
+	de la Tierra
+\end{center}
+
+
+
+\noindent Y uno sobre el empleo de citas:
+
+Una regla empírica tipográfica para la longitud de renglón es:
+
+% Ejemplo:
+% ============
+\begin{quote}
+	En promedio, ningún renglón debería tener más de 66 signos porque así lo establece la propia experiencia.
+\end{quote}
+
+Por ello las páginas de \LaTeX{} tienen márgenes tan anchos por omisión, y los periódicos usan múltiples columnas. 
+
+En alguna situación puede interesar realizar un formateado del los párrafos empleando tabuladores. El entorno \texttt{tabbing} proporciona el uso de tabuladores para conseguir la alineación deseada en los elementos del párrafo:
+
+
+
+
+
+% Ejemplo:
+% ============
+% Observar que los espacios en blanco son irrelevantes
+% \= fija la posición del tabulador
+% \> avanza hasta la posición del tabulador
+\begin{tabbing}
+IF	\= \textbf{está} lloviendo                \\
+ 	\> THEN \= \textbf{calzar} botas de agua, \\
+ 	\>      \> \textbf{coger} paraguas;       \\
+ 	\> ELSE \> \textbf{sonreir}.              \\
+\textbf{Salir} de casa.
+\end{tabbing}
+
+\end{document}

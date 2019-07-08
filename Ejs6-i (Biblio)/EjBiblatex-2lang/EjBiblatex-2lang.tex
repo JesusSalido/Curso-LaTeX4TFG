@@ -1,0 +1,105 @@
+%%%%%%%%%%%%%% 
+% Fichero: EjBiblatex
+% Autor: J. Salido (http://www.uclm.es/profesorado/jsalido)
+% Fecha: febrero, 2017
+% Descripción: Método 3. Gestión de bibliografía con Bib(La)TeX.
+% En este ejemplo con bibliografía en dos idiomas.
+% Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
+% y otros documentos académicos” (Esc. Sup. Informática-UCLM)
+%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%
+% Preámbulo del documento
+%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article} 
+\usepackage[utf8]{inputenx} 
+\usepackage[spanish,english]{babel} % Se emplean todos los idiomas empleados en la bibliografía
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+\usepackage{indentfirst} % Sangrado del primer párrafo de la sección
+
+% Tipografía
+\usepackage{marvosym}
+\usepackage{pifont} % Generación de símbolos especiales
+\usepackage{textcomp}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+\usepackage{url} % Para escritura de URL
+\urlstyle{sf}
+
+% Generación de hiperenlaces
+\usepackage[pdftex,breaklinks,colorlinks,
+			citecolor=blue, % Color de la citas
+			urlcolor=blue, % Color de las URL
+			bookmarksnumbered=true, % Incluye números en bookmarks
+			pdftitle={Fundamentos de LaTeX para principiantes},
+			pdfauthor={Jesús Salido},
+			pdfsubject={LaTeX}]{hyperref}
+
+
+\usepackage{paralist} % Mayor control de listas
+\usepackage{multicol} % Elementos en varias columnas
+
+
+
+% Con estas instrucciones se ajustan los valores del índice
+\setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
+\setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
+
+
+\usepackage[backend=biber,
+			sortcites,
+			autolang=other,
+			language=auto]{biblatex}
+\usepackage[autostyle]{csquotes}
+
+
+% OJO: Línea añadida para eliminar el idioma de las fuentes bibliográficas que no están en el idioma principal del documento.
+\AtEveryBibitem{\clearfield{note} \clearlist{language}}
+
+
+% OJO: Poner siempre fichero con extensión
+\addbibresource{../bibfiles/biblatex.bib}
+
+
+
+\author{Jesús Salido}
+\title{Bibliografía bilingüe con Bib\LaTeX{}}
+\date{\today}
+
+%%%%%%%%%%%%%%
+% Comienzo del documento
+%%%%%%%%%%%%%%
+\begin{document}
+\selectlanguage{spanish} % Seleccionamos el idioma pral. del texto
+\maketitle
+
+
+\begin{abstract}
+Ejemplo que muestra cómo es posible generar una bibliografía multilingüe con Bib\LaTeX.
+\end{abstract}
+
+
+\section{La problemática de las bibliografías en varios idiomas}
+En los trabajos académicos una situación habitual es el empleo de fuentes de bibliografía en varios idiomas, por ejemplo español e inglés. A la hora de preparar la lista de referencias bibliográficas se pueden abordar dos posibles estrategias:
+\begin{itemize}
+	\item Generar todas las referencias en el idioma principal del documento. De este modo las referencias emplean el patrón de división del idioma principal y las partículas (\emph{`and'}, `et al'., ordinales, etc.) aparecen en dicho idioma. Este comportamiento se obtiene directamente con Bib\LaTeX.
+	
+	\item Generar automáticamente cada referencia siguiendo el esquema de su propio idioma. Para obtener este resultado es preciso preparar el fichero de referencias añadiendo dos campos nuevos: \texttt{language} (idioma de fuente) e \texttt{langid} (idioma deseado para la generación). Ambos campos coincidirán en la mayoría de los casos.
+\end{itemize}
+
+Al añadir el campo \texttt{language} para cada referencia se obtiene un valor de idioma en la lista de referencias. Dicho valor puede ser suprimido con una sencilla configuración. Todos los idiomas empleados en las fuentes deberán ser declarados como opciones en el paquete \texttt{babel}. De modo semejante hay que señalar al paquete \texttt{biblatex} que seleccione el idioma de las fuentes de modo automático.
+
+\addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC 
+% Cuidado por que esta línea se tiene que poner justo antes de añadir la bibliografía
+
+\nocite{*} % Se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto.(PROHIBIDO EN LA ESI)
+\printbibliography[title=Bibliografía]
+
+\end{document}
+

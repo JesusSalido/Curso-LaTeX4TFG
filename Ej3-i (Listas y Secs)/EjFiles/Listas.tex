@@ -1,0 +1,165 @@
+\section{Listas}
+\label{sec:listas} % En esta sección se ha incluido el contenido del documento EjListas.tex
+
+
+Las listas se emplean cuando se desea enumerar una serie características, objetos, etc. A continuación veremos algunos ejemplos de listas.
+
+\noindent Ejemplo de entorno {\tt itemize}:
+
+% Ejemplo: Lista con balas
+% ============
+\begin{itemize}
+	\item peras
+	\item manzanas
+	\item naranjas
+\end{itemize}
+
+
+Las listas también se pueden anidar:
+% Ejemplo: Lista anidada con balas
+% ============
+\begin{itemize}
+	\item peras
+	\begin{itemize}
+		\item conferencia
+		\item ercolina
+	\end{itemize}
+	\item manzanas
+	\begin{itemize}
+		\item granny
+		\item golden 
+	\end{itemize}
+	\item naranjas
+\end{itemize}
+
+
+
+\noindent Ejemplo de entorno {\tt itemize} en el que se sustituye el símbolo (\emph{bullet}) por defecto:
+
+% Ejemplo:
+% ============
+\begin{itemize}
+	\item[*] peras
+	\item manzanas
+	\item[\ding{170}] naranjas
+\end{itemize}
+
+
+Personalmente pienso que \LaTeX{} proporciona demasiado espaciado en las lista. Pero con el paquete \texttt{paralist} se puede compactar las listas. A continuación se muestra un ejemplo de entorno {\tt compactitem} (proporcionado por el paquete \texttt{paralist}):
+
+% Ejemplo:
+% ============
+\begin{compactitem}
+	\item[*] peras
+	\item manzanas
+	\item[\ding{170}] naranjas
+\end{compactitem}
+
+
+
+\bigskip % Salto vertical equivalente a 1 línea (\medskip: 1/2 línea, \smallskip: 1/4 línea)
+
+\noindent Ejemplo de entorno {\tt enumerate} para listas numeradas:
+
+% Ejemplo:
+% ============
+\begin{enumerate}
+	\item peras
+	\item manzanas
+	\item naranjas
+\end{enumerate}
+
+
+\newpage
+
+\noindent Ejemplo de entorno {\tt compactenum} (proporcionado por el paquete \texttt{paralist}) para listas numeradas:
+
+% Ejemplo:
+% ============
+\begin{compactenum}
+	\item peras
+	\item manzanas
+	\item naranjas
+\end{compactenum}
+
+
+\bigskip
+
+\noindent Este es otro ejemplo de línea compacta creada en varias columnas con ayuda de los paquetes \texttt{paralist} y \texttt{multicol}:
+% Ejemplo:
+% ============
+\begin{multicols}{2} % El parámetro es el número de columnas de la lista
+	\begin{compactenum}
+		\item peras
+		\item manzanas
+		\item naranjas
+		\item patatas
+		\item calabazas
+		\item fresas
+	\end{compactenum}
+\end{multicols}
+
+
+\noindent Las listas incluso se pueden personalizar (aunque debería estar justificado el cambiar el estilo por defecto, haciéndolo con mucha prudencia):
+
+% Ejemplo:
+% ============
+\begin{dinglist}{52} % Lista en la que se cambia el bullet por un símbolo dingbat
+	\item peras
+	\item manzanas
+	\item naranjas
+\end{dinglist}
+
+
+\noindent Así también:
+
+% Ejemplo:
+% ============
+\begin{dingautolist}{202} % Lista con símbolos sucesivos de la tabla dingbat
+	\item peras
+	\item manzanas
+	\item naranjas
+\end{dingautolist}
+
+
+\noindent y por supuesto anidar:
+
+% Ejemplo:
+% ============
+\begin{enumerate}
+	\item Cítricos
+	\begin{enumerate}
+		\item Limón
+		\item Naranja
+	\end{enumerate}
+	\item Legumbres
+	\item Hortalizas \ldots
+\end{enumerate}
+
+
+\noindent Ejemplo de entorno {\tt description} para listas:
+
+% Ejemplo:
+% ============
+\begin{description}
+	\item[Estupideces] no mejoran por ponerlas en una lista por bonita que esta sea. Aunque la mona se vista de seda, mona se queda.
+	\item[Lucideces] sin embargo, pueden parecer hermosas en
+	una lista.
+\end{description}
+
+\noindent El ejemplo anterior formateado de otro modo:
+
+% Ejemplo:
+% ============
+\begin{description}
+	\item[Estupideces]\hfill \\ 
+	no mejoran por ponerlas en una lista por bonita que esta sea. Aunque la mona se vista de seda, mona se queda.
+	\item[Lucideces]\hfill \\ 
+	sin embargo, pueden parecer hermosas en una lista.
+\end{description}
+
+\LaTeX{} permite una configuración más avanzada para presentar listas más sofisticadas, aunque la mayoría de las veces esto no es necesario ya que es suficiente con las listas convencionales.
+
+
+
+

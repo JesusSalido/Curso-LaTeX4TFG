@@ -1,0 +1,169 @@
+%%%%%%%%%%%%%% 
+% Fichero: EjBibtex
+% Autor: J. Salido (http://www.uclm.es/profesorado/jsalido)
+% Fecha: febrero, 2017
+% Descripción: Método 2. Gestión de bibliografía con BibTeX
+% Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
+% y otros documentos académicos” (Esc. Sup. Informática-UCLM)
+%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%
+% Preámbulo del documento
+%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article} 
+\usepackage[utf8]{inputenx} 
+\usepackage[spanish]{babel} 
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+
+% Tipografía
+\usepackage{marvosym}
+\usepackage{pifont} % Generación de símbolos especiales
+\usepackage{textcomp}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+\usepackage{url} % Para escritura de URL
+\urlstyle{sf}
+
+
+% Generación de hiperenlaces
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+	breaklinks,
+	colorlinks=true, % Pone color en los link o un borde
+	linkcolor=red,    % Color de los links
+	%	hidelinks,       % Oculta el color y borde de los links
+	citecolor=blue,  % Color de la citas
+	urlcolor=blue,   % Color de las URL
+	bookmarksnumbered=true, % Incluye números en bookmarks		
+	pdftitle={Fundamentos de LaTeX para principiantes}, % Título
+	pdfauthor={Jesús Salido}, % Autor
+	pdfsubject={LaTeX}, % Tema
+	pdftoolbar=true, % Muestra la toolbar de Acrobat
+	pdfmenubar=true % Muestra la menubar de Acrobat
+}
+
+
+
+\usepackage{paralist} % Mayor control de listas
+\usepackage{multicol} % Elementos en varias columnas
+
+
+% Con estas instrucciones se ajustan los valores del índice
+\setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
+\setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
+
+
+
+
+\author{Jesús Salido}
+\title{Bibliografía con Bib\TeX{}}
+\date{\today}
+
+%%%%%%%%%%%%%%
+% Comienzo del documento
+%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+Generación de bibliografía con \LaTeX{} empleando un método más elegante consistente en la utilización de Bib\TeX{}\cite{wikibookLaTex10}.
+\end{abstract}
+
+\tableofcontents
+
+
+
+\section{La creación de bibliografía}
+En la gran mayoría de documentos científicos~\cite[pág. 5]{salido15} sus autores citan las fuentes consultadas durante la realización del trabajo presentado. \LaTeX{} proporciona herramientas muy flexibles para elaborar la \emph{lista de fuentes bibliográficas} e incluir las citas a ellas en el texto (ver~\cite{cascales00,cascales03,goos04,kopka04,lamport94}). La bibliografía aporta los detalles esenciales de los documentos externos citados y por lo general se imprime al final del documento principal como una sección separada del resto. El título de la sección varía según el tipo de documento principal y \LaTeX{} los denomina \emph{Referencias} o \emph{Bibliografía}, aunque dicho título se puede modificar fácilmente empleando el comando \texttt{renewcommand}.\footnote{Véase cómo se ha cambiado en este documento el título de dicha sección.}
+
+El conjunto de referencias que serán citadas en el documento principal puede contemplarse como una \emph{base de datos bibliográfica} en la que cada registro (o entrada) contiene la información relevante del documento citado. Dicha base bibliográfica puede ser:
+\begin{enumerate}
+	\item \emph{Interna o autocontenida} en el propio documento \LaTeX{}.\\
+	 En este caso se emplea el entorno \texttt{thebibliography}.
+	
+	\item Externa al documento fuente. En este caso los registros de la base bibliográfica están contenidos en un fichero \texttt{.bib} de texto plano (sin formato, como \texttt{.tex}).
+\end{enumerate}
+
+Para implementar el segundo método se utiliza una herramienta adicional denominada Bib\TeX{} (comando \texttt{bibtex} en las distribuciones de \LaTeX). Este programa se encarga de procesar ficheros (\texttt{.bib}) de texto que sólo contienen registros de fuentes bibliográficas en los que constan todos los datos relativos a la fuente. El fichero \texttt{.bib} puede ser contemplado como un archivo de una base de datos bibliográfica. En este caso Bib\TeX{} junto con \LaTeX{} gestionan el estilo en que se imprime la bibliografía e incluso el de las citas. Con este procedimiento la tarea de elaboración de una bibliografía consiste en la creación de la base de datos con las referencias bibliográficas deseadas. Por supuesto los registros tendrán que respetar una estructura definida que Bib\TeX{} pueda comprender.
+
+Cada registro de la base bibliográfica proporciona información sobre el documento concreto al que se refiere:
+\begin{compactitem}
+	\item Autor(es).
+	\item Título.
+	\item Revista, libro, congreso u otra forma de publicación del documento.
+	\item Número, volumen, etc.
+	\item Editorial.
+	\item Fecha de publicación.
+\end{compactitem}
+
+
+
+\section{Elección del método más apropiado}
+En mi opinión el procedimiento apropiado para la inclusión de la bibliografía depende del tamaño de ésta y las características deseadas. Las principales ventajas de la inclusión directa de la bibliografía en el documento presenta graves inconvenientes: 
+\begin{itemize}
+	\item Reutilización tediosa (básicamente se trata de un <<corta y pega>>), y
+	\item Dificultad para mantener la homogeneidad del estilo en la bibliografía, tanto más cuanto más voluminosa es esta.
+\end{itemize}
+
+Por el contrario, el trabajo con bases bibliográficas externas (\texttt{.bib}) al documento fuente tiene grandes ventajas:
+\begin{itemize}
+	\item Reutilización sencilla e inmediata en diferentes documentos de trabajo,
+	\item Facilidad para compartir las bases bibliográficas entre varios colaboradores, y
+	\item Facilidad para emplear diferentes ficheros de bibliografía en un mismo documento (se evita que los ficheros sean muy voluminosos y puedan organizarse mejor)
+\end{itemize}
+
+
+Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración de la bibliografía existen algunas limitaciones que conviene tener presentes:
+\begin{itemize}
+	\item No puede tratar con bibliografías multilingües. Esto es, aquellas en las que las fuentes están en más de un idioma (p.ej.\ español e inglés).
+	
+	\item Bib\TeX{} no es compatible con \textsc{utf8} de modo que aunque los ficheros de bibliografía se pueden codificar así con algunos estilos bibliográficos se obtienen errores.
+\end{itemize}
+
+
+
+
+%%%%%%
+% Bibliografía
+% Inclusión de bibliografía mediante BD de registros bibliográficos contenidos en un fichero
+
+\renewcommand{\refname}{Bibliografía} % Cambio de nombre de la sección
+\addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC 
+
+% Definición del estilo empleado en la bibliografía
+\bibliographystyle{ieeetr}
+
+% Estilos nativos incluidos con LaTeX (plain, abbrv, alpha, unsrt).
+%
+% plain: las referencias se numeran y en la bibliografía las entradas
+%        aparecen en orden alfabético.
+% abbrv: igual que el anterior pero en la bibliografía los nombres se
+%        escriben sólo con la inicial.
+% alpha: las referencias se componen con las iniciales de los autores
+%        y el año de publicación. En la bibliografía los nombres 
+%        igual que en plain. 
+%        ATENCIÓN: No funciona con UTF8.
+% unsrt: la bibliografía no aparece por orden alfabético sino por 
+%        orden de cita en el texto.
+
+% Estilos “no nativos” pero muy “populares” para ingenierías
+%
+% acm:       Numérica con los nombre de autores en mayúsculas.
+% ieeetr:    Numérica para los IEEE Transactions.
+
+
+\nocite{*} % Se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto.(PROHIBIDO EN LA ESI)
+
+\bibliography{../bibfiles/bibtex} % Nombre del fichero .bib (sin extensión)
+
+
+
+\end{document}
+
