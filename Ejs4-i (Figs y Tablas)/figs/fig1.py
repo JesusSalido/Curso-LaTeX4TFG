@@ -16,7 +16,7 @@ plt.ylabel(r'\textit{voltage (mV)}', fontsize=11)
 plt.title(r"\TeX\ is Number $\displaystyle\sum_{n=1}^\infty"
           r"\frac{-e^{i\pi}}{2^n}$!", fontsize=11, color='r')
 plt.grid(True)
-file = 'fig1_py.pdf' # Nombre del fichero
-plt.savefig(file) #Salva la imagen en PDF
-os.system('pdfcrop ' + file + ' ' + file) # Recorta el fichero PDF para ajustar el BB
+file = 'fig1_py.pdf'  # Nombre del fichero
+plt.savefig(file)  # Salva la imagen en PDF
+os.system('pdfcrop ' + file + ' ' + file)  # Recorta el fichero PDF para ajustar el BB
 plt.show()

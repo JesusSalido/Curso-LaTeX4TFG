@@ -23,11 +23,13 @@
 			bottom=2cm]{geometry} % Márgenes 
 
 % Tipografía
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+
 \usepackage{marvosym}
 \usepackage{pifont} % Generación de símbolos especiales
 \usepackage{textcomp}
-\usepackage{newpxtext}
-\usepackage{newpxmath}
+
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
@@ -63,14 +65,15 @@
 \setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
 
 
-%\usepackage[backend=biber,
-%			sortcites,
-%			style=numeric-comp]{biblatex}
-%\usepackage[autostyle]{csquotes}
 
 \usepackage[backend=biber,
-	sortcites,
-	style=numeric-comp]{biblatex}
+%	style=apa, % Estilo APA
+	style=numeric-comp,
+	sortcites
+	]{biblatex}
+
+\DeclareLanguageMapping{spanish}{spanish-apa}
+
 \usepackage[autostyle]{csquotes}
 
 % OJO: Línea añadida para eliminar el idioma de las fuentes bibliográficas que no están en el idioma principal del documento.
@@ -100,7 +103,7 @@ Explicación sobre la gestión de bibliografía con Bib\LaTeX{} para los documen
 \tableofcontents
 
 \section{La creación de bibliografía}
-lEn la gran mayoría de documentos científicos~\cite[ver][5]{salido15} sus autores citan las fuentes consultadas durante la realización del trabajo presentado. \LaTeX{} proporciona herramientas muy flexibles para elaborar la \emph{lista de fuentes bibliográficas} e incluir las citas a ellas en el texto (ver~\cite{cascales00,cascales03,goos04,kopka04,lamport94}). La bibliografía aporta los detalles esenciales de los documentos externos citados y por lo general se imprime al final del documento principal como una sección separada del resto. El título de la sección varía según el tipo de documento principal y \LaTeX{} los denomina \emph{Referencias} o \emph{Bibliografía}, aunque dicho título se puede modificar fácilmente empleando el comando \texttt{renewcommand}.\footnote{Véase cómo se ha cambiado en este documento el título de dicha sección.}
+En la gran mayoría de documentos científicos \cite[ver][5]{salido15} sus autores citan las fuentes consultadas durante la realización del trabajo presentado. \LaTeX{} proporciona herramientas muy flexibles para elaborar la \emph{lista de fuentes bibliográficas} e incluir las citas a ellas en el texto \cite[ver][]{lamport94,cascales00,cascales03,goos04,kopka04}. La bibliografía aporta los detalles esenciales de los documentos externos citados y por lo general se imprime al final del documento principal como una sección separada del resto. El título de la sección varía según el tipo de documento principal y \LaTeX{} los denomina \emph{Referencias} o \emph{Bibliografía}, aunque dicho título se puede modificar fácilmente empleando el comando \texttt{renewcommand}.\footnote{Véase cómo se ha cambiado en este documento el título de dicha sección.}
 
 
 

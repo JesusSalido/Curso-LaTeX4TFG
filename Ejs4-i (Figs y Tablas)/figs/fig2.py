@@ -33,8 +33,8 @@ plt.grid(True)
 plt.subplot(212)
 cxy, f = plt.cohere(s1, s2, 256, 1./dt)
 plt.ylabel('coherence')
-file = 'fig2_py.pdf' # Nombre del fichero
-plt.savefig(file) #Salva la imagen en PDF
-os.system('pdfcrop ' + file + ' ' + file) # Recorta el fichero PDF para ajustar el BB
-#plt.savefig('tex_demo') #Salva la imagen en png
+file = 'fig2_py.pdf'  # Nombre del fichero
+plt.savefig(file)  # Salva la imagen en PDF
+os.system('pdfcrop ' + file + ' ' + file)  # Recorta el fichero PDF para ajustar el BB
+# plt.savefig('tex_demo')  # Salva la imagen en png
 plt.show()

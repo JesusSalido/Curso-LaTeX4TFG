@@ -20,11 +20,11 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
 
+\usepackage{newpxtext}
+\usepackage{newpxmath}
 \usepackage{marvosym}
 \usepackage{pifont} % Generación de símbolos especiales
 \usepackage{textcomp}
-\usepackage{newpxtext}
-\usepackage{newpxmath}
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 \usepackage{url} % Para escritura de URL
@@ -35,12 +35,12 @@
 
 % Generación de hiperenlaces
 \usepackage[pdftex,breaklinks,colorlinks,
-citecolor=blue, % Color de la citas
-urlcolor=blue, % Color de las URL
-bookmarksnumbered=true, % Incluye números en bookmarks
-pdftitle={Fundamentos de LaTeX para principiantes},
-pdfauthor={Jesús Salido},
-pdfsubject={LaTeX}]{hyperref}
+	citecolor=blue, % Color de la citas
+	urlcolor=blue, % Color de las URL
+	bookmarksnumbered=true, % Incluye números en bookmarks
+	pdftitle={Fundamentos de LaTeX para principiantes},
+	pdfauthor={Jesús Salido},
+	pdfsubject={LaTeX}]{hyperref}
 
 
 % Con estas instrucciones se ajustan los valores del índice
@@ -76,16 +76,16 @@ pdfsubject={LaTeX}]{hyperref}
 % En este caso se ha separado el contenido de las secciones en tres archivos distintos. Véase que los nombre de los ficheros pueden no incluir su extensión (LaTeX asume que se trata de extensión .tex). Se recomienda usar nombre que recuerden el contenido del mismo. También es recomendable que los nombre no contengan caracteres en blanco.
 
 % Ficheros introducidos mediante \input
-\input{Tipos}
-\input{Simb}
-\input{Alinea}
-\input{Listas}
+%\input{Tipos}
+%\input{Simb}
+%\input{Alinea}
+%\input{Listas}
 
 % Ficheros introducidos mediante \include
-%\include{Tipos}
-%\include{Simb}
-%\include{Alinea}
-%\include{Listas}
+\include{Tipos}
+\include{Simb}
+\include{Alinea}
+\include{Listas}
 
 \end{document}
 

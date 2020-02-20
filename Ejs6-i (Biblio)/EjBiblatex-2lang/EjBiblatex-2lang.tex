@@ -16,16 +16,17 @@
 %%%%%%%%%%%%%%
 \documentclass[11pt,a4paper]{article} 
 \usepackage[utf8]{inputenx} 
-\usepackage[spanish,english]{babel} % Se emplean todos los idiomas empleados en la bibliografía
+\usepackage[english,spanish,es-noindentfirst]{babel} % Se emplean todos los idiomas empleados en la bibliografía
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
-\usepackage{indentfirst} % Sangrado del primer párrafo de la sección
 
 % Tipografía
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+
 \usepackage{marvosym}
 \usepackage{pifont} % Generación de símbolos especiales
 \usepackage{textcomp}
-\usepackage{newpxtext}
-\usepackage{newpxmath}
+
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
@@ -53,10 +54,13 @@
 
 
 \usepackage[backend=biber,
-			sortcites,
+			style=apa,
 			autolang=other,
 			language=auto]{biblatex}
+
+
 \usepackage[autostyle]{csquotes}
+
 
 
 % OJO: Línea añadida para eliminar el idioma de las fuentes bibliográficas que no están en el idioma principal del documento.
@@ -86,7 +90,7 @@ Ejemplo que muestra cómo es posible generar una bibliografía multilingüe con 
 
 
 \section{La problemática de las bibliografías en varios idiomas}
-En los trabajos académicos una situación habitual es el empleo de fuentes de bibliografía en varios idiomas, por ejemplo español e inglés. A la hora de preparar la lista de referencias bibliográficas se pueden abordar dos posibles estrategias:
+En los trabajos académicos una situación habitual es el empleo de fuentes de bibliografía en varios idiomas,\parencite{cascales00,lamport94,goos07} por ejemplo español e inglés. A la hora de preparar la lista de referencias bibliográficas se pueden abordar dos posibles estrategias:
 \begin{itemize}
 	\item Generar todas las referencias en el idioma principal del documento. De este modo las referencias emplean el patrón de división del idioma principal y las partículas (\emph{`and'}, `et al'., ordinales, etc.) aparecen en dicho idioma. Este comportamiento se obtiene directamente con Bib\LaTeX.
 	

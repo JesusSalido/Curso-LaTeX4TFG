@@ -19,11 +19,13 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
 % Tipografía
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+
 \usepackage{marvosym}
 \usepackage{pifont} % Generación de símbolos especiales
 \usepackage{textcomp}
-\usepackage{newpxtext}
-\usepackage{newpxmath}
+
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 \usepackage{url} % Para escritura de URL
@@ -45,7 +47,9 @@
 % Gráficos
 \usepackage{tikz}     	% Creación de figuras nativas en LaTeX
 \usepackage{graphicx} 	% Inclusión de figuras y escalado de cajas
-\usepackage{subfigure}	% Inclusión de subfiguras
+
+\usepackage[margin=10pt,labelfont=bf]{caption}
+\usepackage[margin=10pt,font=small,labelfont=bf]{subcaption}	% Inclusión de subfiguras
 \usepackage{rotating}	% Rotación de figuras
 \usepackage{pgf}		% Inclusión de figuras con comandos LaTeX 
 
@@ -83,25 +87,56 @@
 
 
 \section{Subfiguras}
-La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphicx} con el que ya se pueden obtener resultados muy aceptables, aunque existen otros paquetes más especializados que facilitan hacer cosas más exóticas, como el paquete \texttt{subfigure} para presentar figuras compuestas de varias subfiguras (ver Figs.~\ref{fig:clock} y \ref{fig:lion}).
+La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphicx} con el que ya se pueden obtener resultados muy aceptables, aunque existen otros paquetes más especializados que facilitan hacer cosas más exóticas, como el paquete \texttt{subcaption}\footnote{Existen otros paquetes para incluir subfiguras como \texttt{subfig} y \texttt{subfigure}, aunque este último ha quedado obsoleto.} para presentar figuras compuestas de varias subfiguras (ver Figs.~\ref{fig:clock} y \ref{fig:lion}). A pesar de la posibilidad del uso del paquete \texttt{subcaption} no se debe descartar la alternativa de la composición externa a \LaTeX{} de las subfiguras y su inclusión en el documento como una figura sencilla (ver Fig.~\ref{fig:2clock}). Esta alternativa hace innecesario el empleo de paquetes dedicados.
+
+
+% NOTA: Inclusión de subfiguras con paquete "subfigure" ya obsoleto.
+%\begin{figure}[htb]
+%	\centering
+%	\subfigure[Imagen jpg en color]{
+%		\includegraphics[width=5.5cm]{clockCR}
+%		\label{fig:clockCR}
+%	}
+%	\subfigure[Imagen jpg en niveles de gris]{
+%		\includegraphics[width=5.5cm]{clockCRbw}
+%		\label{fig:clockCRbw}
+%	}
+%	\caption[Comparación jpg color y niveles de gris]{El reloj de la Plaza Mayor (cortesía de J.~Salido)}
+%	\label{fig:clock}
+%\end{figure}
 
 
 % Ejemplo:
 % ============
-%Aquí se muestra cómo se emplean subfiguras. Se pueden añadir cuantas subfiguras se desee, de modo que si no caben a la par LaTeX las ubicará en varias filas. Esta colocación en varias filas se puede provocar añadiendo \\ (saltos de línea). Las subfiguras también se pueen emplear en las refs. cruzadas. El título de la figura también admite uno alternativo para la lista de figuras.
+%Aquí se muestra cómo se emplean subfiguras. Se pueden añadir cuantas subfiguras se desee, de modo que si no caben a la par LaTeX las ubicará en varias filas. Esta colocación en varias filas se puede provocar añadiendo \\ (saltos de línea). Las subfiguras también se pueden emplear en las refs. cruzadas. El título de la figura también admite un título corto para la lista de figuras.
 \begin{figure}[htb]
 	\centering
-	\subfigure[Imagen jpg en color]{
-		\includegraphics[width=5.5cm]{clockCR}
-		\label{fig:clockCR}
-	}
-	\subfigure[Imagen jpg en niveles de gris]{
-		\includegraphics[width=5.5cm]{clockCRbw}
-		\label{fig:clockCRbw}
-	}
-	\caption[Comparación jpg color y niveles de gris]{El reloj de la Plaza Mayor (cortesía de J.~Salido)}
+	\begin{subfigure}[b]{0.3\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{clockCR}
+		\caption{Imagen jpg en color}\label{fig:clockCR}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{clockCRbw}
+		\caption{Imagen jpg en niveles de gris}\label{fig:clockCRbw}
+	\end{subfigure}
+	\caption[Comparación jpg color y niveles de gris]{Ej. de paquete \texttt{subcaption} mostrando el reloj de la Plaza Mayor (cortesía de J.~Salido)}
 	\label{fig:clock}
 \end{figure}
+
+
+
+% Ejemplo:
+% ============
+%Aquí se muestra cómo incluir una figura compuesta por subfiguras. Para montarlas se emplearon los programas PhotoFiltre y Powerpoint. Primero se redujo el tamaño original de las imágenes para que ocupasen menos memoria y después se montaron con Powerpoint una junto a otra dejando un espacio en blanco entre ellas. Este montaje se exporto a Photofiltre para salvarlo en el formato final.
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=0.6\linewidth]{2clockCR}
+		\caption[Varias imágenes como una]{El reloj de la Plaza Mayor en color (izda.) y niveles de gris (dcha.)}
+	\label{fig:2clock}
+\end{figure}
+
 
 Siempre que se tenga un fichero de imagen (mapa de bits) con un fondo blanco u otro color plano, debería intentarse transformar en una imagen con fondo transparente convirtiéndola al formato \texttt{.png} (véase ejemplo en la Fig.~\ref{fig:lion}).
 
@@ -109,16 +144,18 @@ Siempre que se tenga un fichero de imagen (mapa de bits) con un fondo blanco u o
 % Ejemplo:
 % ============
 \begin{figure}[htb]
-  \centering
-	\subfigure[Imagen como jpg]{
+	\centering
+  	\begin{subfigure}[b]{0.4\linewidth}
+  		\centering
 		\includegraphics[width=6cm]{lionL.jpg}
-		\label{fig:lionLjpg}
-	}
-	\subfigure[Imagen como png con fondo transparente]{
+		\caption{Imagen como jpg}\label{fig:lionLjpg}
+  	\end{subfigure}
+  	\begin{subfigure}[b]{0.4\linewidth}
+  		\centering
 		\includegraphics[width=6cm]{lionL.png}
-		\label{fig:lionpng}
-	}
-	\caption[Comparación jpg y png con transparencia]{Comparativa de formatos bitmap (cortesía de D.~Wright)}
+		\caption{Imagen como png con fondo transparente}\label{fig:lionpng}
+  	\end{subfigure}
+  	\caption[Comparación jpg y png con transparencia]{Comparativa de formatos bitmap (cortesía de D.~Wright)}
 	\label{fig:lion}
 \end{figure}
 
@@ -128,21 +165,23 @@ En la Fig.~\ref{fig:clock} se muestra un ejemplo de empleo de subfiguras. En dic
 
 La Fig.~\ref{fig:lion} muestra un ejemplo de subfiguras mostrando la misma figura en formatos \texttt{.jpg} y \texttt{.png} en la que el fondo blanco se ha convertido en transparente. 
 
-En la Fig.~\ref{fig:escudo} se pueden comparar los resultados obtenidos cuando la figura se inserta en formato vectorial (escalable) y cuando se hace como mapa de bits (no escalable). En este ejemplo se muestran dos versiones para el escudo de la Ingeniería Informática.\footnote{Fuente: CRySoL. Para un discusión muy interesante sobre la historia de dicho emblema, su significado y su elaboración se puede consultar la URL: \url{http://crysol.org/es/node/1100}.}
+En la Fig.~\ref{fig:escudo} se pueden comparar los resultados obtenidos cuando la figura se inserta en formato vectorial (escalable) y cuando se hace como mapa de bits (no escalable). En este ejemplo se muestran dos versiones para el escudo de la Ingeniería Informática (cortesía de CRySoL).\footnote{El escudo basado en el núcleo de ferrita que acompaña la distribución de este documento ha sido realizado por Francisco Moya, David Villa e Ignacio Díez y su inclusión en el documento final debe respetar los derechos de la licencia CC BY-SA 3.0 con la que se distribuye.}
 
 
 % Ejemplo:
 % ============
 \begin{figure}[htb]
 	\centering
-	\subfigure[Gráfico vectorial PDF]{
+	\begin{subfigure}[b]{0.4\linewidth}
+		\centering
 		\includegraphics[width=3.5cm]{escudoInfBW.pdf}
-		\label{fig:escudoPDF}
-	} 
-	\subfigure[Gráfico png]{
+		\caption{Gráfico vectorial PDF}\label{fig:escudoPDF}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\linewidth}
+		\centering
 		\includegraphics[width=3.8cm]{escudoInfBW.png}
-		\label{fig:escudoPNG}
-	}
+		\caption{Gráfico png}\label{fig:escudoPNG}
+	\end{subfigure}
 	\caption[Comparación PDF y png]{Comparando distintos formatos para el escudo de Informática (cortesía de CRySoL)}
 	\label{fig:escudo}
 \end{figure}

@@ -19,11 +19,14 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
 % Tipografía
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+
+% Símbolos
 \usepackage{marvosym}
 \usepackage{pifont} % Generación de símbolos especiales
 \usepackage{textcomp}
-\usepackage{newpxtext}
-\usepackage{newpxmath}
+
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 \usepackage{url} % Para escritura de URL
@@ -56,6 +59,8 @@
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 % Lista de extensiones de ficheros por orden de precedencia. De este modo no hace falta indicar la extensión del fichero y en caso de existir dos fichero con el mismos nombre y extensión diferente se emplea el que tiene una extensión con mayor prioridad.
 
+\usepackage[margin=10pt,labelfont=bf]{caption}
+\captionsetup[figure]{skip=5pt} % Necesario por si se desea colocar los títulos de las figs. en la parte superior. De este modo no queda tan pegado a la figura.
 
 % Con estas instrucciones se ajustan los valores del índice
 \setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
@@ -90,6 +95,8 @@ La inclusión de figuras y archivos de imagen en un documento elaborado con \LaT
 % ============
 \begin{figure}[htb] % Véase los tags de ubicación (h)ere, (t)op, (b)ottom
 	\centering % Fig. centrada en la página
+% 	EDITAR: En caso de requerir que el título aparezca en la parte superior de la figura.
+%	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido)} % Título y el título para la lista de figuras
 	\includegraphics[height=6cm]{plazaCR} % Alto de la figura en la pág.
 	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido)} % Título y el título para la lista de figuras
 	\label{fig:plazaCR} % Etiqueta para las refs. cruzadas
@@ -155,7 +162,7 @@ Uno de los programas más universales para la creación de gráficas matemática
 % ============
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.5\linewidth]{EjFigsExcel} 
+	\includegraphics[width=0.5\linewidth]{EjFigsExcelOrig} 
 	\caption[Gráfico de Excel]{Figura vectorial generada con Excel}
 	\label{fig:excel}
 \end{figure}

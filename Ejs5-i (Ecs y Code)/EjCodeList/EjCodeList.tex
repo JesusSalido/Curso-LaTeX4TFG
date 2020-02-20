@@ -20,12 +20,14 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
 % Tipografía
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+
 \usepackage{marvosym}
 \usepackage{pifont} % Generación de símbolos especiales
 \usepackage{textcomp}
 \usepackage{ccicons}
-\usepackage{newpxtext}
-\usepackage{newpxmath}
+
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
@@ -288,9 +290,8 @@
 
 
 
-\usepackage{caption} % Configuración de caption en objetos float
-\captionsetup[table]{skip=4pt} 	% Separación del caption en las tablas aumentando el
-% valor por defecto 
+\usepackage[margin=10pt,labelfont=bf]{caption} % Configuración de caption en objetos float
+\captionsetup[table]{skip=5pt} 	% Separación del caption en las tablas aumentando el valor por defecto 
 
 
 %--- Paquete para incluir menús, paths y teclas de modo "elegante"

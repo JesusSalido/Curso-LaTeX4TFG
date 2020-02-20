@@ -21,11 +21,13 @@
 \usepackage{indentfirst} % Sangrado del primer párrafo de la sección
 
 % Tipografía
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+
 \usepackage{marvosym}
 \usepackage{pifont} % Generación de símbolos especiales
 \usepackage{textcomp}
-\usepackage{newpxtext}
-\usepackage{newpxmath}
+
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
@@ -62,6 +64,8 @@
 
 
 \usepackage[backend=biber,
+			bibencoding=utf8,
+			maxbibnames=2,
 			sortcites,
 			style=numeric-comp]{biblatex}
 \usepackage[autostyle]{csquotes}

@@ -21,9 +21,6 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
 %--- Tipografía
-\usepackage{textcomp}	% Símbolos
-\usepackage{marvosym}	% Símbolos
-\usepackage{pifont}		% Generación de símbolos especiales
 \usepackage{amsmath}	% Símbolos matemáticos
 \usepackage{amsthm}		% Fuentes en entorno matemático
 \usepackage{amssymb}	% Símbolos matemáticos (carga amsfonts)
@@ -35,6 +32,9 @@
 %\usepackage[tt=false]{libertine}
 %\usepackage[libertine]{newtxmath}
 %---
+\usepackage{textcomp}	% Símbolos
+\usepackage{marvosym}	% Símbolos
+\usepackage{pifont}		% Generación de símbolos especiales
 
 \usepackage{paralist}
 \usepackage{siunitx} % Uso de unidades del SI según normas ISO
@@ -72,9 +72,6 @@ pdfsubject={LaTeX}]{hyperref}
 
 
 \usepackage{caption} % Configuración de caption en objetos float
-\captionsetup[table]{skip=4pt} 	% Separación del caption en las tablas aumentando el
-% valor por defecto 
-
 
 % Paquetes especiales para Química
 \usepackage[version=3]{mhchem}
@@ -249,6 +246,7 @@ Para terminar, un ejemplo más del control del espaciado horizontal empleando el
 
 \section{Añadiendo unidades del SI}
 En la gran mayoría de las ramas científico-técnicas es preciso el empleo de unidades asociadas a las magnitudes físicas que se emplean. En estos casos se emplea habitualmente las unidades del Sistema Internacional (SI). El paquete \texttt{siunitx}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/siunitx/siunitx.pdf}} proporciona un modo sencillo de incluir las magnitudes físicas con sus unidades en los documentos preparados con \LaTeX{} de acuerdo a las normas ISO.
+
 A continuación se muestran algunos ejemplos de uso:\footnote{Este paquete presenta alguna incompatibilidad con el idioma español en dos de sus macros que requieren para su uso una reconfiguración, aunque en su lugar es preferible evitarlas.}
 
 \bigskip
@@ -312,64 +310,27 @@ Al igual que se ha hecho más arriba en la ecs.~\ref{eq:cuadro} y \ref{eq:cuadro
 \subsection{Fórmulas químicas con el paquete \texttt{chemfig}}
 Es un paquete que aprovecha las capacidades gráficas del paquete \texttt{tikz} (Ti\textit{k}Z)\footnote{Si no se ha cargado previamente \texttt{chemfig} lo cargará.} y es muy flexible. Sin embargo, no hay que perder de vista que aprender a utilizarlo ya puede representar un esfuerzo importante. En este caso una solución alternativa es emplear programas dedicados de dibujo de fórmulas químicas importando éstos en el documento \LaTeX{} como un fichero PDF.
 
-A continuación se muestran algunos ejemplos de fórmulas químicas empleando el paquete \texttt{chemfig}. En la Fig.~\ref{fig:chemfig} se muestra como es posible tratar como una figura una fórmula generada con \texttt{chemfig}.
+A continuación se muestran algunos ejemplos de fórmulas químicas empleando el paquete \texttt{chemfig}. En la Fig.~\ref{fig:cafeina} se muestra como es posible tratar como una figura una fórmula generada con \texttt{chemfig}.
 
 
 % Ejemplo: Cafeina
 % ============
-\begin{center}
-	\chemfig{H_3C-[:30]N**6(-(=O)-(**5(-N(-CH_3)--N-))--N(-CH_3)-(=O)-)}\\[1cm]
-\end{center}
-
+\begin{figure}[!h]
+	\begin{center}
+		\chemfig{H_3C-[:30]N**6(-(=O)-(**5(-N(-CH_3)--N-))--N(-CH_3)-(=O)-)}
+	\end{center}
+	\caption{Fórmula química de la cafeina}\label{fig:cafeina}
+\end{figure}
 
 
 
 % Ejemplo: Adrenalina
 % ============
-%\begin{center}
-%\definesubmol{&}{-[,,,,draw=none]}
-%\definesubmol{&&}{-[,,,2,draw=none]}
-%\chemfig{*6((-HO)-=*6(!&!{&&}HN(-CH_3)-[,,2]-(<OH)-)-=-(-HO)=)}
-%\end{center}
-
-
-% Ejemplo: 
-% ============
 \begin{center}
-\setcrambond{2pt}{}{}
-\chemfig{HO-[2,0.5,2]?<[7,0.7](-[2,0.5]OH)-[,,,,
-line width=2pt](-[6,0.5]OH)>[1,0.7](-[6,0.5]OH)-[3,0.7]
-O-[4]?(-[2,0.3]-[3,0.5]OH)}
+\definesubmol{&}{-[,,,,draw=none]}
+\definesubmol{&&}{-[,,,2,draw=none]}
+\chemfig{*6((-HO)-=*6(!&!{&&}HN(-CH_3)-[,,2]-(<OH)-)-=-(-HO)=)}
 \end{center}
-
-% Ejemplo: 
-% ============
-% Este es un poco más complejo al que se ha añadido un escalado con 
-% \resizebox para ajustarlo al tamaño de la línea. Esta solución
-% escala también las fuentes.
-\begin{figure}
-\begin{center}
-\resizebox{\textwidth}{!}{
-\definesubmol\cycleoplus{-[,0.25,,,draw=none]\oplus}
-\definesubmol{so2oh}{S(=[::90]O)(=[::-90]O)-OH}
-\setatomsep{2.5em}
-\schemestart[,1.5]
-\chemname{\chemfig{*6(=-*6(-=-=-)=-=-)}}{Naphtalène}\+\chemfig{H_2SO_4}
-\arrow(nph.mid east--.south west){->[80$^\circ$ C]}[45]
-\chemname{\chemfig{*6(=-*6(-=-(!\cycleoplus)-(-SO_3H)-)=-=-)}}{Ion 1-arenium}
-\arrow(.mid east--.mid west)
-\chemname{\chemfig{*6(=-*6(-=-=(-!{so2oh})-)=-=-)}}{Acide 1-naphthalenesulfonique}
-\arrow(@nph.mid east--.north west){->[160$^\circ$ C]}[-45]
-\chemname{\chemfig{*6(=-*6(-=-(-SO_3H)-(!\cycleoplus)-)=-=-)}}{Ion 2-arenium}\kern-4em
-\arrow(.mid east--.mid west)
-\chemname{\chemfig{*6(=-*6(-=-(-!{so2oh})=-)=-=-)}}{Acide 2-naphthalenesulfonique}
-\schemestop
-}
-\end{center}
-\caption{Ejemplo de fórmula química hecha con \texttt{chemfig} e insertada como figura}
-\label{fig:chemfig}
-\end{figure}
-
 
 
 
