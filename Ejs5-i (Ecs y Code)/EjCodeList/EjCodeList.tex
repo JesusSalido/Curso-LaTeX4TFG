@@ -261,9 +261,21 @@
 }
 
 
+\lstdefinestyle{Matlab-color}{%
+	basicstyle=\scriptsize,
+	language=Matlab,
+  	keywordstyle=\color{blue},
+  	commentstyle=\color{DarkGreen},
+  	stringstyle=\color{DarkOrchid}
+}
 
 
-
+% OJO: Definición de dos macros para el tratamiento correcto de comentarios con % en Matlab
+% (sólo necesario si se desea incluir código Matlab)
+\makeatletter
+\def\spanishplainpercent{\let\es@sppercent\@empty}
+\def\spanishpercent{\def\es@sppercent{\unskip\textormath{$\m@th\,$}{\,}}}
+\makeatother
 
 
 
@@ -404,8 +416,23 @@ Aquí se incluye un listado configurado con un estilo que emplea más el color y
 
 \lstinputlisting[language=Python,style=Python-color, float=ht,caption={Ejemplo de código Python desde un fichero externo},label=lst:pyfile]{../code/pyexample.py}
 
+La inclusión de código en Matlab presenta algunas particularidades en idioma español ya que \texttt{babel} modifica el espacio que separa el signo `\%'. Por este motivo es preciso incluir las macros especiales \verb|\spanishplainpercent| y \verb|\spanishpercent| para que dicho carácter sea tratado correctamente. El ejemplo~\ref{lst:matlab} muestra un listado correspondiente a código Matlab.
 
-
+\spanishplainpercent
+\begin{lstlisting}[style=Matlab-color,float=ht,caption={Ejemplo escrito en Matlab},label=lst:matlab]
+function f = fibonacci(n)
+ % FIBONACCI  Fibonacci sequence
+ %	f = FIBONACCI(n) generates the first n Fibonacci numbers.
+ %	Copyright 2014 Cleve Moler
+ %	Copyright 2014 The MathWorks, Inc.
+f = zeros(n,1); 
+f(1) = 1;
+f(2) = 2;
+for k = 3:n
+f(k) = f(k-1) + f(k-2);
+end
+\end{lstlisting}
+\spanishpercent
 
 \subsection{Algoritmos con el paquete \texttt{algorithm2e}}
 Como ya se ha comentado en los textos científicos relacionados con las TIC\footnote{Por supuesto en un TFG o tesis de una Escuela de Informática.} (Tecnologías de la Información y Comunicaciones) suelen aparecer porciones de código en los que se explica alguna función o característica relevante del trabajo que se expone. Muchas veces lo que se quiere ilustrar es un algoritmo o método en que se ha resuelto un problema abstrayéndose del lenguaje de programación concreto en que se realiza la implementación. El paquete \texttt{algorithm2e}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}} proporciona un entorno \texttt{algorithm} para la impresión apropiada de algoritmos tratándolos como objetos flotantes y con muchas flexibilidad de personalización. En el algoritmo \ref{alg:como} se muestra cómo puede emplearse dicho paquete. En este curso no se explican las posibilidades del paquete más en profundidad ya que excede el propósito del curso. A todos los interesados se les remite a la documentación del mismo.
