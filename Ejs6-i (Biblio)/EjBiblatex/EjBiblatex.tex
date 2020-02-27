@@ -66,11 +66,29 @@
 
 
 
-\usepackage[backend=biber,
-	style=apa, % Estilo APA
-%	style=numeric-comp,
-	sortcites
+\usepackage[%
+	backend=biber,
+	% Estilos: numeric, numeric-comp, alphabetic, authoryear, authoryear-comp
+	% Otros: apa, chicago, ieee, mla-new, iso-numeric, iso-authoryear
+	% Estilos tradicionales BibTeX: trad-plain, trad-unsrt, trad-alpha y trad-abbrv
+%	style=apa, % Estilo APA
+	style=iso-numeric,
+	% Citación: numeric, numeric-comp, numeric-verb, 
+	%           authoryear, authoryear-comp,...
+	%           otros aplicados con estilo gral.: ieee,apa,aml,chem-acs,iso-numeric,iso-authoryear
+	citestyle=numeric-comp,
+	sortcites, % Ordenación de citas múltiples cuando son numéricas
+	maxbibnames=3, % Máximo número listado de autores en la bibliografía
+	minbibnames=1, % Mínimo número de autores cuando se abrevia la lista de autores
+	% Criterio de ordenación de las referencias.
+	sorting=nty%
+					% Para cambiar criterio de ordenación de las referencias.
+ 					% =nty (name-title-year), nyt (name-year-title), nyvt (name-year-volume-title), 
+					% =anyt (alphabetic-name-year-title), anyvt (alphabetic-name-year-volume-title), 
+					% =ynt (year-name-title), ydnt (yeardescendent-name-title), 
+					% =none (por orden de citación, como en ETSII-UCLM).			
 	]{biblatex}
+
 
 \DeclareLanguageMapping{spanish}{spanish-apa}
 
@@ -96,7 +114,7 @@
 \maketitle
 
 
-\begin{abstract}l
+\begin{abstract}
 Explicación sobre la gestión de bibliografía con Bib\LaTeX{} para los documentos escritos con \LaTeX{} \cite{wikibookLaTex10}.
 \end{abstract}
 
