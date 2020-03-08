@@ -17,26 +17,15 @@
 \usepackage[spanish]{babel}	% Idioma del texto
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
+%-------------
+%-------------
 % Tipografías apropiadas para textos técnicos (con matemáticas)
-
-% ===========
-% Palatino + math (obsoleto)
-%\usepackage{mathpazo} % Palatino
-
-% Times + math (obsoleto)
-%\usepackage{mathptmx} % Times (Nimbus Roman)
-%\usepackage[scaled=0.88]{helvet} % Helvética (escalable)
-%\usepackage[scaled=0.95]{couriers} % Courier (escalable)
-% ===========
 
 
 % Latin Modern | LM Sans Serif | LM teletype (antigua)
 %\usepackage{lmodern}  
 
-% CM sans serif mejorada con versión matemática
-% \usepackage{cmbright}  
-
-
+% NOTA: Esta es mi opción preferida para documentos académicos
 % Libertine + math (Times)
 \usepackage[osf]{libertine}
 \usepackage[libertine]{newtxmath}
@@ -52,10 +41,17 @@
 %\usepackage{newpxmath}
 
 
+% Utopia:
+%\usepackage{fourier}
+
+
+% Romanas + math (austera)
+%\usepackage{kpfonts}
+
+
 % Garamond + math:
 %\usepackage{ebgaramond}
 %\usepackage{ebgaramond-maths}
-
 
 % Barskervile + math
 %\usepackage{baskervaldx}
@@ -68,14 +64,8 @@
 %\linespread{1.04}
 
 
-% Romanas + math (austera)
-%\usepackage{kpfonts}
-
-
-% Utopia:
-%\usepackage{fourier}
-
-
+%-------------
+%-------------
 % Caladea (sin fuentes para modo matemático)
 %\usepackage{caladea}
 
@@ -128,5 +118,6 @@
 
 Por supuesto \LaTeX{} tiene en cuenta las particularidades de la tipografía en modo matemático como en: $f(x)=y^2$ y números $1,2,3,4,5,6,7,8,9$, o en modo texto: 0123456789.
 
+$$g(x)=\int_{0}^{\infty}y^{3}dy$$
 
 \end{document}
