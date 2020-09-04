@@ -105,7 +105,7 @@ El paquete \texttt{multirow} permite la expansión de celdas a varias columnas o
 
 % Ejemplo
 % ==========
-\begin{table}[htb]%
+\begin{table}[hbt]%
 	\centering
 	\caption{Ejemplo de expansión en columnas}
 	\label{tab:expcolumnas}
@@ -132,7 +132,7 @@ El paquete \texttt{multirow} permite la expansión de celdas a varias columnas o
 % Ejemplo
 % ==========
 
-\begin{table}[htb]%
+\begin{table}[hbt]%
 	\centering
 	\caption{Ejemplo de expansión en filas}
 	\label{tab:expfilas}
@@ -162,7 +162,7 @@ El paquete \texttt{multirow} permite la expansión de celdas a varias columnas o
 
 % Ejemplo
 % ==========
-\begin{table}[htb]%
+\begin{table}[hbt]%
 	\centering
 	\caption{Ejemplo de expansión simultánea en filas y columnas}
 	\label{tab:expsimul}
@@ -189,10 +189,11 @@ El uso del color en los documentos académicos debe realizarse de modo muy comed
 
 % Ejemplo
 % ==========
-\begin{table}[htb]
+\begin{table}[hbt]
 	\centering
 	\caption[Tabla con color]{Ejemplo de tabla con colores}
-	\rowcolors{1}{green}{pink}
+%	\rowcolors{1}{}{lightgray}
+	\rowcolors{1}{pink}{green}
 	\begin{tabular}{lll}
 		impar  & impar  & impar \\
 		par    & par    & par   \\
@@ -239,7 +240,7 @@ Entre otros el paquete \texttt{graphicx} aporta comandos para realizar el escala
 
 % Ejemplo:
 % ============
-\begin{table}[htb]
+\begin{table}[hbt]
 	\centering
 	\caption{Tabla escalada}
 	\label{tab:escalada}
@@ -313,7 +314,7 @@ Para conseguir unas tablas de acabado más profesional puede emplearse alguno de
  
 % Ejemplo
 % ==========
-\begin{table}[htb]
+\begin{table}[hbt]
    \centering
    	  \caption{Tabla convencional \LaTeX}
    	  \label{tab:normal}
@@ -335,7 +336,7 @@ Para conseguir unas tablas de acabado más profesional puede emplearse alguno de
 
 % Ejemplo
 % ==========
-\begin{table}[htb]
+\begin{table}[hbt]
    \centering
    	  \caption{Tabla con paquete \texttt{booktabs}}
    	  \label{tab:booktabs}      

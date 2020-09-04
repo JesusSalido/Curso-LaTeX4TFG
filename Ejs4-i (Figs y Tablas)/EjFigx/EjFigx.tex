@@ -91,7 +91,7 @@ La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphic
 
 
 % NOTA: Inclusión de subfiguras con paquete "subfigure" ya obsoleto.
-%\begin{figure}[htb]
+%\begin{figure}[hbt]
 %	\centering
 %	\subfigure[Imagen jpg en color]{
 %		\includegraphics[width=5.5cm]{clockCR}
@@ -109,14 +109,14 @@ La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphic
 % Ejemplo:
 % ============
 %Aquí se muestra cómo se emplean subfiguras. Se pueden añadir cuantas subfiguras se desee, de modo que si no caben a la par LaTeX las ubicará en varias filas. Esta colocación en varias filas se puede provocar añadiendo \\ (saltos de línea). Las subfiguras también se pueden emplear en las refs. cruzadas. El título de la figura también admite un título corto para la lista de figuras.
-\begin{figure}[htb]
+\begin{figure}[hbt]
 	\centering
-	\begin{subfigure}[b]{0.3\linewidth}
+	\begin{subfigure}[b]{0.4\linewidth}
 		\centering
 		\includegraphics[width=0.8\linewidth]{clockCR}
 		\caption{Imagen jpg en color}\label{fig:clockCR}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.3\linewidth}
+	\begin{subfigure}[b]{0.4\linewidth}
 		\centering
 		\includegraphics[width=0.8\linewidth]{clockCRbw}
 		\caption{Imagen jpg en niveles de gris}\label{fig:clockCRbw}
@@ -130,7 +130,7 @@ La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphic
 % Ejemplo:
 % ============
 %Aquí se muestra cómo incluir una figura compuesta por subfiguras. Para montarlas se emplearon los programas PhotoFiltre y Powerpoint. Primero se redujo el tamaño original de las imágenes para que ocupasen menos memoria y después se montaron con Powerpoint una junto a otra dejando un espacio en blanco entre ellas. Este montaje se exporto a Photofiltre para salvarlo en el formato final.
-\begin{figure}[htb]
+\begin{figure}[hbt]
 	\centering
 		\includegraphics[width=0.6\linewidth]{2clockCR}
 		\caption[Varias imágenes como una]{El reloj de la Plaza Mayor en color (izda.) y niveles de gris (dcha.)}
@@ -143,7 +143,7 @@ Siempre que se tenga un fichero de imagen (mapa de bits) con un fondo blanco u o
 
 % Ejemplo:
 % ============
-\begin{figure}[htb]
+\begin{figure}[hbt]
 	\centering
   	\begin{subfigure}[b]{0.4\linewidth}
   		\centering
@@ -170,7 +170,7 @@ En la Fig.~\ref{fig:escudo} se pueden comparar los resultados obtenidos cuando l
 
 % Ejemplo:
 % ============
-\begin{figure}[htb]
+\begin{figure}[hbt]
 	\centering
 	\begin{subfigure}[b]{0.4\linewidth}
 		\centering
@@ -199,7 +199,7 @@ forman parte del fichero \texttt{.png} y por tanto son definidos como mapa de bi
 
 % Ejemplo:
 % ============
-\begin{figure}[htb]
+\begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.5\linewidth]{texmk02} 
 	\caption[Captura con gráfico en \texttt{png}]{Captura de pantalla con añadido gráfico en formato \texttt{png}}
@@ -208,7 +208,7 @@ forman parte del fichero \texttt{.png} y por tanto son definidos como mapa de bi
 
 % Ejemplo:
 % ============
-\begin{figure}[htb]
+\begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.5\linewidth]{texmk03} 
 	\caption[Captura con gráfico en \texttt{pdf}]{Captura de pantalla con añadido gráfico en formato \texttt{pdf}}
@@ -225,7 +225,7 @@ La Fig.~\ref{fig:visio_mp} nos muestra el procedimiento para usar los ficheros P
 
 % Ejemplo:
 % ============
-\begin{figure}[htb]
+\begin{figure}[hbt]
 	\centering
 	\includegraphics[page=2,width=0.5\linewidth]{visio_mp} 
 	\caption[Gráfico de Visio multipágina]{Figura vectorial generada con Microsoft Visio en un fichero multipágina}
@@ -261,7 +261,7 @@ Además de los aspectos comentados aquí sobre la inclusión de imágenes y grá
 % Ejemplo:
 % ============
 % Gráfico realizado con instrucciones directas de TeX, en este caso además el gráfico se ha incluido en un entorno figure para que sea tratado como un objeto flotante.
-\begin{figure}[htb]
+\begin{figure}[hbt]
 	\centering
 	\newcounter{cms}
 	\setlength{\unitlength}{1mm}
@@ -289,7 +289,7 @@ Además de los aspectos comentados aquí sobre la inclusión de imágenes y grá
 % Ejemplo:
 % ============
 % Gráfico realizado con paquete tikZ, en este caso además el gráfico se ha incluido en un entorno figure para que sea tratado como un objeto flotante.
-\begin{figure}[htb]
+\begin{figure}[hbt]
 	\centering
 	{\shorthandoff{>}
 		\begin{tikzpicture}[>=stealth]
