@@ -10,10 +10,11 @@
 %%%%%%%%%%%%%%
 % Preámbulo del documento
 %%%%%%%%%%%%%%
-%\documentclass[11pt,a4paper,titlepage]{article} 
+%\documentclass[11pt,a4paper]{report} 
 \documentclass[11pt,a4paper]{article} 
 \usepackage[utf8]{inputenx}	% Codificación de entrada
 \usepackage[spanish]{babel}	% Idioma del texto
+%\usepackage[english]{babel}	% Idioma del texto
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
 %--- Interlineado: Estrecho (6 ptos./interlineado 1,15) o Moderado (6 ptos./interlineado 1,5)
@@ -52,10 +53,10 @@
 \maketitle
 
 
-
 \begin{abstract}
 	Este es un ejemplo para mostrar los símbolos que puede producir \LaTeX.
 \end{abstract}
+
 
 \pagenumbering{roman}
 \setcounter{page}{25}
@@ -68,7 +69,7 @@ Recordar los usos de las ``comillas dobles'' y las <<latinas>>.
 
 \LaTeX{} también puede generar un conjunto muy amplio de símbolos especiales como el \EUR{} o \texteuro, \ding{45} y \Coffeecup. En los textos informáticos un carácter habitual es \verb+~+ empleado en las direcciones URL. Este carácter se puede generar de varias formas (\verb+~+, \~{}, $\sim$). Aunque empleando el paquete \texttt{url} la escritura de direcciones electrónicas se simplifica, por ejemplo:
 
-{\footnotesize\url{http://osl.ugr.es/CTAN/info/symbols/comprehensive/symbols-a4.pdf}}
+\url{http://osl.ugr.es/CTAN/info/symbols/comprehensive/symbols-a4.pdf}
 
 \noindent dirección URL de \emph{The Comprehensive \LaTeX{} Symbol List} de Scott Pakin (2009) donde se hace un repaso de todos los símbolos y caracteres que se pueden generar en \LaTeX{}.
 
@@ -78,6 +79,8 @@ Al componer documentos en español hay que tener en cuenta las peculiaridades de
 
 \noindent Con el comando \verb+\verb+ se puede generar texto que \LaTeX{} no procesa.\footnote{Emplearlo con precaución.}
 
+
+
 El entorno:
 \begin{verbatim}
    verbatim permite hacer lo 
@@ -86,7 +89,7 @@ El entorno:
 
 Las versiones con estrella permiten destacar los espacios en blanco así:
 
-\verb*|Texto sin procesar|
+\verb*|Texto sin  procesar|
 
 Y también en el entorno verbatim:
 
@@ -94,9 +97,6 @@ Y también en el entorno verbatim:
    verbatim permite hacer lo 
    mismo en un texto más extenso.
 \end{verbatim*} 
-
-
-
 
 
 \end{document}

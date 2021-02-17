@@ -38,10 +38,8 @@
 	colorlinks, % OJO: Incompatible con paquete "menukeys"
 	citecolor=blue, % Color de la citas
 	urlcolor=blue, % Color de las URL
-	bookmarksnumbered=true, % Incluye números en bookmarks
-	pdftitle={Fundamentos de LaTeX para principiantes},
-	pdfauthor={Jesús Salido},
-	pdfsubject={LaTeX}]{hyperref}
+	bookmarksnumbered=true % Incluye números en bookmarks
+    ]{hyperref}
 
 
 % Listas
@@ -93,7 +91,7 @@ La inclusión de figuras y archivos de imagen en un documento elaborado con \LaT
 
 % Ejemplo:
 % ============
-\begin{figure}[hbt] % Véase los tags de ubicación (h)ere, (t)op, (b)ottom
+\begin{figure}[hbt] % Véase los tags de ubicación (h)ere, (b)ottom, (t)op 
 	\centering % Fig. centrada en la página
 % 	EDITAR: En caso de requerir que el título aparezca en la parte superior de la figura.
 %	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido)} % Título y el título para la lista de figuras
@@ -123,7 +121,7 @@ A la hora de incluir figuras se debe decidir qué formato es el más apropiado e
 
 % Ejemplo:
 % ============
-\begin{figure}[ht]
+\begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.4\linewidth]{inkscape} 
 	\caption[Ejemplo de captura en png]{Captura de pantalla de \textsf{Inkscape}}
