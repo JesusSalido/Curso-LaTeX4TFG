@@ -3,7 +3,7 @@
 % Fichero: EjBiblatex
 % Autor: J. Salido (http://www.uclm.es/profesorado/jsalido)
 % Fecha: febrero, 2017
-% Descripción: Método 3. Gestión de bibliografía con Bib(La)TeX.
+% Descripción: Gestión de bibliografía con Bib(La)TeX.
 % En este ejemplo se añaden referencias correctamente en el idioma 
 % del documento.
 % Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
@@ -94,6 +94,7 @@
 	]{biblatex}
 
 
+% OJO: Delaración para ajuste de indioma en estilo apa
 \DeclareLanguageMapping{spanish}{spanish-apa}
 
 \usepackage[autostyle]{csquotes}
@@ -103,6 +104,7 @@
 
 
 % OJO: Poner siempre fichero con extensión
+% Se pueden añadir varios ficheros si se desea
 \addbibresource{biblatex.bib}
 
 
@@ -128,17 +130,15 @@ Explicación sobre la gestión de bibliografía con Bib\LaTeX{} para los documen
 En la gran mayoría de documentos científicos \cite[ver][5]{salido15} sus autores citan las fuentes consultadas durante la realización del trabajo presentado. \LaTeX{} proporciona herramientas muy flexibles para elaborar la \emph{lista de fuentes bibliográficas} e incluir las citas a ellas en el texto \cite[ver][]{lamport94,cascales00,cascales03,goos04,kopka04}. La bibliografía aporta los detalles esenciales de los documentos externos citados y por lo general se imprime al final del documento principal como una sección separada del resto. El título de la sección varía según el tipo de documento principal y \LaTeX{} los denomina \emph{Referencias} o \emph{Bibliografía}, aunque dicho título se puede modificar fácilmente empleando el comando \texttt{renewcommand}.\footnote{Véase cómo se ha cambiado en este documento el título de dicha sección.}
 
 
-
-
 \section{Bibliografías flexibles con Bib\LaTeX}
-Bib\LaTeX{} es un paquete creado para superar las limitaciones de Bib\TeX. Los ficheros de fuentes bibliográficas siguen una estructura muy similar a los empleados con Bib\TeX{} que añade mayor flexibilidad a estos. Entre otros, es posible añadir los campos de \textsc{url} para las fuentes \emph{online}. Bib\LaTeX{} es compatible con \textsc{utf8} y proporciona una gran variedad de posibilidades de citación y configuración del estilo de la bibliografía. 
+Bib\LaTeX{} es un paquete creado para superar las limitaciones de Bib\TeX. Los ficheros de fuentes bibliográficas siguen una estructura muy similar a los empleados con Bib\TeX{} a los que añade mayor flexibilidad. Entre otras mejoras, es posible añadir los campos de \textsc{url} para las fuentes \emph{online}. Bib\LaTeX{} es compatible con \textsc{utf8} y proporciona una gran variedad de posibilidades de citación y configuración del estilo de la bibliografía. 
 
 
-
-\addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC 
 
 \nocite{*} % Se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto.(PROHIBIDO EN LA ESI)
-\printbibliography[title=Bibliografía]
+
+% Inclusión de bibliografía en toc y con nombre indicado (def: Referencias)
+\printbibliography[heading=bibintoc,title=Bibliografía]
 
 \end{document}
 
