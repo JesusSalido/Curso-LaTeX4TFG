@@ -27,7 +27,8 @@
 % Ejemplos de definición de color
 \usepackage[usenames,dvipsnames,svgnames,x11names,table]{xcolor}
 \definecolor{palered}{rgb}{0.78, 0.03, 0.08} % Elección propia
-\definecolor{UCLMred}{cmyk}{0.0, 1.0, 0.65, 0.28} % UCLM red
+\definecolor{UCLMred}{RGB}{179,0,51} % UCLM red
+%\definecolor{UCLMred}{cmyk}{0.19, 1.0, 0.74, 0.12} % UCLM red
 %\definecolor{UCLMred}{HTML}{B30033} % UCLM red
 
 
@@ -84,9 +85,12 @@ La especificación de color de \LaTeX{} con el paquete \texttt{xcolor} es muy po
 	procesador de textos.}}}
 \end{center}
 
+\noindent El color corporativo de la UCLM:\\
+
+\colorbox{UCLMred}{\Huge \color{white}\textsf{\textbf{UCLM}}}\\
 
 
-Aquí se ven algunas otras posibilidades.
+\noindent Aquí se ven algunas otras posibilidades.
 
 %-------------------
 \newcount\WL \unitlength.75pt
