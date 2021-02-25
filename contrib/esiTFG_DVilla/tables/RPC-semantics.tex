@@ -1,0 +1,30 @@
+
+
+
+\begin{tabular}{p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}}
+  \tabheadformat
+  \tabhead{Tipo de fallo}   &
+  \tabhead{Sin fallos}      &
+  \tabhead{Mensaje perdido} &
+  \tabhead{Servidor caído}  \\
+\hline
+\textit{Maybe}         & Ejecuta:   1 & Ejecuta: 0/1        & Ejecuta: 0/1 \\
+                       & Resultado: 1 & Resultado: 0        & Resultado: 0 \\
+\hline
+\textit{Al-least-once} & Ejecuta:   1 & Ejecuta:   $\geq$ 1 & Ejecuta:   $\geq$ 0 \\
+                       & Resultado: 1 & Resultado: $\geq$ 1 & Resultado: $\geq$ 0 \\
+\hline
+\textit{At-most-once}  & Ejecuta:   1 & Ejecuta:   1        & Ejecuta: 0/1 \\
+                       & Resultado: 1 & Resultado: 1        & Resultado: 0 \\
+\hline
+\textit{Exactly-once}  & Ejecuta:   1 & Ejecuta:   1        & Ejecuta:   1 \\
+                       & Resultado: 1 & Resultado: 1        & Resultado: 1 \\
+\hline
+\end{tabular}
+
+
+% Local variables:
+%   coding: utf-8
+%   ispell-local-dictionary: "castellano8"
+%   TeX-master: "main.tex"
+% End:

@@ -1,0 +1,207 @@
+\chapter{Antecedentes}
+\label{chap:antecedentes}
+
+Este capítulo incluye unas nociones básicas de \LaTeX{} y algunos consejos
+sencillos de composición para sacar todo el jugo a la clase \esitfg. Ten
+presente que este capítulo está pensado para que leas el código fuente y lo
+compares con el resultado en PDF.
+
+\section{Estilos de texto}
+
+Debido a su continuo uso, se muestra entre paréntesis la combinación del modo
+\texttt{auctex} de GNU Emacs para incluir el comando \LaTeX{} correspondiente.
+
+\begin{itemize}
+\item Normal.
+\item \textbf{Negrita} (C-c-f-b).
+\item \textit{Itálica} (C-c-f-i).
+\item \emph{Enfatizada} (C-c-f-e). Fíjate que el estilo que se obtiene al
+  enfatizar depende del estilo del texto en el que se incluya: \textit{texto en
+    itálica y \emph{enfatizado} en medio}.
+\item \texttt{Monoespaciada} (C-c-f-t)
+\end{itemize}
+
+Otros de menos uso:
+
+\begin{itemize}
+\item \textsc{Versalita} (C-c-f-c).
+\item \textsf{Serifa}, es decir, sin remates o paloseco (C-c-f-f).
+\item \textrm{Romana} (C-c-f-r).
+\end{itemize}
+
+
+\section{Viñetas y enumerados}
+
+En \LaTeX{} hay tres tipos básicos de viñetas:
+
+\begin{itemize}
+\item itemize.
+\item enumerate.
+\item description.
+\end{itemize}
+
+
+Es posible hacer viñetas (como la siguiente) cambiando márgenes u otras
+propiedades gracias al paquete
+\href{http://mirror.ctan.org/macros/latex/contrib/enumitem/enumitem.pdf}{\emph{enumitem}}
+(ya incluido en \esitfg).
+
+\begin{itemize}[noitemsep, label=$\triangleright$]
+\item esto es
+\item una pequeña
+\item muestra
+\end{itemize}
+
+El paquete \emph{enumitem} ofrece muchas otras posibilidades para personalizar
+las viñetas (individual o globalmente) o crear nuevas.
+
+
+\section{Figuras}
+
+Las figuras se referencian así (ver Figura~\ref{fig:esi}). Recuerda que
+no tienen porqué aparecer en el lugar donde se ponen (mira un libro de
+verdad). \LaTeX{} las colocará donde mejor queden, No te empeñes en
+contradecirle, él sabe mucho de tipografía.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.2\textwidth]{esi_logo.pdf}
+\caption{Logotipo de de la ESI}
+\label{fig:esi}
+\end{center}
+\end{figure}
+
+Por cierto, los títulos de tablas, figuras y otro elementos flotantes (los
+\texttt{caption}) no deben acabar en punto~\cite{sousa}.
+
+
+\section{Cuadros}
+\label{sec:uncuadro}
+
+Se denominan «tablas» cuando contienen datos con relaciones numéricas. El
+término genérico (que debe usarse cuando en los demás casos) es
+«cuadro»~\cite{sousa}. Si las columnas están bien alineadas, las líneas
+verticales estorban más que ayudan (no las pongas). Los cuadros se referencian
+de este modo (ver Cuadro~\ref{tab:rpc-semantics}).
+
+\begin{table}[hp]
+  \centering
+  {\small
+  \input{tables/RPC-semantics.tex}
+  }
+  \caption[Semánticas de \acs{RPC} en presencia de distintos fallos]
+  {Semánticas de \acs{RPC} en presencia de distintos fallos
+    (\textsc{Puder}~\cite{puder05:_distr_system_archit})}
+  \label{tab:rpc-semantics}
+\end{table}
+
+
+\section{Listados de código}
+\label{sec:listado}
+
+Puedes referenciar un listado así (ver Listado~\ref{code:hello}). Éste es un
+listado flotante, pero también pueden ser «no flotantes» quitando el parámetro
+\texttt{float} (mira el fuente de este documento o la referencia del paquete
+\href{http://www.ctan.org/get/macros/latex/contrib/listings/listings.pdf}{«listings»}).
+
+\begin{listing}[
+  float=ht,
+  language = C,
+  caption  = {«Hola mundo» en C},
+  label    = code:hello]
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    puts("Hola mundo\n");
+}
+\end{listing}
+
+\noindent
+Puedes incluir un fichero de código fuente (o un fragmento) con \texttt{lstinputlisting}:
+
+\lstinputlisting[language=C, firstline=3, texcl]{code/hello.c}
+
+\noindent
+Y también existe un comando \texttt{console} para representar ejecución de
+comandos:
+
+\begin{console}
+$ uname --operating-system
+GNU/Linux
+\end{console} %$
+
+Puedes modificar el estilo por defecto para tus listados añadiendo un comando
+\texcmd{lstset} en tu \texttt{custom.sty}. El código \LaTeX{} del listado
+\ref{code:custom-listings} añade un fondo gris claro y una línea en el margen
+izquierdo.
+
+\begin{listing}[
+  float=h!,
+  caption  = {Personalizando los listados de código},
+  label    = code:custom-listings]
+\lstset{%
+  backgroundcolor = \color{gray95},
+  rulesepcolor    = \color{black},
+}
+\end{listing}
+
+En cualquier caso, si lo necesitas siempre es mejor que redefinas los comandos y entornos
+existentes o crees entornos nuevos, en lugar de añadir los mismos cambios en
+muchas partes del documento.
+
+
+
+\section{Citas y referencias cruzadas}
+
+Puedes ver aquí una cita~\cite{design_patterns} y una referencia a la segunda sección
+(véase \S\,\ref{sec:uncuadro}). Para hacer referencias debes definir etiquetas en el punto
+que quieras referenciar (normalmente justo debajo). Es útil que los nombres de las
+etiquetas (comando label) tengan los siguientes prefijos (incluyendo los dos puntos ``:''
+del final):
+
+\begin{description}
+\item[chap:] para los capítulos. Ej: ``\texttt{chap:objetivos}''.
+\item[sec:] para secciones, subsecciones, etc.
+\item[fig:] para las figuras.
+\item[tab:] para las tablas.
+\item[code:] para los listados de código.
+\end{description}
+
+Si estás viendo la versión PDF de este documento puedes pinchar la cita o el número de
+sección. Son hiper-enlaces que llevan al elemento correspondiente. Todos los elementos que
+hacen referencia a otra cosa (figuras, tablas, listados, secciones, capítulos, citas,
+páginas web, etc.) son «pinchables» gracias al paquete
+\href{http://latex.tugraz.at/_media/docs/hyperref.pdf}{\emph{hyperref}}.
+
+Para citar páginas web usa el comando \texttt{url} como en: \url{http://www.uclm.es}
+
+
+\section{Páginas}
+\label{sec:paginas}
+
+La normativa aconseja imprimir el documento a doble cara, pero si el número de
+páginas es bajo puede imprimirse a una cara. Como eso es bastante subjetivo, mi
+consejo es que ronde las 100 \textbf{hojas}. Una hoja impresa a doble cara
+contiene 2 páginas, a una cara contiene una. Es decir, si el documento tiene más
+de 200 páginas imprímelo a doble cara, si tiene menos imprímelo a una.
+
+Por defecto, \esitfg{} imprime a una cara (oneside), si quieres imprimir a doble cara,
+escribe en el preámbulo:
+
+\begin{listing}
+  \documentclass[twoside]{esi-tfg}
+\end{listing}
+
+Esto es importante porque a doble cara los márgenes son simétricos y a una cara
+no. Si llevas el TFG a la copistería y pides que te lo impriman de modo
+diferente al generado, quedará mal ¡Cuidado!
+
+Tal como indica la normativa, los capítulos siempre empiezan en la página
+derecha, la impar cuando se usa doble cara.
+
+
+% Local Variables:
+%  coding: utf-8
+%  mode: latex
+%  mode: flyspell
+%  ispell-local-dictionary: "castellano8"
+% End:
