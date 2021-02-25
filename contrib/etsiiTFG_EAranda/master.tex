@@ -1,0 +1,51 @@
+\documentclass[12pt]{proyecto}
+
+
+% información para añadir a la página de la portada
+
+\numero{XX-XX-XXXXXX}
+\autor{(NOMBRE DEL PROYECTANTE)}
+\director{(NOMBRE DEL DIRECTOR)}
+\fecha{(MES Y AÑO DE PRESENTACIÓN)}
+\titulo{TÍTULO DEL PROYECTO}
+
+
+% ficheros a compilar
+\includeonly{
+portada,
+cap1,
+cap2,
+cap3
+}
+
+\begin{document}
+
+\pagestyle{empty}
+\include{portada}
+
+% índice general, de figuras y de tablas
+
+\tableofcontents
+\listoffigures
+\listoftables
+\cleardoublepage
+
+
+% capítulos
+\include{cap1}
+\include{cap2}
+\include{cap3}
+
+% Bibliografia
+\nocite{*}
+\thispagestyle{empty}
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliography{biblio}
+\bibliographystyle{apalike}
+
+\end{document}
+
+
+
+
