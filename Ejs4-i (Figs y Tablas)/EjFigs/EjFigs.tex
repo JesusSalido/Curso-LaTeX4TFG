@@ -29,8 +29,6 @@
 
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
-\usepackage{url} % Para escritura de URL
-\urlstyle{sf}
 
 % Generación de hiperenlaces
 \usepackage[pdftex,
@@ -40,6 +38,8 @@
 	urlcolor=blue, % Color de las URL
 	bookmarksnumbered=true % Incluye números en bookmarks
     ]{hyperref}
+
+\urlstyle{sf}
 
 
 % Listas
@@ -106,7 +106,7 @@ La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphic
 \LaTeX{} puede procesar las figuras como \emph{objetos deslizantes o <<flotantes>>}\footnote{Estos elementos se denominan \textit{float} y por ello a veces en español utilizamos como traducción <<flotante>>.} (o sin ubicación prefijada). De este modo \LaTeX{} emplea algoritmos para encontrar la mejor ubicación de todos los objetos flotantes que contenga el texto. El usuario siempre tiene a su disposición opciones para sugerir la ubicación deseada dejando a \LaTeX{} la reubicación del texto y párrafos en la página. Con todo, en ocasiones el usuario debe hacer algunos ajustes para conseguir la ubicación deseada, aunque sigue siendo un procedimiento mucho más cómodo que en algunos de los procesadores de texto \textsc{wysiwyg} populares. Siempre que existan muchas figuras en el texto el ajuste del resultado final va a ser más complejo y requerirá mayor intervención humana.
 
 
-Otra de las ventajas de \LaTeX{} es que las imágenes no están incrustadas en nuestro fichero fuente sino que son ficheros aparte incluidos durante la compilación. De este modo la modificación de la figuras no requiere la modificación del fichero fuente sino únicamente una nueva compilación.
+Otra de las ventajas de \LaTeX{} es que las imágenes no están incrustadas en nuestro fichero fuente, sino que son ficheros aparte incluidos durante la compilación. De este modo la modificación de la figura no requiere la modificación del fichero fuente sino únicamente una nueva compilación.
 
 
 \section{Formatos gráficos}
@@ -130,7 +130,17 @@ A la hora de incluir figuras se debe decidir qué formato es el más apropiado e
 
 Las capturas de pantalla de programas deberían incluirse como ficheros en formato \texttt{.png}. En la Fig.~\ref{fig:inkscape} se muestra una captura del programa de libre distribución \textsf{InkScape}. Dicho programa es apropiado para la elaboración de gráficos vectoriales. 
 
-Siempre que sea posible emplear formato \texttt{.pdf} es preferible ya que se trata de un formato vectorial con posibilidad de escalado sin pérdida de resolución. En la Fig.~\ref{fig:4004arch} se muestra el resultado de la inclusión de un gráfico en formato PDF. 
+% Ejemplo:
+% ============
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Mars_Perseverance} 
+	\caption[Foto histórica enviada desde Marte]{Primera foto enviada desde Marte el {18-2-2021} por el robot Perseverance (cortesía de NASA/JPL-Caltech)}
+	\label{fig:inkscape}
+\end{figure}
+
+
+Siempre que sea posible emplear formato \texttt{.pdf} es preferible, ya que se trata de un formato vectorial con posibilidad de escalado sin pérdida de resolución. En la Fig.~\ref{fig:4004arch} se muestra el resultado de la inclusión de un gráfico en formato PDF. 
 
 % Ejemplo:
 % ============
@@ -160,7 +170,7 @@ Uno de los programas más universales para la creación de gráficas matemática
 % ============
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=0.5\linewidth]{EjFigsExcelOrig} 
+	\includegraphics[width=0.5\linewidth]{EjFigsExcelOrig-crop} 
 	\caption[Gráfico de Excel]{Figura vectorial generada con Excel}
 	\label{fig:excel}
 \end{figure}

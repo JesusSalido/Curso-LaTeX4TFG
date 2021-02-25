@@ -1,0 +1,186 @@
+%%%%%%%%%%%%%%
+% Fichero: articulo.tex
+% Adaptado: Jesús Salido Tercero (http://www.uclm.es/profesorado/jsalido)
+% Fecha (creación): Febrero 2016 
+% Rev. : Febrero 2018
+% Descripción: Plantilla para artículo a doble columna 
+% (Escuela Sup. de Informática, UCLM). Creada para el curso 
+% “LaTeX esencial para preparación de TFG, Tesis y otros documentos 
+% académicos” (Esc. Sup. Informática-UCLM)
+%
+%%%%%%%%%%%%%%
+\documentclass[DIV=calc,paper=a4,fontsize=11pt,twocolumn]{scrartcl} % Clase KOMA-script
+\usepackage[utf8]{inputenx}
+\usepackage[spanish,es-tabla]{babel}
+
+\usepackage{fix-cm}	 % Ajuste tamaño tipografía (Incial de doc.)
+\usepackage{amsmath,amsfonts,amsthm} % Símbolos matemáticas
+
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+
+\usepackage[svgnames]{xcolor} % Color
+\usepackage[
+	hang, 
+	small,
+	labelfont=bf,
+	textfont=it
+]{caption} % Ajustes de titulos en figuras y tablas
+\usepackage{booktabs} % Ajustes de líneas horizontales en tablas
+
+\usepackage{sectsty} % Ajustes de títulos de sección
+\allsectionsfont{\usefont{T1}{phv}{b}{n}} % Cambio en la fuente empleada en el título de las secciones
+
+\usepackage{fancyhdr}	% Cabeceras y pies
+\pagestyle{fancy} 		% Ajustes de cabeceras y pies
+\usepackage{lastpage} 	% Se emplea para saber el número total de páginas
+						% (para "Página X de Total")
+
+% Cabeceraas - vaciaas
+\lhead{}
+\chead{}
+\rhead{}
+
+% Pies
+\lfoot{}
+\cfoot{}
+\rfoot{\footnotesize Página \thepage\ de \pageref{LastPage}} % "Página 1 de 2"
+
+\renewcommand{\headrulewidth}{0.0pt} % Sin filete en la cabecera
+\renewcommand{\footrulewidth}{0.4pt} % Con filete estrecho en el pie
+
+\usepackage{lettrine} % Destaca la primera línea de una sección
+\newcommand{\inicial}[1]{ % Definicion del comando y estilo de la inicial
+\lettrine[lines=3,lhang=0.3,nindent=0em]{
+\color{DarkGoldenrod}
+{\textsf{#1}}}{}}
+
+
+\usepackage[hidelinks]{hyperref}
+\urlstyle{sf}
+
+
+%-------------------
+%
+%	Título
+%
+%-------------------
+
+\usepackage{titling} % Configuración de títulos
+
+% Línea alrededor del título
+\newcommand{\HorRule}{\color{DarkGoldenrod} \rule{\linewidth}{1pt}} 
+
+% Linea horizontal antes del título
+\pretitle{\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{50}{50} \usefont{T1}{phv}{b}{n} \color{DarkRed} \selectfont} 
+
+
+\title{Plantilla de artículo}
+
+\posttitle{\par\end{flushleft}\vskip 0.5em}
+
+\preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{T1}{phv}{b}{sl} \color{DarkRed}}
+
+\author{J. Salido, }
+
+\postauthor{\footnotesize \usefont{T1}{phv}{m}{sl} \color{Black} % 
+Escuela Superior de Informática (Universidad de Castilla-La Mancha)
+\par\end{flushleft}\HorRule}
+
+\date{\today} % Fecha
+
+
+%-------------------
+%
+%	Documento
+%
+%-------------------
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+%-------------------
+%
+%	Resumen
+%
+%-------------------
+\inicial{A}\textbf{quí se muestra el texto de ejemplo con la inicial en el párrafo inicial. Tanto el color como la altura de la inicial se pueden configurar en el preámbulo del documento.}
+
+
+
+
+\section*{Sección 1}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum lacus sem, ut varius ante dignissim ac. Sed a mi quis lectus feugiat aliquam. Nunc sed vulputate velit. Sed commodo metus vel felis semper, quis rutrum odio vulputate. Donec a elit porttitor, facilisis nisl sit amet, dignissim arcu. Vivamus accumsan pellentesque nulla at euismod. Duis porta rutrum sem, eu facilisis mi varius sed. Suspendisse potenti. Mauris rhoncus neque nisi, ut laoreet augue pretium luctus. Vestibulum sit amet luctus sem, luctus ultrices leo. Aenean vitae sem leo.
+
+
+\begin{align}
+A = 
+\begin{bmatrix}
+A_{11} & A_{21} \\
+A_{21} & A_{22}
+\end{bmatrix}
+\end{align}
+
+
+\subsection*{Subsección 1}
+Nullam semper quam at ante convallis posuere. Ut faucibus tellus ac massa luctus consectetur. Nulla pellentesque tortor et aliquam vehicula. Maecenas imperdiet euismod enim ut pharetra. Suspendisse pulvinar sapien vitae placerat pellentesque. Nulla facilisi. Aenean vitae nunc venenatis, vehicula neque in, congue ligula.
+
+\begin{itemize}
+\item Primero 
+\item segundo 
+\item Tercero
+\end{itemize}
+
+Pellentesque quis neque fringilla, varius ligula quis, malesuada dolor. Aenean malesuada urna porta, condimentum nisl sed, scelerisque nisi. Suspendisse ac orci quis massa porta dignissim. Morbi sollicitudin, felis eget tristique laoreet, ante lacus pretium lacus, nec ornare sem lorem a velit. Pellentesque eu erat congue, ullamcorper ante ut, tristique turpis. Nam sodales mi sed nisl tincidunt vestibulum. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+
+
+
+\subsection*{Subsección 2}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum lacus sem, ut varius ante dignissim ac. Sed a mi quis lectus feugiat aliquam. Nunc sed vulputate velit. Sed commodo metus vel felis semper, quis rutrum odio vulputate. Donec a elit porttitor, facilisis nisl sit amet, dignissim arcu. Vivamus accumsan pellentesque nulla at euismod. Duis porta rutrum sem, eu facilisis mi varius sed. Suspendisse potenti. Mauris rhoncus neque nisi, ut laoreet augue pretium luctus. Vestibulum sit amet luctus sem, luctus ultrices leo. Aenean vitae sem leo.
+
+
+\begin{table}
+\caption{Random table}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Nullam semper quam at ante convallis posuere. Ut faucibus tellus ac massa luctus consectetur. Nulla pellentesque tortor et aliquam vehicula. Maecenas imperdiet euismod enim ut pharetra. Suspendisse pulvinar sapien vitae placerat pellentesque. Nulla facilisi. Aenean vitae nunc venenatis, vehicula neque in, congue ligula.
+
+\section*{Sección 2}
+Pellentesque quis neque fringilla, varius ligula quis, malesuada dolor. Aenean malesuada urna porta, condimentum nisl sed, scelerisque nisi. Suspendisse ac orci quis massa porta dignissim. Morbi sollicitudin, felis eget tristique laoreet, ante lacus pretium lacus, nec ornare sem lorem a velit. Pellentesque eu erat congue, ullamcorper ante ut, tristique turpis. Nam sodales mi sed nisl tincidunt vestibulum. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+
+
+\begin{description}
+\item[Primero] Este es el primer ítem
+\item[Último] Este es el último ítem
+\end{description}
+
+Nullam semper quam at ante convallis posuere. Ut faucibus tellus ac massa luctus consectetur. Nulla pellentesque tortor et aliquam vehicula. Maecenas imperdiet euismod enim ut pharetra. Suspendisse pulvinar sapien vitae placerat pellentesque. Nulla facilisi. Aenean vitae nunc venenatis, vehicula neque in, congue ligula.
+
+\renewcommand{\refname}{Bibliografía} % Cambio de título de la sección a Bibliografía <- Referencias
+
+\begin{thebibliography}{99}
+
+\bibitem{CasLucMir2000} B. Cascales, P. Lucas, J. M. Mira, A. Pallarés y S. Sánchez-Pedreño. \emph{\LaTeX. Una imprenta en sus manos}. Aula Documental de Investigación, Madrid (2000).
+
+\bibitem{CasLucMir2003} B. Cascales, P. Lucas, J. M. Mira, A. Pallarés y S. Sánchez-Pedreño. \emph{El libro de \LaTeX}. Pearson Educación, Madrid (2003).
+
+\bibitem{usbplagio2010} A. García y E. Klein. \emph{¿Por qué ocurre el plagio en las Universidades y cómo evitarlo?} Universidad Simón Bolívar. Último acceso: 10 febrero, 2010.\\
+\url{http://prof.usb.ve/eklein/plagio/}
+ 
+\end{thebibliography}
+
+\end{document}

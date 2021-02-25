@@ -29,15 +29,14 @@
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
-\usepackage{url} % Para escritura de URL
-\urlstyle{sf}
-
 % Generación de hiperenlaces
 \usepackage[pdftex,breaklinks,colorlinks,
 	citecolor=blue, % Color de la citas
 	urlcolor=blue, % Color de las URL
 	bookmarksnumbered=true % Incluye números en bookmarks
     ]{hyperref}
+
+\urlstyle{sf}
 
 % Listas
 \usepackage{paralist} % Mayor control de listas
@@ -102,7 +101,8 @@ Estos conceptos se muestra en el siguiente ejemplo:
 	\caption[Ejemplo de entorno \texttt{table}]{Los grupos de alimentos}		  \label{tab:alimentos}
 	\begin{tabular}{| l | c | r | }
 		\hline			
-		\textbf{Cítricos} & \textbf{Legumbres} & \textbf{Hortalizas} \\ \hline \hline
+		\textbf{Cítricos} & \textbf{Legumbres} & \textbf{Hortalizas} \\ 
+        \hline \hline
 		Naranja  & Judía     & Tomate \\ 
         \hline
 		Limón    & Garbanzo  & Pepino \\ 

@@ -24,8 +24,8 @@
 			bottom=2cm]{geometry} % Márgenes 
 
 % Tipografía
-\usepackage{newpxtext}
-\usepackage{newpxmath}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
 
 \usepackage{marvosym}
 \usepackage{pifont} % Generación de símbolos especiales
@@ -34,8 +34,7 @@
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
-\usepackage{url} % Para escritura de URL
-\urlstyle{sf}
+
 
 
 % Generación de hiperenlaces
@@ -55,6 +54,7 @@
 	pdfmenubar=true % Muestra la menubar de Acrobat
 }
 
+\urlstyle{sf}
 
 
 \usepackage{paralist} % Mayor control de listas
@@ -73,7 +73,9 @@
 	% Otros: apa, chicago, ieee, mla-new, iso-numeric, iso-authoryear
 	% Estilos tradicionales BibTeX: trad-plain, trad-unsrt, trad-alpha y trad-abbrv
 %	style=apa, % Estilo APA
-	style=ieee,
+%	style=trad-plain, % Estilo tradicional LaTeX
+	style=ieee, % Estilo del IEEE
+%	style=iso-numeric, % Estilo ISO-690
 	% Citación: numeric, numeric-comp, numeric-verb, 
 	%           authoryear, authoryear-comp,...
 	%           otros aplicados con estilo gral.: ieee,apa,aml,chem-acs,iso-numeric,iso-authoryear

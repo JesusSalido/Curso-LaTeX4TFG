@@ -20,8 +20,6 @@
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
-\usepackage{url} % Para escritura de URL
-\urlstyle{sf}
 
 
 % Ejemplos de definición de color
@@ -34,12 +32,12 @@
 
 % Generación de hiperenlaces
 \usepackage[pdftex,breaklinks,colorlinks,
-citecolor=blue, % Color de la citas
-urlcolor=blue, % Color de las URL
-bookmarksnumbered=true, % Incluye números en bookmarks
-pdftitle={Fundamentos de LaTeX para principiantes},
-pdfauthor={Jesús Salido},
-pdfsubject={LaTeX}]{hyperref}
+	citecolor=blue, % Color de la citas
+	urlcolor=blue, % Color de las URL
+	bookmarksnumbered=true % Incluye números en bookmarks
+]{hyperref}
+
+\urlstyle{sf}
 
 
 
@@ -61,7 +59,8 @@ También se puede hacer {\color{green} con una definición alternativa.}
 % ============
 \colorbox{blue}{Se pueden crear cajas de {\color{yellow}\textbf{color}}.}
 
-La especificación de color de \LaTeX{} con el paquete \texttt{xcolor} es muy potente y permite la definición de colores propios en varios esquemas de color (gray, rgb, RGB, HTML y cmyk). De todas ellas quizás la única que sirva a nuestros propósitos sea la especificación en niveles de gris pues el color es un recurso que sólo en contadas ocasiones será preciso.
+La especificación de color de \LaTeX{} con el paquete \texttt{xcolor} es muy potente y permite la definición de colores propios en varios esquemas de color (gray, rgb, RGB, HTML y cmyk). De todas ellas quizás la única que sirva a nuestros propósitos sea la especificación en niveles de gris pues el color es un recurso que solo en contadas ocasiones será preciso.
+
 
 % Ejemplo:
 % ============
