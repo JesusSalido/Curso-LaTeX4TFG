@@ -1,0 +1,97 @@
+\documentclass[11pt,a4paper]{book}
+\usepackage[left=3.00cm, right=2.50cm, top=3.00cm, bottom=2.50cm]{geometry}
+\usepackage[english,spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%--- Si no se emplea ningún paquete de tipografía se empleará Computern Modern.
+%--- Tipografía 
+%--- (Opción: Latin Modern)
+%\usepackage{lmodern} % Latin Modern. Empleada cuando se desea una tipografía genuina de LaTeX sucesora de Computer Modern.
+%--- (Opción: Libertine)
+\usepackage[tt=false]{libertine} % Libertine con Old-Style Figures [osf]
+\usepackage[libertine]{newtxmath} % Times
+%--- (Opción: Palatino)
+%\usepackage{newpxtext} % Palatino: La opción osf proporciona números en old style.
+%\usepackage{newpxmath}	% Palatino
+%--- (Opción: Fourier)
+%\usepackage{fourier} % Utopía
+%---
+
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\graphicspath{{example-}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg} % Precedencia de extensiones
+
+\usepackage{booktabs} % OPT.: Ajustes para tablas
+\usepackage{tabularx}
+
+\usepackage{enumitem} 	% Control de listas
+\usepackage{multicol}	% Texto en varias columnas
+
+%\setlist{nolistsep} 	% Elimina separación de ítems en listas
+
+%--- Personalización de títulos de figuras y tablas
+\usepackage[%
+	margin=10pt,		% Margen
+	font=small,			% Tamaño de tipografía
+	labelfont=bf,		% Prefijo-Etiqueta en negrita
+	format=hang			%
+]{caption}
+\captionsetup[table]{skip=5pt} 	% Separación del caption en las tablas
+\captionsetup[figure]{skip=5pt} % Separación del caption en las figuras
+
+
+\usepackage{titlesec}
+%\titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
+
+\usepackage[math]{blindtext}
+
+
+% -------------------------
+% CONFIGURACIÓN INICIO CAPÍTULOS (paquete titlesec)
+% -------------------------
+\newcommand{\bigrule}{\titlerule[0.5mm]}
+
+\titleformat{\chapter}[display]% {<command>}[<shape>]
+{\filleft\bfseries\Huge\sffamily}% {<format>}
+{\titlerule
+\vspace{0.2\baselineskip}
+\Large{\MakeUppercase\chaptertitlename{} \thechapter}
+} % {<label>}
+{0mm}{}[\bigrule]% {<sep>}{<before-code>}[<after-code>]
+% -------------------------
+% -------------------------
+
+% -------------------------
+% CONFIGURACIÓN TÍTULOS DE SECCIONES (paquete titlesec)
+% -------------------------
+\titleformat{\section}{\sffamily\bfseries\MakeUppercase}{\thesection .}{1ex}{}
+
+\titleformat{\subsection}{\sffamily\bfseries}{\thesubsection .}{1ex}{}
+
+\titleformat{\subsubsection}{\sffamily\bfseries}{\thesubsubsection .}{1ex}{}
+
+
+
+\author{Nombre del autor}
+\title{Título del documento}
+\begin{document}
+\selectlanguage{spanish}
+%\maketitle
+%\abstract{Este es un documento destinado a realizar pruebas como la configuración de títulos de secciones, de floats y de listas.}
+
+% Imagen de ejemplo al principio del capítulo
+%\begin{figure}[bt]
+%    \centering
+%    \includegraphics[width=0.5\linewidth]{image}
+%    \caption{Este es un ejemplo de figura}
+%    \label{fig:image}
+%\end{figure}
+
+\blinddocument % Documento cortito
+%\Blinddocument % Documento más largo (con ecuaciones)
+\end{document}

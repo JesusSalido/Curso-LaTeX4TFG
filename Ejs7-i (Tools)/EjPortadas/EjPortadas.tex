@@ -1,0 +1,148 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[spanish]{babel}
+
+\usepackage{graphicx}
+\graphicspath{{example-}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg} % Precedencia de extensiones
+\usepackage{scrextend}
+
+\begin{document}
+%--- Ejemplos de portadas
+
+%--- PORTADA 1
+\begin{titlepage}
+	\centering
+	\includegraphics[width=4cm]{uclm_logo}\par\vspace{1cm}
+	{\scshape\LARGE Universidad de Castilla-La Mancha \par}
+	\vspace{1cm}
+	{\scshape\Large(Portada 1)\par} % Proósito del trabajo
+	\vspace{1.5cm}
+	{\huge\bfseries Título de documento\par} % Título
+	\vspace{2cm}
+	{\Large\itshape Nombre Apellidos (autor/a)\par} % Autor/a
+	\vfill
+	supervisado por\par
+	Dr./Dra.~Nombre \textsc{Apellido} (director/a)
+	\vfill % Parte inferior de la página
+	{\large \today \par}
+\end{titlepage}
+%---
+
+%--- PORTADA 2
+\begin{titlepage}
+	\begin{addmargin}[4cm]{-1cm} %--- Proporcionado por scrextend
+		\centering
+		\hfill\includegraphics[width=4cm]{esi_logo}\par
+		\vspace{4\baselineskip}
+		{\Huge 
+		Título del trabajo\\ 
+        (Portada 2)\par}
+		\vspace{4\baselineskip}
+		por\par\vspace{\baselineskip}
+		{\Large\textsc{Nombre Apellidos (autor/a)}\par}
+		\vfill  % Parte inferior de la página
+		(Propósito del trabajo)\par
+		{\itshape Universidad de Castilla-La Mancha\par
+        \today}
+	\end{addmargin}
+\end{titlepage}
+%---
+
+
+%--- PORTADA 3
+\begin{titlepage}
+    \noindent\parbox[c]{.5\linewidth}{
+    	\linespread{1.3}
+    	\itshape Universidad de Castilla-La Mancha\par
+    	Escuela Superior de Informática\par
+        Ingeriería de Computadores\par
+    	Depto. IEEAC\par
+    }%
+    \parbox[c]{.5\linewidth}{
+    	\hfill\includegraphics[width=4cm]{uclm_logo}
+    } 
+    \centering
+    \par\vspace{.15\textheight}
+    {\huge\textsc{Título del trabajo \\
+     (Portada 3)}\par}
+    \Large
+    \par\vspace{.1\textheight}
+    Trabajo
+    \medbreak
+    Para obtención de
+    (propósito del trabajo)
+    \par\vspace{.08\textheight}
+    realizado por
+    \medbreak
+    \textsc{Nombre Apellidos (Autor)}
+    \bigbreak
+    supervisado por
+    \medbreak
+    Prof. \textsc{Nombre Apellidos (Director)}
+    \vfill
+    \noindent%
+    \small \hfill marzo, 2021 
+\end{titlepage}
+%---
+
+%--- PORTADA 4
+\begin{titlepage}
+    \centering % El ajuste de logos debe ser cuidadoso
+	\includegraphics[width=3.5cm]{uclm_logo}
+	\hfill
+	\parbox{.5\linewidth}{%
+		\centering
+		{\LARGE Universidad de Castilla-La Mancha\par}
+		\vspace{.05\textheight}
+		{\large Escuela Superior de Informática\par}
+	}
+	\hfill
+	\includegraphics[width=3cm]{esi_logo}
+	\par
+    \par\vspace{.15\textheight}
+    {\huge\textsc{Título del trabajo \\
+     (Portada 4)}\par}
+    \Large
+    \par\vspace{.1\textheight}
+    Trabajo
+    \medbreak
+    Para obtención de
+    (propósito del trabajo)
+    \par\vspace{.08\textheight}
+    realizado por
+    \medbreak
+    \textsc{Nombre Apellidos (Autor)}
+    \bigbreak
+    supervisado por
+    \medbreak
+    Prof. \textsc{Nombre Apellidos (Director)}
+    \vfill
+    \noindent%
+    \small \hfill marzo, 2021 
+\end{titlepage}
+%---
+
+
+%--- PORTADA 5
+\begin{titlepage}
+    \begin{center}
+    	\LARGE
+    	{\bfseries Universidad de Castilla-La Mancha\par}
+    	Escuela Superior de Informática\par
+    	\vspace{4cm}
+    	{\huge\bfseries Título\par}
+    	{\small (Portada 5)}
+    	\vspace{3cm}
+    	\par
+    \end{center}
+	\hfill\begin{minipage}{.5\linewidth}
+		\normalsize
+		trabajo realizado por\par
+		\textsc{Autor/a}\par
+		(algo más)
+	\end{minipage}
+	\vfill
+	\centering	\today
+\end{titlepage}
+
+\end{document}
