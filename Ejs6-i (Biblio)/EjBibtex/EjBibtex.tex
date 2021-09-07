@@ -60,8 +60,8 @@
 \setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
 \setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
 
-
-
+% NOTA: Para usar un estilo APA es preciso cargar este paquete en preámbulo para que las citas se incluyan entre parátesis en vez de corchetes.
+%\usepackage{apalike} 
 
 \author{Jesús Salido}
 \title{Bibliografía con Bib\TeX{}}
@@ -125,7 +125,7 @@ Por el contrario, el trabajo con bases bibliográficas externas (\texttt{.bib}) 
 
 Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración de la bibliografía existen algunas limitaciones que conviene tener presentes:
 \begin{itemize}
-	\item No puede tratar con bibliografías multilingües. Esto es, aquellas en las que las fuentes están en más de un idioma (p.ej.\ español e inglés).
+	\item No puede tratar con bibliografías multilingües. Esto es, aquellas en que las fuentes están en más de un idioma (p.ej.\ español e inglés).
 	
 	\item Bib\TeX{} no es compatible con \textsc{utf8} de modo que aunque los ficheros de bibliografía se pueden codificar así con algunos estilos bibliográficos se obtienen errores.
 \end{itemize}
@@ -135,14 +135,14 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 
 %%%%%%
 % Bibliografía
-% Inclusión de bibliografía mediante BD de registros bibliográficos contenidos en un fichero
 
 \renewcommand{\refname}{Bibliografía} % Cambio de nombre de la sección
 \addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC 
 
+%%%%%
+% Opción 1: Inclusión de bibliografía mediante BD de registros bibliográficos contenidos en un fichero y definición de un estilo.
 % Definición del estilo empleado en la bibliografía
-\bibliographystyle{acm}
-
+\bibliographystyle{ieeetr}
 % Estilos nativos incluidos con LaTeX (plain, abbrv, alpha, unsrt).
 %
 % plain: las referencias se numeran y en la bibliografía las entradas
@@ -156,15 +156,82 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 % unsrt: la bibliografía no aparece por orden alfabético sino por 
 %        orden de cita en el texto.
 
-% Estilos “no nativos” pero muy “populares” para ingenierías
+% Estilos incluidos con BibTeX “no nativos” pero muy “populares” para ingenierías
 %
 % acm:       Numérica con los nombre de autores en mayúsculas.
 % ieeetr:    Numérica para los IEEE Transactions.
-
+% 
+% Estilo incluido con BibTeX para citar en formato autor-año
+% apalike:   No numérica, con referencias ordenadas alfabéticamente por apellido de autor.
 
 \nocite{*} % OJO: Se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto.(PROHIBIDO EN LA ESI)
-
 \bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
+
+
+
+
+%%%%%
+% Opción 2: Al producir el resultado definitivo se incluye el contenido del fichero bbl generado por BibTeX demodo que se incluye una lista de referencias que puede editarse a voluntad para corregirla según preferencia personal.
+%\begin{thebibliography}{10}
+%\bibitem{wikibookLaTex10}
+%WikiMedia, ``{\LaTeX{} Wikibook}.'' {URL:}
+%  \url{http://en.wikibooks.org/wiki/LaTeX}, 2010.
+%\newblock Último acceso 23 feb. 2011.
+%
+%\bibitem{salido15}
+%J.~Salido, ``Curso de {\LaTeX2e{}}.'' {URL:}
+%  \url{http://visilab.etsii.uclm.es/?page_id=1468}, 2015.
+%\newblock Último acceso: 7 sep. 2021.
+%
+%\bibitem{cascales00}
+%B.~Cascales, P.~Lucas y col., {\em
+%  {\LaTeX{}}. Una imprenta en sus manos}.
+%\newblock Aula Documental de Investigación, 2000.
+%
+%\bibitem{cascales03}
+%B.~Cascales, P.~Lucas, J.~Mira, A.~Pallarés y S.~{Sánchez-Pedreño}, {\em
+%  El libro de {\LaTeX}}.
+%\newblock Pearson/Prentice Hall, 2003.
+%
+%\bibitem{goos04}
+%M.~Goossens et al., {\em The {\LaTeX{}} companion}.
+%\newblock Addison-Wesley Reading, MA, 2nd~ed., 2004.
+%
+%\bibitem{kopka04}
+%H.~Kopka and P.~Daly, {\em A guide to {\LaTeX}}.
+%\newblock Addison-Wesley, 4th~ed., 2004.
+%
+%\bibitem{lamport94}
+%L.~Lamport, {\em {\LaTeX}: A document preparation system}.
+%\newblock Addison-Wesley, 2nd~ed., 1994.
+%
+%\bibitem{goos07}
+%M.~Goossens, S.~Rahtz, and F.~Mittelbach, {\em The {\LaTeX{}} graphics
+%  companion}.
+%\newblock Addison-Wesley Reading, MA, 2nd~ed., 2007.
+%
+%\bibitem{grat07}
+%G.~Grätzer, {\em More math into {\LaTeX}}.
+%\newblock Birkhauser, 4th~ed., 2007.
+%
+%\bibitem{grat99}
+%G.~Grätzer, {\em First steps in {\LaTeX}}.
+%\newblock Springer Verlag, 1st~ed., 1999.
+%
+%\bibitem{lange1998programming}
+%D.~B. Lange and O.~Mitsuru, {\em Programming and Deploying Java Mobile Agents
+%  Aglets}.
+%\newblock Addison-Wesley Longman Publishing Co., Inc., 1998.
+%
+%\bibitem{larman1999uml}
+%C.~Larman, {\em UML y patrones}.
+%\newblock Pearson, 1999.
+%
+%\bibitem{oetiker06}
+%T.~Oetiker, H.~Partl, I.~Hyna, and E.~Schlegl, {\em The not so short
+%  introduction to {\LaTeX2e{}}}, 2006.
+%
+%\end{thebibliography}
 
 
 

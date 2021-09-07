@@ -74,7 +74,7 @@
 	% Estilos tradicionales BibTeX: trad-plain, trad-unsrt, trad-alpha y trad-abbrv
 %	style=apa, % Estilo APA
 %	style=trad-plain, % Estilo tradicional LaTeX
-	style=ieee, % Estilo del IEEE
+	style=numeric, % Estilo del IEEE
 %	style=iso-numeric, % Estilo ISO-690
 	% Citación: numeric, numeric-comp, numeric-verb, 
 	%           authoryear, authoryear-comp,...
@@ -99,16 +99,20 @@
 % OJO: Delaración para ajuste de indioma en estilo apa
 \DeclareLanguageMapping{spanish}{spanish-apa}
 
-\usepackage[autostyle]{csquotes}
+\DefineBibliographyStrings{spanish}{ % Cambios en cadenas impresas en español
+	url = {\adddot\space[En línea] URL:},
+	urlseen = {última visita:}
+}
 
 % OJO: Línea añadida para eliminar el idioma de las fuentes bibliográficas que no están en el idioma principal del documento.
 \AtEveryBibitem{\clearfield{note} \clearlist{language}}
-
 
 % OJO: Poner siempre fichero con extensión
 % Se pueden añadir varios ficheros si se desea
 \addbibresource{biblatex.bib}
 
+
+\usepackage[autostyle]{csquotes}
 
 
 \author{Jesús Salido}
@@ -141,6 +145,18 @@ Bib\LaTeX{} es un paquete creado para superar las limitaciones de Bib\TeX. Los f
 
 % Inclusión de bibliografía en toc y con nombre indicado (def: Referencias)
 \printbibliography[heading=bibintoc,title=Bibliografía]
+
+%---
+% Opción 2: Bibliografía con secciones separadas.
+%---
+%\printbibheading
+% Se puede incluir un apartado de fuentes de consulta no citadas
+% Como no están citadas es preciso incluir comando \nocite{<key>}
+% Se añaden palabras clave a las entradas en el fichero *.bib para poder diferenciarlas
+%\printbibliography[heading=subbibliography,keyword=consulta,title={Fuentes de consulta}]
+%\printbibliography[heading=subbibliography,keyword=url,title={Direcciones de Internet}]
+% -------------------------
+
 
 \end{document}
 
