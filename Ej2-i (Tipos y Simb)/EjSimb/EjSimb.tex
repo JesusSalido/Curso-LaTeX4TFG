@@ -31,12 +31,14 @@
 \usepackage{newtxmath}
 
 
+\usepackage{textcomp}
 \usepackage{marvosym}
 \usepackage{pifont} % Generación de símbolos especiales
-\usepackage{textcomp}
+\usepackage{fontawesome5} % Iconos fontawesome
+
 
 \usepackage[T1]{fontenc} % Codificación de salida    
-\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+%\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 \usepackage{hyperref} % Para escritura de URL
 \urlstyle{sf} % Estilo de URL sin serifas para que tengan un mejor aspecto
 
@@ -72,6 +74,8 @@ Recordar los usos de las ``comillas dobles'' y las <<latinas>>.
 \url{http://osl.ugr.es/CTAN/info/symbols/comprehensive/symbols-a4.pdf}
 
 \noindent dirección URL de \emph{The Comprehensive \LaTeX{} Symbol List} de Scott Pakin (2009) donde se hace un repaso de todos los símbolos y caracteres que se pueden generar en \LaTeX{}.
+
+Un gran conjunto de iconos empleados en los textos informáticos se pueden obtener mediante el uso de la tipografía \texttt{awesome5}, como por ejemplo: \faNodeJs, \faNode, \faGooglePlay, \faInternetExplorer, \faGithub, \faGit*, \faWhatsapp, etc.
 
 \LaTeX{} genera su salida con los tipos Computer Modern (CM) creados por D.~Knuth con ayuda del programa \textsc{metafont}. Por suerte \LaTeX{} está configurado en la actualidad para incorporar estas <<fuentes>> en los ficheros PDF como una fuente Postscript Tipo 1 (vectorial). Con las fuentes Tipo 1 se obtiene una calidad al obtenido con las fuentes Tipo 3 o de mapa de bits (PK) que sólo ofrecen máxima calidad a la escala para la que fueron creadas. Por suerte en la actualidad \LaTeX{} ofrece la posibilidad de incluir las fuentes estándar Postscript de Adobe utilizando los paquetes <<apropiados>>. Así es muy sencillo\footnote{No tan sencillo.} alternar en un texto entre las tres familias disponibles: Roman (redonda), \textsf{Sans Serif (paloseco, sin serifa o sin adornos)} y \texttt{Teletype (teletipo o monoespaciada)}. 
 

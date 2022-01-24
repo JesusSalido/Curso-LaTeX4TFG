@@ -27,6 +27,7 @@
 \usepackage{pifont} % Generación de símbolos especiales
 \usepackage{textcomp}
 \usepackage{ccicons}
+\usepackage{fontawesome5}
 
 \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
@@ -63,6 +64,8 @@
 
 % Definición de colores
 \usepackage[usenames,dvipsnames,svgnames,x11names,table]{xcolor}
+\definecolor{sombra}{HTML}{F0F0F0} % Sombra código
+\definecolor{gris}{gray}{0.4} % Gris numeración código
 
 
 % Paquetes especiales para Informática
@@ -107,168 +110,51 @@
 	belowcaptionskip=5pt, % Espacio bajo el título
 	basicstyle={\footnotesize\ttfamily}, % Estilo básico para el texto
 	%stringstyle=\textsl,        % Estilo para las cadenas
-	stringstyle={\color{Red1}\ttfamily\bfseries},
-	commentstyle={\color{Green4}\sffamily\bfseries},% Estilo para los comentarios
-	keywordstyle={\color{Blue1}\bfseries},% Estilo para las palabras clave
-	%	keywordstyle=[1]\textbf,    % Posibilidad de particularizar el estilo 
-	%	keywordstyle=[2]\textbf,    %
-	%	keywordstyle=[3]\textbf,    %
-	%	keywordstyle=[4]\textbf,    %
+	stringstyle={\color{Green4}},
+	commentstyle={\color{Green4}},% Estilo para los comentarios
+	keywordstyle={\color{Blue1}},% Estilo para las palabras clave
 	%	deletekeywords={}, 			% Quita keywords separadas por comas
 	captionpos=t,               % Ajusta la posición de títulos 
 	numbers=left,               % Posición de números de línea
-	numberstyle={\color{DarkSlateGray}\tiny\sffamily\bfseries},          % Tamaño del número de línea
+	numberstyle={\color{gris}\tiny\sffamily},          % Tamaño del número de línea
 	numberfirstline=false,
 	firstnumber=1, 				%  Nº de la primera línea
 	stepnumber=1,               % Paso de línea numerada
 	numbersep=10pt,             % Separación del texto al número de línea
 	tabsize=2,                  % Tamaño del tabulador
-	extendedchars=true,         % Gestiona en empleo de caracteres 	
-	%	extendedchars=\true,        % Gestiona en empleo de caracteres extendidos utf8 % Hack-
 	texcl=true,				    % Necesario para unicode en los comentarios
 	breaklines=true,            % Ajusta división automática de líneas
 	breakatwhitespace=true,     % Indica si la división automática sólo ocurre en los espacios en blanco
-	frame=single,               % none, leftline, topline, bottomline, lines, single, shadowbox 
-	frameround=tttt, 			% Redondea los bordes del frame
-	rulecolor={\color{DarkSlateGray}},    % Color del frame
+	frame=none,               % none, leftline, topline, bottomline, lines, single, shadowbox 
+%	frameround=tttt, 			% Redondea los bordes del frame
+%	rulecolor={\color{black}},  % Color del frame
 	showspaces=false,           % Muestra espacios en blanco
 	showtabs=false,             % Muestra tabuladores
 	showstringspaces=true,      % Muestra espacios en blanco en las cadenas        
 	xleftmargin=1cm,xrightmargin=1cm,
 	breaklines=true,
 	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}, % Flecha al saltar de linea
-	prebreak=\mbox{\textcolor{red}{$\hookleftarrow$}\space}, % Flecha al saltar de linea	%	framexleftmargin=17pt
+	prebreak=\mbox{\textcolor{red}{$\hookleftarrow$}\space}, % Flecha al saltar de linea	
+    framexleftmargin=8mm, % Ajuste para que el nº de línea quede dentro del frame
 	%	framexrightmargin=5pt,
 	%	framexbottommargin=4pt,
-%	backgroundcolor={\color{Lavender}} % Color del fondo
-	backgroundcolor={\color{FloralWhite}} % Color del fondo
+	backgroundcolor={\color{sombra}} % Color del fondo
 }
 
-% Algunos ejemplos de definiciones de estilos.
-% Para ajustar los colores se recomienda ehcar un vistazo al manual de xcolor donde están todos los colores predefinidos con sus nombres.
-
-
-\lstdefinestyle{consola}{%
-	basicstyle={\color{White}\scriptsize\bf\ttfamily},
-	backgroundcolor={\color{Black}},
+\lstdefinestyle{consola}{% Estilo para comandos tipo consola
+	basicstyle={\color{white}\scriptsize\bf\ttfamily},
+	backgroundcolor={\color{black}},
 	frame=none,
 	showspaces=true
 }
 
-%\lstdefinestyle{consola}{%
-%	basicstyle=\scriptsize\bf\ttfamily
-%}
-  
- 
-\lstdefinestyle{C-ruled}{%
-	language=C,
+\lstdefinestyle{ruled}{% Estilo para listado con filete a la izda.
 	frame=L,
 	rulesep=.1pt,
+   	framexleftmargin=0mm,
 	rulecolor=\color{black}
 }
-
-
-\lstdefinestyle{Python-color}{%
-	language=Python,
-	basicstyle=\scriptsize,
-	otherkeywords={self},          
-	keywordstyle=\bfseries\color{NavyBlue},
-	emphstyle=\bfseries\color{DarkRed},    
-	stringstyle=\color{ForestGreen}
-}
-
-
-\lstdefinestyle{C-color}{%
-  	breaklines=true,
-  	language=C,
-  	basicstyle=\scriptsize,
-  	keywordstyle=\bfseries\color{green!40!black},
-  	commentstyle=\itshape\color{purple!40!black},
-  	identifierstyle=\color{blue},
-  	stringstyle=\color{orange}
-}
-
-
-\lstdefinestyle{CSharp}{%
-	basicstyle=\scriptsize
-	language=[Sharp]C,
-	escapeinside={(*@}{@*)},
-	keywordstyle=\bfseries
-}
-	
-
-\lstdefinestyle{C++-color}{%
-  	breaklines=true,
-  	language=C++,
-  	basicstyle=\scriptsize,
-  	keywordstyle=\bfseries\color{green!40!black},
-  	commentstyle=\itshape\color{purple!40!black},
-  	identifierstyle=\color{blue},
-  	stringstyle=\color{orange}
-}
-    
-	
-\lstdefinestyle{PHP-color}{%
-	basicstyle=\scriptsize,
-	language=PHP,
-	keywordstyle    = \color{DarkBlue},
-  	stringstyle     = \color{red},
-  	identifierstyle = \color{DarkGreen},
-  	commentstyle    = \color{gray},
-  	emph            =[1]{php},
-  	emphstyle       =[1]\color{black},
-  	emph            =[2]{if,and,or,else},
-  	emphstyle       =[2]\color{Gold}
-}
-  
-	
-\lstdefinestyle{Latex-color}{%
-	language=[LaTeX]{Tex},
-    basicstyle=\scriptsize,
-    commentstyle=\color{DarkGreen},
-    identifierstyle=\color{black},
-    literate={\$}{{{\bfseries\color{Dandelion}\$}}}1, % Colorea el simbolo dollar
-    alsoletter={\\,*,\&},
-    emph =[1]{\\begin,\\end,\\caption,\\label,\\centering,\\FloatBarrier,
-              \\lstinputlisting,\\scalefont,\\addplot,\\input,
-              \\legend,\\item,\\subitem,\\includegraphics,\\textwidth,
-              \\section,\\subsection,\\subsubsection,\\paragraph,
-              \\cite,\\citet,\\citep,\\gls,\\bibliographystyle,\\url,
-              \\citet*,\\citep*,\\todo,\\missingfigure,\\footnote},
-  	emphstyle =[1]\bfseries\color{RoyalBlue},
-  	emph = [2]{equation,subequations,eqnarray,figure,subfigure,
-  			   condiciones,flalign,tikzpicture,axis,lstlisting,
-  			   itemize,description
-  			   },
-  	emphstyle =[2]\bfseries,
-    numbers=none
-}
-
-\lstdefinestyle{Java-color}{%
-	basicstyle=\scriptsize,
-	language=Java,
-  	keywordstyle=\color{blue},
-  	commentstyle=\color{DarkGreen},
-  	stringstyle=\color{DarkOrchid}
-}
-
-
-\lstdefinestyle{R-color}{%
-	language=R,                     
-  	basicstyle=\scriptsize,
-  	keywordstyle=\bfseries\color{RoyalBlue}, 
-  	commentstyle=\color{YellowGreen},
-  	stringstyle=\color{ForestGreen}  
-}
-
-
-\lstdefinestyle{Matlab-color}{%
-	basicstyle=\scriptsize,
-	language=Matlab,
-  	keywordstyle=\color{blue},
-  	commentstyle=\color{DarkGreen},
-  	stringstyle=\color{DarkOrchid}
-}
+% -------------------------
 
 
 % OJO: Definición de dos macros para el tratamiento correcto de comentarios con % en Matlab
@@ -315,6 +201,7 @@
 
 \usepackage[margin=10pt,labelfont=bf]{caption} % Configuración de caption en objetos float
 
+\usepackage{float}
 
 % Con estas instrucciones se ajustan los valores del índice
 \setcounter{secnumdepth}{2} % Ajusta el valor del último nivel numerado
@@ -356,7 +243,7 @@ El paquete \texttt{listings}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/
 
 % Ejemplo:
 % ============
-\begin{lstlisting}[language=Java,style=Java-color,float=ht,caption={[Código fuente en Java]Ejemplo de código fuente en lenguaje Java},label=lst:java]
+\begin{lstlisting}[language=Java,caption={[Código fuente en Java]Ejemplo de código fuente en lenguaje Java},label=lst:java]
 // @author www.javadb.com
 public class Main {    
   // Este método convierte un String a
@@ -384,11 +271,11 @@ Un aspecto a tener presente cuando se trabaja con el paquete \texttt{listings} e
 	\item Trabajar con codificación ANSI (opción \texttt{ansinew} o \texttt{latin1}) y emplear los caracteres que se desee.
 \end{enumerate}
 
-En los siguientes ejemplos veremos varios listados generados empleando el paquete \texttt{listings}. El listado~\ref{lst:java} muestra el resultado cuando se emplean unas opciones asociadas a un estilo creado específicamente para código fuente Java. También ilustra cómo es manejado el código como un elemento deslizante \emph{(float)} y cómo se puede incluir incluso referencias cruzadas.
+En los siguientes ejemplos veremos varios listados generados empleando el paquete \texttt{listings}. El listado~\ref{lst:java} muestra el resultado cuando se emplean unas opciones asociadas a un estilo creado específicamente para código fuente Java. Aunque los listados de código se pueden incluir como elemntos deslizantes \emph{(float)} no se recomienda esta opción aunque puedan quedar divididos en páginas separadas, pero esta opción se considera mejor una ubicación no determinada a priori.
 
 En los ejemplos siguientes se muestra el código fuente de un pequeño programa C para el que se emplea un ajuste diferente de los atributos del entorno \texttt{lstlisting}. Para configurar aspectos relacionados con el color se recomienda emplear los colores predefinidos por el paquete \texttt{xcolor}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/xcolor/xcolor.pdf}}
 
-\begin{lstlisting}[style=C-color,float=ht,caption={Ejemplo de código C},label=lst:codC]
+\begin{lstlisting}[language=C,caption={Ejemplo de código C},label=lst:codC]
 // Este código se ha incluido tal cual está 
 // en el fichero \LaTeX{}
 #include <stdio.h>
@@ -401,7 +288,7 @@ int main(int argc, char* argv[]) {
 
 \noindent Por el contrario este otro se ha generado incluyendo el código desde un fichero externo \texttt{``HolaMundo.c''}.
 
-\lstinputlisting[style=C-color,float=ht,caption={Ejemplo de código C desde un fichero externo},label=lst:codCfile]{../code/HolaMundo.c}
+\lstinputlisting[language=C,caption={Ejemplo de código C desde un fichero externo},label=lst:codCfile]{../code/HolaMundo.c}
 
 
 También es posible configurar un estilo específico para indicar comandos de consola del computador, como en el siguiente ejemplo dónde se señala cómo compilar un fichero usando \texttt{gcc} (detener pulsando \tecla{Ctrl+d}): %Aquí se muestra cómo incluir en un manual la pulsación de teclas
@@ -413,12 +300,12 @@ $ gcc -o Hola HolaMundo.c
 
 Aquí se incluye un listado configurado con un estilo que emplea más el color y el  sangrado del código para que quede más elegante.
 
-\lstinputlisting[language=Python,style=Python-color, float=ht,caption={Ejemplo de código Python desde un fichero externo},label=lst:pyfile]{../code/pyexample.py}
+\lstinputlisting[language=Python,caption={Ejemplo de código Python desde un fichero externo},label=lst:pyfile]{../code/pyexample.py}
 
 La inclusión de código en Matlab presenta algunas particularidades en idioma español ya que \texttt{babel} modifica el espacio que separa el signo `\%'. Por este motivo es preciso incluir las macros especiales \verb|\spanishplainpercent| y \verb|\spanishpercent| para que dicho carácter sea tratado correctamente. El ejemplo~\ref{lst:matlab} muestra un listado correspondiente a código Matlab.
 
 \spanishplainpercent
-\begin{lstlisting}[style=Matlab-color,float=ht,caption={Ejemplo escrito en Matlab},label=lst:matlab]
+\begin{lstlisting}[language=Matlab,caption={Ejemplo escrito en Matlab},label=lst:matlab]
 function f = fibonacci(n)
  % FIBONACCI  Fibonacci sequence
  %	f = FIBONACCI(n) generates the first n Fibonacci numbers.
@@ -489,9 +376,9 @@ ejemplo:\\
 \section{Licencias de protección de propiedad intelectual}
 Existen paquetes especializados para facilitar la utilización de licencias de protección de propiedad intelectual entre las que destacan las de tipo Creative Commons. Para tratar con dichas licencias en los documentos preparados con \LaTeX{} se recomiendan los paquetes:
 \begin{itemize}
-\item \texttt{ccicons}\footnote{\url{https://osl.ugr.es/CTAN/fonts/ccicons/ccicons.pdf}} que está especializado en la generación de los iconos de los distintos tipos de licencias, como por ejemplo: \ccbyncsa.
+\item \texttt{ccicons} que está especializado en la generación de los iconos de los distintos tipos de licencias, como por ejemplo: \ccbyncsa. Estos iconos también pueden ser obtenidos mediante el uso del paquete \texttt{fontawesome5} como por ejemplo: \faCreativeCommons{} \faCreativeCommonsBy{} \faCreativeCommonsNcEu{} \faCreativeCommonsSa . Dicho paquete proporciona un conjunto muy numeroso de iconos adicionales que además son muy accesibles desde \TeX studio.
 
-\item \texttt{doclicense}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/doclicense/doclicense.pdf}} que proporciona un conjunto importante de macros para generar información relativa a las licencias de tipo Creative Commons.
+\item \texttt{doclicense}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/doclicense/doclicense.pdf}} proporciona un conjunto importante de macros para generar información relativa a las licencias de tipo Creative Commons.
 \end{itemize}
 
 \doclicenseThis % Generación automática de la licencia

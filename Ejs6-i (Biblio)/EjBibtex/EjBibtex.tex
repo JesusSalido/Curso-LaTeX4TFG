@@ -61,7 +61,7 @@
 \setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
 
 % NOTA: Para usar un estilo APA es preciso cargar este paquete en preámbulo para que las citas se incluyan entre parátesis en vez de corchetes.
-%\usepackage{apalike} 
+%\usepackage{apacite} 
 
 \author{Jesús Salido}
 \title{Bibliografía con Bib\TeX{}}
@@ -142,7 +142,7 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 %%%%%
 % Opción 1: Inclusión de bibliografía mediante BD de registros bibliográficos contenidos en un fichero y definición de un estilo.
 % Definición del estilo empleado en la bibliografía
-\bibliographystyle{ieeetr}
+\bibliographystyle{plain}
 % Estilos nativos incluidos con LaTeX (plain, abbrv, alpha, unsrt).
 %
 % plain: las referencias se numeran y en la bibliografía las entradas
@@ -162,7 +162,7 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 % ieeetr:    Numérica para los IEEE Transactions.
 % 
 % Estilo incluido con BibTeX para citar en formato autor-año
-% apalike:   No numérica, con referencias ordenadas alfabéticamente por apellido de autor.
+% apacite:   No numérica, con referencias ordenadas alfabéticamente por apellido de autor.
 
 \nocite{*} % OJO: Se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto.(PROHIBIDO EN LA ESI)
 \bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
@@ -171,7 +171,7 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 
 
 %%%%%
-% Opción 2: Al producir el resultado definitivo se incluye el contenido del fichero bbl generado por BibTeX demodo que se incluye una lista de referencias que puede editarse a voluntad para corregirla según preferencia personal.
+% Opción 2: Al producir el resultado definitivo se incluye el contenido del fichero bbl generado por BibTeX de modo que se incluye una lista de referencias que puede editarse a voluntad para corregirla según preferencia personal.
 %\begin{thebibliography}{10}
 %\bibitem{wikibookLaTex10}
 %WikiMedia, ``{\LaTeX{} Wikibook}.'' {URL:}

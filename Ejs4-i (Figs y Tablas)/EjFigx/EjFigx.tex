@@ -27,7 +27,7 @@
 \usepackage{textcomp}
 
 \usepackage[T1]{fontenc} % Codificación de salida    
-\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+%\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
 % Generación de hiperenlaces
 \usepackage[%
@@ -109,16 +109,31 @@ La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphic
 % Ejemplo:
 % ============
 %Aquí se muestra cómo se emplean subfiguras. Se pueden añadir cuantas subfiguras se desee, de modo que si no caben a la par LaTeX las ubicará en varias filas. Esta colocación en varias filas se puede provocar añadiendo \\ (saltos de línea). Las subfiguras también se pueden emplear en las refs. cruzadas. El título de la figura también admite un título corto para la lista de figuras.
+%\begin{figure}[hbt]
+%	\centering
+%	\begin{subfigure}[b]{0.4\linewidth}
+%		\centering
+%		\includegraphics[width=0.8\linewidth]{clockCR}
+%		\caption{Imagen jpg en color}\label{fig:clockCR}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.4\linewidth}
+%		\centering
+%		\includegraphics[width=0.8\linewidth]{clockCRbw}
+%		\caption{Imagen jpg en niveles de gris}\label{fig:clockCRbw}
+%	\end{subfigure}
+%	\caption[Comparación jpg color y niveles de gris]{Ej. de paquete \texttt{subcaption} mostrando el reloj de la Plaza Mayor (cortesía de J.~Salido)}
+%	\label{fig:clock}
+%\end{figure}
 \begin{figure}[hbt]
 	\centering
-	\begin{subfigure}[b]{0.4\linewidth}
+	\begin{subfigure}[b]{0.48\linewidth}
 		\centering
-		\includegraphics[width=0.8\linewidth]{clockCR}
+		\includegraphics[width=\linewidth]{clockCR}
 		\caption{Imagen jpg en color}\label{fig:clockCR}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.4\linewidth}
+	\begin{subfigure}[b]{0.48\linewidth}
 		\centering
-		\includegraphics[width=0.8\linewidth]{clockCRbw}
+		\includegraphics[width=\linewidth]{clockCRbw}
 		\caption{Imagen jpg en niveles de gris}\label{fig:clockCRbw}
 	\end{subfigure}
 	\caption[Comparación jpg color y niveles de gris]{Ej. de paquete \texttt{subcaption} mostrando el reloj de la Plaza Mayor (cortesía de J.~Salido)}
