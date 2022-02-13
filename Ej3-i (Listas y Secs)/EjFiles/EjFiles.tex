@@ -20,26 +20,25 @@
 \usepackage[spanish]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
-
-\usepackage{newpxtext}
-\usepackage{newpxmath}
-\usepackage{marvosym}
-\usepackage{pifont} % Generación de símbolos especiales
-\usepackage{textcomp}
-\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{newpxtext,newpxmath}
+\usepackage{textcomp,marvosym,pifont,fontawesome5} % Símbolos \usepackage[T1]{fontenc} % Codificación de salida    
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
-\usepackage{paralist} % Mayor control de listas
+\usepackage[shortlabels]{enumitem} % Mayor control de listas
 \usepackage{multicol} % Elementos en varias columnas
 
 % Generación de hiperenlaces
-\usepackage[pdftex,breaklinks,colorlinks,
-	citecolor=blue, % Color de la citas
-	urlcolor=blue, % Color de las URL
-	bookmarksnumbered=true, % Incluye números en bookmarks
-	pdftitle={Fundamentos de LaTeX para principiantes},
-	pdfauthor={Jesús Salido},
-	pdfsubject={LaTeX}]{hyperref}
+\usepackage[%
+   pdftex,
+   breaklinks,
+%   hidelinks=true,      % Oculta colores en los enlaces (negro)  
+   linktocpage=true,    % true = enlace al nº de pág., false=texto completo
+   colorlinks=true,         % true=colorea texto del enlace, false=recuadra el texto
+   citecolor=red, % Color de la citas
+   urlcolor=blue, % Color de las URL
+   bookmarksnumbered=true % Incluye números en bookmarks
+]{hyperref}
+\usepackage{url} % Incluido con hyperref
 \urlstyle{sf} % Estilo de URL sin serifas
 
 
@@ -54,7 +53,6 @@
 \date{\today}
 
 
-%\includeonly{Listas} % Sólo procesaría el fichero señalado
 
 %%%%%%%%%%%%%%
 % Comienzo del documento
@@ -64,29 +62,10 @@
 \maketitle
 
 \begin{abstract}
-	En este ejemplo se han reunido varios de los ejemplos anteriores para mostrar el uso de secciones. El contenido de cada ejemplo se ha organizado como una sección de este nuevo documento separado en ficheros individuales (uno por sección). También se muestra como preparar un índice de contenido.
+	Este es un ejemplo de inclusión de archivos externos en un documento \LaTeX.
 \end{abstract}
 
-% Cuando se generan índices de contenido y referencias cruzadas es preciso compilar el documento mútiples veces (hasta tres) hasta obtener el resultado apropiado. Esto no es un funcionamiento incorrecto sino necesario.
-
-\hrule % Adornos para enmarcar la tabla de contenido
-\tableofcontents % Así de fácil
-\vspace{0.5cm} % Espacio vertical adicional
-\hrule
-
-% En este caso se ha separado el contenido de las secciones en tres archivos distintos. Véase que los nombre de los ficheros pueden no incluir su extensión (LaTeX asume que se trata de extensión .tex). Se recomienda usar nombre que recuerden el contenido del mismo. También es recomendable que los nombre no contengan caracteres en blanco.
-
-% Ficheros introducidos mediante \input
-%\input{Tipos}
-%\input{Simb}
-%\input{Alinea}
-%\input{Listas}
-
-% Ficheros introducidos mediante \include
-\include{Tipos}
-\include{Simb}
-\include{Alinea}
-\include{Listas}
+\include{../EjSecs/fileSecs}
 
 \end{document}
 

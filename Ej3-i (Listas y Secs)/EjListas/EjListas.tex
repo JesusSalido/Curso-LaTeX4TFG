@@ -2,6 +2,7 @@
 % Fichero: EjListas
 % Autor: J. Salido (http://www.esi.uclm.es/www/jsalido)
 % Fecha: febrero, 2017
+% Rev.: febrero 2022
 % Descripción: Generación de listas en LaTeX
 % Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
 % y otros documentos académicos” (Esc. Sup. Informática-UCLM)
@@ -31,7 +32,7 @@
 
 % Paquetes para obtener un mayor control de las listas
 \usepackage{multicol} % Elementos en varias columnas
-\usepackage[inline,shortlabels]{enumitem}
+\usepackage[shortlabels]{enumitem} % Paquete para configurar listas
 
 \author{Jesús Salido}
 \title{Listas en \LaTeX{}}
@@ -80,6 +81,10 @@ Las listas también se pueden anidar:
 	\begin{itemize}
 		\item conferencia
 		\item ercolina
+    	\begin{itemize}
+    		\item mini conferencia
+    		\item extra ercolina
+    	\end{itemize}
 	\end{itemize}
 	\item manzanas
 	\begin{itemize}
@@ -88,7 +93,6 @@ Las listas también se pueden anidar:
 	\end{itemize}
 	\item naranjas
 \end{itemize}
-
 
 
 \noindent Ejemplo de entorno {\tt itemize} en el que se sustituye el símbolo (\emph{bullet}) por defecto:
@@ -102,19 +106,15 @@ Las listas también se pueden anidar:
 \end{itemize}
 
 
-Personalmente pienso que \LaTeX{} proporciona demasiado espaciado en las listas. Con el paquete \texttt{enumitem} se puede compactar las listas. A continuación se muestra un ejemplo de entorno {\tt itemize} con la opción \texttt{nosep} y cambio de viñeta por defecto (proporcionada por el paquete \texttt{enumitem}):
+Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas. Con el paquete \texttt{enumitem} se puede compactar las listas. A continuación se muestra un ejemplo de entorno {\tt itemize} con opciones para cambiar el espaciado vertical entre ítems y cambio de viñeta por defecto (proporcionada por el paquete \texttt{enumitem}):
 
 % Ejemplo:
 % ============
-\begin{itemize}[*,nosep]
+\begin{itemize}[*,noitemsep]
 	\item peras
 	\item manzanas
 	\item naranjas
 \end{itemize}
-
-
-
-\bigskip % Salto vertical equivalente a 1 línea (\medskip: 1/2 línea, \smallskip: 1/4 línea)
 
 \noindent Ejemplo de entorno {\tt enumerate} para listas numeradas:
 
@@ -127,24 +127,21 @@ Personalmente pienso que \LaTeX{} proporciona demasiado espaciado en las listas.
 \end{enumerate}
 
 
-\noindent Ejemplo de entorno {\tt enumerate} con cambio de numeración (letras minúsculas) y opción \texttt{nosep} (proporcionada por el paquete \texttt{enumitem}) para listas numeradas:
+\noindent Ejemplo de entorno {\tt enumerate} con cambio de numeración (letras minúsculas) y opción \texttt{noitemsep} (proporcionada por el paquete \texttt{enumitem}) para listas numeradas:
 
 % Ejemplo:
 % ============
-\begin{enumerate}[a.-,nosep]
+\begin{enumerate}[a.-,noitemsep]
 	\item peras
 	\item manzanas
 	\item naranjas
 \end{enumerate}
 
-
-\bigskip
-
 \noindent Este es otro ejemplo de línea compacta creada en varias columnas con ayuda de los paquetes \texttt{enumitem} y \texttt{multicol}:
 % Ejemplo:
 % ============
 \begin{multicols}{2} % El parámetro es el número de columnas de la lista
-	\begin{enumerate}[i.,nosep]
+	\begin{enumerate}[i.,noitemsep]
 		\item peras
 		\item manzanas
 		\item naranjas
@@ -159,9 +156,9 @@ Personalmente pienso que \LaTeX{} proporciona demasiado espaciado en las listas.
 
 % Ejemplo:
 % ============
-\begin{enumerate}[\ding{52}] % Lista en la que se cambia el bullet por un símbolo dingbat
+\begin{enumerate}[\ding{52},noitemsep] % Lista en la que se cambia el bullet por un símbolo dingbat
 	\item peras
-	\item manzanas
+	\item[\ding{55}] manzanas
 	\item naranjas
 \end{enumerate}
 
@@ -196,7 +193,7 @@ Personalmente pienso que \LaTeX{} proporciona demasiado espaciado en las listas.
 
 % Ejemplo:
 % ============
-\begin{description}
+\begin{description}[noitemsep]
 	\item[Estupideces] no mejoran por ponerlas en una lista por bonita que esta sea. Aunque la mona se vista de seda, mona se queda.
 	\item[Lucideces] sin embargo, pueden parecer hermosas en
 	una lista.
@@ -206,11 +203,9 @@ Personalmente pienso que \LaTeX{} proporciona demasiado espaciado en las listas.
 
 % Ejemplo:
 % ============
-\begin{description}
-	\item[Estupideces]\hfill \\ 
-			no mejoran por ponerlas en una lista por bonita que esta sea. Aunque la mona se vista de seda, mona se queda.
-	\item[Lucideces]\hfill \\ 
-			sin embargo, pueden parecer hermosas en una lista.
+\begin{description}[style=nextline]
+	\item[Estupideces] no mejoran por ponerlas en una lista por bonita que esta sea. Aunque la mona se vista de seda, mona se queda.
+	\item[Lucideces] sin embargo, pueden parecer hermosas en una lista.
 \end{description}
 
 \LaTeX{} permite una configuración más avanzada para presentar listas más sofisticadas, aunque la mayoría de las veces esto no es necesario, ya que es suficiente con las listas convencionales.
