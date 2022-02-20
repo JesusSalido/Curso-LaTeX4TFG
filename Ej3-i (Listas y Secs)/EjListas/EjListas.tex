@@ -19,7 +19,7 @@
 \usepackage[spanish]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
-\usepackage[osf]{newpxtext}
+\usepackage{newpxtext}
 \usepackage{newpxmath}
 \usepackage{marvosym}
 \usepackage{pifont} % Generación de símbolos especiales
@@ -58,14 +58,14 @@ Las listas se emplean cuando se desea enumerar una serie de características, ob
 \begin{itemize}
 	\item peras
 	\item manzanas
-	\item limones
-	\item naranjas
+    \item 	limones
+    \item 	naranjas
 \end{itemize}
 
 \noindent La misma lista cambiando la viñeta, gracias a paquete \texttt{enumitem}:
 % Ejemplo: Lista con viñeta dingbat
 % ============
-\begin{itemize}[\ding{111}]
+\begin{itemize}[\ding{68}]
 	\item peras
 	\item manzanas
 	\item limones
@@ -110,7 +110,7 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
 
 % Ejemplo:
 % ============
-\begin{itemize}[*,noitemsep]
+\begin{itemize}[noitemsep]
 	\item peras
 	\item manzanas
 	\item naranjas
@@ -167,7 +167,7 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
 
 % Ejemplo:
 % ============
-\begin{dingautolist}{202} % Lista con símbolos sucesivos de la tabla dingbat
+\begin{dingautolist}{192} % Lista con símbolos sucesivos de la tabla dingbat
 	\item peras
 	\item manzanas
 	\item naranjas

@@ -32,16 +32,16 @@
 
 % EDITAR: Inclusión de hiperenlaces.
 % Generación de hiperenlaces
-%\usepackage[%
-%   pdftex,
-%   breaklinks,
-%   hidelinks=true,      % Oculta colores en los enlaces (negro)  
-%%   linktocpage=true,    % true = enlace al nº de pág., false=texto completo
-%%	colorlinks=true,         % true=colorea texto del enlace, false=recuadra el texto
-%%	citecolor=red, % Color de la citas
-%%	urlcolor=blue, % Color de las URL
-%	bookmarksnumbered=true % Incluye números en bookmarks
-%]{hyperref}
+\usepackage[%
+   pdftex,
+   breaklinks,
+   hidelinks=true,      % Oculta colores en los enlaces (negro)
+    linktocpage=true,    % true = enlace al nº de pág., false=texto completo
+%    colorlinks=true,         % true=colorea texto del enlace, false=recuadra el texto
+	citecolor=red, % Color de la citas
+	urlcolor=blue, % Color de las URL
+	bookmarksnumbered=true % Incluye números en bookmarks
+]{hyperref}
 \usepackage{url}
 \urlstyle{sf} % Estilo de URL sin serifas
 
@@ -56,6 +56,10 @@
 \date{\today}
 
 %\selectspanish
+
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{1}
+
 
 %%%%%%%%%%%%%%
 % Comienzo del documento
@@ -74,12 +78,12 @@
 % Esto no es un funcionamiento incorrecto sino necesario.
 % Sin embargo, al emplear TeXstudio el entorno detecta la necesidad de compilar varias veces para obtener las referencias correctas.
 
-%\hrule % Adornos para enmarcar la tabla de contenido
+\hrule % Adornos para enmarcar la tabla de contenido
 
 % NOTA: Inclusión de tabla de contenidos.
-% \tableofcontents % Así de fácil
-%\vspace{0.5cm} % Espacio vertical adicional
-%\hrule
+\tableofcontents % Así de fácil
+\vspace{0.5cm} % Espacio vertical adicional
+\hrule
 
 \section{Tipografía con \LaTeX{}}
 \label{sec:tipos} % En esta sección se ha incluido el contenido del documento EjTipos.tex
@@ -91,6 +95,17 @@ Por favor, no utilices el \underline{subrayado} para \emph{enfatizar}. Aunque en
 Por supuesto \LaTeX{} tiene en cuenta las particularidades de la tipografía en modo matemático como en: $f(x)=y^2$ y números $1,2,3,4,5,6,7,8,9$, o en modo texto: 0123456789.
 
 $$g(x)=\int_{0}^{\infty}y^{3}dy$$
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -134,6 +149,18 @@ Y también en el entorno verbatim:
    verbatim permite hacer lo 
    mismo en un texto más extenso.
 \end{verbatim*} 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -186,6 +213,14 @@ En alguna situación puede interesar realizar un formateado del los párrafos em
 	\> ELSE \> \textbf{sonreir}.              \\
 	\textbf{Salir} de casa.
 \end{tabbing}
+
+
+
+
+
+
+
+
 
 
 

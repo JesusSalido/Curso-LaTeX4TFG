@@ -34,7 +34,6 @@
 \usepackage{marvosym}	% Símbolos
 \usepackage{pifont}		% Generación de símbolos especiales
 
-\usepackage{paralist}
 \usepackage{siunitx} % Uso de unidades del SI según normas ISO
 \usepackage{cancel} % Calcelación de términos en una ecuación
 \usepackage[normalem]{ulem} % Enfatizado mediante subrayado
@@ -43,17 +42,22 @@
 
 
 % Generación de hiperenlaces
-\usepackage[pdftex,breaklinks,colorlinks,
-	citecolor=blue, % Color de la citas
+\usepackage[%
+   pdftex,
+   breaklinks,
+   hidelinks=true,      % Oculta colores en los enlaces (negro)
+    linktocpage=true,    % true = enlace al nº de pág., false=texto completo
+%    colorlinks=true,         % true=colorea texto del enlace, false=recuadra el texto
+	citecolor=red, % Color de la citas
 	urlcolor=blue, % Color de las URL
 	bookmarksnumbered=true % Incluye números en bookmarks
-    ]{hyperref}
-
-\urlstyle{sf}
+]{hyperref}
+\usepackage{url}
+\urlstyle{sf} % Estilo de URL sin serifas
 
 
 % Listas
-\usepackage{paralist} % Mayor control de listas
+\usepackage{enumitem} % Mayor control de listas
 \usepackage{multicol} % Elementos en varias columnas
 
 
@@ -70,8 +74,8 @@
 \usepackage{caption} % Configuración de caption en objetos float
 
 % Paquetes especiales para Química
-\usepackage[version=3]{mhchem}
-\usepackage{chemfig}
+%\usepackage[version=3]{mhchem}
+%\usepackage{chemfig}
 
 
 % Con estas instrucciones se ajustan los valores del índice
@@ -127,7 +131,7 @@ Como vemos en la ecuación~\ref{eq:pitagoras} algunos términos podemos señalar
 
 \bigskip
 Las macros que proporciona el paquete \texttt{ulem} son:
-\begin{compactitem}
+\begin{itemize}[noitemsep]
 	\item \verb|\uline{importante}|: texto subrayado como \uline{importante}.
 	
 	\item \verb|\uuline{urgente}|: doble subrayado como \uuline{urgente}.
@@ -141,7 +145,7 @@ Las macros que proporciona el paquete \texttt{ulem} son:
 	\item \verb|\dashuline{discontinuo}|: subrayado \dashuline{discontinuo}.
 	 
 	\item \verb|\dotuline{punteado}|: subrayado \dotuline{punteado}.
-\end{compactitem}
+\end{itemize}
 \bigskip
 
 No hay que preocuparse demasiado por la tipografía empleada en las fórmulas pues \LaTeX{} hace por nosotros <<casi>> todo el trabajo.\footnote{Los matemáticos son muy exquisitos y no se conforman con cualquier cosa, pero nosotros debemos ser mucho menos pretenciosos si queremos resultados rápidos.}
@@ -233,92 +237,87 @@ Para terminar, un ejemplo más del control del espaciado horizontal empleando el
 
 
 \section{Añadiendo unidades del SI}
-En la gran mayoría de las ramas científico-técnicas es preciso el empleo de unidades asociadas a las magnitudes físicas que se emplean. En estos casos se emplea habitualmente las unidades del Sistema Internacional (SI). El paquete \texttt{siunitx}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/siunitx/siunitx.pdf}} proporciona un modo sencillo de incluir las magnitudes físicas con sus unidades en los documentos preparados con \LaTeX{} de acuerdo a las normas ISO.
+En la gran mayoría de las ramas científico-técnicas es preciso el empleo de unidades asociadas a las magnitudes físicas que se emplean. En estos casos se emplea habitualmente las unidades del Sistema Internacional (SI). El paquete \texttt{siunitx}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/siunitx/siunitx.pdf}} proporciona un modo sencillo de incluir las magnitudes físicas con sus unidades en los documentos preparados con \LaTeX{} de acuerdo a las normas ISO. A continuación se muestran algunos ejemplos de uso:
 
-A continuación se muestran algunos ejemplos de uso:\footnote{Este paquete presenta alguna incompatibilidad con el idioma español en dos de sus macros que requieren para su uso una reconfiguración, aunque en su lugar es preferible evitarlas.}
-
-\bigskip
-\begin{compactitem}
-	\item \verb|\num{12345}|: \num{12345}
-	\item \verb|\num{.12345}|: \num{.12345}
-	\item \verb|\num{3.45d-4}|: \num{3.45d-4}
-	\item \verb|\num{25e10}|: \num{25e10}
-	\item \verb|\ang{1;2;3}|: \ang{1;2;3}
-	\item \verb|\si{kg.m/s^2}|: \si{kg.m/s^2}
-	\item \verb|\si{\kilo\gram\metre\per\square\second}|: \si{\kilo\gram\metre\per\square\second}
-	\item \verb|\SI[mode=text]{1.23}{J.mol^{-1}.K^{-1}}|: \SI[mode=text]{1.23}{J.mol^{-1}.K^{-1}}
-	\item \verb|\SI[per-mode=symbol]{1.99}[\$]{\per\kilogram}|: \SI[per-mode=symbol]{1.99}[\$]{\per\kilogram}
-	\item \verb|\SI[per-mode=fraction]{1,345}{\coulomb\per\mole}|: \SI[per-mode=fraction]{1,345}{\coulomb\per\mole}
-	\item \verb|\SIlist{10;30;45}{\metre}|: \SIlist{10;30;45}{\metre}
-	\item \verb|\SIrange{10}{30}{\metre}|: \SIrange{10}{30}{\metre}
-	\item \verb|\si{\highlight{red}\kilogram\cancel\metre\per\second}|: \si{\highlight{red}\kilogram\cancel\metre\per\second}
-\end{compactitem}
+\begin{itemize}[noitemsep]
+	\item \verb|\num{12345}|:$\rightarrow$ \num{12345}
+	\item \verb|\num{.12345}|:$\rightarrow$  \num{.12345}
+	\item \verb|\num{3.45d-4}|:$\rightarrow$  \num{3.45d-4}
+	\item \verb|\num{25e10}|:$\rightarrow$  \num{25e10}
+	\item \verb|\ang{1;2;3}|:$\rightarrow$  \ang{1;2;3}
+	\item \verb|\si{kg.m/s^2}|:$\rightarrow$  \si{kg.m/s^2}
+	\item \verb|\si{\kilo\gram\metre\per\square\second}|:$\rightarrow$  \si{\kilo\gram\metre\per\square\second}
+	\item \verb|\SI[mode=text]{1.23}{J.mol^{-1}.K^{-1}}|:$\rightarrow$  \SI[mode=text]{1.23}{J.mol^{-1}.K^{-1}}
+	\item \verb|\SI[per-mode=symbol]{1.99}[\$]{\per\kilogram}|:$\rightarrow$  \SI[per-mode=symbol]{1.99}[\$]{\per\kilogram}
+	\item \verb|\SI[per-mode=fraction]{1,345}{\coulomb\per\mole}|:$\rightarrow$  \SI[per-mode=fraction]{1,345}{\coulomb\per\mole}
+	\item \verb|\SIlist{10;30;45}{\metre}|:$\rightarrow$  \SIlist{10;30;45}{\metre}
+	\item \verb|\SIrange{10}{30}{\metre}|:$\rightarrow$  \SIrange{10}{30}{\metre}
+	\item \verb|\si{\highlight{red}\kilogram\cancel\metre\per\second}|:$\rightarrow$  \si{\highlight{red}\kilogram\cancel\metre\per\second}
+\end{itemize}
 
 
-\section{Fórmulas químicas}
-\LaTeX{} también puede emplearse para la inclusión de fórmulas y estructuras químicas. Para ello se proporciona un sinfín de paquetes que pueden ayudar en la tarea.\footnote{\url{http://www.mychemistry.eu/known-packages/}} A continuación se muestran ejemplos creados con los paquetes \texttt{mhchem}, \texttt{xymtex}, y \texttt{chemfig}.
-
-
-
-\subsection{Fórmulas químicas con el paquete \texttt{mhchem}}
-Es un paquete bastante sencillo que permite escribir formulación química simple.
-
-% Ejemplo:
-% ============
-\begin{center}
-\ce{Zn^2+
-<=>[\ce{+ 2OH-}][\ce{+ 2H+}]
-$\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
-<=>C[+2OH-][{+ 2H+}]
-$\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
-}
-\end{center}
-
-
-A diferencia de las ecuaciones matemáticas no existe un entorno que genere la ecuación con un título y un tratamiento similar al de los objetos flotantes por lo que si se requiere este tratamiento hay que configurarlo.
-
-Al igual que se ha hecho más arriba en la ecs.~\ref{eq:cuadro} y \ref{eq:cuadrogrande} es posible recuadrar una fórmula química siguiendo el mismo esquema.
-
-\begin{center}
-{\fboxsep 8pt \fboxrule 0.5pt
-	\fbox{
-			\ce{Zn^2+
-			<=>[\ce{+ 2OH-}][\ce{+ 2H+}]
-			$\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
-			<=>C[+2OH-][{+ 2H+}]
-			$\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
-			}
-	}
-}
-\end{center}
-
-
-
-
-\subsection{Fórmulas químicas con el paquete \texttt{chemfig}}
-Es un paquete que aprovecha las capacidades gráficas del paquete \texttt{tikz} (Ti\textit{k}Z)\footnote{Si no se ha cargado previamente \texttt{chemfig} lo cargará.} y es muy flexible. Sin embargo, no hay que perder de vista que aprender a utilizarlo ya puede representar un esfuerzo importante. En este caso una solución alternativa es emplear programas dedicados de dibujo de fórmulas químicas importando éstos en el documento \LaTeX{} como un fichero PDF.
-
-A continuación se muestran algunos ejemplos de fórmulas químicas empleando el paquete \texttt{chemfig}. En la Fig.~\ref{fig:cafeina} se muestra como es posible tratar como una figura una fórmula generada con \texttt{chemfig}.
-
-
-% Ejemplo: Cafeina
-% ============
-\begin{figure}[!h]
-	\begin{center}
-		\chemfig{H_3C-[:30]N**6(-(=O)-(**5(-N(-CH_3)--N-))--N(-CH_3)-(=O)-)}
-	\end{center}
-	\caption{Fórmula química de la cafeina}\label{fig:cafeina}
-\end{figure}
-
-
-
-% Ejemplo: Adrenalina
-% ============
-\begin{center}
-\definesubmol{&}{-[,,,,draw=none]}
-\definesubmol{&&}{-[,,,2,draw=none]}
-\chemfig{*6((-HO)-=*6(!&!{&&}HN(-CH_3)-[,,2]-(<OH)-)-=-(-HO)=)}
-\end{center}
+%\section{Fórmulas químicas}
+%\LaTeX{} también puede emplearse para la inclusión de fórmulas y estructuras químicas. Para ello se proporciona un sinfín de paquetes que pueden ayudar en la tarea.\footnote{\url{http://www.mychemistry.eu/known-packages/}} A continuación se muestran ejemplos creados con los paquetes \texttt{mhchem}, \texttt{xymtex}, y \texttt{chemfig}.
+%
+%
+%
+%\subsection{Fórmulas químicas con el paquete \texttt{mhchem}}
+%Es un paquete bastante sencillo que permite escribir formulación química simple.
+%
+%\begin{center}
+%\ce{Zn^2+
+%<=>[\ce{+ 2OH-}][\ce{+ 2H+}]
+%$\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
+%<=>C[+2OH-][{+ 2H+}]
+%$\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
+%}
+%\end{center}
+%
+%
+%A diferencia de las ecuaciones matemáticas no existe un entorno que genere la ecuación con un título y un tratamiento similar al de los objetos flotantes por lo que si se requiere este tratamiento hay que configurarlo.
+%
+%Al igual que se ha hecho más arriba en la ecs.~\ref{eq:cuadro} y \ref{eq:cuadrogrande} es posible recuadrar una fórmula química siguiendo el mismo esquema.
+%
+%\begin{center}
+%{\fboxsep 8pt \fboxrule 0.5pt
+%	\fbox{
+%			\ce{Zn^2+
+%			<=>[\ce{+ 2OH-}][\ce{+ 2H+}]
+%			$\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
+%			<=>C[+2OH-][{+ 2H+}]
+%			$\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
+%			}
+%	}
+%}
+%\end{center}
+%
+%
+%
+%
+%\subsection{Fórmulas químicas con el paquete \texttt{chemfig}}
+%Es un paquete que aprovecha las capacidades gráficas del paquete \texttt{tikz} (Ti\textit{k}Z)\footnote{Si no se ha cargado previamente \texttt{chemfig} lo cargará.} y es muy flexible. Sin embargo, no hay que perder de vista que aprender a utilizarlo ya puede representar un esfuerzo importante. En este caso una solución alternativa es emplear programas dedicados de dibujo de fórmulas químicas importando éstos en el documento \LaTeX{} como un fichero PDF.
+%
+%A continuación se muestran algunos ejemplos de fórmulas químicas empleando el paquete \texttt{chemfig}. En la Fig.~\ref{fig:cafeina} se muestra como es posible tratar como una figura una fórmula generada con \texttt{chemfig}.
+%
+%
+%% Ejemplo: Cafeina
+%% ============
+%\begin{figure}[!h]
+%	\begin{center}
+%		\chemfig{H_3C-[:30]N**6(-(=O)-(**5(-N(-CH_3)--N-))--N(-CH_3)-(=O)-)}
+%	\end{center}
+%	\caption{Fórmula química de la cafeina}\label{fig:cafeina}
+%\end{figure}
+%
+%
+%
+%% Ejemplo: Adrenalina
+%% ============
+%\begin{center}
+%\definesubmol{&}{-[,,,,draw=none]}
+%\definesubmol{&&}{-[,,,2,draw=none]}
+%\chemfig{*6((-HO)-=*6(!&!{&&}HN(-CH_3)-[,,2]-(<OH)-)-=-(-HO)=)}
+%\end{center}
 
 
 

@@ -35,24 +35,34 @@
 \usepackage[
 	type={CC},
 	modifier={by-sa},
-	version={3.0},
+	version={4.0},
 ]{doclicense}
+
+
+% Definición de colores
+\usepackage[table,hyperref,usenames,dvipsnames,svgnames,x11names]{xcolor}
+\definecolor{sombra}{HTML}{F0F0F0} % Sombra código
+\definecolor{gris}{gray}{0.4} % Gris numeración código
+\definecolor{palered}{rgb}{0.78, 0.03, 0.08}
+\definecolor{ocre}{RGB}{243,102,25} % Ocre
+\definecolor{aquaESI}{RGB}{0,151,215} % Aqua
+\definecolor{turquesa}{RGB}{64,132,64} % Turquesa
+\definecolor{UCLMred}{cmyk}{0.19, 1.0, 0.74, 0.12} % Color imagen corporativa UCLM
 
 
 
 % Generación de hiperenlaces
 \usepackage[pdftex]{hyperref}
-\urlstyle{sf}
-
 
 % Ajustes de paquete hyperref 
 \hypersetup{
 	breaklinks,
 	%	hidelinks,       % Oculta el color y borde de los links
     colorlinks=true,
-	linkcolor=red,    % Color de los links
+    linktocpage=true,    % true = enlace al nº de pág., false=texto completo
+	linkcolor=UCLMred,    % Color de los links
 	citecolor=blue,  % Color de la citas
-	urlcolor=blue,   % Color de las URL
+	urlcolor=aquaESI,   % Color de las URL
 	bookmarksnumbered=true, % Incluye números en bookmarks		
 	pdftitle={Fundamentos de LaTeX para principiantes}, % Título
 	pdfauthor={Jesús Salido}, % Autor
@@ -60,12 +70,7 @@
 	pdftoolbar=true, % Muestra la toolbar de Acrobat
 	pdfmenubar=true % Muestra la menubar de Acrobat
 }
-
-
-% Definición de colores
-\usepackage[usenames,dvipsnames,svgnames,x11names,table]{xcolor}
-\definecolor{sombra}{HTML}{F0F0F0} % Sombra código
-\definecolor{gris}{gray}{0.4} % Gris numeración código
+\urlstyle{sf} % Estilo de URL sin serifas
 
 
 % Paquetes especiales para Informática

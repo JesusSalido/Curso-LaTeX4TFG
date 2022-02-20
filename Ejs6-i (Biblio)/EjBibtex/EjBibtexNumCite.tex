@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%
 \documentclass[11pt,a4paper]{article} 
 \usepackage[utf8]{inputenx} 
-\usepackage[spanish]{babel} 
+\usepackage[spanish,es-noindentfirst]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
 % Tipografía
@@ -30,29 +30,37 @@
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
 
+% Definición de colores
+\usepackage[table,hyperref,usenames,dvipsnames,svgnames,x11names]{xcolor}
+\definecolor{sombra}{HTML}{F0F0F0} % Sombra código
+\definecolor{gris}{gray}{0.4} % Gris numeración código
+\definecolor{palered}{rgb}{0.78, 0.03, 0.08}
+\definecolor{ocre}{RGB}{243,102,25} % Ocre
+\definecolor{aquaESI}{RGB}{0,151,215} % Aqua
+\definecolor{turquesa}{RGB}{64,132,64} % Turquesa
+\definecolor{UCLMred}{cmyk}{0.19, 1.0, 0.74, 0.12} % Color imagen corporativa UCLM
+
+
 
 % Generación de hiperenlaces
 \usepackage[pdftex]{hyperref}
 \hypersetup{
 	breaklinks,
 	colorlinks=true, % Pone color en los link o un borde
-	linkcolor=red,    % Color de los links
-	%	hidelinks,       % Oculta el color y borde de los links
-	citecolor=blue,  % Color de la citas
-	urlcolor=blue,   % Color de las URL
+    linktocpage=true,% enlace al nº de pág., false=texto completo
+	linkcolor=UCLMred,   % Color de los links
+	%	hidelinks,   % Oculta el color y borde de los links
+	citecolor=aquaESI,  % Color de la citas
+	urlcolor=aquaESI,   % Color de las URL
 	bookmarksnumbered=true, % Incluye números en bookmarks		
-	pdftitle={Fundamentos de LaTeX para principiantes}, % Título
-	pdfauthor={Jesús Salido}, % Autor
-	pdfsubject={LaTeX}, % Tema
 	pdftoolbar=true, % Muestra la toolbar de Acrobat
 	pdfmenubar=true % Muestra la menubar de Acrobat
 }
-
 \urlstyle{sf}
 
 
 
-\usepackage{paralist} % Mayor control de listas
+\usepackage[shortlabels]{enumitem} % Mayor control de listas
 \usepackage{multicol} % Elementos en varias columnas
 
 
@@ -60,12 +68,9 @@
 \setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
 \setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
 
-% NOTA: Para usar un estilo APA es preciso cargar este paquete en preámbulo para que las citas se incluyan entre paréntesis en vez de corchetes.
-
-\usepackage[natbibapa]{apacite} 
 
 \author{Jesús Salido}
-\title{Bibliografía con Bib\TeX{}}
+\title{Bibliografía con Bib\TeX{} y citación numérica}
 \date{\today}
 
 %%%%%%%%%%%%%%
@@ -76,10 +81,8 @@
 
 
 \begin{abstract}
-Generación de bibliografía con \LaTeX{} empleando un método más elegante consistente en la utilización de Bib\TeX{} \cite{wikibookLaTex10}.
+Generación de bibliografía con \LaTeX{} empleando un método más elegante consistente en la utilización de Bib\TeX{} \cite{wikibookLaTex10} y estilo de citación numérica.
 \end{abstract}
-
-\tableofcontents
 
 
 
@@ -98,14 +101,14 @@ El conjunto de referencias que serán citadas en el documento principal puede co
 Para implementar el segundo método se utiliza una herramienta adicional denominada Bib\TeX{} (comando \texttt{bibtex} en las distribuciones de \LaTeX). Este programa se encarga de procesar ficheros (\texttt{.bib}) de texto que sólo contienen registros de fuentes bibliográficas en los que constan todos los datos relativos a la fuente. El fichero \texttt{.bib} puede ser contemplado como un archivo de una base de datos bibliográfica. En este caso Bib\TeX{} junto con \LaTeX{} gestionan el estilo en que se imprime la bibliografía e incluso el de las citas. Con este procedimiento la tarea de elaboración de una bibliografía consiste en la creación de la base de datos con las referencias bibliográficas deseadas. Por supuesto los registros tendrán que respetar una estructura definida que Bib\TeX{} pueda comprender.
 
 Cada registro de la base bibliográfica proporciona información sobre el documento concreto al que se refiere:
-\begin{compactitem}
+\begin{itemize}[noitemsep]
 	\item Autor(es).
 	\item Título.
 	\item Revista, libro, congreso u otra forma de publicación del documento.
 	\item Número, volumen, etc.
 	\item Editorial.
 	\item Fecha de publicación.
-\end{compactitem}
+\end{itemize}
 
 
 
@@ -128,7 +131,7 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 \begin{itemize}
 	\item No puede tratar con bibliografías multilingües. Esto es, aquellas en que las fuentes están en más de un idioma (p.ej.\ español e inglés).
 	
-	\item Bib\TeX{} no es compatible con \textsc{utf8} de modo que aunque los ficheros de bibliografía se pueden codificar así con algunos estilos bibliográficos se obtienen errores.
+	\item Bib\TeX{} no es compatible con UTF8 de modo que aunque los ficheros de bibliografía se pueden codificar así con algunos estilos bibliográficos se obtienen errores.
 \end{itemize}
 
 
@@ -141,9 +144,8 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 \addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC 
 
 %%%%%
-% Opción 1: Inclusión de bibliografía mediante BD de registros bibliográficos contenidos en un fichero y definición de un estilo.
 % Definición del estilo empleado en la bibliografía
-\bibliographystyle{apacite}
+\bibliographystyle{plain}
 % Estilos nativos incluidos con LaTeX (plain, abbrv, alpha, unsrt).
 %
 % plain: las referencias se numeran y en la bibliografía las entradas
@@ -159,80 +161,16 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 
 % Estilos incluidos con BibTeX “no nativos” pero muy “populares” para ingenierías
 %
-% acm:       Numérica con los nombre de autores en mayúsculas.
-% ieeetr:    Numérica para los IEEE Transactions.
+% acm:       Numérica refs. ordenadas por orden alfabético y nombres de
+%            autores en mayúsculas.
+% ieeetr:    Numérica para los IEEE Transactions, referencias ordenadas
+%            por orden de cita en el texto.
 % 
 % Estilo incluido con BibTeX para citar en formato autor-año
 % apacite:   No numérica, con referencias ordenadas alfabéticamente por apellido de autor.
 
 \nocite{*} % OJO: Se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto.(PROHIBIDO EN LA ESI)
 \bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
-
-
-
-
-%%%%%
-% Opción 2: Al producir el resultado definitivo se incluye el contenido del fichero bbl generado por BibTeX de modo que se incluye una lista de referencias que puede editarse a voluntad para corregirla según preferencia personal.
-%\begin{thebibliography}{10}
-%\bibitem{wikibookLaTex10}
-%WikiMedia, ``{\LaTeX{} Wikibook}.'' {URL:}
-%  \url{http://en.wikibooks.org/wiki/LaTeX}, 2010.
-%\newblock Último acceso 23 feb. 2011.
-%
-%\bibitem{salido15}
-%J.~Salido, ``Curso de {\LaTeX2e{}}.'' {URL:}
-%  \url{http://visilab.etsii.uclm.es/?page_id=1468}, 2015.
-%\newblock Último acceso: 7 sep. 2021.
-%
-%\bibitem{cascales00}
-%B.~Cascales, P.~Lucas y col., {\em
-%  {\LaTeX{}}. Una imprenta en sus manos}.
-%\newblock Aula Documental de Investigación, 2000.
-%
-%\bibitem{cascales03}
-%B.~Cascales, P.~Lucas, J.~Mira, A.~Pallarés y S.~{Sánchez-Pedreño}, {\em
-%  El libro de {\LaTeX}}.
-%\newblock Pearson/Prentice Hall, 2003.
-%
-%\bibitem{goos04}
-%M.~Goossens et al., {\em The {\LaTeX{}} companion}.
-%\newblock Addison-Wesley Reading, MA, 2nd~ed., 2004.
-%
-%\bibitem{kopka04}
-%H.~Kopka and P.~Daly, {\em A guide to {\LaTeX}}.
-%\newblock Addison-Wesley, 4th~ed., 2004.
-%
-%\bibitem{lamport94}
-%L.~Lamport, {\em {\LaTeX}: A document preparation system}.
-%\newblock Addison-Wesley, 2nd~ed., 1994.
-%
-%\bibitem{goos07}
-%M.~Goossens, S.~Rahtz, and F.~Mittelbach, {\em The {\LaTeX{}} graphics
-%  companion}.
-%\newblock Addison-Wesley Reading, MA, 2nd~ed., 2007.
-%
-%\bibitem{grat07}
-%G.~Grätzer, {\em More math into {\LaTeX}}.
-%\newblock Birkhauser, 4th~ed., 2007.
-%
-%\bibitem{grat99}
-%G.~Grätzer, {\em First steps in {\LaTeX}}.
-%\newblock Springer Verlag, 1st~ed., 1999.
-%
-%\bibitem{lange1998programming}
-%D.~B. Lange and O.~Mitsuru, {\em Programming and Deploying Java Mobile Agents
-%  Aglets}.
-%\newblock Addison-Wesley Longman Publishing Co., Inc., 1998.
-%
-%\bibitem{larman1999uml}
-%C.~Larman, {\em UML y patrones}.
-%\newblock Pearson, 1999.
-%
-%\bibitem{oetiker06}
-%T.~Oetiker, H.~Partl, I.~Hyna, and E.~Schlegl, {\em The not so short
-%  introduction to {\LaTeX2e{}}}, 2006.
-%
-%\end{thebibliography}
 
 
 

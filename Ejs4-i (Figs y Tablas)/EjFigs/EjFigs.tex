@@ -31,25 +31,34 @@
 \usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
 % Generación de hiperenlaces
-\usepackage[pdftex,
-	breaklinks,
-	colorlinks, % OJO: Incompatible con paquete "menukeys"
-	citecolor=blue, % Color de la citas
+\usepackage[%
+   pdftex,
+   breaklinks,
+   hidelinks=true,      % Oculta colores en los enlaces (negro)
+    linktocpage=true,    % true = enlace al nº de pág., false=texto completo
+%    colorlinks=true,         % true=colorea texto del enlace, false=recuadra el texto
+	citecolor=red, % Color de la citas
 	urlcolor=blue, % Color de las URL
 	bookmarksnumbered=true % Incluye números en bookmarks
-    ]{hyperref}
-
-\urlstyle{sf}
+]{hyperref}
+\usepackage{url}
+\urlstyle{sf} % Estilo de URL sin serifas
 
 
 % Listas
-\usepackage{paralist} % Mayor control de listas
+\usepackage{enumitem} % Mayor control de listas
 \usepackage{multicol} % Elementos en varias columnas
-
 
 
 % Gráficos
 \usepackage{graphicx}  % Inclusión de figuras y escalado de cajas
+\usepackage{float} % Control de posición de objetos flotantes y estilos
+\usepackage[margin=10pt,labelfont=bf]{caption}
+\captionsetup[figure]{skip=5pt} % Necesario por si se desea colocar los títulos de las figs. en la parte superior. De este modo no queda tan pegado a la figura.
+\usepackage[margin=10pt,font=small,labelfont=bf]{subcaption}	% Inclusión de subfiguras
+\usepackage{rotating}	% Rotación de figuras
+\usepackage{tikz}       % Librería de gráficos con comandos LaTeX
+\usepackage{pgf}		% Inclusión de figuras con comandos LaTeX 
 
 % Declaración del path donde están los archivos de figuras. 
 % También se puede incluir el path en el nombre del fichero.
@@ -57,11 +66,9 @@
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 % Lista de extensiones de ficheros por orden de precedencia. De este modo no hace falta indicar la extensión del fichero y en caso de existir dos fichero con el mismos nombre y extensión diferente se emplea el que tiene una extensión con mayor prioridad.
 
-\usepackage[margin=10pt,labelfont=bf]{caption}
-\captionsetup[figure]{skip=5pt} % Necesario por si se desea colocar los títulos de las figs. en la parte superior. De este modo no queda tan pegado a la figura.
 
 % Con estas instrucciones se ajustan los valores del índice
-\setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
+\setcounter{secnumdepth}{2} % Ajusta el valor del último nivel numerado
 \setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
 
 
@@ -85,150 +92,337 @@
 
 
 \section{Primeros pasos}
-La inclusión de figuras y archivos de imagen en un documento elaborado con \LaTeX{} es muy sencilla y versátil (en la Fig.~\ref{fig:plazaCR} se muestra una fotografía en formato \texttt{.jpg} en color).\footnote{El título de la imagen también muestra cómo debe darse créditos al autor de la imagen si ésta no es de libre uso y tenemos permiso para usarla.} Hay que tener presente que el tipo de ficheros permitidos depende de si empleamos \texttt{latex} o \texttt{pdflatex},\footnote{En todo este curso asumimos que trabajaremos con \texttt{pdfltex} pues es más cómodo y siempre es posible utilizar la herramienta \texttt{epstopdf} para realizar la conversión de formatos.} ya que el primero sólo permite la inclusión de ficheros gráficos \texttt{.eps} mientras el segundo admite \texttt{.pdf}, \texttt{.png} y \texttt{.jpg}. Cuando la figura original presente un formato diferentes a los soportados será preciso emplear algún programa para realizar la conversión apropiada de formatos.
+La inclusión de figuras y archivos de imagen en un documento elaborado con \LaTeX{} es muy sencilla y versátil (en la Fig.~\ref{fig:plazaCR} se muestra una fotografía en formato \texttt{.jpg} en color).\footnote{El título de la imagen también muestra cómo debe darse créditos al autor de la imagen si ésta no es de libre uso y tenemos permiso para usarla.} Hay que tener presente que el tipo de ficheros permitidos depende de si empleamos \texttt{latex} o \texttt{pdflatex},\footnote{En todo este curso asumimos que trabajaremos con \texttt{pdflatex} pues es más cómodo y siempre es posible utilizar la herramienta \texttt{epstopdf} para realizar la conversión de formatos.} ya que el primero sólo permite la inclusión de ficheros gráficos \texttt{.eps} mientras el segundo admite \texttt{.pdf}, \texttt{.png} y \texttt{.jpg}. Cuando la figura original presente un formato diferente a los mencionados, será preciso emplear algún programa para realizar la conversión apropiada. La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphicx} con el que ya se pueden obtener resultados muy aceptables.
 
-
-
-% Ejemplo:
-% ============
 \begin{figure}[hbt] % Véase los tags de ubicación (h)ere, (b)ottom, (t)op 
 	\centering % Fig. centrada en la página
 % 	EDITAR: En caso de requerir que el título aparezca en la parte superior de la figura.
 %	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido)} % Título y el título para la lista de figuras
-	\includegraphics[height=6cm]{plazaCR} % Alto de la figura en la pág.
-	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido)} % Título y el título para la lista de figuras
+	\includegraphics[height=8cm]{plazaCR} % Alto de la figura en la pág.
+	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido).} % Título y el título para la lista de figuras
 	\label{fig:plazaCR} % Etiqueta para las refs. cruzadas
 \end{figure}
 
+\LaTeX{} puede procesar las figuras como \emph{objetos deslizantes o <<flotantes>>}\footnote{Estos elementos se denominan \textit{float} y por ello a veces en español utilizamos como traducción <<flotante>>.} (o sin ubicación prefijada). De este modo \LaTeX{} emplea algoritmos para encontrar la mejor ubicación de todos los objetos flotantes que contenga el texto. El usuario siempre tiene a su disposición opciones para sugerir la ubicación deseada dejando a \LaTeX{} la reubicación del texto y párrafos en la página. Con todo, en ocasiones el usuario debe hacer algunos ajustes para conseguir la ubicación deseada, aunque sigue siendo un procedimiento mucho más cómodo que en algunos de los procesadores de texto populares de tipo \textsc{wysiwyg}. Siempre que existan muchas figuras en el texto, el ajuste del resultado final va a ser más complejo y requerirá mayor intervención humana.
 
-La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphicx} con el que ya se pueden obtener resultados muy aceptables.
-
-\LaTeX{} puede procesar las figuras como \emph{objetos deslizantes o <<flotantes>>}\footnote{Estos elementos se denominan \textit{float} y por ello a veces en español utilizamos como traducción <<flotante>>.} (o sin ubicación prefijada). De este modo \LaTeX{} emplea algoritmos para encontrar la mejor ubicación de todos los objetos flotantes que contenga el texto. El usuario siempre tiene a su disposición opciones para sugerir la ubicación deseada dejando a \LaTeX{} la reubicación del texto y párrafos en la página. Con todo, en ocasiones el usuario debe hacer algunos ajustes para conseguir la ubicación deseada, aunque sigue siendo un procedimiento mucho más cómodo que en algunos de los procesadores de texto \textsc{wysiwyg} populares. Siempre que existan muchas figuras en el texto el ajuste del resultado final va a ser más complejo y requerirá mayor intervención humana.
+Otra de las ventajas de \LaTeX{} es que las imágenes no están incrustadas en nuestro fichero fuente, sino que son ficheros independientes incluidos durante la compilación. De este modo, la modificación de la figura no requiere la modificación del fichero fuente sino únicamente una nueva compilación.
 
 
-Otra de las ventajas de \LaTeX{} es que las imágenes no están incrustadas en nuestro fichero fuente, sino que son ficheros aparte incluidos durante la compilación. De este modo la modificación de la figura no requiere la modificación del fichero fuente sino únicamente una nueva compilación.
+
+
+
+
 
 
 \section{Formatos gráficos}
-A la hora de incluir figuras se debe decidir qué formato es el más apropiado entre los disponibles, siguiendo las siguientes reglas:
+A la hora de incluir figuras se debe decidir qué formato es el más apropiado siguiendo las siguientes reglas:
 \begin{itemize}
-	\item Siempre que sea posible es preferible el formato \texttt{.pfd} ya que es vectorial (escalable), aunque por supuesto si el fichero contiene alguna imagen de mapa de bits, esta no será escalable (véase Fig.~\ref{fig:4004arch}).
-	\item Las fotografías se incluirán en formato \texttt{.jpg} (véase Fig.~\ref{fig:plazaCR})
-	\item Las capturas de pantalla o gráficos de gran contraste se deben incluir en formato \texttt{.png} (véase Fig.~\ref{fig:inkscape}). 
+	\item Siempre que sea posible es preferible el formato \texttt{.pfd}, ya que es vectorial (escalable) como el gráfico de la Fig.~\ref{fig:4004arch}. Por supuesto, si el fichero \textsf{PDF} contiene alguna imagen de mapa de bits, esta no será escalable.
+	\item Las fotografías se incluirán en formato \texttt{.jpg} (como en las  Figs.~\ref{fig:mars} y \ref{fig:plazaCR}).
+	\item Las capturas de pantalla o gráficos de gran contraste se deben incluir en formato \texttt{.png} (como en la Fig.~\ref{fig:inkscape}). 
 	\item Siempre que se tenga un fichero de imagen (mapa de bits) con un fondo blanco u otro color plano, debería intentarse transformar en una imagen con fondo transparente convirtiéndola al formato \texttt{.png}.
 \end{itemize}
 
-
-% Ejemplo:
-% ============
-\begin{figure}[hbt]
-	\centering
-	\includegraphics[width=0.4\linewidth]{inkscape} 
-	\caption[Ejemplo de captura en png]{Captura de pantalla de \textsf{Inkscape}}
-	\label{fig:inkscape}
-\end{figure}
-
-Las capturas de pantalla de programas deberían incluirse como ficheros en formato \texttt{.png}. En la Fig.~\ref{fig:inkscape} se muestra una captura del programa de libre distribución \textsf{InkScape}. Dicho programa es apropiado para la elaboración de gráficos vectoriales. 
-
-% Ejemplo:
-% ============
-\begin{figure}[hbt]
-	\centering
-	\includegraphics[width=0.6\linewidth]{Mars_Perseverance} 
-	\caption[Foto histórica enviada desde Marte]{Primera foto enviada desde Marte el {18-2-2021} por el robot Perseverance (cortesía de NASA/JPL-Caltech)}
-	\label{fig:inkscape}
-\end{figure}
-
-
-Siempre que sea posible emplear formato \texttt{.pdf} es preferible, ya que se trata de un formato vectorial con posibilidad de escalado sin pérdida de resolución. En la Fig.~\ref{fig:4004arch} se muestra el resultado de la inclusión de un gráfico en formato PDF. 
-
-% Ejemplo:
-% ============
 \begin{figure}[hbt]
 	\centering 
-	\includegraphics[width=0.5\linewidth]{4004arch} 
-	\caption[Ejemplo de gráfico vectorial PDF]{Figura vectorial de arquitectura Intel 4004 (Wikimedia Commons)}
+	\includegraphics[width=0.8\linewidth]{4004arch} 
+	\caption[Ejemplo de gráfico vectorial \textsf{PDF}]{Figura vectorial de arquitectura Intel 4004 en formato \textsf{PDF} (CC-BY-SA 3.0, Appaloosa, 2007. Wikimedia Commons).}
 	\label{fig:4004arch}
 \end{figure}
 
-
-\subsection{Ventajas del formato PDF}
-Una de las dificultades de trabajar con ficheros PDF es que se trata de un formato difícil de editar de modo que habitualmente se genera a partir de otros formatos. Por ejemplo, el gráfico de la Fig.~\ref{fig:4004arch}, cuyo formato original es \texttt{.svg}, ha sido realizado con el programa \textsf{InkScape} y convertido al formato PDF mediante la herramienta de exportación (a través de \textsf{Cairo}) incluida en el programa. En los programas que no incorporan dicha herramienta el fichero PDF se puede generar imprimiendo a un archivo con un driver de impresión PDF (si no se dispone del driver de Adobe se recomienda el uso de \textsf{PDFCreator}). 
-
-Cuando se trabaja con figuras hay que tener mucho cuidado con emplear imágenes de Internet sin tener la seguridad de los términos de uso de las mismas. Con mucha frecuencia, de forma inadvertida, se violan los derechos de uso incluso cometiendo un delito. Por este motivo recomiendo recurrir a librerías de dominio público que permiten el uso de las imágenes y \emph{clip arts} sin restricciones, como por ejemplo Open ClipArt,\footnote{\url{http://openclipart.org/}} la página de galerías en el sitio de Inkscape\footnote{\url{http://wiki.inkscape.org/wiki/index.php/Galleries}} y Wikimedia Commons.\footnote{\url{http://commons.wikimedia.org/}}
-
-
-
-\newpage
-\subsection{Gráficas matemáticas}
-En muchas ocasiones es preciso recurrir a una gráfica matemática para reflejar o apoyar una idea. Existen numerosos programas que ayudan a realizar estas gráficas, en cualquiera de los casos siempre se empleará un formato vectorial (PDF) para incluir la gráfica en nuestro documento. Nunca debe hacerse mediante una captura de pantalla pues en este caso estaremos perdiendo mucha información al tratar como un mapa de bits algo que es un objeto matemático y por tanto independiente de su escala de representación.
-
-\subsubsection{Gráficas generadas con Excel}
-Uno de los programas más universales para la creación de gráficas matemáticas son las hojas de cálculo como Excel. La Fig.~\ref{fig:excel} muestra un ejemplo de figura vectorial generada con ayuda de dicho programa.
-
-% Ejemplo:
-% ============
 \begin{figure}[hbt]
 	\centering
+	\includegraphics[width=0.5\linewidth]{Mars_Perseverance} 
+	\caption[Foto histórica enviada desde Marte]{Primera foto enviada desde Marte el {18-2-2021} por el robot Perseverance incluida aquí en formato JPEG (cortesía de NASA/JPL-Caltech).}
+	\label{fig:mars}
+\end{figure}
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=0.7\linewidth]{inkscape} 
+	\caption[Ejemplo de captura en png]{Captura de pantalla de \textsf{Inkscape} incluida en formato \textsf{PNG}.}
+	\label{fig:inkscape}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+\subsection{Ventajas del formato \textsf{PDF}}
+Una de las dificultades de trabajar con ficheros \textsf{PDF} es que se trata de un formato difícil de editar, de modo que habitualmente se genera a partir de otros formatos. Por ejemplo, el gráfico de la Fig.~\ref{fig:4004arch}, cuyo formato original es \textsf{SVG}, ha sido realizado con el programa \textsf{Inkscape} y convertido al formato \textsf{PDF} mediante la herramienta de exportación (a través de \textsf{Cairo}) incluida en el programa en dicho programa. En los programas que no incorporan dicha herramienta el fichero \textsf{PDF} se puede generar imprimiendo a un archivo con un driver de impresión \textsf{PDF}. 
+
+Cuando se trabaja con figuras hay que tener mucho cuidado con emplear imágenes de Internet sin tener la seguridad de los términos de uso de las mismas. Con mucha frecuencia al utilizarlos, se violan los derechos de propiedad intelectual, incluso cometiendo involuntariamente un delito. Por este motivo recomiendo recurrir a librerías de dominio público y licencias de libre uso como Creative Commons ---permiten el uso de las imágenes y \emph{cliparts} con pocas restricciones--- como por ejemplo OpenClipArt,\footnote{\url{http://openclipart.org/}} la página de galerías en el sitio de Inkscape\footnote{\url{http://wiki.inkscape.org/wiki/index.php/Galleries}} y Wikimedia Commons.\footnote{\url{http://commons.wikimedia.org/}} El derecho a cita permite la reproducción de figuras, sujetas a derechos restrictivos de distribución, en ámbitos académicos. Sin embargo, siempre debería incluirse en el pie de la figura la atribución de autoría y la licencia que se aplica a la distribución de la misma (no confundir con la licencia de nuestro documento). En cualquier caso debería investigarse la licencia de uso de la figura puesto que en algunos casos (p.ej.\ banco de imágenes de la \textsc{nasa}) el autor señala cómo debe realizarse la atribución de autoría. En ningún caso puede incluirse una figura ajena sin atribución, sin importar si es de dominio público o distribuida con una licencia permisiva.
+
+
+
+
+
+
+
+\subsection{Gráficas matemáticas}
+En muchas ocasiones es preciso recurrir a una gráfica matemática para reflejar o apoyar una idea. Existen numerosos programas que ayudan a realizar estas gráficas, en cualquiera de los casos siempre se empleará un formato vectorial (\textsf{PDF}) para incluir la gráfica en nuestro documento. Nunca debe hacerse mediante una captura de pantalla pues, en este caso estaremos perdiendo mucha información al tratar como un mapa de bits algo que es un objeto matemático y por tanto, independiente de su escala de representación.
+
+Uno de los programas más universales para la creación de gráficas matemáticas son las hojas de cálculo como Excel. La Fig.~\ref{fig:excel} muestra un ejemplo de figura vectorial generada con ayuda de dicho programa.
+
+\begin{figure}[H]
+	\centering
 	\includegraphics[width=0.5\linewidth]{EjFigsExcelOrig-crop} 
-	\caption[Gráfico de Excel]{Figura vectorial generada con Excel}
+	\caption[Gráfico de Excel]{Figura vectorial generada con Excel.}
 	\label{fig:excel}
 \end{figure}
 
+La Fig.~\ref{fig:matlabGrafs} muestra un ejemplo de figura vectorial generada con ayuda del programa Matlab. En este caso se observa cómo una única figura contiene distintos gráficos. % La Fig.~\ref{fig:python} muestra un ejemplo de figura vectorial (\textsf{PDF}) generada con Python y la librería \textsf{Matplotlib}. En este caso se observa cómo una única figura contiene distintos gráficos, siendo este un método para crear figuras compuestas de subfiguras.
 
-
-
-\newpage
-\subsubsection{Gráficas generadas con Matlab}
-La Fig.~\ref{fig:matlabGrafs} muestra un ejemplo de figura vectorial generada con ayuda del programa Matlab. En este caso se observa cómo una única figura contiene distintos gráficos.
-
-% Ejemplo:
-% ============
-\begin{figure}[hbt]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{matlabGrafs} 
-	\caption[Gráfico de Matlab]{Figura vectorial generada con Matlab}
+	\caption[Gráfico de Matlab]{Figura vectorial generada con Matlab.}
 	\label{fig:matlabGrafs}
 \end{figure}
 
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.8\linewidth]{fig2_py}
+%	\caption[Figura hecha desde Python]{Figura vectorial generada con Matplotlib (Python).}
+%	\label{fig:python}
+%\end{figure}
 
 
-\newpage
-\subsubsection{Gráficas generadas con Matplotlib (Python)}
-La Fig.~\ref{fig:python} muestra un ejemplo de figura vectorial (PDF) generada con Python y la librería \textsf{Matplotlib}. En este caso se observa cómo una única figura contiene distintos gráficos, siendo este un método alternativo al empleo de subfiguras.
 
-% Ejemplo:
-% ============
+
+
+
+
+
+
+
+
+
+
+
+\section{Métodos avanzados de inclusión de figuras}
+En esta sección se describen e ilustran métodos especializados y consejos para incluir gráficos en un documento \LaTeX.
+
+
+\subsection{Subfiguras}
+La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphicx} con el que ya se pueden obtener resultados muy aceptables, aunque existen otros paquetes más especializados que facilitan hacer cosas más exóticas, como el paquete \texttt{subcaption} para presentar figuras compuestas de varias subfiguras (ver ejemplos en las Figs.~\ref{fig:clock} y \ref{fig:lion}). A pesar de la posibilidad del uso del paquete \texttt{subcaption} no se debe descartar la alternativa de la composición externa a \LaTeX{} de las subfiguras y su inclusión en el documento como una figura sencilla como en la Fig.~\ref{fig:2clock}. Esta alternativa hace innecesario el empleo de paquetes dedicados.
+
+%Aquí se muestra cómo se emplean subfiguras. Se pueden añadir cuantas subfiguras se desee, de modo que si no caben a la par LaTeX las ubicará en varias filas. Esta colocación en varias filas se puede provocar añadiendo \\ (saltos de línea). Las subfiguras también se pueden emplear en las refs. cruzadas. El título de la figura también admite un título corto para la lista de figuras.
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=0.8\linewidth]{fig2_py}
-	\caption[Figura hecha desde Python]{Figura vectorial generada con Matplotlib (Python)}
-	\label{fig:python}
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{clockCR}
+		\caption{Imagen jpg en color}\label{fig:clockCR}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{clockCRbw}
+		\caption{Imagen jpg en niveles de gris}\label{fig:clockCRbw}
+	\end{subfigure}
+	\caption[Comparación jpg color y niveles de gris]{Ej. de paquete \texttt{subcaption} mostrando el reloj de la Plaza Mayor (cortesía de J.~Salido).}
+	\label{fig:clock}
 \end{figure}
+
+%Aquí se muestra el resultado de incluir una figura compuesta por subfiguras. Para montarlas se emplearon los programas PhotoFiltre y Powerpoint. Primero se redujo el tamaño original de las imágenes para que ocupasen menos memoria y después se montaron con Powerpoint una junto a otra dejando un espacio en blanco entre ellas. Este montaje se exporto a Photofiltre para salvarlo en el formato final.
+\begin{figure}[hbt]
+	\centering
+		\includegraphics[width=0.97\textwidth]{2clockCR}
+		\caption[Varias imágenes como una]{El reloj de la Plaza Mayor en color (izda.) y niveles de gris (dcha.).}
+	\label{fig:2clock}
+\end{figure}
+
+Siempre que se tenga un fichero de imagen (mapa de bits) con un fondo blanco u otro color plano, debería intentarse transformar en una imagen con fondo transparente convirtiéndola al formato \texttt{.png} (véase ejemplo en la Fig.~\ref{fig:lion}).
+
+\begin{figure}[hbt]
+	\centering
+  	\begin{subfigure}[b]{0.4\textwidth}
+  		\centering
+		\includegraphics[width=6cm]{lionL.jpg}
+		\caption{Imagen como jpg}\label{fig:lionLjpg}
+  	\end{subfigure}
+  	\begin{subfigure}[b]{0.4\textwidth}
+  		\centering
+		\includegraphics[width=6cm]{lionL.png}
+		\caption{Imagen como png con fondo transparente}\label{fig:lionpng}
+  	\end{subfigure}
+  	\caption[Comparación jpg y png con transparencia]{Comparativa de formatos bitmap (cortesía de D.~Wright).}
+	\label{fig:lion}
+\end{figure}
+
+Si se desea, es posible usar imágenes en color. Esto es muy conveniente para documentos electrónicos que se van a visualizar en la pantalla de un computador. Sin embargo, para documentos que serán impresos hay que tener presente si la impresión se realizará a color o en niveles de gris. 
+
+En la Fig.~\ref{fig:escudo} se comparan los resultados obtenidos cuando la figura se inserta en formato vectorial (escalable) y cuando se hace como mapa de bits (no escalable). En este ejemplo se muestran dos versiones para el escudo de la Ingeniería Informática (cortesía de CRySoL).\footnote{El escudo basado en el núcleo de ferrita que acompaña la distribución de este documento ha sido realizado por Francisco Moya, David Villa e Ignacio Díez y su inclusión en el documento final debe respetar los derechos de la licencia CC BY-SA 3.0 con la que se distribuye.}
+
+\begin{figure}[hbt]
+	\centering
+	\begin{subfigure}[b]{0.4\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{escudoInfBW.pdf}
+		\caption{Gráfico vectorial \textsf{PDF}}\label{fig:escudoPDF}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{escudoInfBW.png}
+		\caption{Gráfico png}\label{fig:escudoPNG}
+	\end{subfigure}
+	\caption[Comparación \textsf{PDF} y png]{Comparando distintos formatos para el escudo de Informática (cortesía de CRySoL).}
+	\label{fig:escudo}
+\end{figure}
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Imágenes a las que se añaden gráficos}
-En ocasiones es necesario recurrir a capturas de pantalla sobre las que es preciso realizar alguna anotación gráfica, por ejemplo añadiendo flechas y bloques de texto. Este es un caso que puede aparecer cuando se explica el funcionamiento de un programa informático (p.~ej.\ un manual). La captura siempre se debe realizar al mayor tamaño posible sobre la pantalla y se debe salvar en formato \texttt{.png}. Generalmente las herramientas de captura permiten la edición de la captura añadiéndole elementos gráficos e incluso texto. En este caso los elementos añadidos 
-forman parte del fichero \texttt{.png} y por tanto son definidos como mapa de bits. Si se desea mantener las características escalables de los elementos gráficos, éstos deben ser añadidos mediante algún programa de edición vectorial (p.~ej.\ 
+En ocasiones es necesario recurrir a capturas de pantalla sobre las que es preciso realizar alguna anotación gráfica, por ejemplo añadiendo flechas y bloques de texto. Este es un caso que puede aparecer cuando se explica el funcionamiento de un programa informático (p.~ej.\ un manual). La captura siempre se debe llevar a cabo al mayor tamaño posible sobre la pantalla y se debe salvar en formato \texttt{.png}. Generalmente, las herramientas de captura permiten la edición de la captura añadiéndole elementos gráficos e incluso texto. En este caso los elementos añadidos 
+forman parte del fichero \texttt{.png} y, por tanto, son definidos como mapa de bits. Si se desea mantener las características escalables de los elementos gráficos, éstos deben ser añadidos mediante algún programa de edición vectorial (p.~ej.\ 
 \textsf{Inkscape}, \textsf{Dia}, \textsf{Visio}, etc.) y salvar el fichero resultante en formato \texttt{.pdf}. Las figs.~\ref{fig:texmk02} y \ref{fig:texmk03} muestran las diferencias en los dos procesos mencionados.
 
-% Ejemplo:
-% ============
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=0.5\textwidth]{texmk02} 
-	\caption[Captura con gráfico en \texttt{png}]{Captura de pantalla con añadido gráfico en formato \texttt{png}}
+	\includegraphics[width=0.6\textwidth]{texmk02} 
+	\caption[Captura con gráfico en \texttt{png}]{Captura de pantalla con añadido gráfico en formato \texttt{png}.}
 	\label{fig:texmk02}
 \end{figure}
 
-% Ejemplo:
-% ============
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=0.5\textwidth]{texmk03} 
-	\caption[Captura con gráfico en \texttt{pdf}]{Captura de pantalla con añadido gráfico en formato \texttt{pdf}}
+	\includegraphics[width=0.6\textwidth]{texmk03} 
+	\caption[Captura con gráfico en \texttt{pdf}]{Captura de pantalla con añadido gráfico en formato \texttt{pdf}.}
 	\label{fig:texmk03}
 \end{figure}
+
+
+
+
+
+
+
+
+
+\subsection{Inclusión de páginas individuales de un \textsf{PDF} multipágina}
+La Fig.~\ref{fig:visio_mp} nos muestra el procedimiento para usar los ficheros \textsf{PDF} multipágina para incluir el gráfico de una página concreta.
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[page=2,width=0.5\textwidth]{visio_mp} 
+	\caption[Gráfico de Visio multipágina]{Figura vectorial generada con Microsoft Visio en un fichero multipágina.}
+	\label{fig:visio_mp}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\subsection{Gráficos directos con instrucciones \TeX}
+Además de los aspectos comentados aquí sobre la inclusión de imágenes y gráficos, \LaTeX{} dispone de una infinidad de recursos que pueden por sí mismo ser objeto de un curso. Un paquete muy poderoso en la generación de gráficos dentro de entornos \LaTeX{} es \texttt{tikz} (ver Fig.~\ref{fig:tikz}). La cantidad y variedad de gráficos que puede realizar es muy numerosa\footnote{Muchos ejemplos de uso en \url{http://www.texample.net/tikz/examples/}, y en especial los apartados dedicados a \href{http://www.texample.net/tikz/examples/area/electrical-engineering/}{ingeniería eléctrica} e \href{http://www.texample.net/tikz/examples/area/computer-science/}{informática}, junto con la página de web \href{https://www.kleemans.ch/diagrams-for-logic-in-latex}{<<Diagrams for Logic in \LaTeX>>}} aunque su uso requiere un conocimiento muy profundo y no es recomendable para principiantes.
+
+\begin{figure}[hbt]
+	\centering
+	{\shorthandoff{>}
+        \begin{tikzpicture}[scale=0.2]
+        \tikzstyle{every node}+=[inner sep=0pt]
+        \draw [black] (9.6,-8.7) circle (3);
+        \draw (9.6,-8.7) node {$Q_0/0$};
+        \draw [black] (9.6,-8.7) circle (2.4);
+        \draw [black] (35,-7.9) circle (3);
+        \draw (35,-7.9) node {$Q_1/1$};
+        \draw [black] (35,-25.6) circle (3);
+        \draw (35,-25.6) node {$Q_3/1$};
+        \draw [black] (9.6,-25.6) circle (3);
+        \draw (9.6,-25.6) node {$Q_2/0$};
+        \draw [black] (9.6,-3.5) -- (9.6,-5.7);
+        \draw (9.6,-3) node [above] {$INIT/CLR$};
+        \fill [black] (9.6,-5.7) -- (10.1,-4.9) -- (9.1,-4.9);
+        \draw [black] (6.782,-9.696) arc (317.19637:29.19637:2.25);
+        \draw (2.23,-7.78) node [left] {$00$};
+        \fill [black] (7.1,-7.07) -- (6.85,-6.16) -- (6.17,-6.89);
+        \draw [black] (11.787,-6.652) arc (128.24239:55.3656:17.604);
+        \fill [black] (32.69,-5.99) -- (32.31,-5.13) -- (31.75,-5.95);
+        \draw (22.1,-2.34) node [above] {$01$};
+        \draw [black] (35.376,-4.935) arc (200.49955:-87.50045:2.25);
+        \draw (40.23,-1.77) node [above] {$10$};
+        \fill [black] (37.58,-6.4) -- (38.51,-6.58) -- (38.16,-5.65);
+        \draw [black] (37.962,-7.506) arc (125.31508:-162.68492:2.25);
+        \draw (42.16,-10.78) node [right] {$01$};
+        \fill [black] (37.11,-10.01) -- (37.17,-10.95) -- (37.99,-10.38);
+        \draw [black] (12.482,-7.87) arc (104.17982:79.42817:45.722);
+        \fill [black] (32.07,-7.25) -- (31.38,-6.61) -- (31.19,-7.6);
+        \draw (22.21,-5.95) node [above] {$10$};
+        \draw [black] (32.154,-8.847) arc (-73.76473:-102.62728:39.452);
+        \fill [black] (12.5,-9.47) -- (13.17,-10.13) -- (13.39,-9.15);
+        \draw (22.4,-10.95) node [below] {$00$};
+        \draw [black] (37.808,-24.577) arc (137.74177:-150.25823:2.25);
+        \draw (42.36,-26.44) node [right] {$11$};
+        \fill [black] (37.52,-27.21) -- (37.78,-28.11) -- (38.45,-27.37);
+        \draw [black] (35.751,-10.803) arc (11.59172:-11.59172:29.595);
+        \fill [black] (35.75,-10.8) -- (35.42,-11.69) -- (36.4,-11.49);
+        \draw (36.85,-16.75) node [right] {$00$};
+        \draw [black] (8.855,-22.695) arc (-168.66522:-191.33478:28.215);
+        \fill [black] (8.86,-22.7) -- (9.19,-21.81) -- (8.21,-22.01);
+        \draw (7.8,-17.15) node [left] {$11$};
+        \draw [black] (6.92,-26.923) arc (324:36:2.25);
+        \draw (2.35,-25.6) node [left] {$10$};
+        \fill [black] (6.92,-24.28) -- (6.57,-23.4) -- (5.98,-24.21);
+        \draw [black] (10.124,-28.542) arc (37.82895:-250.17105:2.25);
+        \draw (6.5,-32.66) node [below] {$01$};
+        \fill [black] (7.58,-27.81) -- (6.64,-27.9) -- (7.26,-28.69);
+        \draw [black] (11.64,-23.401) arc (135.83658:113.90487:65.965);
+        \fill [black] (32.23,-9.05) -- (31.3,-8.92) -- (31.7,-9.83);
+        \draw (19.74,-14.74) node [above] {$00$};
+        \draw [black] (33.038,-10.169) arc (-42.35986:-67.89868:56.882);
+        \fill [black] (12.41,-24.55) -- (13.34,-24.71) -- (12.96,-23.78);
+        \draw (24.99,-19.01) node [below] {$11$};
+        \draw [black] (12.535,-24.98) arc (100.34158:79.65842:54.397);
+        \fill [black] (32.07,-24.98) -- (31.37,-24.34) -- (31.19,-25.33);
+        \draw (22.3,-23.6) node [above] {$11$};
+        \draw [black] (32.093,-26.339) arc (-77.62637:-102.37363:45.7);
+        \fill [black] (12.51,-26.34) -- (13.18,-27) -- (13.4,-26.02);
+        \draw (22.3,-27.9) node [below] {$10$};
+        \draw [black] (32.845,-27.681) arc (-51.12017:-128.87983:16.799);
+        \fill [black] (11.76,-27.68) -- (12.06,-28.57) -- (12.69,-27.79);
+        \draw (22.3,-31.9) node [below] {$01$};
+        \end{tikzpicture}
+	}
+	\caption[Ejemplo de gráfico con Ti\textit{K}Z]{Figura realizada con paquete \texttt{tikz} para un diagrama de transición de estados correspondiente a un autómata de Moore.}\label{fig:tikz}
+\end{figure}
+
+
+
+
+
+
+
+\subsection{Gráficos de grandes dimensiones}
+Cuando se presenta la necesidad de incluir un gráfico demasiado grande para el tamaño de la página una opción muy apropiada es la impresión del gráfico en modo apaisado en una página aparte. Este efecto se consigue con el entorno \texttt{sidewaysfigure} proporcionado por el paquete \texttt{rotating}. La Fig.~\ref{fig:sideways} muestra un ejemplo del entorno citado con un gráfico \textsf{PDF}.
+
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[width=0.98\textheight]{network} 
+	\caption[Gráfico de apaisado Visio]{Figura vectorial con impresión apaisada.}
+	\label{fig:sideways}
+\end{sidewaysfigure}
+%	TO DO: Incluir comentarios sobre la orientación en modo apaisado. 
+%	Consultar el contenido de la dirección: 
+%	http://texblog.wordpress.com/2007/11/10/landscape-in-latex/
+%	http://texblog.wordpress.com/tag/landscape/
+
 
 
 \end{document}

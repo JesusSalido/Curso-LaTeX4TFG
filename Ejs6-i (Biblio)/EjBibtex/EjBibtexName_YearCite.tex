@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%% 
+% Fichero: EjBibtex
+% Autor: J. Salido (http://www.esi.uclm.es/www/jsalido)
+% Fecha: febrero, 2017
+% Descripción: Gestión de bibliografía con BibTeX
+% Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
+% y otros documentos académicos” (Esc. Sup. Informática-UCLM)
+%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%
+% Preámbulo del documento
+%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article} 
+\usepackage[utf8]{inputenx} 
+\usepackage[spanish,es-noindentfirst]{babel} 
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+
+% Tipografía
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+
+\usepackage{marvosym}
+\usepackage{pifont} % Generación de símbolos especiales+
+\usepackage{textcomp}
+
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+
+% Definición de colores
+\usepackage[table,hyperref,usenames,dvipsnames,svgnames,x11names]{xcolor}
+\definecolor{sombra}{HTML}{F0F0F0} % Sombra código
+\definecolor{gris}{gray}{0.4} % Gris numeración código
+\definecolor{palered}{rgb}{0.78, 0.03, 0.08}
+\definecolor{ocre}{RGB}{243,102,25} % Ocre
+\definecolor{aquaESI}{RGB}{0,151,215} % Aqua
+\definecolor{turquesa}{RGB}{64,132,64} % Turquesa
+\definecolor{UCLMred}{cmyk}{0.19, 1.0, 0.74, 0.12} % Color imagen corporativa UCLM
+
+
+
+% Generación de hiperenlaces
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+	breaklinks,
+	colorlinks=true, % Pone color en los link o un borde
+    linktocpage=true,% enlace al nº de pág., false=texto completo
+	linkcolor=UCLMred,   % Color de los links
+	%	hidelinks,   % Oculta el color y borde de los links
+	citecolor=aquaESI,  % Color de la citas
+	urlcolor=aquaESI,   % Color de las URL
+	bookmarksnumbered=true, % Incluye números en bookmarks		
+	pdftoolbar=true, % Muestra la toolbar de Acrobat
+	pdfmenubar=true % Muestra la menubar de Acrobat
+}
+\urlstyle{sf}
+
+
+
+\usepackage[shortlabels]{enumitem} % Mayor control de listas
+\usepackage{multicol} % Elementos en varias columnas
+
+
+% Con estas instrucciones se ajustan los valores del índice
+\setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
+\setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
+
+% NOTA: Para usar un estilo APA es preciso cargar este paquete en preámbulo para que las citas se incluyan entre paréntesis en vez de corchetes.
+
+\usepackage[natbibapa]{apacite} 
+
+\author{Jesús Salido}
+\title{Bibliografía con Bib\TeX{} y estilo de citación APA (autor-año)}
+\date{\today}
+
+%%%%%%%%%%%%%%
+% Comienzo del documento
+%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+Generación de bibliografía con \LaTeX{} empleando un método más elegante consistente en la utilización de Bib\TeX{} con estilo de citación \texttt{autor-año}.
+\end{abstract}
+
+
+
+
+\section{Los estilos de citación}
+En los estudios de ingeniería y publicaciones relacionadas, el estilo de citación más empleado es el numérico. En este caso se cita una referencia mediante un número incluido entre corchetes (p.ej., [\#]) que indica el orden de la referencia citada en la lista de referencias incluida en la sección correspondiente. Con este tipo de citación se suele utilizar dos tipos de ordenación para la lista de referencias. Estos son: el orden alfabético de las referencias\footnote{Este es el estilo por defecto o \texttt{plain} empleado con \LaTeX.} y el orden de citación de la referencia en el texto\footnote{Obtenido con los estilos \texttt{unsrt} y \texttt{ieeetr}, entre otros.}. Por el contrario, en las ciencias naturales y sociales es más habitual un estilo de citación autor-año como el recogido en las normas APA (\href{https://apastyle.apa.org/learn/faqs/format-bibliography}{American Pshychological Association}).
+
+Con \LaTeX{} existen varias alternativas para utilizar el estilo de citación autor-año. En este documento se propone una de las más sencillas. Esta consiste en el empleo del paquete \href{https://ctan.javinator9889.com/biblio/bibtex/contrib/apacite/apacite.pdf}{\texttt{apacite}} con la opción \texttt{natbibapa} que proporciona un estilo de citación siguiendo el formato sugerido por APA y los comandos de citación del paquete \texttt{natbib} (cargado de modo implícito). Con estas opciones la primera citación de una referencia incluye a todos los autores \citep[como por ejemplo en][]{oetiker06} y el resto solo una lista corta \citep{oetiker06}. Cuando existe una citación múltiple, las citas aparecen en el mismo orden que en la lista de referencias \citep[como por ejemplo en][]{lamport94, cascales00,goos04,kopka04}.
+
+\section{Citación con \texttt{apacite} y \texttt{natbib}}
+Con el paquete \texttt{apacite} y la opción \texttt{natbibapa} se proporcionan varios comandos de citación que admiten dos opciones para añadir texto previo (prefijo) a la citación y posterior (sufijo) a la misma, como en:
+
+   \verb+\citep[ver][página 11]{salido15}+: \citep[ver][página 5]{salido15} 
+
+\newpage
+Los comandos de citación más frecuentes se resumen en la lista siguiente:
+
+\begin{itemize}
+    \item \verb+\citep+: Citación entre paréntesis.
+    \item \verb+\citet+: Citación textual (sin paréntesis).
+    \item \verb+\citep*+: Citación con lista completa de autores entre paréntesis.
+    \item \verb+\citet*+: Citación textual con lista completa de autores (sin paréntesis).
+    \item \verb+\citeauthor+: Cita solo el autor (sin paréntesis).
+    \item \verb+\citeyear+: Cita solo el año (sin paréntesis).
+    \item \verb+\citeyearpar+: Cita solo el año (con paréntesis).
+\end{itemize}
+%%%%%%
+% Bibliografía
+
+\renewcommand{\refname}{Bibliografía} % Cambio de nombre de la sección
+\addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC 
+
+%%%%%
+\bibliographystyle{apacite}
+\nocite{*} % OJO: Se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto.(PROHIBIDO EN LA ESI)
+
+\bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
+
+
+\end{document}
+
