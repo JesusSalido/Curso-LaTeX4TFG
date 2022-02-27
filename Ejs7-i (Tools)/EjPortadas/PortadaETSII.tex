@@ -1,0 +1,88 @@
+\documentclass[twoside,openright,12pt]{report}
+\usepackage[a4paper,inner=35mm,outer=20mm,top=25mm,bottom=25mm,%
+headsep=0.65cm,footskip=0.6cm]{geometry} 
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenx}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\graphicspath{{example-}{./figs}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg} % Precedencia de extensiones
+\usepackage{rotating}	% Giro de cajas (texto, figuras, tablas) (No DVI)
+
+
+\def\titulo#1{\global\def\maketitulo{#1}}
+\def\numero#1{\global\def\makenumero{#1}}
+\def\autor#1{\global\def\makeautor{#1}}
+\def\director#1{\global\def\makedirector{#1}}
+\def\fecha#1{\global\def\makefecha{#1}}
+
+\numero{XX-XX-XXXXXX}
+\autor{(NOMBRE DEL PROYECTANTE)}
+\director{(NOMBRE DEL DIRECTOR)}
+\fecha{(MES Y AÑO DE PRESENTACIÓN)}
+\titulo{TÍTULO DEL PROYECTO}
+
+
+\begin{document}
+\pagestyle{empty}
+\begin{titlepage}
+
+\begin{center}
+%\includegraphics{uclm} % Original (Incorrecto, ya que usa el escudo del Rector)
+\includegraphics[width=4cm]{uclm_logo} % Preferido
+\bigskip
+\medskip
+
+\fontfamily{ptm}
+\fontseries{b}\fontsize{17pt}{19pt}
+{\selectfont  UNIVERSIDAD DE CASTILLA - LA MANCHA} \\ 
+\bigskip
+\smallskip
+
+{\selectfont ESCUELA TÉCNICA SUPERIOR \\ \medskip
+DE INGENIEROS INDUSTRIALES}
+
+
+\bigskip
+\medskip
+\fontfamily{ptm}\fontseries{n}\fontsize{15pt}{17pt}
+{\selectfont CIUDAD REAL}
+
+\vspace*{2cm} 
+
+\fontfamily{ptm}\fontseries{n}\fontsize{17pt}{19pt}
+{\selectfont
+PROYECTO FIN DE CARRERA Nº \makenumero \\
+\bigskip
+\bigskip
+\bigskip
+\maketitulo}
+
+\vspace{\fill}
+
+\noindent\begin{minipage}{0.42\textwidth}
+%\quad\includegraphics{etsii} % Original
+\quad\includegraphics[width=5cm]{etsii_02} % Preferido
+\end{minipage}
+\begin{minipage}{0.55\textwidth}
+  \begin{flushleft}
+\fontfamily{ptm}\fontseries{n}\fontsize{15pt}{15pt}
+{\selectfont
+ Autor:\\[-.2mm]
+\makeautor
+
+\bigskip
+Director:\\[-.2mm]
+\makedirector
+
+\bigskip
+\makefecha
+}
+  \end{flushleft}
+\end{minipage}
+\end{center}
+\end{titlepage}
+
+\end{document}

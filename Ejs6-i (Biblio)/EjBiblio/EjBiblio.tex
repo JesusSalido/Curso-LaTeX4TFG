@@ -88,11 +88,12 @@
 	Explicación sobre la generación de bibliografía para los documentos escritos con \LaTeX{}. En este caso se muestra el método más sencillo consistente en que la bibliografía está incluida directamente en el fichero de texto. Para ello se emplea en entorno \texttt{thebibliography}.
 \end{abstract}
 
+\tableofcontents
 
 \section{Introducción}
 Todos los documentos técnicos (TFG, TFM, Tesis, artículo científico, memoria, etc.) deben incluir una sección de bibliografía en el que se hace un listado de todas las fuentes consultadas para realizar el trabajo. Es preciso otorgar el crédito a los trabajos llevados a cabo por otros cuyas ideas se utilizan de algún modo u otro en el trabajo propio. Por esta razón en el texto se debe citar\footnote{Similar a las referencias cruzadas pero en este caso la referencia es a una fuente bibliográfica que aparece listada en la sección de bibliografía.} las fuentes empleadas intentando evitar incurrir en plagio \cite{usbplagio2010} aun cuando esta no sea nuestra intención. Todas las fuentes usadas deberían aparecer citadas en nuestro trabajo. Las referencias bibliográficas pueden consistir en: un libro, un capítulo o sección de libro, un artículo de revista o congreso, un manual técnico, una Tesis, un TFG, etcétera.
 
-Una de las dificultades que los autores encuentran al realizar la bibliografía y su citación es mantener la coherencia. Suele suceder que al hacer manualmente la bibliografía la inclusión de nuevas fuentes puede alterar el sistema de numeración (si la citación es de tipo numérico) y convertir en un <<dolor de cabeza>> la tarea de mantener un sistema coherente. Expliquemos esto en más detalle. Al elaborar este documento puedo darme cuenta de que olvidé incluir una fuente bibliográfica que deseo añadir (p.ej.\ un libro). En ese momento cómo deseo que el listado de fuentes en la bibliografía aparezca por orden alfabético de autores, esta nueva fuente puede alterar la numeración previa de las citas. Si todo el proceso lo estoy haciendo manualmente, la tarea de mantenimiento de las citas en el texto puede convertirse en un trabajo demasiado <<ingrato>>. Para solventar esta cuestión la gran mayoría de procesadores actuales incluyen algún sistema de citación a las fuentes de la bibliografía,\footnote{Mi experiencia personal es que en general en los textos preparados por el alumnado, apenas se citan las fuentes empleadas como referencias.} \LaTeX{} no es una excepción y para ello permite asignar una etiqueta (\emph{label}) a cada fuente que se utiliza al citarla. 
+Una de las dificultades que los autores encuentran al realizar la bibliografía y su citación es mantener la coherencia. Suele suceder que al hacer manualmente la bibliografía la inclusión de nuevas fuentes puede alterar el sistema de numeración (si la citación es de tipo numérico) y convertir en un <<dolor de cabeza>> la tarea de mantener un sistema coherente. Expliquemos esto en más detalle. Al elaborar este documento puedo darme cuenta de que olvidé incluir una fuente bibliográfica que deseo añadir (p.~ej.\ un libro). En ese momento cómo deseo que el listado de fuentes en la bibliografía aparezca por orden alfabético de autores, esta nueva fuente puede alterar la numeración previa de las citas. Si todo el proceso lo estoy haciendo manualmente, la tarea de mantenimiento de las citas en el texto puede convertirse en un trabajo demasiado <<ingrato>>. Para solventar esta cuestión la gran mayoría de procesadores actuales incluyen algún sistema de citación a las fuentes de la bibliografía,\footnote{Mi experiencia personal es que en general en los textos preparados por el alumnado, apenas se citan las fuentes empleadas como referencias.} \LaTeX{} no es una excepción y para ello permite asignar una etiqueta (\emph{label}) a cada fuente que se utiliza al citarla. 
 
 
 
@@ -134,7 +135,7 @@ Para consultar más información sobre el modo de elaboración de bibliografías
 % Bibliografía
 % Inclusión explícita de las fuentes bibliográficas en el formáto deseado
 \renewcommand{\refname}{Bibliografía} % Cambio de título de la sección a Bibliografía <- Referencias
-
+%
 \addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC
 
 \begin{thebibliography}{99} % El string debe ser más largo que la referencia más larga del documento

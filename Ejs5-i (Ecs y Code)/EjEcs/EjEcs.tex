@@ -107,6 +107,11 @@ Para que \LaTeX{} pueda incluir muchos símbolos matemáticos es preciso incluir
 
 
 
+
+
+
+
+
 \subsection{Fórmulas creadas en línea y con entorno \texttt{equation}}
 Es muy sencillo incluir fórmulas matemáticas sencillas en el mismo texto en el que se escribe. Por ejemplo, $c^{2}=a^{2}+b^{2}$ que podría ser la ecuación representativa del teorema de Pitágoras.
 
@@ -127,7 +132,7 @@ Pero si se desea, las ecuaciones pueden ser numeradas de forma automática e inc
 	a^{2}=b^{2} + \cancel{c^{2}}+ \xcancel{d^{2}}
 \end{equation}
 
-Como vemos en la ecuación~\ref{eq:pitagoras} algunos términos podemos señalarlos como cancelados gracias al paquete \texttt{cancel}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/cancel/cancel.pdf}} Otras formas de \sout{subrayar} el texto se consiguen con el paquete \uwave{\texttt{ulem}}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/ulem/ulem.pdf}}
+Como vemos en la ecuación~\ref{eq:pitagoras} algunos términos podemos señalarlos como cancelados, gracias al paquete \texttt{cancel}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/cancel/cancel.pdf}} Otras formas de \sout{subrayar} el texto se consiguen con el paquete \uwave{\texttt{ulem}}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/ulem/ulem.pdf}}
 
 \bigskip
 Las macros que proporciona el paquete \texttt{ulem} son:
@@ -167,7 +172,7 @@ En este caso la versión con estrella (\texttt{flalign*}) suprime la numeración
 
 % Ejemplo: Ec. con recuadro (numeración exterior).
 % ============
-{\fboxsep 8pt \fboxrule 0.5pt 
+{\fboxsep 8pt \fboxrule 2.5pt 
 %\fboxsep ajusta la separación entre la caja y el elemento recuadrado
 %\fboxrule ajusta el espesor de la línea del recuadro
 \begin{equation}\label{eq:cuadro}

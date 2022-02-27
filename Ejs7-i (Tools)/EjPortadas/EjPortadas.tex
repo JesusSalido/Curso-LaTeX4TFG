@@ -1,10 +1,24 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage[spanish]{babel}
+\usepackage[utf8]{inputenx}
+\usepackage[T1]{fontenc}
+
+
+\usepackage[usenames,dvipsnames,svgnames,x11names,table]{xcolor}
+
+\definecolor{ocre}{RGB}{243,102,25} % Ocre
+\definecolor{aqua}{RGB}{52,177,201} % Aqua
+\definecolor{marine}{RGB}{0,112,192} % Aqua
+\definecolor{turquesa}{RGB}{64,132,64} % Turquesa
+\definecolor{UCLMred}{cmyk}{0.19, 1.0, 0.74, 0.12} % UCLM red
 
 \usepackage{graphicx}
-\graphicspath{{example-}}
+\graphicspath{{example-}{./figs}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg} % Precedencia de extensiones
 \usepackage{scrextend}
+\usepackage{rotating}	% Giro de cajas (texto, figuras, tablas) (No DVI)
+\usepackage{tikz}
+
 
 \begin{document}
 %--- Ejemplos de portadas
@@ -144,5 +158,33 @@
 	\vfill
 	\centering	\today
 \end{titlepage}
+
+
+%--- PORTADA 6
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+	\coordinate [below=7cm] (midpoint) at (current page.north);
+	\node at (current page.north west)
+	{\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north west,inner sep=0pt] at (0,0)
+		% EDITAR: Cambio de imagen de portada 
+		{\includegraphics[width=\paperwidth]{danbo}}; % Imagen de fondo
+		\draw[anchor=north] (midpoint) node [%
+			fill=gray!30!white, % Colores de transparencia
+			fill opacity=0.6,
+			text opacity=1,
+			inner sep=1cm
+			]{\color{black}\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{%
+				\centering
+				Portada 6\\
+				Título 2 (línea)\\[15pt] % Título
+			{\Large Subtítulo}\\[20pt] % Subtítulo
+			{\huge Autor/a} % Autor(es)
+			}}; 
+	\end{tikzpicture}};
+\end{tikzpicture}
+\vfill
+\endgroup
 
 \end{document}

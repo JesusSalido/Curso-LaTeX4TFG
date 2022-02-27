@@ -102,13 +102,13 @@
 
 
 \section{Tablas en \LaTeX{}}
-La inclusión de tablas en documentos preparados con \LaTeX{} no es sencilla e incluso podría calificarse de <<engorrosa>>. Las tablas se crean con el entorno \texttt{tabular} en el que se indica el número de columnas y la alineación del texto en cada columna (l=izda., c=central, r=dcha.). Las líneas de separación en la tabla se indican mediante el caracter \texttt{`|'} (líneas verticales) o la macro \texttt{\textbackslash hline} (líneas horizontales). La separación del texto entre columnas se realiza con el caracter \texttt{`\&'} y la separación de filas con \texttt{`\textbackslash\textbackslash'}.
+La inclusión de tablas en documentos preparados con \LaTeX{} no es sencilla e incluso podría calificarse de <<engorrosa>>. Las tablas se crean con el entorno \texttt{tabular} en el que se indica el número de columnas y la alineación del texto en cada columna (l=izda., c=central, r=dcha.). Las líneas de separación en la tabla se indican mediante el carácter \texttt{`|'} (líneas verticales) o la macro \texttt{\textbackslash hline} (líneas horizontales). La separación del texto entre columnas se realiza con el carácter \texttt{`\&'} y la separación de filas con \texttt{`\textbackslash\textbackslash'}.
 
 Para que la tabla sea manejada como un objeto \emph{float} debe incluirse en el entorno \texttt{table}, cuya ubicación se rige por los mismos principios que la inclusión de figuras o cualquier otro objeto flotante.
 
 Un sitio muy apropiado para experimentar con las tablas y aprender los principios básicos de eso se proporciona en: \url{www.learnlatex.org/es/lesson-08}. En este sitio puedes encontrar una explicación sucinta de la creación de tablas en \LaTeX{} con numerosos ejemplos con los que practicar y que reproducimos en este documento.
 
-Para obtener una interfaz mejorada de creación de entornos tabular en \LaTeX{} siempre se debe cargar el paquete \texttt{array}. En el ejemplo de la tabla~\ref{tab:simple} se muestra una tabla con un conjunto importante de propiedades como: líneas de separación (horizontales y verticales), distintos tipos de justificación, etc. Como puede comprobarse en dicho ejemplo, \LaTeX{} es capaz de realizar las tablas con multitud de elementos con una gran flexibilidad. Sin embargo, echando un vistazo al texto fuente podemos intuir que la elaboración de tablas es tediosa y tanto más cuanto mayor sea el tamaño y la complejidad de la tabla. Por supuesto, las tablas creadas en \LaTeX{} son armoniosas y congruentes con el texto general. Por ello, la inmensa mayoría de publicaciones científicas exigen que las tablas sean creadas de modo nativo mediante comandos \LaTeX{} y no se permite su inclusión como figura (p.ej., de una captura de pantalla).
+Para obtener una interfaz mejorada de creación de entornos tabular en \LaTeX{} siempre se debe cargar el paquete \texttt{array}. En el ejemplo de la tabla~\ref{tab:simple} se muestra una tabla con un conjunto importante de propiedades como: líneas de separación (horizontales y verticales), distintos tipos de justificación, etc. Como puede comprobarse en dicho ejemplo, \LaTeX{} es capaz de realizar las tablas con multitud de elementos con una gran flexibilidad. Sin embargo, echando un vistazo al texto fuente podemos intuir que la elaboración de tablas es tediosa y tanto más cuanto mayor sea el tamaño y la complejidad de la tabla. Por supuesto, las tablas creadas en \LaTeX{} son armoniosas y congruentes con el texto general. Por ello, la inmensa mayoría de publicaciones científicas exigen que las tablas sean creadas de modo nativo mediante comandos \LaTeX{} y no se permite su inclusión como figura (p.~ej., de una captura de pantalla).
 
 \begin{table}[H]%
 	\centering
@@ -229,7 +229,7 @@ Algunas veces una línea puede implicar una fuerte separación, no deseada, entr
    	  \label{tab:espace}      
     \begin{tabular}{cp{9cm}}
       \toprule
-      Animal & Description \\
+      Animal & Descripción \\
       \midrule
       perro  & El perro es un miembro del género Canis, el cual forma parte 
                de los cánidos derivados del lobo. \\
@@ -318,7 +318,7 @@ El paquete \texttt{multirow} permite la expansión de celdas a varias columnas o
 
 
 \section{Alienación de columnas con información numérica}
-Cuando se emplean tablas con datos numéricos a veces puede interesar la alineación de datos por el signo de puntación empleado para la separación de decimales (\texttt{`,'} en español, \texttt{`.'} en inglés). Un ejemplo de esto se ilustra a continuación:
+Cuando se emplean tablas con datos numéricos a veces puede interesar la alineación de datos por el signo de puntuación empleado para la separación de decimales (\texttt{`,'} en español, \texttt{`.'} en inglés). Un ejemplo de esto se ilustra a continuación:
 
 \begin{table}[H]%
 	\centering
@@ -347,7 +347,7 @@ Cuando se trata de trabajar con números y unidades físicas, existen paquetes e
 	\midrule
 	$\pi$                   & 3,14159 \\
 	$\pi^{\pi}$             & 36,46 \\
-	$(\pi^{\pi})^{\pi}$     &  80662,7 \\
+	$(\pi^{\pi})^{\pi}$     & 80662,7 \\
     \bottomrule
 	\end{tabular}
 \end{table}
@@ -361,7 +361,7 @@ Cuando se trata de trabajar con números y unidades físicas, existen paquetes e
 
 
 \section{Tablas con mayor control del espaciado}
-En el entorno tabular el control del espaciado entre columnas es demasiado <<burdo>>. Para facilitar esta labor existen paquetes como \texttt{tabularx}
+En el entorno tabular el control del espaciado entre columnas es demasiado <<burdo>>. Para facilitar esta labor existen paquetes como \texttt{tabularx}, cuyo uso se muestra en los ejemplos siguientes:
 
 \begin{table}[H]
    \centering
@@ -522,7 +522,7 @@ El paquete \texttt{graphicx} aporta comandos para realizar el escalado de objeto
 
 
 \section{Tablas incluidas como figuras}
-Tal como muestran los ejemplos precedentes la preparación de tablas con \LaTeX{} es un proceso de cierta complejidad. Por el contrario las tablas, confeccionadas mediante hojas de cálculo, que puede incluirse en los documentos con los procesadores tipo \textsc{WYSIWYG} (\textsf{Word}, \textsf{OpenOffice}, etc.) siguen un proceso intuitivo y rápido. Existe un modo para aprovechar estas ventajas empleando \LaTeX{}. Para ello se puede salvar en formato \textsf{PDF} las tablas creadas con una hoja de cálculo (p.ej.\ \textsf{Excel}) e incorporarlas en un documento \LaTeX{} mediante una tabla que sólo contiene una celda en la que incluimos el fichero gráfico con la tabla en formato \textsf{PDF}. 
+Tal como muestran los ejemplos precedentes la preparación de tablas con \LaTeX{} es un proceso de cierta complejidad. Por el contrario las tablas, confeccionadas mediante hojas de cálculo, que puede incluirse en los documentos con los procesadores tipo \textsc{WYSIWYG} (\textsf{Word}, \textsf{OpenOffice}, etc.) siguen un proceso intuitivo y rápido. Existe un modo para aprovechar estas ventajas empleando \LaTeX{}. Para ello se puede salvar en formato \textsf{PDF} las tablas creadas con una hoja de cálculo (p.~ej.\ \textsf{Excel}) e incorporarlas en un documento \LaTeX{} mediante una tabla que sólo contiene una celda en la que incluimos el fichero gráfico con la tabla en formato \textsf{PDF}. 
 
 La tabla~\ref{tab:figura} muestra un ejemplo de tabla creada con \textsf{Excel} e incluida como un fichero \textsf{PDF}. Este método permite emplear las tipografías disponibles en el sistema para las hojas de cálculo. Además, se pueden aplicar todas las opciones aplicables para los gráficos incluido el dimensionado de los mismos. Es importante señalar que si no se va a aplicar ningún escalado a la figura de la tabla, ésta debería crearse con el mismo tamaño de fuente que tendrá el texto normal del documento final y empleando preferiblemente una tipografía similar a la utilizada en el documento.
 
