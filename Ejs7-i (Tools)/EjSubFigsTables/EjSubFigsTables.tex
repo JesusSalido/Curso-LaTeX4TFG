@@ -1,0 +1,111 @@
+\documentclass [15pt,a4paper]{article}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{verbose,a4paper, tmargin=3.5cm,bmargin=3.5cm,lmargin=2.5cm,rmargin=2.5cm,headsep=1cm,footskip=1.5cm}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+\begin{document}
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{example-image-a}
+         \caption{Ejemplo A}
+         \label{fig:ejA}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{example-image-b}
+         \caption{Ejemplo B}
+         \label{fig:ejB}
+     \end{subfigure}     
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{example-image-c}
+         \caption{Ejemplo C}
+         \label{fig:EjC}
+     \end{subfigure}
+        \caption{Ejemplo de figura con tres subfiguras.}
+        \label{fig:ej3figs}
+\end{figure}
+
+Lo mismo con tablas.
+
+\begin{table}[H]
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+        Day & Max Temp & Min Temp \\
+        \hline \hline
+        Mon & 20 & 13\\
+        Tue & 22 & 14\\
+        Wed & 23 & 12\\
+        Thurs & 25 & 13\\
+        Fri & 18 & 7\\
+        Sat & 15 & 13\\
+        Sun & 20 & 13
+       \end{tabular}
+       \caption{First Week}
+       \label{tab:week1}
+    \end{subtable}
+    \hfill
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+        Day & Max Temp & Min Temp \\
+        \hline \hline
+        Mon & 17 & 11\\
+        Tue & 16 & 10\\
+        Wed & 14 & 8\\
+        Thurs & 12 & 5\\
+        Fri & 15 & 7\\
+        Sat & 16 & 12\\
+        Sun & 15 & 9
+        \end{tabular}
+        \caption{Second Week}
+        \label{tab:week2}
+     \end{subtable}
+     \caption{Max and min temps recorded in the first two weeks of July}
+     \label{tab:temps}
+\end{table}
+
+Mezclando:
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{example-image-a}
+         \caption{Ejemplo A}
+         \label{fig:figura}
+     \end{subfigure}
+%     \hfill
+    \begin{subtable}{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+        Day & Max Temp & Min Temp \\
+        \hline \hline
+        Mon & 17 & 11\\
+        Tue & 16 & 10\\
+        Wed & 14 & 8\\
+        Thurs & 12 & 5\\
+        Fri & 15 & 7\\
+        Sat & 16 & 12\\
+        Sun & 15 & 9
+        \end{tabular}
+        \caption{Second Week}
+        \label{tab:tabla}
+     \end{subtable}
+     \caption{Max and min temps recorded in the first two weeks of July}
+     \label{figs:mezcla}
+\end{figure}
+\end{document}

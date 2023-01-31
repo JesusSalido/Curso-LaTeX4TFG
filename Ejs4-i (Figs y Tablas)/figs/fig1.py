@@ -1,3 +1,4 @@
+# Revisar información en: https://matplotlib.org/3.5.1/tutorials/intermediate/tight_layout_guide.html
 import numpy as np
 import matplotlib.pyplot as plt
 import os

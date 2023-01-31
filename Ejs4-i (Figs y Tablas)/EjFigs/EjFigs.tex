@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%
 \documentclass[11pt,a4paper]{article} 
 \usepackage[utf8]{inputenx} 
-\usepackage[spanish]{babel} 
+\usepackage[spanish,es-tabla,es-noindentfirst]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
 % Tipografía
@@ -99,6 +99,7 @@ La inclusión de figuras y archivos de imagen en un documento elaborado con \LaT
 % 	EDITAR: En caso de requerir que el título aparezca en la parte superior de la figura.
 %	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido)} % Título y el título para la lista de figuras
 	\includegraphics[height=8cm]{plazaCR} % Alto de la figura en la pág.
+%	\includegraphics[height=8cm]{../figs/plazaCR} % Imagen en tooltip
 	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido).} % Título y el título para la lista de figuras
 	\label{fig:plazaCR} % Etiqueta para las refs. cruzadas
 \end{figure}
@@ -115,9 +116,9 @@ Otra de las ventajas de \LaTeX{} es que las imágenes no están incrustadas en n
 
 
 \section{Formatos gráficos}
-A la hora de incluir figuras se debe decidir qué formato es el más apropiado siguiendo las siguientes reglas:
+A la hora de incluir figuras se debe decidir qué formato es el más apropiado siguiendo las siguientes reglas (resumidas de tabla~\ref{tab:formatos}):
 \begin{itemize}
-	\item Siempre que sea posible es preferible el formato \texttt{.pfd}, ya que es vectorial (escalable) como el gráfico de la Fig.~\ref{fig:4004arch}. Por supuesto, si el fichero \textsf{PDF} contiene alguna imagen de mapa de bits, esta no será escalable.
+	\item Siempre que sea posible es preferible el formato \texttt{.pdf}, ya que es vectorial (escalable) como el gráfico de la Fig.~\ref{fig:4004arch}. Por supuesto, si el fichero \textsf{PDF} contiene alguna imagen de mapa de bits, esta no será escalable.
 	\item Las fotografías se incluirán en formato \texttt{.jpg} (como en las  Figs.~\ref{fig:mars} y \ref{fig:plazaCR}).
 	\item Las capturas de pantalla o gráficos de gran contraste se deben incluir en formato \texttt{.png} (como en la Fig.~\ref{fig:inkscape}). 
 	\item Siempre que se tenga un fichero de imagen (mapa de bits) con un fondo blanco u otro color plano, debería intentarse transformar en una imagen con fondo transparente convirtiéndola al formato \texttt{.png}.
@@ -125,19 +126,19 @@ A la hora de incluir figuras se debe decidir qué formato es el más apropiado s
 
 \begin{figure}[hbt]
 	\centering 
-	\includegraphics[width=0.8\textwidth]{4004arch} 
+	\includegraphics[width=0.9\textwidth]{4004arch} 
 	\caption[Ejemplo de gráfico vectorial \textsf{PDF}]{Figura vectorial de arquitectura Intel 4004 en formato \textsf{PDF} (CC-BY-SA 3.0, Appaloosa, 2007. Wikimedia Commons).}
 	\label{fig:4004arch}
 \end{figure}
 
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Mars_Perseverance} 
-	\caption[Foto histórica enviada desde Marte]{Primera foto enviada desde Marte el {18-2-2021} por el robot Perseverance incluida aquí en formato JPEG (cortesía de NASA/JPL-Caltech).}
+	\includegraphics[width=0.9\textwidth]{Mars_Perseverance} 
+	\caption[Foto histórica enviada desde Marte]{Primera foto enviada desde Marte el {18-2-2021} por el robot Perseverance incluida aquí en formato JPEG (Fuente: cortesía de NASA/JPL-Caltech).}
 	\label{fig:mars}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.7\textwidth]{inkscape} 
 	\caption[Ejemplo de captura en png]{Captura de pantalla de \textsf{Inkscape} incluida en formato \textsf{PNG}.}
@@ -145,8 +146,17 @@ A la hora de incluir figuras se debe decidir qué formato es el más apropiado s
 \end{figure}
 
 
-
-
+\begin{table}[hbt]
+\centering
+\caption{Resumen de formatos de figuras y sus usos}\label{tab:formatos}
+\begin{tabular}{c|l}
+\textbf{Formato} & \textbf{Uso} \\
+\hline
+PDF & Gráficos vectoriales \\
+jpg & Imágenes (> 100 ppi) \\
+png & Capturas de pantalla (> 75 ppi) 
+\end{tabular}
+\end{table}
 
 
 
@@ -169,7 +179,7 @@ En muchas ocasiones es preciso recurrir a una gráfica matemática para reflejar
 
 Uno de los programas más universales para la creación de gráficas matemáticas son las hojas de cálculo como Excel. La Fig.~\ref{fig:excel} muestra un ejemplo de figura vectorial generada con ayuda de dicho programa.
 
-\begin{figure}[H]
+\begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.5\textwidth]{EjFigsExcelOrig-crop} 
 	\caption[Gráfico de Excel]{Figura vectorial generada con Excel.}
@@ -178,14 +188,14 @@ Uno de los programas más universales para la creación de gráficas matemática
 
 La Fig.~\ref{fig:matlabGrafs} muestra un ejemplo de figura vectorial generada con ayuda del programa Matlab. En este caso se observa cómo una única figura contiene distintos gráficos. % La Fig.~\ref{fig:python} muestra un ejemplo de figura vectorial (\textsf{PDF}) generada con Python y la librería \textsf{Matplotlib}. En este caso se observa cómo una única figura contiene distintos gráficos, siendo este un método para crear figuras compuestas de subfiguras.
 
-\begin{figure}[H]
+\begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.8\textwidth]{matlabGrafs} 
 	\caption[Gráfico de Matlab]{Figura vectorial generada con Matlab.}
 	\label{fig:matlabGrafs}
 \end{figure}
 
-%\begin{figure}[H]
+%\begin{figure}[hbt]
 %	\centering
 %	\includegraphics[width=0.8\textwidth]{fig2_py}
 %	\caption[Figura hecha desde Python]{Figura vectorial generada con Matplotlib (Python).}
@@ -225,7 +235,7 @@ La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphic
 		\includegraphics[width=\textwidth]{clockCRbw}
 		\caption{Imagen jpg en niveles de gris}\label{fig:clockCRbw}
 	\end{subfigure}
-	\caption[Comparación jpg color y niveles de gris]{Ej. de paquete \texttt{subcaption} mostrando el reloj de la Plaza Mayor (cortesía de J.~Salido).}
+	\caption[Comparación jpg color y niveles de gris]{Ej. de paquete \texttt{subcaption} mostrando el reloj de la Plaza Mayor (Fuente: cortesía de J.~Salido).}
 	\label{fig:clock}
 \end{figure}
 
@@ -251,13 +261,13 @@ Siempre que se tenga un fichero de imagen (mapa de bits) con un fondo blanco u o
 		\includegraphics[width=6cm]{lionL.png}
 		\caption{Imagen como png con fondo transparente}\label{fig:lionpng}
   	\end{subfigure}
-  	\caption[Comparación jpg y png con transparencia]{Comparativa de formatos bitmap (cortesía de D.~Wright).}
+  	\caption[Comparación jpg y png con transparencia]{Comparativa de formatos bitmap (Fuente: cortesía de D.~Wright).}
 	\label{fig:lion}
 \end{figure}
 
 Si se desea, es posible usar imágenes en color. Esto es muy conveniente para documentos electrónicos que se van a visualizar en la pantalla de un computador. Sin embargo, para documentos que serán impresos hay que tener presente si la impresión se realizará a color o en niveles de gris. 
 
-En la Fig.~\ref{fig:escudo} se comparan los resultados obtenidos cuando la figura se inserta en formato vectorial (escalable) y cuando se hace como mapa de bits (no escalable). En este ejemplo se muestran dos versiones para el escudo de la Ingeniería Informática (cortesía de CRySoL).\footnote{El escudo basado en el núcleo de ferrita que acompaña la distribución de este documento ha sido realizado por Francisco Moya, David Villa e Ignacio Díez y su inclusión en el documento final debe respetar los derechos de la licencia CC BY-SA 3.0 con la que se distribuye.}
+En la Fig.~\ref{fig:escudo} se comparan los resultados obtenidos cuando la figura se inserta en formato vectorial (escalable) y cuando se hace como mapa de bits (no escalable). En este ejemplo se muestran dos versiones para el escudo de la Ingeniería Informática (Fuente: cortesía de CRySoL).\footnote{El escudo basado en el núcleo de ferrita que acompaña la distribución de este documento ha sido realizado por Francisco Moya, David Villa e Ignacio Díez y su inclusión en el documento final debe respetar los derechos de la licencia CC BY-SA 3.0 con la que se distribuye.}
 
 \begin{figure}[hbt]
 	\centering

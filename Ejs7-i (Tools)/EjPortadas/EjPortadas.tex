@@ -1,4 +1,5 @@
 \documentclass[12pt,a4paper]{report}
+\usepackage[top=2.5cm,bottom=2.5cm,inner=3.5cm,outer=2cm]{geometry}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenx}
 \usepackage[T1]{fontenc}
@@ -18,6 +19,9 @@
 \usepackage{scrextend}
 \usepackage{rotating}	% Giro de cajas (texto, figuras, tablas) (No DVI)
 \usepackage{tikz}
+
+
+
 
 
 \begin{document}
@@ -161,7 +165,7 @@
 
 
 %--- PORTADA 6
-\begingroup
+\begin{titlepage}
 \thispagestyle{empty}
 \begin{tikzpicture}[remember picture,overlay]
 	\coordinate [below=7cm] (midpoint) at (current page.north);
@@ -185,6 +189,8 @@
 	\end{tikzpicture}};
 \end{tikzpicture}
 \vfill
-\endgroup
+\end{titlepage}
+
+
 
 \end{document}

@@ -1,4 +1,5 @@
 \documentclass[paper=a4,fontsize=11pt]{scrartcl}
+\usepackage[top=2cm,bottom=3cm,left=2.5cm,right=2cm]{geometry}
 \usepackage[utf8]{inputenx}
 \usepackage[spanish]{babel}
 \usepackage{amsmath,amsfonts,amsthm}
@@ -9,7 +10,7 @@
 \usepackage[libertine]{newtxmath}
 \usepackage[T1]{fontenc} 
 
-
+\usepackage{graphicx}
 \usepackage{sectsty} 
 %\allsectionsfont{\centering \normalfont\scshape} 
 % Todas las secciones centradas, con la fuente normal y versalitas
@@ -55,7 +56,42 @@
 
 \begin{document}
 
-\maketitle
+%\maketitle
+\begin{titlepage}
+    \centering % El ajuste de logos debe ser cuidadoso
+	\includegraphics[width=3.5cm]{uclm_logo}
+	\hfill
+	\parbox{.5\linewidth}{%
+		\centering
+		{\LARGE Universidad de Castilla-La Mancha\par}
+		\vspace{.05\textheight}
+		{\large Escuela Superior de Informática\par}
+	}
+	\hfill
+	\includegraphics[width=3cm]{esi_logo}
+	\par
+    \par\vspace{.15\textheight}
+    {\huge\textsc{Título del trabajo \\
+     (Portada 4)}\par}
+    \Large
+    \par\vspace{.1\textheight}
+    Trabajo
+    \medbreak
+    Para obtención de
+    (propósito del trabajo)
+    \par\vspace{.08\textheight}
+    realizado por
+    \medbreak
+    \textsc{Nombre Apellidos (Autor)}
+    \bigbreak
+    supervisado por
+    \medbreak
+    Prof. \textsc{Nombre Apellidos (Director)}
+    \vfill
+    \noindent%
+    \small \hfill marzo, 2021 
+\end{titlepage}
+
 
 \section{Título del Problema}
 
