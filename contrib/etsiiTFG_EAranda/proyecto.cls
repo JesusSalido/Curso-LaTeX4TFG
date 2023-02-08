@@ -63,8 +63,7 @@ headsep=0.65cm,footskip=0.6cm]{geometry}
 \fancyhfoffset{0mm}
 \pagestyle{fancy}
 
-\renewcommand{\chaptermark}[1]{\markboth{\color{black}\chaptername\ \thechapter\ \ \protect\rule[2pt]{3pt}{3pt}\ \ #1}{}}
-
+\renewcommand{\chaptermark}[1]{\markboth{\color{black}\chaptername~\thechapter\ \ \protect\rule[2pt]{3pt}{3pt}\ \ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\color{black}\thesection\ \ \protect\rule[2pt]{3pt}{3pt}\ \ #1}}
 
 \renewcommand{\headrulewidth}{0pt}
@@ -107,17 +106,17 @@ headsep=0.65cm,footskip=0.6cm]{geometry}
 % secciones
 \titleformat{\section}[block]
   {\normalfont\sffamily}%
-{\raisebox{0.3ex}{{\noindent\hspace{0ex}\small\sffamily\fboxsep2pt\colorbox{black}{\textcolor{white}{\thechapter}}}\hspace{.6ex}%
-\fboxsep2pt\small\colorbox{gris}{\textcolor{white}{\arabic{section}}}}}
+{\noindent\hspace{0ex}\small\sffamily\fboxsep2pt\colorbox{black}{\textcolor{white}{\thechapter}}\hspace{.8ex}%
+\fboxsep2pt\colorbox{gris}{\textcolor{white}{\arabic{section}}}}
 {1em}{\titlerule\\*[.8ex]\bfseries}
 
 % subsecciones
 \titleformat{\subsection}
   {\normalfont\sffamily}
-{\raisebox{.3ex}{{\noindent\hspace{.0ex}\small\sffamily\fboxsep2pt\colorbox{black}{\textcolor{white}{\thechapter}}}%
-\hspace{.5ex}\small\sffamily\fboxsep2pt\colorbox{black}{\textcolor{white}{\arabic{section}}}%
-\hspace{.5ex}\small\sffamily\fboxsep2pt\colorbox{gris}{\textcolor{white}{\arabic{subsection}}}
-}}
+{\raisebox{.3ex}{{\noindent\hspace{.0ex}\scriptsize\sffamily\fboxsep2pt\colorbox{black}{\textcolor{white}{\arabic{chapter}}}%
+\hspace{.6ex}\scriptsize\sffamily\colorbox{black}{\textcolor{white}{\arabic{section}}}%
+\hspace{.6ex}\scriptsize\sffamily\colorbox{gris}{\textcolor{white}{\arabic{subsection}}}
+}}}
 {.5em}{\bfseries}
 
 % subsubsecciones
@@ -192,4 +191,44 @@ headsep=0.65cm,footskip=0.6cm]{geometry}
               [\addvspace{.07pc}]              
    
 
+\renewcommand\appendix{\par
+  \setcounter{chapter}{0}%
+  \setcounter{section}{0}%
+  \gdef\@chapapp{\appendixname}%
+  \gdef\thechapter{\@Alph\c@chapter}
+\titlecontents{chapter}
+[0pt]{\addvspace{1pc}\sffamily}%
+{\contentsmargin{0pt}%
+\sffamily%
+\settowidth{\anchocaja}{\LARGE\sffamily\thecontentslabel}%
+\settoheight{\altocaja}{\LARGE\sffamily\thecontentslabel}%
+\hspace*{15pt} \makebox[0pt][r]{\textcolor{gris}{%
+\rule[-.4em]{1.45\anchocaja}{1.45\altocaja}}\hspace{10pt}}%
+\makebox[0pt][r]{\textcolor{white}{\LARGE \sffamily \thecontentslabel}\hspace{13pt}}%
+\large\bfseries}
+{\hspace{20pt}\large\bfseries}
+{\ \dotfill\contentspage}
+[\addvspace{.3pc}]
+}
 
+              
+
+\renewenvironment{thebibliography}[1]
+     {\chapter*{\bibname}%
+      \@mkboth{\bibname}{\bibname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}

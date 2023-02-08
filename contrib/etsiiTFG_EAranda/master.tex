@@ -30,10 +30,11 @@ cap3
 \listoftables
 \cleardoublepage
 
-
 % capítulos
 \include{cap1}
 \include{cap2}
+\appendix
+\renewcommand{\chaptername}{Apéndice}
 \include{cap3}
 
 % Bibliografia
@@ -42,10 +43,15 @@ cap3
 \cleardoublepage
 \addcontentsline{toc}{chapter}{Bibliografía}
 \bibliography{biblio}
-\bibliographystyle{apalike}
+\bibliographystyle{apalike-es}
 
 \end{document}
 
 
 
 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
