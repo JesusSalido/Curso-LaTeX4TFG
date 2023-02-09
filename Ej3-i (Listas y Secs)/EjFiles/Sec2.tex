@@ -1,50 +1,5 @@
-%%%%%%%%%%%%%% 
-% Fichero: EjListas
-% Autor: J. Salido (http://www.esi.uclm.es/www/jsalido)
-% Fecha: febrero, 2017
-% Rev.: febrero 2022
-% Descripción: Generación de listas en LaTeX
-% Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
-% y otros documentos académicos” (Esc. Sup. Informática-UCLM)
-%%%%%%%%%%%%%%
-
-% Atención: En la última versión de babel con idioma español se cambia la forma de los bullets en los entornos itemize.
-
-
-%%%%%%%%%%%%%%
-% Preámbulo del documento
-%%%%%%%%%%%%%%
-\documentclass[11pt,a4paper]{article} 
-\usepackage[spanish]{babel} 
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-
-\usepackage{newpxtext}
-\usepackage{newpxmath}
-\usepackage{marvosym}
-\usepackage{pifont} % Generación de símbolos especiales
-\usepackage{textcomp}
-\usepackage{fontawesome5}
-\usepackage[T1]{fontenc} % Codificación de salida    
-% OJO: Nuevas versiones con problemas
-\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
-
-% Paquetes para obtener un mayor control de las listas
-\usepackage{multicol} % Elementos en varias columnas
-\usepackage[shortlabels,inline]{enumitem} % Paquete para configurar listas
-
-\author{Jesús Salido}
-\title{Listas en \LaTeX{}}
-\date{\today}
-%%%%%%%%%%%%%%
-% Comienzo del documento
-%%%%%%%%%%%%%%
-\begin{document}
-
-\maketitle
-
-\begin{abstract}
-Explicación breve sobre cómo emplear en \LaTeX{} algunos entornos relacionados con las listas, justificación y notas al margen. Este documento contiene varios ejemplos de listas con los que se puede experimentar empleando la vista previa disponible en IDE como \TeX studio. 
-\end{abstract}
+\section{Organización de contenido mediante listas}
+\label{sec:listas} % En esta sección se ha incluido el contenido del documento EjListas.tex
 
 
 Las listas se emplean cuando se desea enumerar una serie de características, objetos, etc. A continuación veremos algunos ejemplos de listas.
@@ -199,5 +154,3 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
 \end{description}
 
 \LaTeX{} permite la configuración de listas, pero la mayoría de las veces esto no es necesario, ya que es suficiente el estilo por defecto proporcionado.
-\end{document}
-

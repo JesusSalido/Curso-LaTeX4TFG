@@ -1,49 +1,6 @@
-%%%%%%%%%%%%%% 
-% Fichero: EjAlinea
-% Autor: J. Salido (http://www.esi.uclm.es/www/jsalido)
-% Fecha: febrero, 2017
-% Descripción: Alineación de texto
-% Ejemplo del curso: “LaTeX esencial para preparación de TFG, Tesis
-% y otros documentos académicos” (Esc. Sup. Informática-UCLM)
-%%%%%%%%%%%%%%
+\section{Alineación de textos en \LaTeX{}}
+\label{sec:alinea} % En esta sección se ha incluido el contenido del documento EjAlinea.tex
 
-
-%%%%%%%%%%%%%%
-% Preámbulo del documento
-%%%%%%%%%%%%%%
-\documentclass[11pt,a4paper]{report} 
-\usepackage[spanish]{babel} 
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-
-\usepackage{newpxtext}
-\usepackage{newpxmath}
-\usepackage{marvosym}
-\usepackage{pifont} % Generación de símbolos especiales
-\usepackage{textcomp}
-\usepackage[T1]{fontenc} % Codificación de salida    
-\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
-
-\usepackage{epigraph} % Inclusión de epígrafes al comienzo de capítulos
-
-
-\title{Ejemplos de alineamiento de texto con \LaTeX}
-\author{Jesús Salido}
-\date{\today}
-
-
-
-%%%%%%%%%%%%%%
-% Comienzo del documento
-%%%%%%%%%%%%%%
-\begin{document}
-\maketitle
-
-\begin{abstract}
-	Con \LaTeX{} también puede configurarse la alineación por defecto de los párrafos con distintos propósitos. Aunque se trata de situaciones poco frecuentes, en este ejemplo se muestran algunos ejemplos de uso.
-\end{abstract}
-
-\chapter{Métodos de alineamiento de texto}
-\epigraph{Una cosa es saber y otra saber enseñar}{\textit{Cicerón}}
 \LaTeX{} emplea justificación completa de los párrafos por defecto. Pero este comportamiento puede interesarnos modificarlo. A continuación se muestran algunos ejemplos relacionados con la justificación de párrafos:
 
 % Ejemplo:
@@ -117,5 +74,3 @@ IF	\= \textbf{está} lloviendo                \\
     \> ELSE \> \textbf{sonreir}.              \\
 \textbf{Salir} de casa.
 \end{tabbing}
-
-\end{document}

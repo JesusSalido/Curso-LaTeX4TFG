@@ -31,33 +31,27 @@
 
 % EDITAR: Inclusión de hiperenlaces.
 % Generación de hiperenlaces
-\usepackage[%
-   pdftex,
-   breaklinks,
-   hidelinks=true,      % Oculta colores en los enlaces (negro)
-    linktocpage=true,    % true = enlace al nº de pág., false=texto completo
+%\usepackage[%
+%   pdftex,
+%   breaklinks,
+%   hidelinks,      % Oculta colores en los enlaces (negro)
+%    linktocpage=true,    % true = enlace al nº de pág., false=texto completo
 %    colorlinks=true,         % true=colorea texto del enlace, false=recuadra el texto
-	citecolor=red, % Color de la citas
-	urlcolor=blue, % Color de las URL
-	bookmarksnumbered=true % Incluye números en bookmarks
-]{hyperref}
-\usepackage{url}
-\urlstyle{sf} % Estilo de URL sin serifas
+%	citecolor=red, % Color de la citas
+%	urlcolor=blue, % Color de las URL
+%	bookmarksnumbered=true % Incluye números en bookmarks
+%]{hyperref}
+%\usepackage{url}
+%\urlstyle{sf} % Estilo de URL sin serifas
 
 
 % EDITAR: Ajustes de numeración de secciones e inclusión en índice
 %\setcounter{secnumdepth}{2} % Ajusta el valor del último nivel numerado
 %\setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
 
-
 \author{Jesús Salido}
 \title{Fundamentos de \LaTeX{} para principiantes}
 \date{\today}
-
-%\selectspanish
-
-\setcounter{tocdepth}{1}
-\setcounter{secnumdepth}{1}
 
 
 %%%%%%%%%%%%%%
@@ -71,97 +65,15 @@
 	En este ejemplo se han reunido varios de los ejemplos anteriores para mostrar el uso de secciones. El contenido de cada ejemplo se ha organizado como una sección de este nuevo documento. También se muestra como preparar un índice de contenido.
 \end{abstract}
 
-
-
 % Cuando se generan índices de contenido y referencias cruzadas es preciso compilar el documento mútiples veces (al menos dos) hasta obtener el resultado apropiado. 
 % Esto no es un funcionamiento incorrecto sino necesario.
 % Sin embargo, al emplear TeXstudio el entorno detecta la necesidad de compilar varias veces para obtener las referencias correctas.
 
-\hrule % Adornos para enmarcar la tabla de contenido
-
 % NOTA: Inclusión de tabla de contenidos.
-\tableofcontents % Así de fácil
-\vspace{0.5cm} % Espacio vertical adicional
-\hrule
-
-\section{Tipografía con \LaTeX{}}
-\label{sec:tipos} % En esta sección se ha incluido el contenido del documento EjTipos.tex
-\LaTeX{} genera su salida con los tipos \emph{Computer Modern} (\textbf{CM}) creados por D.~Knuth con ayuda del programa \textsc{metafont}. Por suerte \LaTeX{} está configurado en la actualidad para incorporar estas <<fuentes>> en los ficheros PDF como una fuente \emph{Postscript} Tipo 1 (vectorial). Con las fuentes Tipo 1 se obtiene una calidad superior a la obtenida con las fuentes Tipo 3 o de mapa de bits (\textbf{PK}) que solo ofrecen máxima calidad a la escala para la que han sido creadas. Por suerte en la actualidad \LaTeX{} ofrece la posibilidad de incluir las fuentes estándar \emph{Postscript} de \textsf{Adobe} utilizando los paquetes apropiados. Así es muy claro alternar en un texto entre las tres familias disponibles: Roman (redonda), \textsf{Sans Serif (paloseco, sin serifa o sin adornos)} y \texttt{Teletype (teletipo o monoespaciada)}. Y por último unas MAYÚSCULAS MÁS \textsc{pequeñas llamadas versalitas}. {\fontfamily{qcr}\selectfont
-This text uses a different font typeface
-}
-Por favor, no utilices el \underline{subrayado} para \emph{enfatizar}. Aunque en algún documento (p.~ej.\ ejercicios) su uso tampoco es grave.
-
-Por supuesto \LaTeX{} tiene en cuenta las particularidades de la tipografía en modo matemático como en: $f(x)=y^2$ y números $1,2,3,4,5,6,7,8,9$, o en modo texto: 0123456789.
-
-$$g(x)=\int_{0}^{\infty}y^{3}dy$$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section[Símbolos]{Símbolos y caracteres especiales en \LaTeX{}}
-\label{sec:simb} % En esta sección se ha incluido el contenido del documento EjSimb.tex
-
-En \TeX{} y \LaTeX{} las palabras reservadas o <<comandos>> del lenguaje están precedidos por la barra inclinada o \emph{backslash} (\textbackslash). Otros caracteres especiales son: \# \$ \% \textasciicircum \& \_ \{ \} \~{}. Para escribir estos caracteres se emplea:\\
-\verb!\# \$ \% \textasciicircum \& \_ \{ \} \~!
-
-Recordar los usos de las ``comillas dobles'' y las <<latinas>>.
-
-\LaTeX{} también puede generar un conjunto muy amplio de símbolos especiales como el \EUR{} o \texteuro, \ding{45} y \Coffeecup. En los textos informáticos un carácter habitual es \verb+~+ empleado en las direcciones URL. Este carácter se puede generar de varias formas (\verb+~+, \~{}, $\sim$). Aunque empleando el paquete \texttt{url} la escritura de direcciones electrónicas se simplifica, por ejemplo:
-
-\url{http://osl.ugr.es/CTAN/info/symbols/comprehensive/symbols-a4.pdf}
-
-\noindent dirección URL de \emph{The Comprehensive \LaTeX{} Symbol List} de Scott Pakin (2009) donde se hace un repaso de todos los símbolos y caracteres que se pueden generar en \LaTeX{}.
-
-Un gran conjunto de iconos empleados en los textos informáticos se pueden obtener mediante el uso de la tipografía \texttt{awesome5}, como por ejemplo: \faNodeJs, \faNode, \faGooglePlay, \faInternetExplorer, \faGithub, \faGit*, \faWhatsapp, etc.
-
-\LaTeX{} genera su salida con los tipos Computer Modern (CM) creados por D.~Knuth con ayuda del programa \textsc{metafont}. Por suerte \LaTeX{} está configurado en la actualidad para incorporar estas <<fuentes>> en los ficheros PDF como una fuente Postscript Tipo 1 (vectorial). Con las fuentes Tipo 1 se obtiene una calidad al obtenido con las fuentes Tipo 3 o de mapa de bits (PK) que sólo ofrecen máxima calidad a la escala para la que fueron creadas. Por suerte en la actualidad \LaTeX{} ofrece la posibilidad de incluir las fuentes estándar Postscript de Adobe utilizando los paquetes <<apropiados>>. Así es muy sencillo\footnote{No tan sencillo.} alternar en un texto entre las tres familias disponibles: Roman (redonda), \textsf{Sans Serif (paloseco, sin serifa o sin adornos)} y \texttt{Teletype (teletipo o monoespaciada)}. 
-
-Al componer documentos en español hay que tener en cuenta las peculiaridades de la tipografía española frente a la inglesa para hacer un uso correcto de los recursos ofrecidos por \LaTeX.
-
-\noindent Con el comando \verb+\verb+ se puede generar texto que \LaTeX{} no procesa.\footnote{Emplearlo con precaución.}
-
-
-
-El entorno:
-\begin{verbatim}
-   verbatim permite hacer lo 
-   mismo en un texto más extenso.
-\end{verbatim} 
-
-Las versiones con estrella permiten destacar los espacios en blanco así:
-
-\verb*|Texto sin  procesar|
-
-Y también en el entorno verbatim:
-
-\begin{verbatim*}
-   verbatim permite hacer lo 
-   mismo en un texto más extenso.
-\end{verbatim*} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+%\hrule % Adornos para enmarcar la tabla de contenido
+%\tableofcontents % Así de fácil
+%\vspace{0.5cm} % Espacio vertical adicional
+%\hrule
 
 \section{Alineación de textos en \LaTeX{}}
 \label{sec:alinea} % En esta sección se ha incluido el contenido del documento EjAlinea.tex
@@ -172,7 +84,7 @@ Y también en el entorno verbatim:
 % ============
 \begin{flushleft}
 	Este texto está alineado a la izquierda. \\
-	\LaTeX{} no trata de justificar las líneas, \\
+	\LaTeX{} no trata de justificar las líneas, \\ 
 	así que así quedan.
 \end{flushleft}
 
@@ -186,6 +98,7 @@ Y también en el entorno verbatim:
 	de la Tierra
 \end{center}
 
+
 \noindent Y uno sobre el empleo de citas:
 
 Una regla empírica tipográfica para la longitud de renglón es:
@@ -193,12 +106,38 @@ Una regla empírica tipográfica para la longitud de renglón es:
 % Ejemplo:
 % ============
 \begin{quote}
-	En promedio, ningún renglón debería tener más de 66 signos porque así lo establece la propia experiencia.
+\emph{<<En promedio, ningún renglón debería tener más de 66 signos porque así lo establece la propia experiencia.>>}
 \end{quote}
+
+
+Aunque también se podría haber dicho:
+
+
+% Ejemplo:
+% ============
+\begin{quote}
+\emph{<<La experiencia establece que, en promedio, ninguna línea de texto debería tener más de 66 signos. Esta y otras reglas derivadas de la experiencia se tendrán en cuenta a la hora de preparar documentos técnicos con corrección...>>}
+\end{quote}
+
+En el caso de citas que ocupan varios párrafos:
+
+
+% Ejemplo:
+% ============
+\begin{quotation}
+{\em <<¡Oh, memoria, enemiga mortal de mi descanso!...
+La virtud más es perseguida de los malos que amada de los buenos...
+La ingratitud es hija de la soberbia...
+La razón de la sinrazón que a mi razón se hace, de tal manera mi razón enflaquece, que con razón me quejo de la vuestra fermosura.>>}
+\end{quotation}
 
 Por ello las páginas de \LaTeX{} tienen márgenes tan anchos por omisión, y los periódicos usan múltiples columnas. 
 
 En alguna situación puede interesar realizar un formateado del los párrafos empleando tabuladores. El entorno \texttt{tabbing} proporciona el uso de tabuladores para conseguir la alineación deseada en los elementos del párrafo:
+
+
+
+
 
 % Ejemplo:
 % ============
@@ -206,11 +145,11 @@ En alguna situación puede interesar realizar un formateado del los párrafos em
 % \= fija la posición del tabulador
 % \> avanza hasta la posición del tabulador
 \begin{tabbing}
-	IF \= \textbf{está} lloviendo                \\
-	\> THEN \= \textbf{calzar} botas de agua, \\
-	\>      \> \textbf{coger} paraguas;       \\
-	\> ELSE \> \textbf{sonreir}.              \\
-	\textbf{Salir} de casa.
+IF	\= \textbf{está} lloviendo                \\
+    \> THEN \= \textbf{calzar} botas de agua, \\
+    \>      \> \textbf{coger} paraguas;       \\
+    \> ELSE \> \textbf{sonreir}.              \\
+\textbf{Salir} de casa.
 \end{tabbing}
 
 
@@ -226,8 +165,7 @@ En alguna situación puede interesar realizar un formateado del los párrafos em
 
 
 
-
-\section{Listas}
+\section{Organización de contenido mediante listas}
 \label{sec:listas} % En esta sección se ha incluido el contenido del documento EjListas.tex
 
 
@@ -235,27 +173,37 @@ Las listas se emplean cuando se desea enumerar una serie de características, ob
 
 \noindent Ejemplo de entorno {\tt itemize}:
 
-% Ejemplo: Lista con viñetas
+% Ejemplo: Lista con viñetas anidada
 % ============
 \begin{itemize}
 	\item peras
 	\item manzanas
-	\item limones
-	\item naranjas
+    \item cítricos
+        \item limones
+        \item naranjas
 \end{itemize}
 
-\noindent La misma lista cambiando la viñeta, gracias a paquete \texttt{enumitem}:
-% Ejemplo: Lista con viñeta dingbat
+\noindent La misma lista cambiando la viñeta (\texttt{pifont}), gracias a paquete \texttt{enumitem}:
+
+% Ejemplo: Lista con viñeta dingbat y un icono de fontawesome5
 % ============
-\begin{itemize}[\ding{111}]
+\begin{itemize}[\ding{68}]
+\item peras
+\item[\faIcon{apple}] manzanas
+\item limones
+\item naranjas
+\end{itemize}
+
+\noindent Otra personalización:
+% Ejemplo:
+% ============
+\begin{itemize}[\ding{52},noitemsep] % Lista en la que se cambia el bullet por un símbolo dingbat
 	\item peras
-	\item manzanas
-	\item limones
+	\item[\ding{55}] manzanas
 	\item naranjas
 \end{itemize}
 
-
-Las listas también se pueden anidar:
+\noindent Las listas también se pueden anidar:
 % Ejemplo: Lista anidada con balas
 % ============
 \begin{itemize}
@@ -276,23 +224,11 @@ Las listas también se pueden anidar:
 	\item naranjas
 \end{itemize}
 
-
-\noindent Ejemplo de entorno {\tt itemize} en el que se sustituye el símbolo (\emph{bullet}) por defecto:
-
-% Ejemplo:
-% ============
-\begin{itemize}
-	\item[*] peras
-	\item manzanas
-	\item[\ding{170}] naranjas
-\end{itemize}
-
-
 Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas. Con el paquete \texttt{enumitem} se puede compactar las listas. A continuación se muestra un ejemplo de entorno {\tt itemize} con opciones para cambiar el espaciado vertical entre ítems y cambio de viñeta por defecto (proporcionada por el paquete \texttt{enumitem}):
 
-% Ejemplo:
+% Ejemplo: Cambia el espaciado entre items y la viñeta por defecto.
 % ============
-\begin{itemize}[*,noitemsep]
+\begin{itemize}[\textbullet,noitemsep]
 	\item peras
 	\item manzanas
 	\item naranjas
@@ -313,7 +249,7 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
 
 % Ejemplo:
 % ============
-\begin{enumerate}[a.-,noitemsep]
+\begin{enumerate}[A.-,noitemsep]
 	\item peras
 	\item manzanas
 	\item naranjas
@@ -334,26 +270,20 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
 \end{multicols}
 
 
-\noindent Las listas incluso se pueden personalizar (aunque debería estar justificado el cambiar el estilo por defecto, haciéndolo con mucha prudencia):
-
-% Ejemplo:
-% ============
-\begin{enumerate}[\ding{52},noitemsep] % Lista en la que se cambia el bullet por un símbolo dingbat
-	\item peras
-	\item[\ding{55}] manzanas
-	\item naranjas
-\end{enumerate}
-
-
+\noindent Las enumeraciones pueden personalizar de muchos modos, aunque debería estar justificado el cambiar el estilo por defecto, haciéndolo con mucha prudencia:
 \noindent Así también:
 
 % Ejemplo:
 % ============
-\begin{dingautolist}{202} % Lista con símbolos sucesivos de la tabla dingbat
+\begin{dingautolist}{192} % Lista con símbolos sucesivos de la tabla dingbat
 	\item peras
 	\item manzanas
 	\item naranjas
 \end{dingautolist}
+
+
+
+
 
 
 \noindent y por supuesto anidar:
@@ -367,11 +297,11 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
     \item Naranja
   \end{enumerate}
   \item Legumbres
-  \item Hortalizas \ldots
+  \item Hortalizas...
 \end{enumerate}
 
 
-\noindent Ejemplo de entorno {\tt description} para listas:
+\noindent Por último, el entorno {\tt description} se emplea para listas de términos o definiciones, como se muestra en los ejemplos siguientes:
 
 % Ejemplo:
 % ============
@@ -390,8 +320,6 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
 	\item[Lucideces] sin embargo, pueden parecer hermosas en una lista.
 \end{description}
 
-\LaTeX{} permite una configuración más avanzada para presentar listas más sofisticadas, aunque la mayoría de las veces esto no es necesario, ya que es suficiente con las listas convencionales.
-
-
+\LaTeX{} permite la configuración de listas, pero la mayoría de las veces esto no es necesario, ya que es suficiente el estilo por defecto proporcionado.
 \end{document}
 
