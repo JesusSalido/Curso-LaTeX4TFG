@@ -1,0 +1,134 @@
+\documentclass[11pt,a4paper]{article}
+% Por defecto todas las ecuaciones quedan centradas en la página pero con la opción fleqn se consigue su alineación a la izda.
+% \documentclass[11pt,a4paper,fleqn]{article}
+\usepackage[spanish,es-noindentfirst]{babel} 
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+
+%--- Tipografía
+\usepackage{amsmath,amssymb,amsfonts}	% Símbolos matemáticos
+%--- Tipografía (Opción 1)
+\usepackage{newpxtext}	% La opción osf proporciona números en old style.
+\usepackage{newpxmath}
+%---
+%--- Tipografía (Opción 2)
+%\usepackage[tt=false]{libertine}
+%\usepackage[libertine]{newtxmath}
+%---
+
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+
+% Generación de hiperenlaces
+\usepackage[%
+   pdftex,
+   breaklinks,
+   hidelinks=true,      % Oculta colores en los enlaces (negro)
+    linktocpage=true,    % true = enlace al nº de pág., false=texto completo
+%    colorlinks=true,         % true=colorea texto del enlace, false=recuadra el texto
+	citecolor=red, % Color de la citas
+	urlcolor=blue, % Color de las URL
+	bookmarksnumbered=true % Incluye números en bookmarks
+]{hyperref}
+\usepackage{url}
+\urlstyle{sf} % Estilo de URL sin serifas
+
+
+% Listas
+\usepackage{enumitem} % Mayor control de listas
+\usepackage{multicol} % Elementos en varias columnas
+
+
+% Gráficos
+\usepackage{graphicx}  % Inclusión de figuras y escalado de cajas
+\usepackage{float}
+% Declaración del path donde están los archivos de figuras. 
+% También se puede incluir el path en el nombre del fichero.
+\graphicspath{{../figs/}}  
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+% Lista de extensiones de ficheros por orden de precedencia. De este modo no hace falta indicar la extensión del fichero y en caso de existir dos fichero con el mismos nombre y extensión diferente se emplea el que tiene una extensión con mayor prioridad.
+
+
+\usepackage{caption} % Configuración de caption en objetos float
+
+% Paquetes especiales para Química
+\usepackage[version=3]{mhchem}
+\usepackage{chemfig}
+
+
+\author{Jesús Salido}
+\title{Composición básica de formulación química}
+\date{\today}
+
+%%%%%%%%%%%%%%
+% Comienzo del documento
+%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	Explicación breve sobre cómo se componen fórmulas químicas con \LaTeX{}.
+\end{abstract}
+
+\section{Fórmulas químicas}
+\LaTeX{} también puede emplearse para la inclusión de fórmulas y estructuras químicas. Para ello se proporciona un sinfín de paquetes que pueden ayudar en la tarea.\footnote{\url{http://www.mychemistry.eu/known-packages/}} A continuación se muestran ejemplos creados con los paquetes \texttt{mhchem} y \texttt{chemfig}.
+
+
+
+\subsection{Fórmulas químicas con el paquete \texttt{mhchem}}
+Es un paquete bastante sencillo que permite escribir formulación química simple.
+
+\begin{center}
+\ce{Zn^2+
+<=>[\ce{+ 2OH-}][\ce{+ 2H+}]
+$\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
+<=>C[+2OH-][{+ 2H+}]
+$\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
+}
+\end{center}
+
+
+A diferencia de las ecuaciones matemáticas no existe un entorno que genere la ecuación con un título y un tratamiento similar al de los objetos flotantes por lo que si se requiere este tratamiento hay que configurarlo.
+
+Al igual que se puede hacer con las ecuaciones matemáticas a las fórmulas químicas se les puede añadir un recuadro como muestra el ejemplo siguiente:
+
+\begin{center}
+{\fboxsep 8pt \fboxrule 0.5pt
+	\fbox{
+			\ce{Zn^2+
+			<=>[\ce{+ 2OH-}][\ce{+ 2H+}]
+			$\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
+			<=>C[+2OH-][{+ 2H+}]
+			$\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
+			}
+	}
+}
+\end{center}
+
+
+\subsection{Fórmulas químicas con el paquete \texttt{chemfig}}
+Es un paquete que aprovecha las capacidades gráficas del paquete \texttt{tikz} (Ti\textit{k}Z)\footnote{Si no se ha cargado previamente \texttt{chemfig} lo cargará.} y es muy flexible. Sin embargo, no hay que perder de vista que aprender a utilizarlo ya puede representar un esfuerzo importante. En este caso una solución alternativa es emplear programas dedicados de dibujo de fórmulas químicas importándolas en el documento \LaTeX{} como un fichero PDF.
+
+A continuación se muestran algunos ejemplos de fórmulas químicas empleando el paquete \texttt{chemfig}. En la Fig.~\ref{fig:cafeina} se muestra como es posible tratar como figura (objeto \emph{float}) una fórmula generada con \texttt{chemfig}.
+
+
+% Ejemplo: Cafeina
+% ============
+\begin{figure}[H]
+	\begin{center}
+		\chemfig{H_3C-[:30]N**6(-(=O)-(**5(-N(-CH_3)--N-))--N(-CH_3)-(=O)-)}
+	\end{center}
+	\caption{Fórmula química de la cafeina}\label{fig:cafeina}
+\end{figure}
+
+
+Y un ejemplo más mostrando la fórmula de la adrenalina:
+% Ejemplo: Adrenalina
+% ============
+\begin{center}
+\definesubmol{&}{-[,,,,draw=none]}
+\definesubmol{&&}{-[,,,2,draw=none]}
+\chemfig{*6((-HO)-=*6(!&!{&&}HN(-CH_3)-[,,2]-(<OH)-)-=-(-HO)=)}
+\end{center}
+\end{document}

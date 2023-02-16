@@ -31,18 +31,18 @@
 
 % EDITAR: Inclusión de hiperenlaces.
 % Generación de hiperenlaces
-%\usepackage[%
-%   pdftex,
-%   breaklinks,
-%   hidelinks,      % Oculta colores en los enlaces (negro)
-%    linktocpage=true,    % true = enlace al nº de pág., false=texto completo
+\usepackage[%
+   pdftex,
+   breaklinks,
+   hidelinks,      % Oculta colores en los enlaces (negro)
+    linktocpage=true,    % true = enlace al nº de pág., false=texto completo
 %    colorlinks=true,         % true=colorea texto del enlace, false=recuadra el texto
-%	citecolor=red, % Color de la citas
-%	urlcolor=blue, % Color de las URL
-%	bookmarksnumbered=true % Incluye números en bookmarks
-%]{hyperref}
+	citecolor=red, % Color de la citas
+	urlcolor=blue, % Color de las URL
+	bookmarksnumbered=true % Incluye números en bookmarks
+]{hyperref}
 %\usepackage{url}
-%\urlstyle{sf} % Estilo de URL sin serifas
+\urlstyle{sf} % Estilo de URL sin serifas
 
 
 % EDITAR: Ajustes de numeración de secciones e inclusión en índice
@@ -62,7 +62,7 @@
 \maketitle 
 
 \begin{abstract}
-	En este ejemplo se han reunido varios de los ejemplos anteriores para mostrar el uso de secciones. El contenido de cada ejemplo se ha organizado como una sección de este nuevo documento. También se muestra como preparar un índice de contenido.
+	En este ejemplo se han reunido varios de los ejemplos anteriores para mostrar el uso de secciones, como se puede ver en la sección~\ref{sec:enumanidadas} (ver pág.~\pageref{sec:enumanidadas}). El contenido de cada ejemplo se ha organizado como una sección de este nuevo documento. También se muestra como preparar un índice de contenido.
 \end{abstract}
 
 % Cuando se generan índices de contenido y referencias cruzadas es preciso compilar el documento mútiples veces (al menos dos) hasta obtener el resultado apropiado. 
@@ -70,15 +70,15 @@
 % Sin embargo, al emplear TeXstudio el entorno detecta la necesidad de compilar varias veces para obtener las referencias correctas.
 
 % NOTA: Inclusión de tabla de contenidos.
-%\hrule % Adornos para enmarcar la tabla de contenido
-%\tableofcontents % Así de fácil
-%\vspace{0.5cm} % Espacio vertical adicional
-%\hrule
+\hrule % Adornos para enmarcar la tabla de contenido
+\tableofcontents % Así de fácil
+\vspace{0.5cm} % Espacio vertical adicional
+\hrule
 
 \section{Alineación de textos en \LaTeX{}}
 \label{sec:alinea} % En esta sección se ha incluido el contenido del documento EjAlinea.tex
 
-\LaTeX{} emplea justificación completa de los párrafos por defecto. Pero este comportamiento puede interesarnos modificarlo. A continuación se muestran algunos ejemplos relacionados con la justificación de párrafos:
+\href{https://ctan.org/}{\LaTeX} emplea justificación completa de los párrafos por defecto. Pero este comportamiento puede interesarnos modificarlo. A continuación se muestran algunos ejemplos relacionados con la justificación de párrafos:\footnote{\url{https://ctan.org/}}
 
 % Ejemplo:
 % ============
@@ -168,7 +168,7 @@ IF	\= \textbf{está} lloviendo                \\
 \section{Organización de contenido mediante listas}
 \label{sec:listas} % En esta sección se ha incluido el contenido del documento EjListas.tex
 
-
+\subsection{Listas con viñetas}
 Las listas se emplean cuando se desea enumerar una serie de características, objetos, etc. A continuación veremos algunos ejemplos de listas.
 
 \noindent Ejemplo de entorno {\tt itemize}:
@@ -203,6 +203,9 @@ Las listas se emplean cuando se desea enumerar una serie de características, ob
 	\item naranjas
 \end{itemize}
 
+
+
+\subsubsection{Listas anidadas}
 \noindent Las listas también se pueden anidar:
 % Ejemplo: Lista anidada con balas
 % ============
@@ -234,6 +237,8 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
 	\item naranjas
 \end{itemize}
 
+
+\subsection{Enumeraciones}
 \noindent Ejemplo de entorno {\tt enumerate} para listas numeradas:
 
 % Ejemplo:
@@ -284,7 +289,8 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
 
 
 
-
+\subsubsection{Enumeraciones anidadas}
+\label{sec:enumanidadas}
 
 \noindent y por supuesto anidar:
 
@@ -301,6 +307,15 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
 \end{enumerate}
 
 
+
+
+
+
+
+
+
+
+\subsection{Descripciones}
 \noindent Por último, el entorno {\tt description} se emplea para listas de términos o definiciones, como se muestra en los ejemplos siguientes:
 
 % Ejemplo:
@@ -321,5 +336,6 @@ Personalmente, pienso que \LaTeX{} proporciona demasiado espaciado en las listas
 \end{description}
 
 \LaTeX{} permite la configuración de listas, pero la mayoría de las veces esto no es necesario, ya que es suficiente el estilo por defecto proporcionado.
+
 \end{document}
 

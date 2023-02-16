@@ -97,33 +97,45 @@
 	Explicación breve sobre cómo se componen ecuaciones matemáticas sencillas con \LaTeX{}.
 \end{abstract}
 
-
+\hrule
 \tableofcontents
-
+\bigskip
+\hrule
 
 \section{Fórmulas matemáticas}
-Para que \LaTeX{} pueda incluir muchos símbolos matemáticos es preciso incluir algunos paquetes que ayudan en dicha tarea: \texttt{amsmath}, \texttt{amsfonts}, \texttt{amssymb}. También hay que tener en cuenta que si el tipo principal empleado en el texto es Times y se desea utilizar un tipo coherente en las fórmulas es conveniente emplear el paquete \emph{mathptmx} en vez de \emph{Times}. Pero en este caso es recomendable incluir siempre paquetes adicionales para suministrar las otras dos familias de fuentes escalables (p.~ej.\ \texttt{helvet} para familia \textsf{palo seco} y \texttt{couriers} para \texttt{monoespaciada}). Si no se hace esta última inclusión pueden obtenerse errores de difícil diagnóstico.
+\LaTeX{} se utiliza para crear documentos de alta calidad y complejidad, como artículos académicos, tesis y libros. Una de las características más útiles de \LaTeX{} es su capacidad para crear ecuaciones matemáticas complejas de manera sencilla y eficiente.
 
 
+Las ecuaciones o expresiones matemáticas emplean distintos tipos de marcas y entornos dependiendo del modo en que se desee su impresión. En una línea dentro de un párrafo como por ejemplo, $c^{2}=a^{2}+b^{2}$ que podría ser la ecuación representativa del teorema de Pitágoras.
 
-
-
-
-
-
-\subsection{Fórmulas creadas en línea y con entorno \texttt{equation}}
-Es muy sencillo incluir fórmulas matemáticas sencillas en el mismo texto en el que se escribe. Por ejemplo, $c^{2}=a^{2}+b^{2}$ que podría ser la ecuación representativa del teorema de Pitágoras.
-
-Las fórmulas también se pueden separar del texto para que aparezcan destacadas, así:
-
-% Ejemplo: Ecuación no numerada
-% ============
-\[
-c^2  = \int {\left( {a^2  + b^2} \right)}  \cdot dx
+\noindent Pero también pueden emplear un párrafo independiente sin numeración, como en:
+\[ 
+    y = ax^2 + bx + c 
 \]
 
+O bien empleando el entorno \texttt{equation} para añadir automáticamente numeración que puede ser referenciada mediante comandos: \texttt{ref}, \texttt{eqref} y \texttt{pageref} (como en la ec.~\ref{eq:cuadratica}). A continuación se muestra un ejemplo:
+\begin{equation}\label{eq:cuadratica}
+    y = ax^2 + bx + c 
+\end{equation}
 
-Pero si se desea, las ecuaciones pueden ser numeradas de forma automática e incluso utilizar referencias cruzadas a ellas:
+Además, \LaTeX{} tiene muchos comandos para insertar símbolos matemáticos comunes, como fracciones, sumatorios y raíces cuadradas. Por ejemplo, la siguiente ecuación utiliza algunos de estos comandos:
+
+\begin{equation}
+y = \frac{\sum_{i=1}^{n} x_i}{\sqrt{a}} + \frac{b}{c}
+\end{equation}
+
+En resumen, LaTeX es una herramienta poderosa para crear ecuaciones matemáticas complejas. Con su sintaxis simple y sus numerosos comandos matemáticos, LaTeX permite a los usuarios crear ecuaciones matemáticas con facilidad y con una calidad profesional.
+
+Para que \LaTeX{} pueda incluir muchos símbolos matemáticos es preciso incluir algunos paquetes que ayudan en dicha tarea: \texttt{amsmath}, \texttt{amsfonts}, \texttt{amssymb}. También hay que tener en cuenta que si la familia tipográfica empleada proporciones versiones para ecuaciones matemáticas de forma que el resultado mostrado por estas sea armonioso con respecto al resultado. 
+
+
+
+
+
+
+
+\section{Fórmulas creadas con elementos cancelados}
+Como vemos en la ecuación~\ref{eq:pitagoras} algunos términos de las ecuacines se pueden señalar como cancelados, gracias al paquete \texttt{cancel}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/cancel/cancel.pdf}}
 
 % Ejemplo: Ec. numerada.
 % ============
@@ -131,7 +143,7 @@ Pero si se desea, las ecuaciones pueden ser numeradas de forma automática e inc
 	a^{2}=b^{2} + \cancel{c^{2}}+ \xcancel{d^{2}}
 \end{equation}
 
-Como vemos en la ecuación~\ref{eq:pitagoras} algunos términos podemos señalarlos como cancelados, gracias al paquete \texttt{cancel}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/cancel/cancel.pdf}} Otras formas de \sout{subrayar} el texto se consiguen con el paquete \uwave{\texttt{ulem}}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/ulem/ulem.pdf}}
+Otras formas de \sout{subrayar} el texto se consiguen con el paquete \uwave{\texttt{ulem}}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/ulem/ulem.pdf}}
 
 \bigskip
 Las macros que proporciona el paquete \texttt{ulem} son:
@@ -152,9 +164,11 @@ Las macros que proporciona el paquete \texttt{ulem} son:
 \end{itemize}
 \bigskip
 
+
+\section{Inclusión avanzada de ecuaciones matemáticas}
 No hay que preocuparse demasiado por la tipografía empleada en las fórmulas pues \LaTeX{} hace por nosotros <<casi>> todo el trabajo.\footnote{Los matemáticos son muy exquisitos y no se conforman con cualquier cosa, pero nosotros debemos ser mucho menos pretenciosos si queremos resultados rápidos.}
 
-Los ejemplos que aquí se muestran son muy sencillos pero \LaTeX{} proporciona entornos específicos más potentes. Para mostrar algo <<más sofisticado>> añado dos ejemplos más. La ec.~\ref{eq:integral} que es un poquito más compleja y la ec.~\ref{eq:cuadro} que está recuadrada.
+Los ejemplos que aquí se muestran son muy sencillos pero \LaTeX{} proporciona entornos específicos más potentes. Para mostrar algo <<más sofisticado>> añado dos ejemplos más. La ec.~\ref{eq:integral} que es un poquito más compleja.
 
 % Ejemplo:
 % ============
@@ -162,13 +176,16 @@ Los ejemplos que aquí se muestran son muy sencillos pero \LaTeX{} proporciona e
 	I = \! \int_{-\infty}^\infty f(x)\,dx
 \end{equation}
 
-Un ejemplo de alineación de ecuación mediante entorno \texttt{flalign}:\footnote{Otra forma de conseguir el alineamiento a la izquierda de las ecuaciones se consigue añadiendo \texttt{fleqn} como opción de la clase del documento.}
+\noindent Un ejemplo de alineación de ecuación mediante entorno \texttt{flalign}:\footnote{Otra forma de conseguir el alineamiento a la izquierda de las ecuaciones se consigue añadiendo \texttt{fleqn} como opción de la clase del documento.}
 \begin{flalign}
     &f(x) = -1.25x^{2} + 1.5x&
 \end{flalign}
 
+
 En este caso la versión con estrella (\texttt{flalign*}) suprime la numeración de la ecuación.
 
+
+La ec.~\ref{eq:cuadro} muestra como producir ecuaciones con recuadro.
 % Ejemplo: Ec. con recuadro (numeración exterior).
 % ============
 {\fboxsep 8pt \fboxrule 2.5pt 
@@ -203,8 +220,6 @@ Box tips and tricks for \LaTeX{}} de Timothy Van Zandt (2010).}
 \]
 
 
-
-\subsection{Ecuaciones en varias líneas con entornos \texttt{eqnarray} y \texttt{align}}
 A continuación se muestra un ejemplo de ecuación muy larga dividida en varias líneas:
 
 % Ejemplo: Ec. en varias líneas con alineación y sin numeración.
@@ -227,17 +242,45 @@ f(x) & = \cos x \\
 f'(x) & = -\sin x \\
 \int_{0}^{x} f(y)dy & = \sin x \nonumber
 \end{align}
-
 \noindent En este último ejemplo se observa también cómo es posible suprimir la numeración de una de las ecuaciones con el comando (\texttt{\textbackslash nonumber}).
+
+\noindent Un efecto similar sin números de ecuaciones se puede obtener mediante entorno \texttt{split}:
+% Ejemplo: Ecs. en varias líneas con alineación sin numeración.
+% ============
+\[ \begin{split}
+    A'+A(A'B+B'C)' 
+      &= A'+A(A'B)'(B'C)' \\
+      &= A'+A(A+B')(B+C') \\
+      &= A'+A(AB+AC'+\overbrace{\cancel{B'B}}^{=\,0}+B'C')\\ 
+      &= A'+AB+AC'+AB'C' \\
+      & \neq A'
+\end{split}\]
+
+
 
 Para terminar, un ejemplo más del control del espaciado horizontal empleando el entorno \texttt{array}:
 
 % Ejemplo:
 % ============
-\[f(n) = \left\{ 
+\[
+f(n) = \left\{ 
 \begin{array}{l l}
   n/2 & \quad \mbox{si $n$ es par}\\
-  -(n+1)/2 & \quad \mbox{si $n$ es impar}\\ \end{array} \right. \]
+  -(n+1)/2 & \quad \mbox{si $n$ es impar}\\ 
+\end{array} \right. 
+\]
+
+\noindent El mismo efecto conseguido, de modo más elegante, mediante el entorno \texttt{cases}:
+\[
+f(n) =  
+\begin{cases}
+  n/2      & \text{si $n$ es par}\\
+  -(n+1)/2 & \text{si $n$ es impar}
+\end{cases} 
+\]
+
+
+
 
 
 \section{Añadiendo unidades del SI}
@@ -247,7 +290,7 @@ En la gran mayoría de las ramas científico-técnicas es preciso el empleo de u
 	\item \verb|\num{12345}|:$\rightarrow$ \num{12345}
 	\item \verb|\num{.12345}|:$\rightarrow$  \num{.12345}
 	\item \verb|\num{3.45d-4}|:$\rightarrow$  \num{3.45d-4}
-	\item \verb|\num{25e10}|:$\rightarrow$  \num{25e10}
+	\item \verb|\num{25e6}|:$\rightarrow$  \num{25e10}
 	\item \verb|\ang{1;2;3}|:$\rightarrow$  \ang{1;2;3}
 	\item \verb|\si{kg.m/s^2}|:$\rightarrow$  \si{kg.m/s^2}
 	\item \verb|\si{\kilo\gram\metre\per\square\second}|:$\rightarrow$  \si{\kilo\gram\metre\per\square\second}
@@ -258,72 +301,5 @@ En la gran mayoría de las ramas científico-técnicas es preciso el empleo de u
 	\item \verb|\SIrange{10}{30}{\metre}|:$\rightarrow$  \SIrange{10}{30}{\metre}
 	\item \verb|\si{\highlight{red}\kilogram\cancel\metre\per\second}|:$\rightarrow$  \si{\highlight{red}\kilogram\cancel\metre\per\second}
 \end{itemize}
-
-
-%\section{Fórmulas químicas}
-%\LaTeX{} también puede emplearse para la inclusión de fórmulas y estructuras químicas. Para ello se proporciona un sinfín de paquetes que pueden ayudar en la tarea.\footnote{\url{http://www.mychemistry.eu/known-packages/}} A continuación se muestran ejemplos creados con los paquetes \texttt{mhchem}, \texttt{xymtex}, y \texttt{chemfig}.
-%
-%
-%
-%\subsection{Fórmulas químicas con el paquete \texttt{mhchem}}
-%Es un paquete bastante sencillo que permite escribir formulación química simple.
-%
-%\begin{center}
-%\ce{Zn^2+
-%<=>[\ce{+ 2OH-}][\ce{+ 2H+}]
-%$\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
-%<=>C[+2OH-][{+ 2H+}]
-%$\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
-%}
-%\end{center}
-%
-%
-%A diferencia de las ecuaciones matemáticas no existe un entorno que genere la ecuación con un título y un tratamiento similar al de los objetos flotantes por lo que si se requiere este tratamiento hay que configurarlo.
-%
-%Al igual que se ha hecho más arriba en la ecs.~\ref{eq:cuadro} y \ref{eq:cuadrogrande} es posible recuadrar una fórmula química siguiendo el mismo esquema.
-%
-%\begin{center}
-%{\fboxsep 8pt \fboxrule 0.5pt
-%	\fbox{
-%			\ce{Zn^2+
-%			<=>[\ce{+ 2OH-}][\ce{+ 2H+}]
-%			$\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
-%			<=>C[+2OH-][{+ 2H+}]
-%			$\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
-%			}
-%	}
-%}
-%\end{center}
-%
-%
-%
-%
-%\subsection{Fórmulas químicas con el paquete \texttt{chemfig}}
-%Es un paquete que aprovecha las capacidades gráficas del paquete \texttt{tikz} (Ti\textit{k}Z)\footnote{Si no se ha cargado previamente \texttt{chemfig} lo cargará.} y es muy flexible. Sin embargo, no hay que perder de vista que aprender a utilizarlo ya puede representar un esfuerzo importante. En este caso una solución alternativa es emplear programas dedicados de dibujo de fórmulas químicas importando éstos en el documento \LaTeX{} como un fichero PDF.
-%
-%A continuación se muestran algunos ejemplos de fórmulas químicas empleando el paquete \texttt{chemfig}. En la Fig.~\ref{fig:cafeina} se muestra como es posible tratar como una figura una fórmula generada con \texttt{chemfig}.
-%
-%
-%% Ejemplo: Cafeina
-%% ============
-%\begin{figure}[!h]
-%	\begin{center}
-%		\chemfig{H_3C-[:30]N**6(-(=O)-(**5(-N(-CH_3)--N-))--N(-CH_3)-(=O)-)}
-%	\end{center}
-%	\caption{Fórmula química de la cafeina}\label{fig:cafeina}
-%\end{figure}
-%
-%
-%
-%% Ejemplo: Adrenalina
-%% ============
-%\begin{center}
-%\definesubmol{&}{-[,,,,draw=none]}
-%\definesubmol{&&}{-[,,,2,draw=none]}
-%\chemfig{*6((-HO)-=*6(!&!{&&}HN(-CH_3)-[,,2]-(<OH)-)-=-(-HO)=)}
-%\end{center}
-
-
-
 \end{document}
 

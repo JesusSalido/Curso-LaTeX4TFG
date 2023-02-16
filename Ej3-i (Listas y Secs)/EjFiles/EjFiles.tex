@@ -15,53 +15,57 @@
 % Preámbulo del documento
 %%%%%%%%%%%%%%
 \documentclass[11pt,a4paper]{article} 
-
-\usepackage[spanish]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage[osf]{newtxtext}
+\usepackage{newtxmath}
 
-\usepackage{newpxtext,newpxmath}
-\usepackage{textcomp,marvosym,pifont,fontawesome5} % Símbolos \usepackage[T1]{fontenc} % Codificación de salida    
-\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{pifont} % Generación de símbolos especiales
+\usepackage{fontawesome5} % Iconos fontawesome
 
 \usepackage[shortlabels]{enumitem} % Mayor control de listas
 \usepackage{multicol} % Elementos en varias columnas
 
+% EDITAR: Inclusión de hiperenlaces.
 % Generación de hiperenlaces
 \usepackage[%
    pdftex,
    breaklinks,
-%   hidelinks=true,      % Oculta colores en los enlaces (negro)  
-   linktocpage=true,    % true = enlace al nº de pág., false=texto completo
-   colorlinks=true,         % true=colorea texto del enlace, false=recuadra el texto
-   citecolor=red, % Color de la citas
-   urlcolor=blue, % Color de las URL
-   bookmarksnumbered=true % Incluye números en bookmarks
+   hidelinks,      % Oculta colores en los enlaces (negro)
+    linktocpage=true,    % true = enlace al nº de pág., false=texto completo
+%    colorlinks=true,         % true=colorea texto del enlace, false=recuadra el texto
+	citecolor=red, % Color de la citas
+	urlcolor=blue, % Color de las URL
+	bookmarksnumbered=true % Incluye números en bookmarks
 ]{hyperref}
-\usepackage{url} % Incluido con hyperref
+%\usepackage{url}
 \urlstyle{sf} % Estilo de URL sin serifas
 
 
-% Con estas instrucciones se ajustan los valores del índice
-\setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
-\setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
-
-
+% EDITAR: Ajustes de numeración de secciones e inclusión en índice
+%\setcounter{secnumdepth}{2} % Ajusta el valor del último nivel numerado
+%\setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
 
 \author{Jesús Salido}
-\title{Fundamentos de \LaTeX{} para principiantes (ficheros separados)}
+\title{Fundamentos de \LaTeX{} para principiantes}
 \date{\today}
-
-
-
-%%%%%%%%%%%%%%
-% Comienzo del documento
-%%%%%%%%%%%%%%
 \begin{document}
+
 \maketitle 
 
 \begin{abstract}
 En este ejemplo se han reunido varios de los ejemplos anteriores para mostrar el uso de secciones. El contenido de cada ejemplo se ha organizado como una sección de este nuevo documento, pero las secciones se han separado en ficheros independientes.
 \end{abstract}
+
+% NOTA: Inclusión de tabla de contenidos.
+\hrule % Adornos para enmarcar la tabla de contenido
+\tableofcontents % Así de fácil
+\vspace{0.5cm} % Espacio vertical adicional
+\hrule
 
 \input{Sec1}
 \input{Sec2}
