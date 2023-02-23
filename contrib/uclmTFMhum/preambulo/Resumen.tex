@@ -1,0 +1,55 @@
+%--- Ajustes del documento.
+\pagestyle{plain}	% Páginas sólo con numeración inferior al pie
+
+% -------------------------
+%
+% RESUMEN:
+% 
+%
+
+% EDITAR: Resumen (máx. 1 pág.)
+%\cleardoublepage % Se incluye para modificar el contador de página antes de añadir bookmark
+\phantomsection  % Necesario con hyperref
+\addcontentsline{toc}{chapter}{Resumen} % Añade al TOC.
+\selectlanguage{spanish} % Selección de idioma del resumen.
+\makeatletter
+\begin{center} %
+   {\textsc{TRABAJO FIN DE MÁSTER - FACULTAD DE LETRAS (UCLM)}\par} % Tipo de trabajo
+   \vspace{1cm} %  
+   {\textbf{\Large Título en español}\par}  % Título del trabajo
+   \vspace{0.4cm} %
+   {\@autor \\ \@cityTF,{} \@mesTF{} \@yearTF\par} 
+   \vspace{0.9cm} %
+   {\textbf{\large\textsf{Resumen}}\par} % Título de resumen
+\end{center}   
+\makeatother %
+En una página como máximo, el resumen explicará de modo breve la problemática que trata de resolver el trabajo \emph{(<<Qué>>)}, la metodología para  abordar su solución  \emph{<<Cómo>>)} y los resultados obtenidos. En los trabajos cuyo idioma principal sea el inglés, el orden de \textsf{Resumen} y \textsf{Abstract} se invertirá.
+
+
+
+%---
+\cleardoublepage % Se incluye para modificar el contador de página antes de añadir 
+
+
+
+
+
+% EDITAR: Abstract (máx. 1 pág.)
+%---
+\phantomsection  % Necesario con hyperref
+\addcontentsline{toc}{chapter}{Abstract} % Añade al TOC.
+\selectlanguage{english} % Selección de idioma del resumen.
+\makeatletter
+\begin{center} %
+   {\textsc{MASTER THESIS - FACULTAD DE LETRAS (UCLM)}\par}
+   \vspace{1cm} %  
+   {\textbf{\Large Title in English}\par}
+   \vspace{0.4cm} %
+   {\@autor \\ \@cityTF,{} \@monthTF{} \@yearTF\par} 
+   \vspace{0.9cm} %
+   {\textbf{\large\textsf{Abstract}}\par} 
+\end{center}   
+\makeatother %
+\emph{English version for the abstract.}
+\cleardoublepage % Se incluye para modificar el contador de página antes de añadir 
+

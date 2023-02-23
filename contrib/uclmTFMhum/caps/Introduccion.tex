@@ -1,0 +1,24 @@
+\chapter{Introducción}
+\label{cap:Introduccion}
+
+En los estudios de ingeniería y publicaciones relacionadas, el estilo de citación más empleado es el numérico. En este caso se cita una referencia mediante un número incluido entre corchetes (p.~ej., [\#]) que indica el orden de la referencia citada en la lista de referencias incluida en la sección correspondiente. Con este tipo de citación se suele utilizar dos tipos de ordenación para la lista de referencias. Estos son: el orden alfabético de las referencias\footnote{Este es el estilo por defecto o \texttt{plain} empleado con \LaTeX.} y el orden de citación de la referencia en el texto\footnote{Obtenido con los estilos \texttt{unsrt} y \texttt{ieeetr}, entre otros.}. Por el contrario, en las ciencias naturales y sociales es más habitual un estilo de citación autor-año como el recogido en las normas APA (\href{https://apastyle.apa.org/learn/faqs/format-bibliography}{American Pshychological Association}).
+
+Con \LaTeX{} existen varias alternativas para utilizar el estilo de citación autor-año. En este documento se propone una de las más sencillas. Esta consiste en el empleo del paquete \href{https://ctan.javinator9889.com/biblio/bibtex/contrib/apacite/apacite.pdf}{\texttt{apacite}} con la opción \texttt{natbibapa} que proporciona un estilo de citación siguiendo el formato sugerido por APA y los comandos de citación del paquete \texttt{natbib} (cargado de modo implícito). Con estas opciones la primera citación de una referencia incluye a todos los autores \citep[como por ejemplo en][]{oetiker06} y el resto solo una lista corta \citep{oetiker06}. Cuando existe una citación múltiple, las citas aparecen en el mismo orden que en la lista de referencias \citep[como por ejemplo en][]{lamport94, cascales00,goos04,kopka04}.
+
+\section{Citación con \texttt{apacite} y \texttt{natbib}}
+Con el paquete \texttt{apacite} y la opción \texttt{natbibapa} se proporcionan varios comandos de citación que admiten dos opciones para añadir texto previo (prefijo) a la citación y posterior (sufijo) a la misma, como en:
+
+   \verb+\citep[ver][página 11]{salido15}+: \citep[ver][página 5]{salido15} 
+
+\newpage
+Los comandos de citación más frecuentes se resumen en la lista siguiente:
+
+\begin{itemize}
+    \item \verb+\citep+: Citación entre paréntesis.
+    \item \verb+\citet+: Citación textual (sin paréntesis).
+    \item \verb+\citep*+: Citación con lista completa de autores entre paréntesis.
+    \item \verb+\citet*+: Citación textual con lista completa de autores (sin paréntesis).
+    \item \verb+\citeauthor+: Cita solo el autor (sin paréntesis).
+    \item \verb+\citeyear+: Cita solo el año (sin paréntesis).
+    \item \verb+\citeyearpar+: Cita solo el año (con paréntesis).
+\end{itemize}
