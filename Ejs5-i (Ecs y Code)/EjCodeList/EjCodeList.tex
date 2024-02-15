@@ -18,6 +18,9 @@
 \usepackage[spanish]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
+% Generación de hiperenlaces
+\usepackage{hyperref}
+
 % Tipografía
 \usepackage{newpxtext}
 \usepackage{newpxmath}
@@ -39,8 +42,7 @@
 
 
 % Definición de colores
-%\usepackage[table,dvipsnames,svgnames,x11names]{xcolor}
-\usepackage[table,svgnames,x11names]{xcolor}
+\usepackage[table,dvipsnames,svgnames,x11names]{xcolor}
 \definecolor{sombra}{HTML}{F0F0F0} % Sombra código
 \definecolor{gris}{gray}{0.4} % Gris numeración código
 \definecolor{palered}{rgb}{0.78, 0.03, 0.08}
@@ -49,11 +51,6 @@
 \definecolor{turquesa}{RGB}{64,132,64} % Turquesa
 \definecolor{UCLMred}{cmyk}{0.19, 1.0, 0.74, 0.12} % Color imagen corporativa UCLM
 
-
-
-% Generación de hiperenlaces
-%\usepackage[pdftex]{hyperref}
-\usepackage{hyperref}
 
 % Ajustes de paquete hyperref 
 \hypersetup{
@@ -230,7 +227,6 @@
 	Ejemplos de aplicación de los paquetes \texttt{listings} y \texttt{algorithm2e} para incluir listados de código y descripción de algoritmos en documentos preparados con  \LaTeX{}.
 \end{abstract}
 
-%\end{document}
 % Personalización de los títulos de los listados y del índice de listados
 \renewcommand{\lstlistlistingname}{Índice de listados} % Nombre asignado
 \renewcommand{\lstlistingname}{Listado} % Nombre que figura en el pie

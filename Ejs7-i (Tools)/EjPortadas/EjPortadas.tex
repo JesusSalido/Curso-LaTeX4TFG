@@ -4,7 +4,7 @@
 \usepackage[T1]{fontenc}
 
 
-\usepackage[usenames,dvipsnames,svgnames,x11names,table]{xcolor}
+\usepackage[dvipsnames,svgnames,x11names,table]{xcolor}
 
 \definecolor{ocre}{RGB}{243,102,25} % Ocre
 \definecolor{aqua}{RGB}{52,177,201} % Aqua
@@ -30,7 +30,7 @@
 \newgeometry{top=1cm,bottom=1cm,left=1cm,right=1cm}
 \begin{titlepage}
 	\centering
-	\includegraphics[width=4cm]{uclm_logo}\par\vspace{1cm}
+	\includegraphics[width=4cm]{./figs/uclm_logo}\par\vspace{1cm}
 	{\scshape\LARGE Universidad de Castilla-La Mancha \par}
 	\vspace{1cm}
 	{\scshape\Large(Portada 1)\par} % Proósito del trabajo
@@ -51,7 +51,7 @@
 \begin{titlepage}
 	\begin{addmargin}[4cm]{-1cm} %--- Proporcionado por scrextend
 		\centering
-		\hfill\includegraphics[width=4cm]{esi_logo}\par
+		\hfill\includegraphics[width=4cm]{./figs/esi_logo}\par
 		\vspace{4\baselineskip}
 		{\Huge 
 		Título del trabajo\\ 
@@ -78,7 +78,7 @@
     	Depto. IEEAC\par
     }%
     \parbox[c]{.5\linewidth}{
-    	\hfill\includegraphics[width=4cm]{uclm_logo}
+    	\hfill\includegraphics[width=4cm]{./figs/uclm_logo}
     } 
     \centering
     \par\vspace{.15\textheight}
@@ -107,7 +107,7 @@
 %--- PORTADA 4
 \begin{titlepage}
     \centering % El ajuste de logos debe ser cuidadoso
-	\includegraphics[width=3.5cm]{uclm_logo}
+	\includegraphics[width=3.5cm]{./figs/uclm_logo}
 	\hfill
 	\parbox{.5\linewidth}{%
 		\centering
@@ -116,7 +116,7 @@
 		{\large Escuela Superior de Informática\par}
 	}
 	\hfill
-	\includegraphics[width=3cm]{esi_logo}
+	\includegraphics[width=3cm]{./figs/esi_logo}
 	\par
     \par\vspace{.15\textheight}
     {\huge\textsc{Título del trabajo \\
@@ -174,7 +174,7 @@
 	{\begin{tikzpicture}[remember picture,overlay]
 		\node[anchor=north west,inner sep=0pt] at (0,0)
 		% EDITAR: Cambio de imagen de portada 
-		{\includegraphics[width=\paperwidth]{danbo}}; % Imagen de fondo
+		{\includegraphics[width=\paperwidth]{./figs/danbo}}; % Imagen de fondo
 		\draw[anchor=north] (midpoint) node [%
 			fill=gray!30!white, % Colores de transparencia
 			fill opacity=0.6,
