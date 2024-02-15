@@ -39,7 +39,8 @@
 
 
 % Definición de colores
-\usepackage[table,hyperref,usenames,dvipsnames,svgnames,x11names]{xcolor}
+%\usepackage[table,dvipsnames,svgnames,x11names]{xcolor}
+\usepackage[table,svgnames,x11names]{xcolor}
 \definecolor{sombra}{HTML}{F0F0F0} % Sombra código
 \definecolor{gris}{gray}{0.4} % Gris numeración código
 \definecolor{palered}{rgb}{0.78, 0.03, 0.08}
@@ -51,7 +52,8 @@
 
 
 % Generación de hiperenlaces
-\usepackage[pdftex]{hyperref}
+%\usepackage[pdftex]{hyperref}
+\usepackage{hyperref}
 
 % Ajustes de paquete hyperref 
 \hypersetup{
@@ -191,6 +193,7 @@
 	;
 }
 
+
 %--- OPT.: Paquete para incluir menús, paths y teclas de modo "elegante"
 \usepackage[os=win]{menukeys} 
 % OJO: Este paquete presenta algunas incompatibilidades, debe cargarse el 
@@ -227,7 +230,7 @@
 	Ejemplos de aplicación de los paquetes \texttt{listings} y \texttt{algorithm2e} para incluir listados de código y descripción de algoritmos en documentos preparados con  \LaTeX{}.
 \end{abstract}
 
-
+%\end{document}
 % Personalización de los títulos de los listados y del índice de listados
 \renewcommand{\lstlistlistingname}{Índice de listados} % Nombre asignado
 \renewcommand{\lstlistingname}{Listado} % Nombre que figura en el pie
