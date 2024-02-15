@@ -85,7 +85,7 @@ Generación de bibliografía con \LaTeX{} empleando un método más elegante con
 
 
 \section{La creación de bibliografía}
-En la gran mayoría de documentos científicos~\cite[pág. 5]{salido15} sus autores citan las fuentes consultadas durante la realización del trabajo presentado. \LaTeX{} proporciona herramientas muy flexibles para elaborar la \emph{lista de fuentes bibliográficas} e incluir las citas a ellas en el texto (ver~\cite{cascales00,cascales03,goos04,kopka04,lamport94}). La bibliografía aporta los detalles esenciales de los documentos externos citados y por lo general se imprime al final del documento principal como una sección separada del resto. El título de la sección varía según el tipo de documento principal y \LaTeX{} los denomina \emph{Referencias} o \emph{Bibliografía}, aunque dicho título se puede modificar fácilmente empleando el comando \texttt{renewcommand}.\footnote{Véase cómo se ha cambiado en este documento el título de dicha sección.}
+En la gran mayoría de documentos científicos~\cite[pág.~5]{salido15} sus autores citan las fuentes consultadas durante la realización del trabajo presentado. \LaTeX{} proporciona herramientas muy flexibles para elaborar la \emph{lista de fuentes bibliográficas} e incluir las citas a ellas en el texto (ver~\cite{cascales00,cascales03,goos04,kopka04,lamport94}). La bibliografía aporta los detalles esenciales de los documentos externos citados y por lo general se imprime al final del documento principal como una sección separada del resto. El título de la sección varía según el tipo de documento principal y \LaTeX{} los denomina \emph{Referencias} o \emph{Bibliografía}, aunque dicho título se puede modificar fácilmente empleando el comando \texttt{renewcommand}.\footnote{Véase cómo se ha cambiado en este documento el título de dicha sección.}
 
 
 El conjunto de referencias que serán citadas en el documento principal puede contemplarse como una \emph{base de datos bibliográfica} en la que cada registro (o entrada) contiene la información relevante del documento citado. Dicha base bibliográfica puede ser:
@@ -142,7 +142,7 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 
 %%%%%
 % Definición del estilo empleado en la bibliografía
-\bibliographystyle{plain}
+%\bibliographystyle{plain}
 % Estilos nativos incluidos con LaTeX (plain, abbrv, alpha, unsrt).
 %
 % plain: las referencias se numeran y en la bibliografía las entradas
@@ -164,7 +164,99 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 
 
 %\nocite{*} % OJO: Con \nocite{*} se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto. CUIDADO todas las referencias en la bibliografía deben estar citadas en el texto.
-\bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
+%\bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
+
+\begin{thebibliography}{1}
+
+\bibitem{Bloch17}
+Joshua Bloch.
+\newblock {\em Effective {J}ava}.
+\newblock Addison-Wesley Professional, 2017.
+
+\bibitem{cascales00}
+B.~Cascales, P.~Lucas, J.~M. Mira, A.~Pallarés, y S.~Sánchez-Pedreño.
+\newblock {\em {\LaTeX{}}. Una imprenta en sus manos}.
+\newblock Aula Documental de Investigación, 2000.
+
+\bibitem{cascales03}
+B.~Cascales, P.~Lucas, J.M. Mira, A.~Pallarés, y S.~{Sánchez-Pedreño}.
+\newblock {\em El libro de {\LaTeX}}.
+\newblock Pearson/Prentice Hall, 2003.
+
+\bibitem{goos04}
+M.~Goossens, F.~Mittelbach, and A.~Samarin.
+\newblock {\em The {\LaTeX{}} companion}.
+\newblock Addison-Wesley Reading, MA, 2nd edition, 2004.
+
+\bibitem{kopka04}
+H.~Kopka and {P.W.} Daly.
+\newblock {\em A guide to {\LaTeX}}.
+\newblock Addison-Wesley, 4th edition, 2004.
+
+\bibitem{lamport94}
+L.~Lamport.
+\newblock {\em {\LaTeX}: A document preparation system}.
+\newblock Addison-Wesley, 2nd edition, 1994.
+
+\bibitem{salido15}
+Jesús Salido.
+\newblock Curso de {\LaTeX2e{}}.
+\newblock {URL:} \url{http://visilab.etsii.uclm.es/?page_id=1468}, 2015.
+\newblock Último acceso: 7 sep. 2021.
+
+\bibitem{wikibookLaTex10}
+WikiMedia.
+\newblock {\LaTeX{} Wikibook}.
+\newblock {URL:} \url{http://en.wikibooks.org/wiki/LaTeX}, 2010.
+\newblock Último acceso 23 feb. 2011.
+
+\end{thebibliography}
+
+%\begin{thebibliography}{1}
+%
+%\bibitem{Bloch17}
+%Joshua Bloch.
+%\newblock {\em Effective {J}ava}.
+%\newblock Addison-Wesley Professional, 2017.
+%
+%\bibitem{cascales00}
+%B.~Cascales, P.~Lucas, J.~M. Mira, A.~Pallarés, y S.~Sánchez-Pedreño.
+%\newblock {\em {\LaTeX{}}. Una imprenta en sus manos}.
+%\newblock Aula Documental de Investigación, 2000.
+%
+%\bibitem{cascales03}
+%B.~Cascales, P.~Lucas, J.M. Mira, A.~Pallarés, y S.~{Sánchez-Pedreño}.
+%\newblock {\em El libro de {\LaTeX}}.
+%\newblock Pearson/Prentice Hall, 2003.
+%
+%\bibitem{goos04}
+%M.~Goossens, F.~Mittelbach, and A.~Samarin.
+%\newblock {\em The {\LaTeX{}} companion}.
+%\newblock Addison-Wesley Reading, MA, 2nd edition, 2004.
+%
+%\bibitem{kopka04}
+%H.~Kopka and {P.W.} Daly.
+%\newblock {\em A guide to {\LaTeX}}.
+%\newblock Addison-Wesley, 4th edition, 2004.
+%
+%\bibitem{lamport94}
+%L.~Lamport.
+%\newblock {\em {\LaTeX}: A document preparation system}.
+%\newblock Addison-Wesley, 2nd edition, 1994.
+%
+%\bibitem{salido15}
+%Jesús Salido.
+%\newblock Curso de {\LaTeX2e{}}.
+%\newblock {URL:} \url{http://visilab.etsii.uclm.es/?page_id=1468}, 2015.
+%\newblock Último acceso: 7 sep. 2021.
+%
+%\bibitem{wikibookLaTex10}
+%WikiMedia.
+%\newblock {\LaTeX{} Wikibook}.
+%\newblock {URL:} \url{http://en.wikibooks.org/wiki/LaTeX}, 2010.
+%\newblock Último acceso 23 feb. 2011.
+%
+%\end{thebibliography}
 
 
 \end{document}
