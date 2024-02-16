@@ -57,8 +57,19 @@
 \usepackage{fourier}   % Utopía
 %---
 
-\usepackage{textcomp,marvosym,pifont,fontawesome5} % Símbolos especiales
-\usepackage[T1]{fontenc}% Codificación de salida    
+\usepackage{marvosym,pifont,textcomp,fontawesome5}
+
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage[
+    protrusion=true,
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100]{microtype}
+\SetTracking{encoding={*}, shape=sc}{40}
+
 
 \usepackage[shortlabels]{enumitem} 	% Control de listas
 \usepackage{multicol}	% Texto en varias columnas
@@ -119,7 +130,7 @@
 % -------------------------
 
 \usepackage{pdfpages}   % Permite inclusión de páginas de un PDF
-\usepackage{microtype}  % Mejoras de microtipografía (solo pdflatex)
+
 
 \usepackage{tikz}       % Paquete para gráficos
 \usepackage[

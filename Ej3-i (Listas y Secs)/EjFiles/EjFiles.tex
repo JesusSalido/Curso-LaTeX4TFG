@@ -17,15 +17,22 @@
 \documentclass[11pt,a4paper]{article} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 \usepackage[spanish]{babel}
-\usepackage[T1]{fontenc} % Codificación de salida    
-\usepackage[osf]{newtxtext}
+
+\usepackage{newtxtext}
 \usepackage{newtxmath}
 
+\usepackage{marvosym,pifont,textcomp,fontawesome5}
 
-\usepackage{textcomp}
-\usepackage{marvosym}
-\usepackage{pifont} % Generación de símbolos especiales
-\usepackage{fontawesome5} % Iconos fontawesome
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage[
+    protrusion=true,
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100]{microtype}
+\SetTracking{encoding={*}, shape=sc}{40}
 
 \usepackage[shortlabels]{enumitem} % Mayor control de listas
 \usepackage{multicol} % Elementos en varias columnas

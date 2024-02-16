@@ -3,10 +3,21 @@
 headsep=0.65cm,footskip=0.6cm]{geometry} 
 
 \usepackage[spanish]{babel}
-\usepackage[T1]{fontenc}
+\usepackage{marvosym,pifont,textcomp,fontawesome5}
+
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage[
+    protrusion=true,
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100]{microtype}
+\SetTracking{encoding={*}, shape=sc}{40}
 
 \usepackage{graphicx}
-\graphicspath{{example-}{./figs}}
+\graphicspath{{example-}{./figs/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg} % Precedencia de extensiones
 \usepackage{rotating}	% Giro de cajas (texto, figuras, tablas) (No DVI)
 
@@ -29,7 +40,7 @@ headsep=0.65cm,footskip=0.6cm]{geometry}
 \begin{titlepage}
 
 \begin{center}
-\includegraphics{uclm} % Original (Incorrecto, ya que usa el escudo del Rector)
+\includegraphics{./figs/uclm} % Original (Incorrecto, ya que usa el escudo del Rector)
 %\includegraphics[width=4cm]{uclm_logo} % Preferido
 \bigskip
 \medskip

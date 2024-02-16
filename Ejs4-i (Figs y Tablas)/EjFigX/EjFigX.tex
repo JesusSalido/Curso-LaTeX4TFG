@@ -6,16 +6,22 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 
 % Tipografía
-\usepackage{newpxtext}
-\usepackage{newpxmath}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
 
-% Símbolos
-\usepackage{marvosym}
-\usepackage{pifont} % Generación de símbolos especiales
-\usepackage{textcomp}
+\usepackage{marvosym,pifont,textcomp,fontawesome5}
 
 \usepackage[T1]{fontenc} % Codificación de salida    
-\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+\usepackage[
+    protrusion=true,
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100]{microtype}
+\SetTracking{encoding={*}, shape=sc}{40}
+
 
 % Generación de hiperenlaces
 \usepackage[%
@@ -89,7 +95,7 @@ Uno de los programas más universales para la creación de gráficas matemática
 
 \begin{figure}[hbt]
 	\centering
-	\includegraphics[width=0.5\textwidth]{../figs/EjFigsExcelOrig-crop} 
+	\includegraphics[width=0.5\textwidth]{../figs/EjFigsExcelOrig} 
 	\caption[Gráfico de Excel]{Figura vectorial generada con Excel.}
 	\label{fig:excel}
 \end{figure}

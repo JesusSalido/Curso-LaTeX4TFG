@@ -32,7 +32,7 @@
 \usepackage{pifont} % Generación de símbolos especiales
 \usepackage{fontawesome5} % Iconos fontawesome
 
-
+\usepackage[T1]{fontenc} % Codificación de salida   
 \usepackage[
     protrusion=true,
     activate={true,nocompatibility},
@@ -72,14 +72,14 @@
 
 
 En \TeX{} y \LaTeX{} las palabras ``reservadas'' o <<comandos>> del lenguaje están precedidos por la barra inclinada o \emph{backslash} (\textbackslash). Otros caracteres especiales son: \# \$ \% \textasciicircum \& \_ \{ \} \~{}. Para escribir estos caracteres se emplea:\\
-\verb!\# \$ \% \textasciicircum \& \_ \{ \} \~!
+\verb!\# \$ \% \textasciicircum \& \_ \{ \} \~!.
 
-Recordar los usos de las ``comillas dobles'' y las <<latinas>>.
+Recuerda cuándo se emplean las ``comillas dobles'' y las <<latinas>>.
 
 \LaTeX{} también puede generar un conjunto muy amplio de símbolos 
-especiales como el \EUR{} o \texteuro, \ding{45} y \Coffeecup. En los 
+especiales como el símbolo del euro (\EUR{} o \texteuro), y otros como: \ding{45} y \Coffeecup. En los 
 textos informáticos un carácter habitual es \verb+~+ empleado en las 
-direcciones URL. Este carácter se puede generar de varias formas (\verb+~+, 
+direcciones URL. Dicho carácter se puede generar de varias formas (\verb+~+, 
 \~{}, $\sim$). Aunque empleando el paquete \texttt{url} la escritura de 
 direcciones electrónicas se simplifica, por ejemplo:
 
@@ -87,17 +87,17 @@ direcciones electrónicas se simplifica, por ejemplo:
 
 \noindent dirección URL de \emph{The Comprehensive \LaTeX{} Symbol List} de Scott Pakin (2021) donde se hace un repaso de todos los símbolos y caracteres que se pueden generar en \LaTeX{}.
 
-Un gran conjunto de iconos empleados en los textos informáticos se pueden 
+Un gran conjunto de iconos empleados en los textos relacionados don la informática se pueden 
 obtener mediante el uso de la tipografía \texttt{awesome5}, como por 
 ejemplo: \faNodeJs, \faNode, \faGooglePlay, \faInternetExplorer, \faGithub, 
 \faGit*, \faWhatsapp, \faIcon{apple}, \faIcon{facebook}, etc. 
 
 
-\LaTeX{} genera su salida con los tipos Computer Modern (CM) creados por D.~Knuth con ayuda del programa \textsc{metafont}. Por suerte \LaTeX{} está configurado en la actualidad para incorporar estas <<fuentes>> en los ficheros PDF como una fuente Postscript Tipo 1 (vectorial). Con las fuentes Tipo 1 se obtiene una calidad al obtenido con las fuentes Tipo 3 o de mapa de bits (PK) que sólo ofrecen máxima calidad a la escala para la que fueron creadas. Por suerte en la actualidad \LaTeX{} ofrece la posibilidad de incluir las fuentes estándar Postscript de Adobe utilizando los paquetes <<apropiados>>. Así es muy sencillo\footnote{No tan sencillo.} alternar en un texto entre las tres familias disponibles: Roman (redonda), \textsf{Sans Serif (paloseco, sin serifa o sin adornos)} y \texttt{Teletype (teletipo o monoespaciada)}.
+Por defecto, \LaTeX{} emplea la tipografía Computer Modern (CM) creada por D.~Knuth con ayuda del programa \textsc{metafont}. Por suerte \LaTeX{} está configurado en la actualidad para incorporar estas <<fuentes>> en los ficheros PDF como una fuente Postscript Tipo 1 (vectorial). Con las fuentes Tipo 1 se obtiene una calidad superior a la obtenida con las tipografías Tipo 3 o de mapa de bits (PK), que sólo ofrecen máxima calidad a la escala para la que fueron creadas. Por suerte, \LaTeX{} ofrece actualmente la posibilidad de incluir tipografías estándar Postscript de Adobe. Basta con  emplear los paquetes <<apropiados>>. De este modo, es muy sencillo\footnote{No tan sencillo.} alternar en un texto entre las tres familias de tipografías disponibles: Roman (redonda), \textsf{Sans Serif (paloseco, sin serifa o sin remates)} y \texttt{Teletype (teletipo o monoespaciada)}.
 
-Al componer documentos en español hay que tener en cuenta las peculiaridades de la tipografía española frente a la inglesa para hacer un uso correcto de los recursos ofrecidos por \LaTeX
+Al componer documentos en español hay que tener en cuenta las peculiaridades de la tipografía española frente a la inglesa para hacer un uso correcto de los recursos ofrecidos por \LaTeX.
 
-\noindent Con el comando \verb+\verb+ se puede generar texto que \LaTeX{} no procesa.\footnote{Emplearlo con precaución.}
+\noindent Con el comando \verb+\verb+ se puede generar texto que \LaTeX{} no compila.\footnote{Empléalo con precaución.}
 
 
 
@@ -107,11 +107,11 @@ El entorno:
    mismo en un texto más extenso.
 \end{verbatim} 
 
-Las versiones con estrella permiten destacar los espacios en blanco así:
+\noindent Las versiones con estrella permiten destacar los espacios en blanco así:
 
 \verb*|Texto sin  procesar|
 
-Y también en el entorno verbatim:
+\noindent Y también en el entorno verbatim:
 
 \begin{verbatim*}
    verbatim permite hacer lo 

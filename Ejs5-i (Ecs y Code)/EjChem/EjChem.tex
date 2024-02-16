@@ -15,8 +15,18 @@
 %\usepackage[libertine]{newtxmath}
 %---
 
+\usepackage{marvosym,pifont,textcomp,fontawesome5}
+
 \usepackage[T1]{fontenc} % Codificación de salida    
-\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+\usepackage[
+    protrusion=true,
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100]{microtype}
+\SetTracking{encoding={*}, shape=sc}{40}
 
 
 % Generación de hiperenlaces

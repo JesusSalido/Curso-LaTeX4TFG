@@ -18,15 +18,20 @@
 \usepackage[spanish]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
-\usepackage{newpxtext}
-\usepackage{newpxmath}
-\usepackage{marvosym}
-\usepackage{pifont} % Generación de símbolos especiales
-\usepackage{textcomp}
-\usepackage{fontawesome5}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
 \usepackage[T1]{fontenc} % Codificación de salida    
-% OJO: Nuevas versiones con problemas
-\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
+
+\usepackage[
+    protrusion=true,
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100]{microtype}
+\SetTracking{encoding={*}, shape=sc}{40}
 
 % Paquetes para obtener un mayor control de las listas
 \usepackage{multicol} % Elementos en varias columnas

@@ -29,15 +29,22 @@
 %\usepackage[tt=false]{libertine}
 %\usepackage[libertine]{newtxmath}
 %---
-\usepackage{textcomp}	% Símbolos
-\usepackage{marvosym}	% Símbolos
-\usepackage{pifont}		% Generación de símbolos especiales
+\usepackage{marvosym,pifont,textcomp,fontawesome5}
+
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage[
+    protrusion=true,
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100]{microtype}
+\SetTracking{encoding={*}, shape=sc}{40}
 
 \usepackage{siunitx} % Uso de unidades del SI según normas ISO
 \usepackage{cancel} % Calcelación de términos en una ecuación
 \usepackage[normalem]{ulem} % Enfatizado mediante subrayado
-\usepackage[T1]{fontenc} % Codificación de salida    
-\usepackage{microtype} % Mejoras de microtipografía en la obtención de PDF (sólo para pdflatex)
 
 
 % Generación de hiperenlaces

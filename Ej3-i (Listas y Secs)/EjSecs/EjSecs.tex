@@ -16,15 +16,23 @@
 \documentclass[11pt,a4paper]{article} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
 \usepackage[spanish]{babel}
-\usepackage[T1]{fontenc} % Codificación de salida    
-\usepackage[osf]{newtxtext}
+
+
+\usepackage{newtxtext}
 \usepackage{newtxmath}
 
+\usepackage{marvosym,pifont,textcomp,fontawesome5}
 
-\usepackage{textcomp}
-\usepackage{marvosym}
-\usepackage{pifont} % Generación de símbolos especiales
-\usepackage{fontawesome5} % Iconos fontawesome
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage[
+    protrusion=true,
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100]{microtype}
+\SetTracking{encoding={*}, shape=sc}{40}
 
 \usepackage[shortlabels]{enumitem} % Mayor control de listas
 \usepackage{multicol} % Elementos en varias columnas
@@ -78,7 +86,9 @@
 \section{Alineación de textos en \LaTeX{}}
 \label{sec:alinea} % En esta sección se ha incluido el contenido del documento EjAlinea.tex
 
-\href{https://ctan.org/}{\LaTeX} emplea justificación completa de los párrafos por defecto. Pero este comportamiento puede interesarnos modificarlo. A continuación se muestran algunos ejemplos relacionados con la justificación de párrafos:\footnote{\url{https://ctan.org/}}
+Por defecto, \LaTeX{} emplea justificación completa de los párrafos. Sin embargo, en alguna ocasión puede interesar modificar este tipo de justificación. 
+
+A continuación se muestran algunos ejemplos relacionados con la justificación de párrafos:
 
 % Ejemplo:
 % ============
@@ -101,17 +111,15 @@
 
 \noindent Y uno sobre el empleo de citas:
 
-Una regla empírica tipográfica para la longitud de renglón es:
 
 % Ejemplo:
 % ============
 \begin{quote}
-\emph{<<En promedio, ningún renglón debería tener más de 66 signos porque así lo establece la propia experiencia.>>}
+\emph{<<
+Una regla empírica tipográfica para la longitud de renglón es: En promedio, ningún renglón debería tener más de 66 signos porque así lo establece la propia experiencia.>>}
 \end{quote}
 
-
-Aunque también se podría haber dicho:
-
+\noindent Aunque también se podría haber dicho:
 
 % Ejemplo:
 % ============
@@ -119,25 +127,23 @@ Aunque también se podría haber dicho:
 \emph{<<La experiencia establece que, en promedio, ninguna línea de texto debería tener más de 66 signos. Esta y otras reglas derivadas de la experiencia se tendrán en cuenta a la hora de preparar documentos técnicos con corrección...>>}
 \end{quote}
 
-En el caso de citas que ocupan varios párrafos:
-
+\noindent En el caso de citas que ocupan varios párrafos:
 
 % Ejemplo:
 % ============
 \begin{quotation}
-{\em <<¡Oh, memoria, enemiga mortal de mi descanso!...
+<<¡Oh, memoria, enemiga mortal de mi descanso!...
+
 La virtud más es perseguida de los malos que amada de los buenos...
+
 La ingratitud es hija de la soberbia...
-La razón de la sinrazón que a mi razón se hace, de tal manera mi razón enflaquece, que con razón me quejo de la vuestra fermosura.>>}
+
+La razón de la sinrazón que a mi razón se hace, de tal manera mi razón enflaquece, que con razón me quejo de la vuestra fermosura.>>
 \end{quotation}
 
-Por ello las páginas de \LaTeX{} tienen márgenes tan anchos por omisión, y los periódicos usan múltiples columnas. 
+Por ello, las páginas de \LaTeX{} tienen márgenes tan anchos por omisión, y los periódicos usan múltiples columnas. 
 
-En alguna situación puede interesar realizar un formateado del los párrafos empleando tabuladores. El entorno \texttt{tabbing} proporciona el uso de tabuladores para conseguir la alineación deseada en los elementos del párrafo:
-
-
-
-
+En alguna situación puede interesar realizar un formateado del los párrafos empleando tabuladores. Su manejo se puede obtener mediante el entorno \texttt{tabbing} para conseguir la alineación deseada en los elementos del párrafo:
 
 % Ejemplo:
 % ============
@@ -151,7 +157,6 @@ IF	\= \textbf{está} lloviendo                \\
     \> ELSE \> \textbf{sonreir}.              \\
 \textbf{Salir} de casa.
 \end{tabbing}
-
 
 
 

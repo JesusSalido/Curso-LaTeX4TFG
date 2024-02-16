@@ -1,7 +1,18 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage[top=2.5cm,bottom=2.5cm,inner=3.5cm,outer=2cm]{geometry}
 \usepackage[spanish]{babel}
-\usepackage[T1]{fontenc}
+\usepackage{marvosym,pifont,textcomp,fontawesome5}
+
+\usepackage[T1]{fontenc} % Codificación de salida    
+\usepackage[
+    protrusion=true,
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100]{microtype}
+\SetTracking{encoding={*}, shape=sc}{40}
 
 
 \usepackage[dvipsnames,svgnames,x11names,table]{xcolor}
@@ -13,7 +24,7 @@
 \definecolor{UCLMred}{cmyk}{0.19, 1.0, 0.74, 0.12} % UCLM red
 
 \usepackage{graphicx}
-\graphicspath{{example-}{./figs}}
+\graphicspath{{example-}{./figs/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg} % Precedencia de extensiones
 \usepackage{scrextend}
 \usepackage{rotating}	% Giro de cajas (texto, figuras, tablas) (No DVI)
