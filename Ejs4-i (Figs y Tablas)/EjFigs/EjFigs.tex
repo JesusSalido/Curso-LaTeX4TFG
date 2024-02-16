@@ -16,6 +16,9 @@
 \documentclass[11pt,a4paper]{article} 
 \usepackage[spanish,es-tabla,es-noindentfirst]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+\usepackage[skip=.3\baselineskip plus 2pt,indent]{parskip} % Salto entre párrafos 
+% skip= .5\baselineskip plus 2pt -> Valor por defecto
+
 
 % Tipografía
 \usepackage{newtxtext}
@@ -105,7 +108,7 @@ La inclusión de figuras y archivos de imagen en un documento elaborado con \LaT
 %	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido)} % Título y el título para la lista de figuras
 	\includegraphics[height=8cm]{plazaCR} % Alto de la figura en la pág.
 %	\includegraphics[height=8cm]{../figs/plazaCR} % Imagen en tooltip
-	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido).} % Título y el título para la lista de figuras
+	\caption[Ejemplo de foto en formato jpg]{La Plaza Mayor (cortesía de J.~Salido)} % Título y el título para la lista de figuras
 	\label{fig:plazaCR} % Etiqueta para las refs. cruzadas
 \end{figure}
 
@@ -124,29 +127,29 @@ Otra de las ventajas de \LaTeX{} es que las imágenes no están incrustadas en n
 A la hora de incluir figuras se debe decidir qué formato es el más apropiado siguiendo las siguientes reglas (resumidas de tabla~\ref{tab:formatos}):
 \begin{itemize}
 	\item Siempre que sea posible es preferible el formato \texttt{.pdf}, ya que es vectorial (escalable) como el gráfico de la Fig.~\ref{fig:4004arch}. Por supuesto, si el fichero \textsf{PDF} contiene alguna imagen de mapa de bits, esta no será escalable.
-	\item Las fotografías se incluirán en formato \texttt{.jpg} (como en las  Figs.~\ref{fig:mars} y \ref{fig:plazaCR}).
+	\item Las fotografías se incluirán en formato \texttt{.jpg} (como en las  Figs.~ \ref{fig:plazaCR} y \ref{fig:mars}).
 	\item Las capturas de pantalla o gráficos de gran contraste se deben incluir en formato \texttt{.png} (como en la Fig.~\ref{fig:inkscape}). 
 	\item Siempre que se tenga un fichero de imagen (mapa de bits) con un fondo blanco u otro color plano, debería intentarse transformar en una imagen con fondo transparente convirtiéndola al formato \texttt{.png}.
 \end{itemize}
 
 \begin{figure}[hbt]
 	\centering 
-	\includegraphics[width=0.6\textwidth]{../figs/4004arch} 
-	\caption[Ejemplo de gráfico vectorial \textsf{PDF}]{Figura vectorial de arquitectura Intel 4004 en formato \textsf{PDF} (CC-BY-SA 3.0, Appaloosa, 2007. Wikimedia Commons).}
+	\includegraphics[width=0.65\textwidth]{../figs/4004arch} 
+	\caption[Ejemplo de gráfico vectorial \textsf{PDF}]{Figura vectorial de arquitectura Intel 4004 en formato \textsf{PDF} (CC-BY-SA 3.0, Appaloosa, 2007. Wikimedia Commons)}
 	\label{fig:4004arch}
 \end{figure}
 
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Mars_Perseverance} 
-	\caption[Foto histórica enviada desde Marte]{Primera foto enviada desde Marte el {18-2-2021} por el robot Perseverance incluida aquí en formato JPEG (Fuente: cortesía de NASA/JPL-Caltech).}
+	\caption[Foto histórica enviada desde Marte]{Primera foto enviada desde Marte el {18-2-2021} por el robot Perseverance incluida aquí en formato JPEG (cortesía de NASA/JPL-Caltech)}
 	\label{fig:mars}
 \end{figure}
 
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.5\textwidth]{../figs/inkscape} 
-	\caption[Ejemplo de captura en png]{Captura de pantalla de \textsf{Inkscape} incluida en formato \textsf{PNG}.}
+	\caption[Ejemplo de captura en png]{Captura de pantalla de \textsf{Inkscape} incluida en formato \textsf{PNG}}
 	\label{fig:inkscape}
 \end{figure}
 
@@ -169,7 +172,7 @@ png & Capturas de pantalla (> 75 dpi)
 
 
 \subsection{Ventajas del formato \textsf{PDF}}
-Una de las dificultades de trabajar con ficheros \textsf{PDF} es que se trata de un formato difícil de editar, de modo que habitualmente se genera a partir de otros formatos. Por ejemplo, el gráfico de la Fig.~\ref{fig:4004arch}, cuyo formato original es \textsf{SVG}, ha sido realizado con el programa \textsf{Inkscape} y convertido al formato \textsf{PDF} mediante la herramienta de exportación (a través de \textsf{Cairo}) incluida en el programa en dicho programa. En los programas que no incorporan dicha herramienta el fichero \textsf{PDF} se puede generar imprimiendo a un archivo con un driver de impresión \textsf{PDF}. 
+Una de las dificultades de trabajar con ficheros \textsf{PDF} es que se trata de un formato difícil de editar, de modo que habitualmente se genera a partir de otros formatos. Por ejemplo, el gráfico de la Fig.~\ref{fig:4004arch}, cuyo formato original es \textsf{SVG}, ha sido realizado con el programa \textsf{Inkscape} y convertido al formato \textsf{PDF} mediante la herramienta de exportación que incluye (a través de \textsf{Cairo}). En los programas que no poseen una herramienta de exportación a formato \textsf{PDF}, este se puede generar imprimiendo a un archivo con un driver de impresión \textsf{PDF}. 
 
 Cuando se trabaja con figuras hay que tener mucho cuidado con emplear imágenes de Internet sin tener la seguridad de los términos de uso de las mismas. Con mucha frecuencia al utilizarlos, se violan los derechos de propiedad intelectual, incluso cometiendo involuntariamente un delito. Por este motivo recomiendo recurrir a librerías de dominio público y licencias de libre uso como Creative Commons ---permiten el uso de las imágenes y \emph{cliparts} con pocas restricciones--- como por ejemplo OpenClipArt,\footnote{\url{http://openclipart.org/}} la página de galerías en el sitio de Inkscape\footnote{\url{http://wiki.inkscape.org/wiki/index.php/Galleries}} y Wikimedia Commons.\footnote{\url{http://commons.wikimedia.org/}} El derecho a cita permite la reproducción de figuras, sujetas a derechos restrictivos de distribución, en ámbitos académicos. Sin embargo, siempre debería incluirse en el pie de la figura la atribución de autoría y la licencia que se aplica a la distribución de la misma (no confundir con la licencia de nuestro documento). En cualquier caso debería investigarse la licencia de uso de la figura, puesto que en algunos casos (p.~ej.\ banco de imágenes de la \textsc{nasa}) el autor señala cómo debe realizarse la atribución de autoría. En ningún caso puede incluirse una figura ajena sin atribución, tanto si es de dominio público, como distribuida con una licencia permisiva.
 \end{document}

@@ -18,6 +18,8 @@
 % \documentclass[11pt,a4paper,fleqn]{article}
 \usepackage[spanish,es-noindentfirst]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+\usepackage[skip=.3\baselineskip plus 2pt,indent]{parskip} % Salto entre párrafos 
+% skip= .5\baselineskip plus 2pt -> Valor por defecto
 
 %--- Tipografía
 \usepackage{amsmath,amssymb,amsfonts}	% Símbolos matemáticos
@@ -113,15 +115,14 @@
 \LaTeX{} se utiliza para crear documentos de alta calidad y complejidad, como artículos académicos, tesis y libros. Una de las características más útiles de \LaTeX{} es su capacidad para crear ecuaciones matemáticas complejas de manera sencilla y eficiente.
 
 
-Las ecuaciones o expresiones matemáticas emplean distintos tipos de marcas y entornos dependiendo del modo en que se desee su impresión. En una línea dentro de un párrafo como por ejemplo, $c^{2}=a^{2}+b^{2}$ que podría ser la ecuación representativa del teorema de Pitágoras.
+Las ecuaciones o expresiones matemáticas emplean distintos tipos de marcas y entornos dependiendo del modo en que se desee su impresión. En una línea dentro de un párrafo, como por ejemplo, $c^{2}=a^{2}+b^{2}$, que podría ser la ecuación representativa del teorema de Pitágoras. Aunque también pueden emplear un párrafo independiente sin numeración, como en:
 
-\noindent Pero también pueden emplear un párrafo independiente sin numeración, como en:
 \[ 
     y = ax^2 + bx + c 
 \]
 
+O bien, empleando el entorno \texttt{equation} para añadir automáticamente numeración que puede ser referenciada mediante comandos: \texttt{ref}, \texttt{eqref} y \texttt{pageref} (como en la ec.~\ref{eq:cuadratica}). A continuación se muestra un ejemplo:
 
-O bien empleando el entorno \texttt{equation} para añadir automáticamente numeración que puede ser referenciada mediante comandos: \texttt{ref}, \texttt{eqref} y \texttt{pageref} (como en la ec.~\ref{eq:cuadratica}). A continuación se muestra un ejemplo:
 \begin{equation}\label{eq:cuadratica}
     y = ax^2 + bx + c 
 \end{equation}
@@ -134,7 +135,7 @@ y = \frac{\sum_{i=1}^{n} x_i}{\sqrt{a}} + \frac{b}{c}
 
 En resumen, LaTeX es una herramienta poderosa para crear ecuaciones matemáticas complejas. Con su sintaxis simple y sus numerosos comandos matemáticos, LaTeX permite a los usuarios crear ecuaciones matemáticas con facilidad y con una calidad profesional.
 
-Para que \LaTeX{} pueda incluir muchos símbolos matemáticos es preciso incluir algunos paquetes que ayudan en dicha tarea: \texttt{amsmath}, \texttt{amsfonts}, \texttt{amssymb}. También hay que tener en cuenta que si la familia tipográfica empleada proporciones versiones para ecuaciones matemáticas de forma que el resultado mostrado por estas sea armonioso con respecto al resultado. 
+Para que \LaTeX{} pueda incluir muchos símbolos matemáticos es preciso incluir algunos paquetes que ayudan en dicha tarea: \texttt{amsmath}, \texttt{amsfonts}, \texttt{amssymb}. También hay que tener en cuenta si la familia tipográfica empleada proporciona versiones para ecuaciones matemáticas de forma que el resultado mostrado sea más armonioso. 
 
 
 
@@ -143,7 +144,7 @@ Para que \LaTeX{} pueda incluir muchos símbolos matemáticos es preciso incluir
 
 
 \section{Fórmulas creadas con elementos cancelados}
-Como vemos en la ecuación~\ref{eq:pitagoras} algunos términos de las ecuacines se pueden señalar como cancelados, gracias al paquete \texttt{cancel}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/cancel/cancel.pdf}}
+Como vemos en la ecuación~\ref{eq:pitagoras} algunos términos de las ecuaciones se pueden señalar como cancelados, gracias al paquete \texttt{cancel}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/cancel/cancel.pdf}}
 
 % Ejemplo: Ec. numerada.
 % ============
@@ -151,30 +152,23 @@ Como vemos en la ecuación~\ref{eq:pitagoras} algunos términos de las ecuacines
 	a^{2}=b^{2} + \cancel{c^{2}}+ \xcancel{d^{2}}
 \end{equation}
 
-Otras formas de \sout{subrayar} el texto se consiguen con el paquete \uwave{\texttt{ulem}}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/ulem/ulem.pdf}}
+\noindent Otras formas de \sout{subrayar} el texto se consiguen con el paquete \uwave{\texttt{ulem}}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/ulem/ulem.pdf}}
 
-\bigskip
-Las macros que proporciona el paquete \texttt{ulem} son:
+\noindent Las macros que proporciona el paquete \texttt{ulem} son:
 \begin{itemize}[noitemsep]
 	\item \verb|\uline{importante}|: texto subrayado como \uline{importante}.
-	
 	\item \verb|\uuline{urgente}|: doble subrayado como \uuline{urgente}.
-	
 	\item \verb|\uwave{ondulado}|: subrayado \uwave{ondulado}.
-	 
 	\item \verb|\sout{tachado}|: texto \sout{tachado}.
-	
 	\item \verb|\xout{cruzado}|: texto \xout{cruzado}.
-	
 	\item \verb|\dashuline{discontinuo}|: subrayado \dashuline{discontinuo}.
-	 
 	\item \verb|\dotuline{punteado}|: subrayado \dotuline{punteado}.
 \end{itemize}
-\bigskip
+
 
 
 \section{Inclusión avanzada de ecuaciones matemáticas}
-No hay que preocuparse demasiado por la tipografía empleada en las fórmulas pues \LaTeX{} hace por nosotros <<casi>> todo el trabajo.\footnote{Los matemáticos son muy exquisitos y no se conforman con cualquier cosa, pero nosotros debemos ser mucho menos pretenciosos si queremos resultados rápidos.}
+No hay que preocuparse demasiado por la tipografía empleada en las fórmulas, ya que \LaTeX{} hace, <<casi>> todo el trabajo, por nosotros.\footnote{Los matemáticos son muy exquisitos y no se conforman con cualquier cosa, pero nosotros debemos ser mucho menos pretenciosos si queremos resultados rápidos.}
 
 Los ejemplos que aquí se muestran son muy sencillos pero \LaTeX{} proporciona entornos específicos más potentes. Para mostrar algo <<más sofisticado>> añado dos ejemplos más. La ec.~\ref{eq:integral} que es un poquito más compleja.
 
@@ -189,16 +183,14 @@ Los ejemplos que aquí se muestran son muy sencillos pero \LaTeX{} proporciona e
     &f(x) = -1.25x^{2} + 1.5x&
 \end{flalign}
 
+\noindent En este caso la versión con estrella (\texttt{flalign*}) suprime la numeración de la ecuación.
 
-En este caso la versión con estrella (\texttt{flalign*}) suprime la numeración de la ecuación.
-
-
-La ec.~\ref{eq:cuadro} muestra como producir ecuaciones con recuadro.
+\noindent La ec.~\ref{eq:cuadro} muestra como producir ecuaciones con recuadro.
 % Ejemplo: Ec. con recuadro (numeración exterior).
 % ============
 {\fboxsep 8pt \fboxrule 2.5pt 
 %\fboxsep ajusta la separación entre la caja y el elemento recuadrado
-%\fboxrule ajusta el espesor de la línea del recuadro
+%\fboxrule ajusta el espesor de la línea del recuadro:
 \begin{equation}\label{eq:cuadro}
 \fbox{$\displaystyle 
 R = \frac{L}{2} \cdot \frac{{\left( {v_d  + v_i } \right)}}{{\left( {v_d  - v_i } \right)}}
@@ -207,7 +199,7 @@ $}
 }
 
 
-Algunos otros cuadros en ecuaciones son p.~ej.\ $x + y = \fbox{$\Omega$}$ o incluso el que se muestra a continuación (ec.~\ref{eq:cuadrogrande}) y que abarca todo el ancho de la línea:\footnote{Adaptado del manual \emph{Documentation for fancybox.sty:
+Algunos otros cuadros en ecuaciones son p.~ej., $x + y = \fbox{$\Omega$}$ o incluso el que se muestra a continuación (ec.~\ref{eq:cuadrogrande}) y que abarca todo el ancho de la línea:\footnote{Adaptado del manual \emph{Documentation for fancybox.sty:
 Box tips and tricks for \LaTeX{}} de Timothy Van Zandt (2010).}
 
 % Ejemplo: Ec. con recuadro (numeración interior).
@@ -228,7 +220,7 @@ Box tips and tricks for \LaTeX{}} de Timothy Van Zandt (2010).}
 \]
 
 
-A continuación se muestra un ejemplo de ecuación muy larga dividida en varias líneas:
+\noindent A continuación se muestra un ejemplo de ecuación muy larga dividida en varias líneas:
 
 % Ejemplo: Ec. en varias líneas con alineación y sin numeración.
 % ============
@@ -250,9 +242,7 @@ f(x) & = \cos x \\
 f'(x) & = -\sin x \\
 \int_{0}^{x} f(y)dy & = \sin x \nonumber
 \end{align}
-\noindent En este último ejemplo se observa también cómo es posible suprimir la numeración de una de las ecuaciones con el comando (\texttt{\textbackslash nonumber}).
-
-\noindent Un efecto similar sin números de ecuaciones se puede obtener mediante entorno \texttt{split}:
+\noindent En este último ejemplo se observa también cómo es posible suprimir la numeración de una de las ecuaciones con el comando (\texttt{\textbackslash nonumber}). Un efecto similar sin números de ecuaciones se puede obtener mediante entorno \texttt{split}:
 % Ejemplo: Ecs. en varias líneas con alineación sin numeración.
 % ============
 \[ \begin{split}

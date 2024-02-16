@@ -17,6 +17,8 @@
 \documentclass[11pt,a4paper]{article} 
 \usepackage[spanish]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+\usepackage[skip=.3\baselineskip plus 2pt,indent]{parskip} % Salto entre párrafos 
+% skip= .5\baselineskip plus 2pt -> Valor por defecto
 
 % Generación de hiperenlaces
 \usepackage{hyperref}
@@ -236,17 +238,19 @@
 \renewcommand{\lstlistlistingname}{Índice de listados} % Nombre asignado
 \renewcommand{\lstlistingname}{Listado} % Nombre que figura en el pie
 
+\hrule
 \tableofcontents
 \lstlistoflistings
 \listofalgorithms
-
+\bigskip
+\hrule
 
 \section{Listados de programas}
-En el caso de las titulaciones técnicas es muy habitual tener que explicar en el texto en preparación (p.~ej.\ un TFG/PFC o una Tesis, etc.) alguna porción de código fuente (p.~ej.\ algoritmo, función, etc.).\footnote{La inclusión de código en el texto debe estar justificada pues los listados exhaustivos deben dejarse para un CD que acompañe a la documentación, nunca deben incluirse <<tal cual>> en un documento.} Para facilitar la tarea de escribir código fuente \LaTeX{} proporciona el entorno \texttt{verbatim} para imprimir texto <<tal cual>> se escribe en el fichero de entrada. Sin embargo, este entorno es muy limitado y para ello se proporcionan paquetes que aumentan las posibilidades a la hora de tratar con el texto <<tal cual>> para que su aspecto final sea más profesional y flexible. Los dos paquetes que conviene mencionar aquí son: \texttt{listings} y \texttt{fancyvrb}.
+En el caso de las titulaciones técnicas es muy habitual tener que explicar en el texto en preparación (p.~ej., un TFG/PFC o una tesis, etc.) alguna porción de código fuente (p.~ej., algoritmo, función, etc.).\footnote{La inclusión de código en el texto debe estar justificada, pues los listados exhaustivos se pueden publicar en un repositorio público referenciado en la documentación del trabajo, nunca incluido <<tal cual>>.} Para facilitar la tarea de escribir código fuente, \LaTeX{} proporciona el entorno \texttt{verbatim} para imprimir texto <<tal cual>> se escribe en el fichero de entrada. Sin embargo, este entorno es muy limitado. Para tal fin se proporcionan paquetes que aumentan las posibilidades a la hora de tratar con el texto <<tal cual>> para que su aspecto final sea más profesional y flexible. Los dos paquetes que conviene mencionar aquí son: \texttt{listings} y \texttt{fancyvrb}.
 
 
 \subsection{Listados de código con el paquete \texttt{listings}}
-El paquete \texttt{listings}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/listings/listings.pdf}} está pensado para tratar especialmente con código fuente. En este caso se reconoce el lenguaje\footnote{Se reconoce un número muy amplio de lenguajes.} en que está escrito el código y ésto condiciona el modo de impresión del código (véase el listado~\ref{lst:java}). Este paquete tiene mucha flexibilidad y permite tratar con los listados de código como si fueran objetos deslizantes, de modo similar a como se tratan las figuras y las tablas. Una consecuencia de esto es que los listados no quedan divididos entre páginas. Por supuesto se admiten muchas de las opciones disponibles para los objetos deslizantes en \LaTeX{} como referencias cruzadas índice de elementos, etc. El número de opciones es tan numeroso que su comentario excede el propósito del curso por lo que se recomienda la consulta de la documentación del paquete a aquellos que estén más interesados.
+El paquete \texttt{listings}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/listings/listings.pdf}} está pensado para tratar especialmente con código fuente. En este caso se reconoce el lenguaje\footnote{Se reconoce un número muy amplio de lenguajes.} en que está escrito el código y ésto condiciona el modo de impresión del código (véase el listado~\ref{lst:java}). Este paquete tiene mucha flexibilidad y permite tratar con los listados de código como si fueran objetos deslizantes, de modo similar a como se tratan las figuras y las tablas. Una consecuencia de esto es que los listados no quedan divididos entre páginas. Por supuesto se admiten muchas de las opciones disponibles en \LaTeX{} para los objetos deslizantes como: referencias cruzadas, índices de elementos, etc. El número de opciones es tan numeroso que su comentario excede el propósito de este resumen.
 
 
 % Ejemplo:
@@ -271,16 +275,16 @@ public class Main {
 }
 \end{lstlisting}
 
-Un aspecto a tener presente cuando se trabaja con el paquete \texttt{listings} es que no funciona completamente bien cuando se emplea codificación unicode (UTF8) y el texto del entorno \texttt{lstlisting} tiene caracteres especiales (acentos, interrogación, etc.). Esto es así porque este paquete sólo entiende codificación de caracteres con un byte y por tanto incapaz de reconocer los caracteres unicode. En estos casos se puede adoptar una de las soluciones siguientes: 
+Un aspecto a tener presente cuando se trabaja con el paquete \texttt{listings} es que no funciona completamente bien cuando se emplea codificación Unicode (UTF8) y el texto del entorno \texttt{lstlisting} tiene caracteres especiales (acentos, interrogación, etc.). Esto es así porque este paquete sólo entiende codificación de caracteres con un byte y, por tanto, es incapaz de reconocer los caracteres Unicode. En estos casos se puede adoptar una de las soluciones siguientes: 
 
 \begin{enumerate}
-	\item Emplear codificación UTF8 e indicar mediante la opción \texttt{literate} de la definición \texttt{lstset} cómo deben sustituirse los caracteres <<extraños>>. [Opción preferida]
-	\item Trabajar con codificación UTF8 e incluir en la definición \texttt{lstset} la opción \texttt{extendedchars=true} y \texttt{texcl=true}. De este modo se reconocen los caracteres extendidos pero aún así se presentan errores con algunos de ellos.
+	\item (\textbf{Opción preferida}) Emplear codificación UTF8 e indicar mediante la opción \texttt{literate}, de la definición \texttt{lstset}, cómo se deben sustituir los caracteres <<extraños>>. 
+	\item Trabajar con codificación UTF8 e incluir en la definición \texttt{lstset} la opción \texttt{extendedchars=true} y \texttt{texcl=true}. De este modo se reconocen los caracteres extendidos, aun así, se presentan errores con algunos de ellos.
 \end{enumerate}
 
-En los siguientes ejemplos veremos varios listados generados empleando el paquete \texttt{listings}. El listado~\ref{lst:java} muestra el resultado cuando se emplean unas opciones asociadas a un estilo creado específicamente para código fuente Java. Aunque los listados de código se pueden incluir como elemntos deslizantes \emph{(float)} no se recomienda esta opción aunque puedan quedar divididos en páginas separadas, pero esta opción se considera mejor una ubicación no determinada a priori.
+En los siguientes ejemplos veremos varios listados generados empleando el paquete \texttt{listings}. El listado~\ref{lst:java} muestra el resultado cuando se emplean opciones asociadas a un estilo creado específicamente para código fuente Java. Aunque los listados de código se pueden incluir como elementos deslizantes \emph{(float)}, esta opción no se recomienda aunque puedan quedar divididos en páginas separadas.
 
-En los ejemplos siguientes se muestra el código fuente de un pequeño programa C para el que se emplea un ajuste diferente de los atributos del entorno \texttt{lstlisting}. Para configurar aspectos relacionados con el color se recomienda emplear los colores predefinidos por el paquete \texttt{xcolor}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/xcolor/xcolor.pdf}}
+En los ejemplos siguientes se muestra el código fuente de un pequeño programa C para el que se emplea un ajuste diferente de los atributos del entorno \texttt{lstlisting}. Por ejemplo, observa cómo se destacan los espacios en blanco en el código. Para configurar aspectos relacionados con el color se recomienda emplear los colores predefinidos por el paquete \texttt{xcolor}.\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/xcolor/xcolor.pdf}}
 
 \begin{lstlisting}[language=C,caption={Ejemplo de código C},label=lst:codC]
 // Este código se ha incluido tal cual está 
@@ -293,7 +297,7 @@ int main(int argc, char* argv[]) {
 
 
 
-\noindent Por el contrario este otro se ha generado incluyendo el código desde un fichero externo \texttt{``HolaMundo.c''}.
+\noindent Por el contrario, el siguiente listado se ha generado mediante la inclusión del código desde el fichero externo \texttt{HolaMundo.c}.
 
 \lstinputlisting[language=C,caption={Ejemplo de código C desde un fichero externo},label=lst:codCfile]{../code/HolaMundo.c}
 
@@ -309,7 +313,7 @@ Aquí se incluye un listado configurado con un estilo que emplea más el color y
 
 \lstinputlisting[language=Python,caption={Ejemplo de código Python desde un fichero externo},label=lst:pyfile]{../code/pyexample.py}
 
-La inclusión de código en Matlab presenta algunas particularidades en idioma español ya que \texttt{babel} modifica el espacio que separa el signo `\%'. Por este motivo es preciso incluir las macros especiales \verb|\spanishplainpercent| y \verb|\spanishpercent| para que dicho carácter sea tratado correctamente. El ejemplo~\ref{lst:matlab} muestra un listado correspondiente a código Matlab.
+La inclusión de código en Matlab presenta algunas particularidades en idioma español, ya que \texttt{babel} modifica el espacio que separa el signo `\texttt{\%}'. Por este motivo es preciso incluir las macros especiales \verb|\spanishplainpercent| y \verb|\spanishpercent| para que dicho carácter sea tratado correctamente. El ejemplo~\ref{lst:matlab} muestra un listado correspondiente a código Matlab.
 
 \spanishplainpercent
 \begin{lstlisting}[language=Matlab,caption={Ejemplo escrito en Matlab},label=lst:matlab]
@@ -318,17 +322,17 @@ function f = fibonacci(n)
  %	f = FIBONACCI(n) generates the first n Fibonacci numbers.
  %	Copyright 2014 Cleve Moler
  %	Copyright 2014 The MathWorks, Inc.
-f = zeros(n,1); 
-f(1) = 1;
-f(2) = 2;
-for k = 3:n
-f(k) = f(k-1) + f(k-2);
+	f = zeros(n,1); 
+	f(1) = 1;
+	f(2) = 2;
+	for k = 3:n
+		f(k) = f(k-1) + f(k-2);
 end
 \end{lstlisting}
 \spanishpercent
 
 \subsection{Algoritmos con el paquete \texttt{algorithm2e}}
-Como ya se ha comentado en los textos científicos relacionados con las TIC\footnote{Por supuesto en un TFG o tesis de una Escuela de Informática.} (Tecnologías de la Información y Comunicaciones) suelen aparecer porciones de código en los que se explica alguna función o característica relevante del trabajo que se expone. Muchas veces lo que se quiere ilustrar es un algoritmo o método en que se ha resuelto un problema abstrayéndose del lenguaje de programación concreto en que se realiza la implementación. El paquete \texttt{algorithm2e}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}} proporciona un entorno \texttt{algorithm} para la impresión apropiada de algoritmos tratándolos como objetos flotantes y con muchas flexibilidad de personalización. En el algoritmo \ref{alg:como} se muestra cómo puede emplearse dicho paquete. En este curso no se explican las posibilidades del paquete más en profundidad ya que excede el propósito del curso. A todos los interesados se les remite a la documentación del mismo.
+Como ya se ha comentado, en los textos científicos relacionados con las TIC\footnote{Por supuesto en un TFG o tesis de una Escuela de Informática.} (Tecnologías de la Información y Comunicaciones) suelen aparecer porciones de código en los que se explica alguna función o característica relevante del trabajo que se expone. Muchas veces lo que se quiere ilustrar es un algoritmo o método en que se ha resuelto un problema abstrayéndose del lenguaje de programación concreto en que se realiza la implementación. El paquete \texttt{algorithm2e}\footnote{\url{https://osl.ugr.es/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}} proporciona un entorno \texttt{algorithm} para la impresión apropiada de algoritmos tratándolos como objetos flotantes y con muchas flexibilidad de personalización. En el algoritmo \ref{alg:como} se muestra cómo puede emplearse dicho paquete.
 
 
 % Ejemplo:
@@ -359,7 +363,7 @@ inicialización\;
 \caption{Cómo escribir algoritmos}\label{alg:como}
 \end{algorithm}\DecMargin{1em}
 
-
+\newpage
 \subsection{Menús, paths y teclas con el paquete \texttt{menukeys}}
 Cada vez es más usual que los trabajos en ingeniería exijan el uso de 
 software. Para poder especificar de modo elegante el uso de menús, pulsación de 
@@ -370,13 +374,13 @@ ejemplo:\\
 
 \noindent \menu{Herramientas:Órdenes:PDFLaTeX}\\
 
-\noindent También un conjunto de teclas. Por ejemplo:
+\noindent También la pulsación de una sucesión de teclas como:
 \keys{\ctrl + \shift + T}\\
 
-\noindent O un directorio:
+\noindent O la especificación de un directorio:
 \directory{C:/user/LaTeX/Ejemplos}\\
 
-\noindent Aunque este paquete permite muchas opciones de configuración de los estilos aplicados, no es necesario hacerlo para obtener unos resultados muy elegantes.
+\noindent Aunque este paquete permite muchas opciones de configuración de los estilos aplicados, no es necesario hacerlo para obtener resultados elegantes.
 
 
 

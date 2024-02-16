@@ -4,6 +4,8 @@
 \documentclass[11pt,a4paper]{article} 
 \usepackage[spanish,es-tabla,es-noindentfirst]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+\usepackage[skip=.3\baselineskip plus 2pt,indent]{parskip} % Salto entre párrafos 
+% skip= .5\baselineskip plus 2pt -> Valor por defecto
 
 % Tipografía
 \usepackage{newtxtext}
@@ -89,14 +91,14 @@
 \hrule
 
 \section{Gráficas matemáticas}
-En muchas ocasiones es preciso recurrir a una gráfica matemática para reflejar o apoyar una idea. Existen numerosos programas que ayudan a realizar estas gráficas, en cualquiera de los casos siempre se empleará un formato vectorial (\textsf{PDF}) para incluir la gráfica en nuestro documento. Nunca debe hacerse mediante una captura de pantalla pues, en este caso estaremos perdiendo mucha información al tratar como un mapa de bits algo que es un objeto matemático y por tanto, independiente de su escala de representación.
+En muchas ocasiones es preciso recurrir a una gráfica matemática para reflejar o apoyar una idea. Existen numerosos programas que ayudan a realizar estas gráficas, en cualquiera de los casos siempre se empleará un formato vectorial (\textsf{PDF}) para incluir este tipo de figuras en nuestro documento. Nunca debe hacerse mediante una captura de pantalla pues, en este caso estaremos perdiendo mucha información al tratar como un mapa de bits algo que es un objeto matemático y, por tanto, independiente de su escala de representación.
 
 Uno de los programas más universales para la creación de gráficas matemáticas son las hojas de cálculo como Excel. La Fig.~\ref{fig:excel} muestra un ejemplo de figura vectorial generada con ayuda de dicho programa.
 
 \begin{figure}[hbt]
 	\centering
 	\includegraphics[width=0.5\textwidth]{../figs/EjFigsExcelOrig} 
-	\caption[Gráfico de Excel]{Figura vectorial generada con Excel.}
+	\caption[Gráfico de Excel]{Figura vectorial generada con Excel}
 	\label{fig:excel}
 \end{figure}
 
@@ -105,14 +107,14 @@ La Fig.~\ref{fig:matlabGrafs} muestra un ejemplo de figura vectorial generada co
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{../figs/matlabGrafs} 
-	\caption[Gráfico de Matlab]{Figura vectorial generada con Matlab.}
+	\caption[Gráfico de Matlab]{Figura vectorial generada con Matlab}
 	\label{fig:matlabGrafs}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{../figs/fig2_py}
-	\caption[Figura hecha desde Python]{Figura vectorial generada con Matplotlib (Python).}
+	\caption[Figura hecha desde Python]{Figura vectorial generada con Matplotlib (Python)}
 	\label{fig:python}
 \end{figure}
 
@@ -128,24 +130,24 @@ La Fig.~\ref{fig:matlabGrafs} muestra un ejemplo de figura vectorial generada co
 
 
 \section{Gráficos avanzados}
-Técnicas avanzadas de inclusión de figuras.
+Donde se describen técnicas avanzadas de inclusión de figuras.
 
 \subsection{Subfiguras}
-La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphicx} con el que ya se pueden obtener resultados muy aceptables, aunque existen otros paquetes más especializados que facilitan hacer cosas más exóticas, como el paquete \texttt{subcaption} para presentar figuras compuestas de varias subfiguras (ver ejemplos en las Figs.~\ref{fig:clock} y \ref{fig:lion}). A pesar de la posibilidad del uso del paquete \texttt{subcaption} no se debe descartar la alternativa de la composición externa a \LaTeX{} de las subfiguras y su inclusión en el documento como una figura sencilla como en la Fig.~\ref{fig:2clock}. Esta alternativa hace innecesario el empleo de paquetes dedicados.
+La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphicx} con el que ya se pueden obtener resultados muy aceptables, aunque existen otros paquetes más especializados que facilitan hacer cosas más exóticas, como el paquete \texttt{subcaption} para presentar figuras compuestas de varias subfiguras (ver ejemplos en las Figs.~\ref{fig:clock} y \ref{fig:lion}). A pesar de la posibilidad del uso del paquete \texttt{subcaption}, no se debe descartar la alternativa de la composición de subfiguras con programas externos a \LaTeX{}, e incluirlas como cualquier figura sencilla (como el proceso seguido con la Fig.~\ref{fig:2clock}). Esta alternativa hace innecesario el empleo de paquetes dedicados en \LaTeX para tal fin.
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.3\textwidth}
+	\begin{subfigure}[b]{0.35\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{../figs/clockCR}
 		\caption{jpg en color}\label{fig:clockCR}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.3\textwidth}
+	\begin{subfigure}[b]{0.35\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{../figs/clockCRbw}
 		\caption{jpg en niveles de gris}\label{fig:clockCRbw}
 	\end{subfigure}
-	\caption[Comparación jpg color y niveles de gris]{Ej. de paquete \texttt{subcaption} mostrando el reloj de la Plaza Mayor (Fuente: cortesía de J.~Salido).}
+	\caption[Comparación jpg color y niveles de gris]{Ej. de paquete \texttt{subcaption} mostrando el reloj de la Plaza Mayor (Fuente: cortesía de J.~Salido)}
 	\label{fig:clock}
 \end{figure}
 
@@ -153,7 +155,7 @@ La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphic
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=0.7\textwidth]{../figs/2clockCR}
-		\caption[Varias imágenes como una]{El reloj de la Plaza Mayor en color (izda.) y niveles de gris (dcha.).}
+		\caption[Varias imágenes como una]{El reloj de la Plaza Mayor en color (izda.) y niveles de gris (dcha.)}
 	\label{fig:2clock}
 \end{figure}
 
@@ -171,13 +173,13 @@ Siempre que se tenga un fichero de imagen (mapa de bits) con un fondo blanco u o
 		\includegraphics[width=0.8\textwidth]{../figs/lionL.png}
 		\caption{png con fondo transparente}\label{fig:lionpng}
   	\end{subfigure}
-  	\caption[Comparación jpg y png con transparencia]{Comparativa de formatos bitmap (Fuente: cortesía de D.~Wright).}
+  	\caption[Comparación jpg y png con transparencia]{Comparativa de formatos bitmap (cortesía de D.~Wright)}
 	\label{fig:lion}
 \end{figure}
 
-Si se desea, es posible usar imágenes en color. Esto es muy conveniente para documentos electrónicos que se van a visualizar en la pantalla de un computador. Sin embargo, para documentos que serán impresos hay que tener presente si la impresión se realizará a color o en niveles de gris. 
+Si se desea, es posible usar imágenes en color. Esto es muy conveniente para documentos electrónicos que se van a visualizar en la pantalla de un computador. Sin embargo, para documentos que serán impresos hay que considerar si la impresión se realizará a color o en niveles de gris para que el resultado final mantenga una legibilidad adecuada. 
 
-En la Fig.~\ref{fig:escudo} se comparan los resultados obtenidos cuando la figura se inserta en formato vectorial (escalable) y cuando se hace como mapa de bits (no escalable). En este ejemplo se muestran dos versiones para el escudo de la Ingeniería Informática (Fuente: cortesía de CRySoL).\footnote{El escudo basado en el núcleo de ferrita que acompaña la distribución de este documento ha sido realizado por Francisco Moya, David Villa e Ignacio Díez y su inclusión en el documento final debe respetar los derechos de la licencia CC BY-SA 3.0 con la que se distribuye.}
+En la Fig.~\ref{fig:escudo} se comparan los resultados obtenidos cuando la figura se inserta en formato vectorial (escalable) y cuando se hace como mapa de bits (no escalable). En este ejemplo se muestran dos versiones para el escudo de la Ingeniería Informática (cortesía de CRySoL).\footnote{El escudo basado en el núcleo de ferrita que acompaña la distribución de este documento ha sido realizado por Francisco Moya, David Villa e Ignacio Díez y su inclusión en el documento final debe respetar los derechos de la licencia CC BY-SA 3.0 con la que se distribuye.}
 
 \begin{figure}[H]
 	\centering
@@ -206,21 +208,21 @@ En la Fig.~\ref{fig:escudo} se comparan los resultados obtenidos cuando la figur
 
 
 \subsection{Imágenes con elementos vectoriales}
-En ocasiones es necesario recurrir a capturas de pantalla sobre las que es preciso realizar alguna anotación gráfica, por ejemplo añadiendo flechas y bloques de texto. Este es un caso que puede aparecer cuando se explica el funcionamiento de un programa informático (p.~ej.\ un manual). La captura siempre se debe llevar a cabo al mayor tamaño posible sobre la pantalla y se debe salvar en formato \texttt{.png}. Generalmente, las herramientas de captura permiten la edición de la captura añadiéndole elementos gráficos e incluso texto. En este caso los elementos añadidos 
-forman parte del fichero \texttt{.png} y, por tanto, son definidos como mapa de bits. Si se desea mantener las características escalables de los elementos gráficos, éstos deben ser añadidos mediante algún programa de edición vectorial (p.~ej.\ 
-\textsf{Inkscape}, \textsf{Dia}, \textsf{Visio}, etc.) y salvar el fichero resultante en formato \texttt{.pdf}. Las figs.~\ref{fig:texmk02} y \ref{fig:texmk03} muestran las diferencias en los dos procesos mencionados.
+En ocasiones es necesario recurrir a capturas de pantalla sobre las que es preciso realizar alguna anotación gráfica, por ejemplo añadiendo flechas y bloques de texto. Este es un caso que puede aparecer cuando se explica el funcionamiento de un programa informático (p.~ej., en un manual). La captura siempre se debe llevar a cabo al mayor tamaño posible sobre la pantalla y se debe salvar en formato \texttt{.png}. Generalmente, las herramientas de captura permiten la edición de la captura añadiéndole elementos gráficos e incluso texto. En este caso los elementos añadidos 
+forman parte del fichero \texttt{.png} y, por tanto, son definidos como mapa de bits. Si se desea mantener las características escalables de los elementos gráficos, éstos se deben añadir mediante algún programa de edición vectorial (p.~ej.,  
+\textsf{Inkscape}, \textsf{LibreOffice Draw}, \textsf{Dia}, \textsf{Visio}, etc.) y salvar el fichero resultante en formato \texttt{.pdf}. Las figs.~\ref{fig:texmk02} y \ref{fig:texmk03} muestran la diferencia del resultado final.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{../figs/texmk02} 
-	\caption[Captura con gráfico en \texttt{png}]{Captura de pantalla con añadido gráfico en formato \texttt{png}.}
+	\caption[Captura con gráfico en \texttt{png}]{Captura de pantalla con añadido gráfico en formato \texttt{png}}
 	\label{fig:texmk02}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{../figs/texmk03} 
-	\caption[Captura con gráfico en \texttt{pdf}]{Captura de pantalla con añadido gráfico en formato \texttt{pdf}.}
+	\caption[Captura con gráfico en \texttt{pdf}]{Captura de pantalla con añadido gráfico en formato \texttt{pdf}}
 	\label{fig:texmk03}
 \end{figure}
 
@@ -235,12 +237,12 @@ forman parte del fichero \texttt{.png} y, por tanto, son definidos como mapa de 
 
 
 \subsection{Inclusión de páginas individuales de un \textsf{PDF} multipágina}
-La Fig.~\ref{fig:visio_mp} nos muestra el procedimiento para usar los ficheros \textsf{PDF} multipágina para incluir el gráfico de una página concreta.
+La Fig.~\ref{fig:visio_mp} nos muestra el procedimiento para usar los ficheros \textsf{PDF} multipágina al incluir el gráfico de una página concreta.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[page=2,width=0.5\textwidth]{../figs/visio_mp} 
-	\caption[Gráfico de Visio multipágina]{Figura vectorial generada con Microsoft Visio en un fichero multipágina.}
+	\caption[Gráfico de Visio multipágina]{Figura vectorial generada con Microsoft Visio en un fichero multipágina}
 	\label{fig:visio_mp}
 \end{figure}
 
@@ -257,7 +259,7 @@ La Fig.~\ref{fig:visio_mp} nos muestra el procedimiento para usar los ficheros \
 
 
 \subsection{Gráficos directos con instrucciones \TeX}
-Además de los aspectos comentados aquí sobre la inclusión de imágenes y gráficos, \LaTeX{} dispone de una infinidad de recursos que pueden por sí mismo ser objeto de un curso. Un paquete muy poderoso en la generación de gráficos dentro de entornos \LaTeX{} es \texttt{tikz} (ver Fig.~\ref{fig:tikz}). La cantidad y variedad de gráficos que puede realizar es muy numerosa\footnote{Muchos ejemplos de uso en \url{http://www.texample.net/tikz/examples/}, \url{https://tikz.net/} y \url{https://www.overleaf.com/gallery/tagged/tikz/}.} aunque su uso requiere un conocimiento muy profundo y no es recomendable para principiantes.
+Además de los aspectos comentados aquí sobre la inclusión de imágenes y gráficos, \LaTeX{} dispone de una infinidad de recursos que pueden por sí mismo ser objeto de un curso. Un paquete muy poderoso para generar gráficos con instrucciones \LaTeX{} es \texttt{tikz} (ver Fig.~\ref{fig:tikz}). La cantidad y variedad de gráficos que se puede realizar es muy numerosa\footnote{Muchos ejemplos de uso en \url{http://www.texample.net/tikz/examples/}, \url{https://tikz.net/} y \url{https://www.overleaf.com/gallery/tagged/tikz/}.} aunque su uso requiere un conocimiento muy profundo y no es apropiado para principiantes.
 
 \begin{figure}[H]
 	\centering
@@ -326,7 +328,7 @@ Además de los aspectos comentados aquí sobre la inclusión de imágenes y grá
         \draw (22.3,-31.9) node [below] {$01$};
         \end{tikzpicture}
 	}
-	\caption[Ejemplo de gráfico con Ti\textit{K}Z]{Figura realizada con paquete \texttt{tikz} para un diagrama de transición de estados correspondiente a un autómata de Moore.}\label{fig:tikz}
+	\caption[Ejemplo de gráfico con Ti\textit{K}Z]{Figura realizada con paquete \texttt{tikz} para un diagrama de transición de estados correspondiente a un autómata de Moore}\label{fig:tikz}
 \end{figure}
 
 
@@ -338,12 +340,12 @@ Además de los aspectos comentados aquí sobre la inclusión de imágenes y grá
 
 
 \subsection{Gráficos de grandes dimensiones}
-Cuando se presenta la necesidad de incluir un gráfico demasiado grande para el tamaño de la página una opción muy apropiada es la impresión del gráfico en modo girado en una página aparte. Este efecto se consigue con el entorno \texttt{sidewaysfigure} proporcionado por el paquete \texttt{rotating}. La Fig.~\ref{fig:girada} muestra un ejemplo del entorno citado con un gráfico \textsf{PDF}.
+Cuando se presenta la necesidad de incluir un gráfico demasiado grande para el tamaño de la página, una opción muy apropiada es la impresión del gráfico en modo girado en una página aparte. Este efecto se consigue con el entorno \texttt{sidewaysfigure} proporcionado por el paquete \texttt{rotating}. La Fig.~\ref{fig:girada} muestra un ejemplo del entorno citado con un gráfico \textsf{PDF}.
 
 \begin{sidewaysfigure}
 	\centering
 	\includegraphics[width=0.98\textheight]{../figs/network} 
-	\caption[Gráfico girado de Visio]{Figura vectorial con impresión girada.}
+	\caption[Gráfico girado de Visio]{Figura vectorial con impresión girada}
 	\label{fig:girada}
 \end{sidewaysfigure}
 
@@ -354,7 +356,7 @@ También es posible imprimir una página en formato apaisado cuando contiene una
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.98\linewidth]{../figs/network} 
-	\caption[Gráfico apaisado de Visio]{Figura vectorial con vista e página apaisada.}
+	\caption[Gráfico apaisado de Visio]{Figura vectorial con vista e página apaisada}
 	\label{fig:apaisada}
 \end{figure}
 \end{landscape}

@@ -16,6 +16,8 @@
 \documentclass[11pt,a4paper]{article} 
 \usepackage[spanish,es-tabla,es-noindentfirst]{babel} % Opción para cambio de nombre
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+\usepackage[skip=.3\baselineskip plus 2pt,indent]{parskip} % Salto entre párrafos 
+% skip= .5\baselineskip plus 2pt -> Valor por defecto
 
 % Tipografía
 \usepackage{newpxtext}
@@ -103,9 +105,9 @@
 
 \newpage
 \section{Tablas profesionales}
-Un pequeño consejo antes de introducir las líneas; en las tablas las líneas deben ser usadas con mesura y normalmente las líneas verticales no parecen ser de un uso muy profesional. De hecho, para las tablas profesionales no debe usar ninguna de las líneas estándar; en su lugar usted debe familiarizarse con las que le facilita el paquete \texttt{booktabs}. Este paquete proporciona cuatro tipos diferentes de líneas. Cada uno de los comandos que permiten definirlas, deben ser el primer elemento de una fila o seguir a otra línea ya definida. Tres de estos comandos son: \textbackslash \texttt{toprule}, \textbackslash \texttt{midrule} y \textbackslash \texttt{bottomrule} que son usados para situar una línea en la parte alta, en las filas intermedias o en la parte baja de la tabla, respectivamente, 
+Un pequeño consejo antes de introducir líneas en las tablas, deben ser usadas con mesura. Ten en cuenta que las líneas verticales no parecen ser  normalmente de un uso muy profesional. De hecho, para las tablas profesionales no se debe usar ninguna de las líneas estándar; en su lugar deberías familiarizarte con las que le facilita el paquete \texttt{booktabs}. Dicho paquete proporciona cuatro tipos diferentes de líneas. Cada uno de los comandos que permiten definirlas, debe ser el primer elemento de una fila o seguir a otra línea ya definida. Tres de estos comandos son: \textbackslash \texttt{toprule}, \textbackslash \texttt{midrule} y \textbackslash \texttt{bottomrule} empleados para situar una línea en la parte alta, en las filas intermedias o en la parte baja de la tabla, respectivamente, 
 
-El cuarto comando proporcionado por \texttt{booktabs} es \textbackslash \texttt{cmidrule}. Puede ser usado para dibujar una línea que no se extienda a toda la fila de una tabla, sino a un intervalo específico de columnas de esa fila. Debe especificarse un intervalo de columnas de la forma: \texttt{\{n-n\}}. Incluso si se desea dibujar una línea para una única columna, se debe especificar como un intervalo (siendo los extremos del intervalo el mismo número).
+El cuarto comando proporcionado por \texttt{booktabs} es \textbackslash \texttt{cmidrule}. Se puede usar para dibujar una línea que no se extienda a toda la fila de una tabla, sino a un intervalo específico de columnas de esa fila que se especifica de la forma: \texttt{\{n-n\}}. Incluso si se desea dibujar una línea para una única columna, se debe especificar como un intervalo (siendo el mismo número los extremos del intervalo).
 
 \begin{table}[H]
    \centering
@@ -124,11 +126,11 @@ El cuarto comando proporcionado por \texttt{booktabs} es \textbackslash \texttt{
       \end{tabular}
 \end{table}
 
-Existe otro uso útil de \texttt{\textbackslash cmidrule}. Puede acortar el principio o fin de una línea o incluso con un argumento opcional entre paréntesis, donde \texttt{r} y \texttt{l} significan que la línea se acorta a la derecha (right) o a la izquierda (left), respectivamente.
+Existe otro uso útil de \texttt{\textbackslash cmidrule}. Puede acortar el principio o fin de una línea o incluso con un argumento opcional entre paréntesis, donde \texttt{r} y \texttt{l} significa que la línea se acorta a la derecha (right) o a la izquierda (left), respectivamente.
 
 \begin{table}[H]
    \centering
-   	  \caption{Tabla con varios tipos de líneas.}
+   	  \caption{Tabla con varios tipos de líneas}
    	  \label{tab:cmidrule}      
     \begin{tabular}{lll}
       \toprule
@@ -149,7 +151,7 @@ Algunas veces una línea puede implicar una fuerte separación, no deseada, entr
 
 \begin{table}[H]
    \centering
-   	  \caption{Tabla con espacio extra entre filas.}
+   	  \caption{Tabla con espacio extra entre filas}
    	  \label{tab:espace}      
     \begin{tabular}{cp{9cm}}
       \toprule
@@ -241,7 +243,7 @@ El paquete \texttt{multirow} permite la expansión de celdas a varias columnas o
 
 
 
-\section{Alienación de columnas con información numérica}
+\section{Alineación de columnas con información numérica}
 Cuando se emplean tablas con datos numéricos a veces puede interesar la alineación de datos por el signo de puntuación empleado para la separación de decimales (\texttt{`,'} en español, \texttt{`.'} en inglés). Un ejemplo de esto se ilustra a continuación:
 
 \begin{table}[H]%
@@ -263,7 +265,7 @@ Cuando se trata de trabajar con números y unidades físicas, existen paquetes e
 
 \begin{table}[H]%
 	\centering
-	\caption{Tabla numérica con alineación al carácter `,' obtenido mediante paquete \texttt{siunitx}}
+	\caption{Tabla numérica con alineación al carácter `.' obtenido mediante paquete \texttt{siunitx}}
 	\label{tab:siunitx}
 	\begin{tabular}{c S}
     \toprule
@@ -285,11 +287,11 @@ Cuando se trata de trabajar con números y unidades físicas, existen paquetes e
 
 
 \section{Tablas con mayor control del espaciado}
-En el entorno tabular el control del espaciado entre columnas es demasiado <<burdo>>. Para facilitar esta labor existen paquetes como \texttt{tabularx}, cuyo uso se muestra en los ejemplos siguientes:
+En el entorno \texttt{tabular} el control del espaciado entre columnas es demasiado <<burdo>>. Para facilitar esta labor existen paquetes como \texttt{tabularx}, cuyo uso se muestra en los ejemplos siguientes:
 
 \begin{table}[H]
    \centering
-   	\caption{Ejemplo de tabla con entorno\texttt{tabularx}}					\label{tab:tabularx1}
+   	\caption{Ejemplo de tabla con entorno \texttt{tabularx}}					\label{tab:tabularx1}
    \begin{tabularx}{\textwidth}% Se especifica el ancho completo de la tabla
    { |X|X|X|r| }
    \hline
@@ -401,7 +403,7 @@ El uso del color en los documentos académicos debe realizarse de modo muy comed
 
 
 \section{Tablas de gran tamaño}
-El paquete \texttt{graphicx} aporta comandos para realizar el escalado de objetos en un documento \LaTeX. Un caso interesante es el escalado para adaptar el tamaño de una tabla, aunque esto se debe hacer con sumo cuidado, ya que el tamaño de las fuentes empleadas en la tabla quedará afectado en el mismo factor de escala aplicado y no se corresponderá con el tamaño del texto de una tabla normal. En la tabla~\ref{tab:escalada} se muestra el efecto de escalado para ajustar su tamaño al de la página.
+El paquete \texttt{graphicx} aporta comandos para realizar el escalado de objetos en un documento \LaTeX. Un caso interesante es el escalado para adaptar el tamaño de una tabla (mediante comando \texttt{resizebox}), aunque esto se debe hacer con sumo cuidado, ya que el tamaño de las fuentes empleadas en la tabla quedará afectado en el mismo factor de escala aplicado y no se corresponderá con el tamaño del texto de una tabla normal. En la tabla~\ref{tab:escalada} se muestra el efecto de escalado para ajustar su tamaño al de la página.
 
 
 \begin{table}[H]
@@ -432,7 +434,7 @@ El paquete \texttt{graphicx} aporta comandos para realizar el escalado de objeto
 
 
 
-Puede ocurrir que debido al tamaño de la tabla, quede mejor girada en la página para obtener una orientación apaisada. Este efecto se puede conseguir de un modo sencillo con el paquete \texttt{rotating}. Para conseguir el efecto mencionado se empleará el entorno \texttt{sidewaystable}, como se muestra en el caso de la tabla~\ref{tab:girada}.
+Puede ocurrir que debido al tamaño de la tabla, se obtenga un resultado más satisfactorio girando la tabla en la página para obtener una orientación apaisada. Este efecto se puede conseguir de un modo sencillo con el paquete \texttt{rotating}. Para conseguir el efecto mencionado se empleará el entorno \texttt{sidewaystable}, como se muestra en el caso de la tabla~\ref{tab:girada}.
 \begin{sidewaystable}
 	\centering
 	\caption[Ejemplo de tabla girada]{Tabla girada en una página}\label{tab:girada}

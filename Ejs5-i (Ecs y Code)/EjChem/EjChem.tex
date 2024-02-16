@@ -3,6 +3,8 @@
 % \documentclass[11pt,a4paper,fleqn]{article}
 \usepackage[spanish,es-noindentfirst]{babel} 
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Márgenes 
+\usepackage[skip=.3\baselineskip plus 2pt,indent]{parskip} % Salto entre párrafos 
+% skip= .5\baselineskip plus 2pt -> Valor por defecto
 
 %--- Tipografía
 \usepackage{amsmath,amssymb,amsfonts}	% Símbolos matemáticos
@@ -82,7 +84,7 @@
 \end{abstract}
 
 \section{Fórmulas químicas}
-\LaTeX{} también puede emplearse para la inclusión de fórmulas y estructuras químicas. Para ello se proporciona un sinfín de paquetes que pueden ayudar en la tarea.\footnote{\url{http://www.mychemistry.eu/known-packages/}} A continuación se muestran ejemplos creados con los paquetes \texttt{mhchem} y \texttt{chemfig}.
+\LaTeX{} también se puede emplear para la inclusión de fórmulas y estructuras químicas. Para ello se proporciona un sinfín de paquetes que pueden ayudar en la tarea.\footnote{\url{http://www.mychemistry.eu/known-packages/}} A continuación se muestran ejemplos creados con los paquetes \texttt{mhchem} y \texttt{chemfig}.
 
 
 
@@ -118,7 +120,7 @@ Al igual que se puede hacer con las ecuaciones matemáticas a las fórmulas quí
 
 
 \subsection{Fórmulas químicas con el paquete \texttt{chemfig}}
-Es un paquete que aprovecha las capacidades gráficas del paquete \texttt{tikz} (Ti\textit{k}Z)\footnote{Si no se ha cargado previamente \texttt{chemfig} lo cargará.} y es muy flexible. Sin embargo, no hay que perder de vista que aprender a utilizarlo ya puede representar un esfuerzo importante. En este caso una solución alternativa es emplear programas dedicados de dibujo de fórmulas químicas importándolas en el documento \LaTeX{} como un fichero PDF.
+Es un paquete que aprovecha las capacidades gráficas del paquete \texttt{tikz}\footnote{Si no se ha cargado previamente \texttt{chemfig} lo cargará.} y es muy flexible. Sin embargo, no hay que perder de vista que aprender a utilizarlo ya puede representar un esfuerzo importante. En este caso una solución alternativa es emplear programas dedicados de dibujo de fórmulas químicas importándolas en el documento \LaTeX{} como un fichero PDF.
 
 A continuación se muestran algunos ejemplos de fórmulas químicas empleando el paquete \texttt{chemfig}. En la Fig.~\ref{fig:cafeina} se muestra como es posible tratar como figura (objeto \emph{float}) una fórmula generada con \texttt{chemfig}.
 
@@ -129,7 +131,7 @@ A continuación se muestran algunos ejemplos de fórmulas químicas empleando el
 	\begin{center}
 		\chemfig{H_3C-[:30]N**6(-(=O)-(**5(-N(-CH_3)--N-))--N(-CH_3)-(=O)-)}
 	\end{center}
-	\caption{Fórmula química de la cafeina}\label{fig:cafeina}
+	\caption{Fórmula química de la cafeína}\label{fig:cafeina}
 \end{figure}
 
 
