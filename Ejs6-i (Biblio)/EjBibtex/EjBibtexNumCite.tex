@@ -88,7 +88,7 @@
 
 
 \begin{abstract}
-Generación de bibliografía con \LaTeX{} empleando un método más elegante consistente en la utilización de Bib\TeX{} \cite{wikibookLaTex10} y estilo de citación numérica.
+Generación de bibliografía con \LaTeX{} empleando Bib\TeX{} \cite{wikibookLaTex10} y estilo de citación numérica.
 \end{abstract}
 
 
@@ -99,22 +99,22 @@ En la gran mayoría de documentos científicos~\cite[pág.~5]{salido15} sus auto
 
 El conjunto de referencias que serán citadas en el documento principal puede contemplarse como una \emph{base de datos bibliográfica} en la que cada registro (o entrada) contiene la información relevante del documento citado. Dicha base bibliográfica puede ser:
 \begin{enumerate}
-	\item \emph{Interna o autocontenida} en el propio documento \LaTeX{}.\\
+	\item \emph{Interna o autocontenida} en el propio documento \LaTeX{}.
 	 En este caso se emplea el entorno \texttt{thebibliography}.
 	
 	\item Externa al documento fuente. En este caso los registros de la base bibliográfica están contenidos en un fichero \texttt{.bib} de texto plano (sin formato, como \texttt{.tex}).
 \end{enumerate}
 
-Para implementar el segundo método se utiliza una herramienta adicional denominada Bib\TeX{} (comando \texttt{bibtex} en las distribuciones de \LaTeX). Este programa se encarga de procesar ficheros (\texttt{.bib}) de texto que sólo contienen registros de fuentes bibliográficas en los que constan todos los datos relativos a la fuente. El fichero \texttt{.bib} puede ser contemplado como un archivo de una base de datos bibliográfica. En este caso Bib\TeX{} junto con \LaTeX{} gestionan el estilo en que se imprime la bibliografía e incluso el de las citas. Con este procedimiento la tarea de elaboración de una bibliografía consiste en la creación de la base de datos con las referencias bibliográficas deseadas. Por supuesto los registros tendrán que respetar una estructura definida que Bib\TeX{} pueda comprender.
+Para implementar el segundo método se utiliza una herramienta adicional denominada Bib\TeX{} (comando \texttt{bibtex} en las distribuciones de \LaTeX). Este programa se encarga de procesar ficheros (\texttt{.bib}) de texto que sólo contienen registros de fuentes bibliográficas en los que constan todos los datos relativos a la fuente. El fichero \texttt{.bib} puede ser contemplado como un archivo de una base de datos bibliográfica. En este caso Bib\TeX{} y \LaTeX{} gestionan el estilo en el que se imprime la bibliografía e incluso el de las citas. Con este procedimiento la tarea de elaboración de una bibliografía consiste en la creación del fichero \texttt{.bib} con las referencias bibliográficas deseadas. Por supuesto los registros dentro de dicho fichero tienen que respetar una estructura definida que Bib\TeX{} pueda comprender.
 
-Cada registro de la base bibliográfica proporciona información sobre el documento concreto al que se refiere:
+Cada registro de la base bibliográfica proporciona en sus distintos campos la información sobre el documento concreto al que se refiere:
 \begin{itemize}[noitemsep]
 	\item Autor(es).
 	\item Título.
 	\item Revista, libro, congreso u otra forma de publicación del documento.
 	\item Número, volumen, etc.
 	\item Editorial.
-	\item Fecha de publicación.
+	\item Fecha de publicación, \dots
 \end{itemize}
 
 
@@ -123,7 +123,7 @@ Cada registro de la base bibliográfica proporciona información sobre el docume
 En mi opinión el procedimiento apropiado para la inclusión de la bibliografía depende del tamaño de ésta y las características deseadas. Las principales ventajas de la inclusión directa de la bibliografía en el documento presenta graves inconvenientes: 
 \begin{itemize}
 	\item Reutilización tediosa (básicamente se trata de un <<corta y pega>>), y
-	\item Dificultad para mantener la homogeneidad del estilo en la bibliografía, tanto más cuanto más voluminosa es esta.
+	\item Dificultad para mantener la homogeneidad del estilo en la bibliografía, proporcional al volumen de esta.
 \end{itemize}
 
 Por el contrario, el trabajo con bases bibliográficas externas (\texttt{.bib}) al documento fuente tiene grandes ventajas:
@@ -133,11 +133,11 @@ Por el contrario, el trabajo con bases bibliográficas externas (\texttt{.bib}) 
 	\item Facilidad para emplear diferentes ficheros de bibliografía en un mismo documento (se evita que los ficheros sean muy voluminosos y puedan organizarse mejor)
 \end{itemize}
 
-Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración de la bibliografía existen algunas limitaciones que conviene tener presentes:
+Aunque las ventajas del empleo de Bib\TeX{} para la elaboración de la bibliografía son numerosas, existen algunas limitaciones que conviene tener presente:
 \begin{itemize}
-	\item No puede tratar con bibliografías multilingües. Esto es, aquellas en que las fuentes están en más de un idioma (p.~ej.\ español e inglés).
+	\item No se pueden procesar bibliografías multilingües. Esto es, aquellas en que existen fuentes en diferentes idiomas (p.~ej., español e inglés).
 	
-	\item Bib\TeX{} no es compatible con UTF8 de modo que aunque los ficheros de bibliografía se pueden codificar así con algunos estilos bibliográficos se obtienen errores.
+	\item Bib\TeX{} no es completamente compatible con UTF8. De este modo,  aunque los ficheros de bibliografía se codifiquen en UTF8, con algunos estilos bibliográficos se obtienen errores.
 \end{itemize}
 
 
@@ -175,98 +175,9 @@ Aunque son numerosas las ventajas del empleo de Bib\TeX{} para la elaboración d
 %\nocite{*} % OJO: Con \nocite{*} se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto. CUIDADO todas las referencias en la bibliografía deben estar citadas en el texto.
 %\bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
 
-\begin{thebibliography}{1}
 
-\bibitem{Bloch17}
-Joshua Bloch.
-\newblock {\em Effective {J}ava}.
-\newblock Addison-Wesley Professional, 2017.
-
-\bibitem{cascales00}
-B.~Cascales, P.~Lucas, J.~M. Mira, A.~Pallarés, y S.~Sánchez-Pedreño.
-\newblock {\em {\LaTeX{}}. Una imprenta en sus manos}.
-\newblock Aula Documental de Investigación, 2000.
-
-\bibitem{cascales03}
-B.~Cascales, P.~Lucas, J.M. Mira, A.~Pallarés, y S.~{Sánchez-Pedreño}.
-\newblock {\em El libro de {\LaTeX}}.
-\newblock Pearson/Prentice Hall, 2003.
-
-\bibitem{goos04}
-M.~Goossens, F.~Mittelbach, and A.~Samarin.
-\newblock {\em The {\LaTeX{}} companion}.
-\newblock Addison-Wesley Reading, MA, 2nd edition, 2004.
-
-\bibitem{kopka04}
-H.~Kopka and {P.W.} Daly.
-\newblock {\em A guide to {\LaTeX}}.
-\newblock Addison-Wesley, 4th edition, 2004.
-
-\bibitem{lamport94}
-L.~Lamport.
-\newblock {\em {\LaTeX}: A document preparation system}.
-\newblock Addison-Wesley, 2nd edition, 1994.
-
-\bibitem{salido15}
-Jesús Salido.
-\newblock Curso de {\LaTeX2e{}}.
-\newblock {URL:} \url{http://visilab.etsii.uclm.es/?page_id=1468}, 2015.
-\newblock Último acceso: 7 sep. 2021.
-
-\bibitem{wikibookLaTex10}
-WikiMedia.
-\newblock {\LaTeX{} Wikibook}.
-\newblock {URL:} \url{http://en.wikibooks.org/wiki/LaTeX}, 2010.
-\newblock Último acceso 23 feb. 2011.
-
-\end{thebibliography}
-
-%\begin{thebibliography}{1}
-%
-%\bibitem{Bloch17}
-%Joshua Bloch.
-%\newblock {\em Effective {J}ava}.
-%\newblock Addison-Wesley Professional, 2017.
-%
-%\bibitem{cascales00}
-%B.~Cascales, P.~Lucas, J.~M. Mira, A.~Pallarés, y S.~Sánchez-Pedreño.
-%\newblock {\em {\LaTeX{}}. Una imprenta en sus manos}.
-%\newblock Aula Documental de Investigación, 2000.
-%
-%\bibitem{cascales03}
-%B.~Cascales, P.~Lucas, J.M. Mira, A.~Pallarés, y S.~{Sánchez-Pedreño}.
-%\newblock {\em El libro de {\LaTeX}}.
-%\newblock Pearson/Prentice Hall, 2003.
-%
-%\bibitem{goos04}
-%M.~Goossens, F.~Mittelbach, and A.~Samarin.
-%\newblock {\em The {\LaTeX{}} companion}.
-%\newblock Addison-Wesley Reading, MA, 2nd edition, 2004.
-%
-%\bibitem{kopka04}
-%H.~Kopka and {P.W.} Daly.
-%\newblock {\em A guide to {\LaTeX}}.
-%\newblock Addison-Wesley, 4th edition, 2004.
-%
-%\bibitem{lamport94}
-%L.~Lamport.
-%\newblock {\em {\LaTeX}: A document preparation system}.
-%\newblock Addison-Wesley, 2nd edition, 1994.
-%
-%\bibitem{salido15}
-%Jesús Salido.
-%\newblock Curso de {\LaTeX2e{}}.
-%\newblock {URL:} \url{http://visilab.etsii.uclm.es/?page_id=1468}, 2015.
-%\newblock Último acceso: 7 sep. 2021.
-%
-%\bibitem{wikibookLaTex10}
-%WikiMedia.
-%\newblock {\LaTeX{} Wikibook}.
-%\newblock {URL:} \url{http://en.wikibooks.org/wiki/LaTeX}, 2010.
-%\newblock Último acceso 23 feb. 2011.
-%
-%\end{thebibliography}
-
+% Si se copia el fichero creado por bibtex para las referencias en el directorio de ficheros fuentes, se puede incluir directamente aquí.
+\input{refs.bbl}
 
 \end{document}
 
