@@ -151,12 +151,41 @@ La inclusión de figuras requiere al menos el empleo del paquete \texttt{graphic
 	\label{fig:clock}
 \end{figure}
 
+
 %Aquí se muestra el resultado de incluir una figura compuesta por subfiguras. Para montarlas se emplearon los programas PhotoFiltre y Powerpoint. Primero se redujo el tamaño original de las imágenes para que ocupasen menos memoria y después se montaron con Powerpoint una junto a otra dejando un espacio en blanco entre ellas. Este montaje se exporto a Photofiltre para salvarlo en el formato final.
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=0.7\textwidth]{../figs/2clockCR}
 		\caption[Varias imágenes como una]{El reloj de la Plaza Mayor en color (izda.) y niveles de gris (dcha.)}
 	\label{fig:2clock}
+\end{figure}
+
+También es posible ajustar una figura con más de dos subfiguras como muestra el ejemplo siguiente. En este caso se emplean figuras proporcionadas por el paquete \texttt{graphicx}. Por tanto, no se corresponden con ficheros físicos incluidos en el directorio de figuras.
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{example-image-a}
+         \caption{Ejemplo A}
+         \label{fig:ejA}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{example-image-b}
+         \caption{Ejemplo B}
+         \label{fig:ejB}
+     \end{subfigure}     
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{example-image-c}
+         \caption{Ejemplo C}
+         \label{fig:EjC}
+     \end{subfigure}
+        \caption{Ejemplo de figura con tres subfiguras.}
+        \label{fig:ej3figs}
 \end{figure}
 
 Siempre que se tenga un fichero de imagen (mapa de bits) con un fondo blanco u otro color plano, debería intentarse transformar en una imagen con fondo transparente convirtiéndola al formato \texttt{.png} (véase ejemplo en la Fig.~\ref{fig:lion}).
@@ -196,8 +225,6 @@ En la Fig.~\ref{fig:escudo} se comparan los resultados obtenidos cuando la figur
 	\caption[Comparación \textsf{PDF} y png]{Comparando distintos formatos para el escudo de Informática (cortesía de CRySoL).}
 	\label{fig:escudo}
 \end{figure}
-
-
 
 
 
@@ -342,10 +369,11 @@ Además de los aspectos comentados aquí sobre la inclusión de imágenes y grá
 \subsection{Gráficos de grandes dimensiones}
 Cuando se presenta la necesidad de incluir un gráfico demasiado grande para el tamaño de la página, una opción muy apropiada es la impresión del gráfico en modo girado en una página aparte. Este efecto se consigue con el entorno \texttt{sidewaysfigure} proporcionado por el paquete \texttt{rotating}. La Fig.~\ref{fig:girada} muestra un ejemplo del entorno citado con un gráfico \textsf{PDF}.
 
+
 \begin{sidewaysfigure}
 	\centering
-	\includegraphics[width=0.98\textheight]{../figs/network} 
-	\caption[Gráfico girado de Visio]{Figura vectorial con impresión girada}
+	\includegraphics[width=0.98\textheight]{../figs/network.png} 
+	\caption[Gráfico girado de Visio (png)]{Figura raster con impresión girada}
 	\label{fig:girada}
 \end{sidewaysfigure}
 
@@ -353,10 +381,13 @@ Cuando se presenta la necesidad de incluir un gráfico demasiado grande para el 
 % Página en formato apaisado
 \begin{landscape}
 También es posible imprimir una página en formato apaisado cuando contiene una figura muy ancha. Este efecto se consigue con el paquete \texttt{pdflscape} y el entorno \texttt{landscape} proporcionado. La figura~\ref{fig:apaisada} muestra un ejemplo de figura en página apaisada.
+
+\color{red}{
+\textsc{MUY IMPORTANTE}: \emph{Observa que la figura de esta página y la anterior son idénticas, salvo en el formato de fichero empleado. La diferencia del resultado final habla por sí sola.}}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.98\linewidth]{../figs/network} 
-	\caption[Gráfico apaisado de Visio]{Figura vectorial con vista e página apaisada}
+	\caption[Gráfico apaisado de Visio (pdf)]{Figura vectorial con vista e página apaisada}
 	\label{fig:apaisada}
 \end{figure}
 \end{landscape}

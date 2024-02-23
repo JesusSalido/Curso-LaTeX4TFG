@@ -98,6 +98,7 @@
 \hrule
 \tableofcontents
 \listoftables
+\listoffigures
 \bigskip
 \hrule
 
@@ -400,7 +401,81 @@ El uso del color en los documentos académicos debe realizarse de modo muy comed
 
 
 
+\section{Subtablas y figuras junto a tablas}
+El paquete \texttt{subcaption} facilita también la creación de elementos flotante compuestos de varias tablas. Este concepto se ilustra en el ejemplo siguiente:
 
+\begin{table}[H]
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+        Day & Max Temp & Min Temp \\
+        \hline \hline
+        Mon & 20 & 13\\
+        Tue & 22 & 14\\
+        Wed & 23 & 12\\
+        Thurs & 25 & 13\\
+        Fri & 18 & 7\\
+        Sat & 15 & 13\\
+        Sun & 20 & 13
+       \end{tabular}
+       \caption{Primera semana}
+       \label{tab:week1}
+    \end{subtable}
+    \hfill
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+        Day & Max Temp & Min Temp \\
+        \hline \hline
+        Mon & 17 & 11\\
+        Tue & 16 & 10\\
+        Wed & 14 & 8\\
+        Thurs & 12 & 5\\
+        Fri & 15 & 7\\
+        Sat & 16 & 12\\
+        Sun & 15 & 9
+        \end{tabular}
+        \caption{Segunda semana}
+        \label{tab:week2}
+     \end{subtable}
+     \caption[Ejemplo de dos subtablas]{Temperaturas máximas y mínimas registradas en las dos primeras semanas de julio}
+     \label{tab:temps}
+\end{table}
+
+Observa en el ejemplo anterior como el efecto del comando \verb+\hfill+ rellena de forma uniforme la anchura de la línea con las dos subtablas.
+
+Por supuesto es posible también componer ilustraciones en las que se combine una figura y una tabla, como se muestra a continuación:
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{example-image-a}
+         \caption{Ejemplo A}
+         \label{fig:figura}
+     \end{subfigure}
+%     \hfill
+    \begin{subtable}{0.45\textwidth}
+        \centering
+        \begin{tabular}{l | l | l}
+        Day & Max Temp & Min Temp \\
+        \hline \hline
+        Mon & 17 & 11\\
+        Tue & 16 & 10\\
+        Wed & 14 & 8\\
+        Thurs & 12 & 5\\
+        Fri & 15 & 7\\
+        Sat & 16 & 12\\
+        Sun & 15 & 9
+        \end{tabular}
+        \caption{Segunda semana}
+        \label{tab:tabla}
+     \end{subtable}
+     \caption[Ejemplo de tabla junto a figura]{Temperaturas máximas y mínimas registradas en la segunda semana de julio}
+     \label{figs:mezcla}
+\end{figure}
+
+Observa que esta ilustración se ha catalogado como una figura, no como tabla.
 
 \section{Tablas de gran tamaño}
 El paquete \texttt{graphicx} aporta comandos para realizar el escalado de objetos en un documento \LaTeX. Un caso interesante es el escalado para adaptar el tamaño de una tabla (mediante comando \texttt{resizebox}), aunque esto se debe hacer con sumo cuidado, ya que el tamaño de las fuentes empleadas en la tabla quedará afectado en el mismo factor de escala aplicado y no se corresponderá con el tamaño del texto de una tabla normal. En la tabla~\ref{tab:escalada} se muestra el efecto de escalado para ajustar su tamaño al de la página.
