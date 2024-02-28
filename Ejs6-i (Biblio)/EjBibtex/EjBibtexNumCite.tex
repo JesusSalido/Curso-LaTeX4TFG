@@ -151,7 +151,11 @@ Aunque las ventajas del empleo de Bib\TeX{} para la elaboración de la bibliogra
 
 %%%%%
 % Definición del estilo empleado en la bibliografía
-%\bibliographystyle{plain}
+\bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
+\bibliographystyle{plain} % Estilo empleado en las referencias.
+%\nocite{*} % OJO: Con \nocite{*} se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto. CUIDADO todas las referencias en la bibliografía deben estar citadas en el texto.
+% Si se copia el fichero creado por bibtex para las referencias en el directorio de ficheros fuentes, se puede incluir directamente aquí.
+%\input{refs.bbl}
 % Estilos nativos incluidos con LaTeX (plain, abbrv, alpha, unsrt).
 %
 % plain: las referencias se numeran y en la bibliografía las entradas
@@ -172,12 +176,6 @@ Aunque las ventajas del empleo de Bib\TeX{} para la elaboración de la bibliogra
 % apacite:   No numérica, con referencias ordenadas alfabéticamente por apellido de autor.
 
 
-%\nocite{*} % OJO: Con \nocite{*} se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto. CUIDADO todas las referencias en la bibliografía deben estar citadas en el texto.
-%\bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
-
-
-% Si se copia el fichero creado por bibtex para las referencias en el directorio de ficheros fuentes, se puede incluir directamente aquí.
-\input{refs.bbl}
 
 \end{document}
 

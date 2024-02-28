@@ -75,7 +75,7 @@
 \setcounter{secnumdepth}{1} % Ajusta el valor del último nivel numerado
 \setcounter{tocdepth}{2} %Ajusta el valor del último nivel que aparece en TOC
 
-% NOTA: Para usar un estilo APA es preciso cargar este paquete en preámbulo para que las citas se incluyan entre paréntesis en vez de corchetes.
+% NOTA: Para usar un estilo APA es preciso cargar este paquete en preámbulo para que las citas se incluyan entre paréntesis en vez de corchetes. No se debe comentar si las referencias se incluyen desde fichero refs.bbl.
 \usepackage[natbibapa]{apacite} 
 
 \author{Jesús Salido}
@@ -125,10 +125,11 @@ Los comandos de citación más frecuentes se resumen en la lista siguiente:
 \addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC 
 
 %%%%%
+\bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
 \bibliographystyle{apacite}
+%\input{refs.bbl}
 %\nocite{*} % OJO: Se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto.(PROHIBIDO EN LA ESI)
 
-\bibliography{bibtex} % Nombre del fichero .bib (sin extensión)
 
 
 \end{document}
